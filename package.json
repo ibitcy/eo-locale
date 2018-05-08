@@ -1,0 +1,45 @@
+{
+  "name": "react-eo-locale",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && tsc --declaration",
+    "prepare": "npm run lint:ts && npm run build",
+    "lint:ts": "node_modules/tslint/bin/tslint \"src/app/**/*.ts\" \"src/app/**/*.tsx\" --project ./tsconfig.json --config ./config/tslint.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pret-a-porter/react-eo-locale.git"
+  },
+  "keywords": [
+    "internationalization",
+    "intl",
+    "messageformat",
+    "plural",
+    "icu",
+    "react"
+  ],
+  "author": {
+    "name": "Maksim Sharipov",
+    "url": "https://github.com/pret-a-porter"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pret-a-porter/react-eo-locale/issues"
+  },
+  "homepage": "https://github.com/pret-a-porter/react-eo-locale#readme",
+  "devDependencies": {
+    "@types/intl": "^1.2.0",
+    "@types/react": "^16.3.14",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.12.0",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "intl": "^1.2.5",
+    "intl-messageformat": "^2.2.0",
+    "react": "^16.3.2"
+  }
+}

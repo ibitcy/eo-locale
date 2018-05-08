@@ -1,0 +1,9 @@
+.DS_STORE
+node_modules
+*.log
+.idea
+.vscode
+config
+src
+tsconfig.json
+.prettierrc
