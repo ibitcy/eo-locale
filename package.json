@@ -1,5 +1,5 @@
 {
-  "name": "react-eo-locale",
+  "name": "eo-locale",
   "version": "0.0.1",
   "description": "",
   "main": "./dist/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pret-a-porter/react-eo-locale.git"
+    "url": "git+https://github.com/ibitcy/eo-locale.git"
   },
   "keywords": [
     "internationalization",
@@ -27,9 +27,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pret-a-porter/react-eo-locale/issues"
+    "url": "https://github.com/ibitcy/eo-locale/issues"
   },
-  "homepage": "https://github.com/pret-a-porter/react-eo-locale#readme",
+  "homepage": "https://github.com/ibitcy/eo-locale#readme",
   "devDependencies": {
     "@types/intl": "^1.2.0",
     "@types/react": "^16.3.14",
