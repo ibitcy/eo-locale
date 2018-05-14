@@ -10,7 +10,7 @@
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"outDir": "dist",
-		"sourceMap": true,
+		"sourceMap": false,
 		"strictNullChecks": true,
 		"target": "es5",
 		"experimentalDecorators": false,

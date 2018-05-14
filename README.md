@@ -1,4 +1,4 @@
-# React-eo-locale
+# Eo-locale
 
 Internationalize React apps.
 
@@ -8,16 +8,22 @@ App.tsx
 
 ```
 import * as React from 'react';
-import { EOLocale } from 'react-eo-locale';
+import { EOLocale } from 'eo-locale';
 
-const locales = {
-  en: {
-    hello: 'Hello world!',
+const locales = [
+  {
+    language: 'en',
+    messages: {
+      hello: 'Hello world!'
+    }
   },
-  ru: {
-    hello: 'Привет мир!',
+  {
+    language: 'ru',
+    messages: {
+      hello: 'Привет мир!'
+    }
   }
-};
+];
 
 export class App extends React.PureComponent<{}, {}> {
   public render() {
