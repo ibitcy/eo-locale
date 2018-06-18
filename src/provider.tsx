@@ -1,66 +1,43 @@
 import * as React from 'react';
 
-import { EOLocaleContext, IEOLocaleContext } from './context';
+import { EOLocaleContext } from './context';
 import { ILocale, TMessage } from './models';
 import { convertObjectToMap, createMessageFormatter } from './utils';
 
 export interface IEOLocaleProviderProps {
-	defaultLanguage: string;
+	language: string;
 	locales: ILocale[];
 }
 
 export class EOLocaleProvider extends React.PureComponent<
 	IEOLocaleProviderProps,
-	IEOLocaleContext
+	{}
 > {
-	public constructor(props: IEOLocaleProviderProps) {
-		super(props);
-
-		const { defaultLanguage } = this.props;
-
-		const messages = this.getLangugageMessages(defaultLanguage);
-
-		if (!messages) {
-			throw new Error('Error! Invalid Provider props.');
-		}
-
-		this.state = {
-			formatMessage: createMessageFormatter(messages),
-			language: defaultLanguage,
-			messages,
-			onChangeLanguage: this.handleChangeLanguage
-		};
-	}
-
 	public render() {
 		return (
-			<EOLocaleContext.Provider value={this.state}>
+			<EOLocaleContext.Provider value={this.contextValue}>
 				{this.props.children}
 			</EOLocaleContext.Provider>
 		);
 	}
 
-	private handleChangeLanguage = (newLanguage: string): void => {
-		const messages = this.getLangugageMessages(newLanguage);
+	private get contextValue() {
+		const messages = this.messages;
 
-		if (!messages) {
-			return;
-		}
-
-		this.setState({
+		return {
 			formatMessage: createMessageFormatter(messages),
-			language: newLanguage,
-			messages
-		});
-	};
+			language: this.props.language,
+			messages,
+		}
+	}
 
-	private getLangugageMessages(language: string): Map<string, TMessage> | null {
+	private get messages(): Map<string, TMessage> {
 		const locale = this.props.locales.find(
-			locale => locale.language === language
+			locale => locale.language === this.props.language,
 		);
 
 		if (!locale) {
-			return null;
+			return new Map();
 		}
 
 		return convertObjectToMap<TMessage>(locale.messages);

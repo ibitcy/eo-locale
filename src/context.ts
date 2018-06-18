@@ -9,7 +9,6 @@ export interface IEOLocaleContext {
 	messages: Map<string, TMessage>;
 
 	formatMessage(value: string, options: IFormatMessageOptions): string;
-	onChangeLanguage(newLocale: string): void;
 }
 
 export const EOLocaleContext = React.createContext<IEOLocaleContext>(
@@ -18,7 +17,6 @@ export const EOLocaleContext = React.createContext<IEOLocaleContext>(
 		messages: new Map(),
 
 		formatMessage: createMessageFormatter(new Map()),
-		onChangeLanguage: () => {}
 	},
 	(prev, next) => {
 		if (prev.language !== next.language) {
