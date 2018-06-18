@@ -27,13 +27,13 @@ export class EOLocaleProvider extends React.PureComponent<
 		return {
 			formatMessage: createMessageFormatter(messages),
 			language: this.props.language,
-			messages,
-		}
+			messages
+		};
 	}
 
 	private get messages(): Map<string, TMessage> {
 		const locale = this.props.locales.find(
-			locale => locale.language === this.props.language,
+			locale => locale.language === this.props.language
 		);
 
 		if (!locale) {

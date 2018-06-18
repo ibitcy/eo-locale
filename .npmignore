@@ -4,6 +4,5 @@ node_modules
 .idea
 .vscode
 config
-src
 tsconfig.json
 .prettierrc
