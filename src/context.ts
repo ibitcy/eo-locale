@@ -16,7 +16,7 @@ export const EOLocaleContext = React.createContext<IEOLocaleContext>(
 		language: '',
 		messages: new Map(),
 
-		formatMessage: createMessageFormatter(new Map()),
+		formatMessage: createMessageFormatter('', new Map()),
 	},
 	(prev, next) => {
 		if (prev.language !== next.language) {

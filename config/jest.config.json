@@ -1,0 +1,18 @@
+{
+  "moduleFileExtensions": ["ts", "js"],
+  "collectCoverage": false,
+  "coverageThreshold": {
+    "global": {
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": 100
+    }
+  },
+  "notify": true,
+  "transform": {
+    "^.+\\.ts$": "ts-jest"
+  },
+  "rootDir": "..",
+  "testMatch": ["<rootDir>/src/**/__tests__/**/*.test.(ts|tsx|js)"]
+}

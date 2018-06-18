@@ -6,8 +6,9 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && tsc --declaration",
-    "prepare": "npm run lint:ts && npm run build",
-    "lint:ts": "node_modules/tslint/bin/tslint \"src/app/**/*.ts\" \"src/app/**/*.tsx\" --project ./tsconfig.json --config ./config/tslint.json"
+    "prepare": "npm run lint:ts && npm run test && npm run build",
+    "lint:ts": "node_modules/tslint/bin/tslint \"src/app/**/*.ts\" \"src/app/**/*.tsx\" --project ./tsconfig.json --config ./config/tslint.json",
+    "test": "jest --config ./config/jest.config.json --no-cache"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,10 @@
   },
   "homepage": "https://github.com/ibitcy/eo-locale#readme",
   "devDependencies": {
+    "@types/jest": "^23.1.0",
     "@types/react": "^16.3.14",
+    "jest": "^23.1.0",
+    "ts-jest": "^22.4.6",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.12.0",
     "typescript": "^2.8.3"

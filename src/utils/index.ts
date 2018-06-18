@@ -11,15 +11,14 @@ export function convertObjectToMap<T>(obj: {
 }
 
 export interface IFormatMessageOptions {
-	language: string;
-
 	defaultMessage?: string;
 	values?: object;
 }
 
 export function createMessageFormatter(
+	language: string,
 	messages: Map<string, TMessage>
-): (value: string, options: IFormatMessageOptions) => string {
+): (value: string, options?: IFormatMessageOptions) => string {
 	return (value: string, options: IFormatMessageOptions) => {
 		let message = messages.get(value);
 
@@ -31,7 +30,7 @@ export function createMessageFormatter(
 			if (message.includes('{') && options.values) {
 				const formattedMessage = new IntlMessageFormat(
 					message,
-					options.language
+					language
 				);
 				let output = '';
 

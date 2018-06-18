@@ -22,11 +22,12 @@ export class EOLocaleProvider extends React.PureComponent<
 	}
 
 	private get contextValue() {
+		const { language } = this.props;
 		const messages = this.messages;
 
 		return {
-			formatMessage: createMessageFormatter(messages),
-			language: this.props.language,
+			formatMessage: createMessageFormatter(language, messages),
+			language,
 			messages
 		};
 	}

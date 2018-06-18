@@ -28,7 +28,7 @@ const locales = [
 export class App extends React.PureComponent<{}, {}> {
   public render() {
     return (
-      <EOLocale.Provider defaultLanguage="en" locales={locales}>
+      <EOLocale.Provider language="en" locales={locales}>
         <main>
           <EOLocale.Text id="hello" />
         </main>
@@ -36,4 +36,23 @@ export class App extends React.PureComponent<{}, {}> {
     );
   }
 }
+```
+
+# Inline usage format message
+
+```
+const locales = {
+	en: {
+		a: 'Hello',
+	},
+	ru: {
+		a: 'Привет',
+	}
+}
+
+const formatMessageEn = createMessageFormatter('en', convertObjectToMap(locales.en));
+const formatMessageRu = createMessageFormatter('ru', convertObjectToMap(locales.ru));
+
+formatMessageEn('a'); // Hello
+formatMessageRu('a'); // Привет
 ```
