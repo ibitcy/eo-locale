@@ -51,7 +51,7 @@ export function createMessageFormatter(
 			return options.defaultMessage;
 		}
 
-		return '';
+		return value;
 	};
 }
 
