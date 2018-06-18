@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { EOLocaleContext, IEOLocaleContext } from './context';
 import { ILocale, TMessage } from './models';
-import { convertObjectToMap } from './utils';
+import { convertObjectToMap, createMessageFormatter } from './utils';
 
 export interface IEOLocaleProviderProps {
 	defaultLanguage: string;
@@ -25,6 +25,7 @@ export class EOLocaleProvider extends React.PureComponent<
 		}
 
 		this.state = {
+			formatMessage: createMessageFormatter(messages),
 			language: defaultLanguage,
 			messages,
 			onChangeLanguage: this.handleChangeLanguage
@@ -47,6 +48,7 @@ export class EOLocaleProvider extends React.PureComponent<
 		}
 
 		this.setState({
+			formatMessage: createMessageFormatter(messages),
 			language: newLanguage,
 			messages
 		});

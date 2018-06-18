@@ -15,7 +15,7 @@ export namespace EOLocale {
 	export class Provider extends EOLocaleProvider {}
 	export class Text extends EOLocaleText {}
 
-	export const formatMessage = utils.formatMessage;
+	export const createMessageFormatter = utils.createMessageFormatter;
 	export const formatNumber = utils.formatNumber;
 	export const formatDate = utils.formatDate;
 }

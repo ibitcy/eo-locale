@@ -11,45 +11,48 @@ export function convertObjectToMap<T>(obj: {
 }
 
 export interface IFormatMessageOptions {
-	id: string;
 	language: string;
 
 	defaultMessage?: string;
 	values?: object;
 }
 
-export function formatMessage(
-	messages: Map<string, TMessage>,
-	options: IFormatMessageOptions
-): string {
-	let message = messages.get(options.id);
+export function createMessageFormatter(
+	messages: Map<string, TMessage>
+): (value: string, options: IFormatMessageOptions) => string {
+	return (value: string, options: IFormatMessageOptions) => {
+		let message = messages.get(value);
 
-	if (typeof message === 'number') {
-		message = message.toString();
-	}
-
-	if (typeof message === 'string') {
-		if (message.includes('{') && options.values) {
-			const formattedMessage = new IntlMessageFormat(message, options.language);
-			let output = '';
-
-			try {
-				output = formattedMessage.format(options.values);
-			} catch (error) {
-				console.error('[react-eo-locale] ', error);
-			}
-
-			return output;
+		if (typeof message === 'number') {
+			message = message.toString();
 		}
 
-		return message;
-	}
+		if (typeof message === 'string') {
+			if (message.includes('{') && options.values) {
+				const formattedMessage = new IntlMessageFormat(
+					message,
+					options.language
+				);
+				let output = '';
 
-	if (options.defaultMessage) {
-		return options.defaultMessage;
-	}
+				try {
+					output = formattedMessage.format(options.values);
+				} catch (error) {
+					console.error('[react-eo-locale] ', error);
+				}
 
-	return '';
+				return output;
+			}
+
+			return message;
+		}
+
+		if (options.defaultMessage) {
+			return options.defaultMessage;
+		}
+
+		return '';
+	};
 }
 
 export interface IFormatNumberOptions extends Intl.NumberFormatOptions {
