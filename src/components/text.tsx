@@ -17,7 +17,6 @@ export class EOLocaleText extends React.PureComponent<IEOLocaleTextProps, {}> {
 				{context =>
 					context.formatMessage(id, {
 						...sharedProps,
-						language: context.language
 					})
 				}
 			</EOLocaleContext.Consumer>
