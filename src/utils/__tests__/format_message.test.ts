@@ -15,17 +15,13 @@ const formatMessageRu = createMessageFormatter('ru', convertObjectToMap(locales.
 describe('formatMessage', () => {
 	it('Should return "Hello World!"', () => {
 		expect(formatMessageEn('a', {
-			values: {
-				name: 'World',
-			}
+			name: 'World',
 		})).toBe('Hello World!');
 	});
 
 	it('Should return "Привет Мир!"', () => {
 		expect(formatMessageRu('a', {
-			values: {
-				name: 'Мир'
-			}
+			name: 'Мир'
 		})).toBe('Привет Мир!');
 	});
 })

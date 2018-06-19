@@ -10,9 +10,12 @@ export function convertObjectToMap<T>(obj: {
 	return new Map(Object.entries(obj));
 }
 
-export interface IFormatMessageOptions {
+export type TFormatMessageOptions = Partial<{
+	[name: string]: string | number;
+}>;
+
+export interface IFormatMessageOptions extends TFormatMessageOptions {
 	defaultMessage?: string;
-	values?: object;
 }
 
 export function createMessageFormatter(
@@ -20,6 +23,8 @@ export function createMessageFormatter(
 	messages: Map<string, TMessage>
 ): (value: string, options?: IFormatMessageOptions) => string {
 	return (value: string, options: IFormatMessageOptions) => {
+		const { defaultMessage, ...sharedOptions } = options;
+
 		let message = messages.get(value);
 
 		if (typeof message === 'number') {
@@ -27,15 +32,12 @@ export function createMessageFormatter(
 		}
 
 		if (typeof message === 'string') {
-			if (message.includes('{') && options.values) {
-				const formattedMessage = new IntlMessageFormat(
-					message,
-					language
-				);
+			if (message.includes('{')) {
+				const formattedMessage = new IntlMessageFormat(message, language);
 				let output = '';
 
 				try {
-					output = formattedMessage.format(options.values);
+					output = formattedMessage.format(sharedOptions);
 				} catch (error) {
 					console.error('[react-eo-locale] ', error);
 				}
@@ -46,8 +48,8 @@ export function createMessageFormatter(
 			return message;
 		}
 
-		if (options.defaultMessage) {
-			return options.defaultMessage;
+		if (defaultMessage) {
+			return defaultMessage;
 		}
 
 		return value;

@@ -1,11 +1,10 @@
 import * as React from 'react';
 
 import { EOLocaleContext } from '../context';
+import { IFormatMessageOptions } from '../utils';
 
-export interface IEOLocaleTextProps {
+export interface IEOLocaleTextProps extends IFormatMessageOptions {
 	id: string;
-	defaultMessage?: string;
-	values?: object;
 }
 
 export class EOLocaleText extends React.PureComponent<IEOLocaleTextProps, {}> {
@@ -16,7 +15,7 @@ export class EOLocaleText extends React.PureComponent<IEOLocaleTextProps, {}> {
 			<EOLocaleContext.Consumer>
 				{context =>
 					context.formatMessage(id, {
-						...sharedProps,
+						...sharedProps
 					})
 				}
 			</EOLocaleContext.Consumer>
