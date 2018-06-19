@@ -43,16 +43,24 @@ export class App extends React.PureComponent<{}, {}> {
 ```
 const locales = {
 	en: {
-		a: 'Hello',
+		a: 'Hello {name}!',
 	},
 	ru: {
-		a: 'Привет',
+		a: 'Привет {name}!',
 	}
 }
 
 const formatMessageEn = createMessageFormatter('en', convertObjectToMap(locales.en));
 const formatMessageRu = createMessageFormatter('ru', convertObjectToMap(locales.ru));
 
-formatMessageEn('a'); // Hello
-formatMessageRu('a'); // Привет
+formatMessageEn('a', {
+  values: {
+    name: 'World',
+  }
+}) // Hello World!
+formatMessageRu('a', {
+  values: {
+    name: 'Мир'
+  }
+}) // Привет Мир!
 ```
