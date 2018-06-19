@@ -54,13 +54,9 @@ const formatMessageEn = createMessageFormatter('en', convertObjectToMap(locales.
 const formatMessageRu = createMessageFormatter('ru', convertObjectToMap(locales.ru));
 
 formatMessageEn('a', {
-  values: {
-    name: 'World',
-  }
+  name: 'World',
 }) // Hello World!
 formatMessageRu('a', {
-  values: {
-    name: 'Мир'
-  }
+  name: 'Мир'
 }) // Привет Мир!
 ```
