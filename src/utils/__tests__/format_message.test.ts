@@ -1,27 +1,39 @@
-import { createMessageFormatter, convertObjectToMap } from '../index';
+import { convertObjectToMap } from 'eo-utils';
+
+import { createMessageFormatter } from '..';
 
 const locales = {
 	en: {
-		a: 'Hello {name}!',
+		a: 'Hello {name}!'
 	},
 	ru: {
-		a: 'Привет {name}!',
+		a: 'Привет {name}!'
 	}
-}
+};
 
-const formatMessageEn = createMessageFormatter('en', convertObjectToMap(locales.en));
-const formatMessageRu = createMessageFormatter('ru', convertObjectToMap(locales.ru));
+const formatMessageEn = createMessageFormatter(
+	'en',
+	convertObjectToMap(locales.en)
+);
+const formatMessageRu = createMessageFormatter(
+	'ru',
+	convertObjectToMap(locales.ru)
+);
 
 describe('formatMessage', () => {
 	it('Should return "Hello World!"', () => {
-		expect(formatMessageEn('a', {
-			name: 'World',
-		})).toBe('Hello World!');
+		expect(
+			formatMessageEn('a', {
+				name: 'World'
+			})
+		).toBe('Hello World!');
 	});
 
 	it('Should return "Привет Мир!"', () => {
-		expect(formatMessageRu('a', {
-			name: 'Мир'
-		})).toBe('Привет Мир!');
+		expect(
+			formatMessageRu('a', {
+				name: 'Мир'
+			})
+		).toBe('Привет Мир!');
 	});
-})
+});

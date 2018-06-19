@@ -1,14 +1,9 @@
 import 'intl';
 
+import { isDefined } from 'eo-utils';
 import IntlMessageFormat from 'intl-messageformat';
 
 import { TMessage } from '../models';
-
-export function convertObjectToMap<T>(obj: {
-	[index: string]: T;
-}): Map<string, T> {
-	return new Map(Object.entries(obj));
-}
 
 export type TFormatMessageOptions = Partial<{
 	[name: string]: string | number;
@@ -48,7 +43,7 @@ export function createMessageFormatter(
 			return message;
 		}
 
-		if (defaultMessage) {
+		if (isDefined<string>(defaultMessage)) {
 			return defaultMessage;
 		}
 

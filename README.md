@@ -41,6 +41,9 @@ export class App extends React.PureComponent<{}, {}> {
 # Inline usage format message
 
 ```
+import { convertObjectToMap } from 'eo-utils';
+import { EOLocale } from 'eo-locale';
+
 const locales = {
 	en: {
 		a: 'Hello {name}!',
@@ -50,8 +53,8 @@ const locales = {
 	}
 }
 
-const formatMessageEn = createMessageFormatter('en', convertObjectToMap(locales.en));
-const formatMessageRu = createMessageFormatter('ru', convertObjectToMap(locales.ru));
+const formatMessageEn = EOLocale.createMessageFormatter('en', convertObjectToMap(locales.en));
+const formatMessageRu = EOLocale.createMessageFormatter('ru', convertObjectToMap(locales.ru));
 
 formatMessageEn('a', {
   name: 'World',

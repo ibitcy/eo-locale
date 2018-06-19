@@ -1,8 +1,9 @@
+import { convertObjectToMap } from 'eo-utils';
 import * as React from 'react';
 
 import { EOLocaleContext } from './context';
 import { ILocale, TMessage } from './models';
-import { convertObjectToMap, createMessageFormatter } from './utils';
+import { createMessageFormatter } from './utils';
 
 export interface IEOLocaleProviderProps {
 	language: string;
