@@ -1,4 +1,5 @@
 import 'intl';
+import 'intl/locale-data/jsonp/en';
 
 import { isDefined } from 'eo-utils';
 import IntlMessageFormat from 'intl-messageformat';

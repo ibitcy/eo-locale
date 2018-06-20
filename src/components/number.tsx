@@ -1,3 +1,5 @@
+import 'intl/locale-data/jsonp/en';
+
 import * as Intl from 'intl';
 import * as React from 'react';
 
