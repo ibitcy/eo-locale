@@ -32,8 +32,12 @@
   },
   "homepage": "https://github.com/ibitcy/eo-locale#readme",
   "devDependencies": {
+    "@types/intl": "^1.2.0",
+    "@types/intl-locales-supported": "^1.0.0",
     "@types/jest": "^23.1.0",
+    "@types/node": "^10.3.6",
     "@types/react": "^16.3.14",
+    "@types/webpack-env": "^1.13.6",
     "jest": "^23.1.0",
     "ts-jest": "^22.4.6",
     "tslint": "^5.10.0",
@@ -41,9 +45,9 @@
     "typescript": "^2.8.3"
   },
   "dependencies": {
-    "@types/intl": "^1.2.0",
     "eo-utils": "^1.4.0",
     "intl": "^1.2.5",
+    "intl-locales-supported": "^1.0.0",
     "intl-messageformat": "^2.2.0",
     "react": "^16.3.2"
   }

@@ -16,6 +16,10 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
+"@types/intl-locales-supported@^1.0.0":
+  version "1.0.0"
+  resolved "https://npmjs.eoadm.com/@types%2fintl-locales-supported/-/intl-locales-supported-1.0.0.tgz#89623a54d410b4d6ee6526a1348a313138d21fae"
+
 "@types/intl@^1.2.0":
   version "1.2.0"
   resolved "https://npmjs.eoadm.com/@types%2fintl/-/intl-1.2.0.tgz#1245511f13064402087979f498764611a3c758fc"
@@ -24,11 +28,19 @@
   version "23.1.0"
   resolved "https://npmjs.eoadm.com/@types%2fjest/-/jest-23.1.0.tgz#8054dd838ba23dc331794d26456b86c7e50bf0f6"
 
+"@types/node@^10.3.6":
+  version "10.3.6"
+  resolved "https://npmjs.eoadm.com/@types%2fnode/-/node-10.3.6.tgz#ea8aab9439b59f40d19ec5f13b44642344872b11"
+
 "@types/react@^16.3.14":
   version "16.3.18"
   resolved "https://npmjs.eoadm.com/@types%2freact/-/react-16.3.18.tgz#bf195aed4d77dc86f06e4c9bb760214a3b822b8d"
   dependencies:
     csstype "^2.2.0"
+
+"@types/webpack-env@^1.13.6":
+  version "1.13.6"
+  resolved "https://npmjs.eoadm.com/@types%2fwebpack-env/-/webpack-env-1.13.6.tgz#128d1685a7c34d31ed17010fc87d6a12c1de6976"
 
 abab@^1.0.4:
   version "1.0.4"
@@ -1342,6 +1354,10 @@ inherits@2, inherits@^2.0.1, inherits@~2.0.3:
 ini@~1.3.0:
   version "1.3.5"
   resolved "https://npmjs.eoadm.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
+
+intl-locales-supported@^1.0.0:
+  version "1.0.0"
+  resolved "https://npmjs.eoadm.com/intl-locales-supported/-/intl-locales-supported-1.0.0.tgz#9a9d94dbf104a87818881952dcb782053f0aeefa"
 
 intl-messageformat-parser@1.4.0:
   version "1.4.0"
