@@ -2,7 +2,7 @@
 	"extends": ["tslint:latest", "tslint-config-prettier"],
 	"rules": {
 		"no-namespace": false,
-		"indent": [true, "tabs", 2],
+		"indent": [true, "spaces", 2],
 		"no-submodule-imports": false
 	}
 }
