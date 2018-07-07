@@ -1,3 +1,4 @@
+// tslint:disable:max-classes-per-file
 import * as React from 'react';
 
 import { EOLocaleDate } from './components/date';

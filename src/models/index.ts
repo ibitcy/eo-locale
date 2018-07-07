@@ -1,10 +1,10 @@
 export type TMessage = string | number;
 
-export type TMessages = {
+export interface IMessages {
 	[index: string]: TMessage;
-};
+}
 
 export interface ILocale {
 	language: string;
-	messages: TMessages;
+	messages: IMessages;
 }

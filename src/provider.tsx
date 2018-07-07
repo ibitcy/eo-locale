@@ -34,14 +34,14 @@ export class EOLocaleProvider extends React.PureComponent<
 	}
 
 	private get messages(): Map<string, TMessage> {
-		const locale = this.props.locales.find(
+		const currentLocale = this.props.locales.find(
 			locale => locale.language === this.props.language
 		);
 
-		if (!locale) {
+		if (!currentLocale) {
 			return new Map();
 		}
 
-		return convertObjectToMap<TMessage>(locale.messages);
+		return convertObjectToMap<TMessage>(currentLocale.messages);
 	}
 }

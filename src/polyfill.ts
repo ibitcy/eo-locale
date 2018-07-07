@@ -1,3 +1,4 @@
+// tslint:disable-next-line:no-var-requires
 const areIntlLocalesSupported = require('intl-locales-supported');
 
 export function clientPolyfill() {
@@ -20,7 +21,7 @@ export function serverPolyfill(locales: string | string[]) {
 		if (!areIntlLocalesSupported(locales)) {
 			// `Intl` exists, but it doesn't have the data we need, so load the
 			// polyfill and patch the constructors we need with the polyfill's.
-			var IntlPolyfill = require('intl');
+			const IntlPolyfill = require('intl');
 			Intl.NumberFormat = IntlPolyfill.NumberFormat;
 			Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
 		}

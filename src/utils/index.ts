@@ -32,6 +32,7 @@ export function createMessageFormatter(
 				try {
 					output = formattedMessage.format(sharedOptions);
 				} catch (error) {
+					// tslint:disable-next-line:no-console
 					console.error('[react-eo-locale] ', error);
 				}
 

@@ -6,8 +6,9 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && tsc --declaration",
+    "lint:ts": "node_modules/tslint/bin/tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
+    "precommit": "npm run lint:ts",
     "prepare": "npm run lint:ts && npm run test && npm run build",
-    "lint:ts": "node_modules/tslint/bin/tslint \"src/app/**/*.ts\" \"src/app/**/*.tsx\" --project ./tsconfig.json --config ./config/tslint.json",
     "test": "jest --config ./config/jest.config.json --no-cache"
   },
   "repository": {
@@ -38,6 +39,7 @@
     "@types/node": "^10.3.6",
     "@types/react": "^16.3.14",
     "@types/webpack-env": "^1.13.6",
+    "husky": "^0.14.3",
     "jest": "^23.1.0",
     "ts-jest": "^22.4.6",
     "tslint": "^5.10.0",

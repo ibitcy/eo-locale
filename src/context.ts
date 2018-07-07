@@ -1,8 +1,7 @@
 import * as React from 'react';
 
 import { TMessage } from './models';
-import { IFormatMessageOptions } from './utils';
-import { createMessageFormatter } from './utils';
+import { createMessageFormatter, IFormatMessageOptions } from './utils';
 
 export interface IEOLocaleContext {
 	language: string;
@@ -24,5 +23,5 @@ export const EOLocaleContext = React.createContext<IEOLocaleContext>(
 		}
 
 		return 0;
-	}
+	},
 );
