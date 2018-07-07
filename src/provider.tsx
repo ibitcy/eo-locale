@@ -39,6 +39,8 @@ export class EOLocaleProvider extends React.PureComponent<
 		);
 
 		if (!currentLocale) {
+			// tslint:disable-next-line:no-console
+			console.error('[eo-locale] Unsupported language', this.props.language);
 			return new Map();
 		}
 

@@ -1,16 +1,15 @@
 import { convertObjectToMap } from 'eo-utils';
 
 import { createMessageFormatter } from '..';
-import { serverPolyfill } from '../../polyfill';
-
-serverPolyfill(['en', 'ru']);
 
 const locales = {
 	en: {
 		a: 'Hello {name}!',
+		b: 100,
 	},
 	ru: {
 		a: 'Привет {name}!',
+		b: 100,
 	},
 };
 
@@ -38,5 +37,25 @@ describe('formatMessage', () => {
 				name: 'Мир',
 			}),
 		).toBe('Привет Мир!');
+	});
+
+	it('Should return defaultMessage', () => {
+		expect(
+			formatMessageEn('not_found', {
+				defaultMessage: 'default',
+			}),
+		).toBe('default');
+	});
+
+	it('Should correct format number value', () => {
+		expect(formatMessageEn('b')).toBe('100');
+	});
+
+	it('Should correct handle error', () => {
+		expect(formatMessageEn('a')).toBe('a');
+	});
+
+	it('Should return value', () => {
+		expect(formatMessageEn('not_found')).toBe('not_found');
 	});
 });

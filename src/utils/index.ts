@@ -15,7 +15,7 @@ export function createMessageFormatter(
 	language: string,
 	messages: Map<string, TMessage>
 ): (value: string, options?: IFormatMessageOptions) => string {
-	return (value: string, options: IFormatMessageOptions) => {
+	return (value: string, options: IFormatMessageOptions = {}) => {
 		const { defaultMessage, ...sharedOptions } = options;
 
 		let message = messages.get(value);
@@ -27,13 +27,13 @@ export function createMessageFormatter(
 		if (typeof message === 'string') {
 			if (message.includes('{')) {
 				const formattedMessage = new IntlMessageFormat(message, language);
-				let output = '';
+				let output = value;
 
 				try {
 					output = formattedMessage.format(sharedOptions);
 				} catch (error) {
 					// tslint:disable-next-line:no-console
-					console.error('[react-eo-locale] ', error);
+					console.error('[eo-locale] ', error);
 				}
 
 				return output;

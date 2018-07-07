@@ -1,7 +1,4 @@
 import { formatNumber } from '..';
-import { serverPolyfill } from '../../polyfill';
-
-serverPolyfill(['en', 'ru']);
 
 describe('formatNumber', () => {
 	it('Should be 1', () => {

@@ -1,6 +1,8 @@
 {
-  "moduleFileExtensions": ["ts", "js"],
-  "collectCoverage": false,
+  "moduleFileExtensions": ["tsx", "ts", "js"],
+  "collectCoverage": true,
+  "coveragePathIgnorePatterns": ["/node_modules/", "./src/context.ts", "./src/polyfill.ts"],
+  "setupTestFrameworkScriptFile": "./config/test_setup.ts",
   "coverageThreshold": {
     "global": {
       "branches": 100,
@@ -11,7 +13,7 @@
   },
   "notify": true,
   "transform": {
-    "^.+\\.ts$": "ts-jest"
+    "^.+\\.tsx?$": "ts-jest"
   },
   "rootDir": "..",
   "testMatch": ["<rootDir>/src/**/__tests__/**/*.test.(ts|tsx|js)"]

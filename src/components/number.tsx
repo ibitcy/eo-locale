@@ -17,9 +17,9 @@ export class EOLocaleNumber extends React.PureComponent<
 		return (
 			<EOLocaleContext.Consumer>
 				{context =>
-					formatNumber(this.props.value, {
+					formatNumber(value, {
 						...sharedProps,
-						language: context.language
+						language: context.language,
 					})
 				}
 			</EOLocaleContext.Consumer>
