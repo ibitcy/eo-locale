@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import { EOLocaleDate } from './components/date';
+import { EOLocaleHtml } from './components/html';
 import { EOLocaleNumber } from './components/number';
 import { EOLocaleText } from './components/text';
 import { EOLocaleContext, IEOLocaleContext } from './context';
@@ -16,6 +17,7 @@ export namespace EOLocale {
 	export class Number extends EOLocaleNumber {}
 	export class Provider extends EOLocaleProvider {}
 	export class Text extends EOLocaleText {}
+	export class Html extends EOLocaleHtml {}
 
 	export const createMessageFormatter = utils.createMessageFormatter;
 	export const formatNumber = utils.formatNumber;

@@ -7,12 +7,14 @@ const locales = [
 		language: 'en',
 		messages: {
 			hello: 'Hello {name}!',
+			world: '<strong>world</strong>',
 		},
 	},
 	{
 		language: 'ru',
 		messages: {
 			hello: 'Привет {name}!',
+			world: '<strong>мир</strong>',
 		},
 	},
 ];
