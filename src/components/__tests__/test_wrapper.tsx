@@ -20,6 +20,7 @@ const locales = [
 ];
 
 interface IProps {
+	isEditable?: boolean;
 	language?: string;
 }
 
@@ -28,6 +29,7 @@ export class TestWrapper extends React.PureComponent<IProps, {}> {
 		return (
 			<span>
 				<EOLocaleProvider
+					isEditable={this.props.isEditable}
 					language={this.props.language || 'en'}
 					locales={locales}
 				>

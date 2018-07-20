@@ -13,13 +13,31 @@ export class EOLocaleHtml extends React.PureComponent<IEOLocaleHtmlProps, {}> {
 
 		return (
 			<EOLocaleContext.Consumer>
-				{context =>
-					<span dangerouslySetInnerHTML={{
-						__html: context.formatMessage(id, {
-							...sharedProps
-						})
-					}} />
-				}
+				{context => {
+					if (context.isEditable) {
+						return (
+							<span
+								data-lokalise
+								data-key={id}
+								dangerouslySetInnerHTML={{
+									__html: context.formatMessage(id, {
+										...sharedProps,
+									}),
+								}}
+							/>
+						);
+					}
+
+					return (
+						<span
+							dangerouslySetInnerHTML={{
+								__html: context.formatMessage(id, {
+									...sharedProps,
+								}),
+							}}
+						/>
+					);
+				}}
 			</EOLocaleContext.Consumer>
 		);
 	}

@@ -4,7 +4,7 @@ import IntlMessageFormat from 'intl-messageformat';
 import { TMessage } from '../models';
 
 export type TFormatMessageOptions = Partial<{
-	[name: string]: string | number;
+	[name: string]: any;
 }>;
 
 export interface IFormatMessageOptions extends TFormatMessageOptions {

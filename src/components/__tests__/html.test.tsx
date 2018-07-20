@@ -28,4 +28,17 @@ describe('EOLocaleHtml', () => {
 
 		expect(strong.text()).toEqual('мир');
 	});
+
+
+	it('Should editable mode is accepted', () => {
+		const formatted = Enzyme.render(
+			<TestWrapper isEditable>
+				<EOLocaleHtml id="hello" />
+			</TestWrapper>,
+		);
+
+		const span = formatted.find('span');
+
+		expect(span.attr('data-key')).toEqual('hello');
+	});
 });

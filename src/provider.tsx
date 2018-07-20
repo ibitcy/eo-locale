@@ -8,6 +8,8 @@ import { createMessageFormatter } from './utils';
 export interface IEOLocaleProviderProps {
 	language: string;
 	locales: ILocale[];
+
+	isEditable?: boolean;
 }
 
 export class EOLocaleProvider extends React.PureComponent<
@@ -23,11 +25,12 @@ export class EOLocaleProvider extends React.PureComponent<
 	}
 
 	private get contextValue() {
-		const { language } = this.props;
+		const { isEditable, language } = this.props;
 		const messages = this.messages;
 
 		return {
 			formatMessage: createMessageFormatter(language, messages),
+			isEditable: Boolean(isEditable),
 			language,
 			messages
 		};

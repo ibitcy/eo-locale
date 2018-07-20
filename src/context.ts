@@ -4,6 +4,7 @@ import { TMessage } from './models';
 import { createMessageFormatter, IFormatMessageOptions } from './utils';
 
 export interface IEOLocaleContext {
+	isEditable: boolean;
 	language: string;
 	messages: Map<string, TMessage>;
 
@@ -12,6 +13,7 @@ export interface IEOLocaleContext {
 
 export const EOLocaleContext = React.createContext<IEOLocaleContext>(
 	{
+		isEditable: false,
 		language: '',
 		messages: new Map(),
 
