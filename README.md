@@ -14,13 +14,13 @@ const locales = [
   {
     language: 'en',
     messages: {
-      hello: 'Hello world!'
+      hello: 'Hello {name}!'
     }
   },
   {
     language: 'ru',
     messages: {
-      hello: 'Привет мир!'
+      hello: 'Привет {name}!'
     }
   }
 ];
@@ -30,7 +30,7 @@ export class App extends React.PureComponent<{}, {}> {
     return (
       <EOLocale.Provider language="en" locales={locales}>
         <main>
-          <EOLocale.Text id="hello" />
+          <EOLocale.Text id="hello" name="UserName" />
         </main>
       </EOLocale.Provider>
     );
