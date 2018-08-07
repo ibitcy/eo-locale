@@ -7,6 +7,7 @@ const locales = [
 		language: 'en',
 		messages: {
 			hello: 'Hello {name}!',
+			test_plural: "{attempts, plural, one {You have one more attempt} other {You have {attempts} attempts}}",
 			world: '<strong>world</strong>',
 		},
 	},
@@ -14,6 +15,7 @@ const locales = [
 		language: 'ru',
 		messages: {
 			hello: 'Привет {name}!',
+			test_plural: "{attempts, plural, one {} few {} many {} other {}}",
 			world: '<strong>мир</strong>',
 		},
 	},

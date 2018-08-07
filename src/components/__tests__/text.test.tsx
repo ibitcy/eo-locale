@@ -46,4 +46,24 @@ describe('EOLocaleText', () => {
 
 		expect(span.attr('data-key')).toEqual('hello');
 	});
+
+	it('Should render plural', () => {
+		const formatted = Enzyme.render(
+			<TestWrapper isEditable>
+				<EOLocaleText id="test_plural" attempts={1} />
+			</TestWrapper>,
+		);
+
+		expect(formatted.text()).toEqual('You have one more attempt');
+	});
+
+	it('Should render plural', () => {
+		const formatted = Enzyme.render(
+			<TestWrapper isEditable>
+				<EOLocaleText id="test_plural" attempts={5} />
+			</TestWrapper>,
+		);
+
+		expect(formatted.text()).toEqual('You have 5 attempts');
+	});
 });
