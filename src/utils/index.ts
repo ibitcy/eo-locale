@@ -52,36 +52,19 @@ export function createMessageFormatter(
 
 export interface IFormatNumberOptions extends Intl.NumberFormatOptions {
 	language: string;
-
-	noRound?: boolean;
 }
 
 export function formatNumber(
 	value: number,
 	options: IFormatNumberOptions
 ): string {
-	const { language, noRound, ...numberFormatOptions } = options;
-	let maximumFractionDigits = options.maximumFractionDigits;
-
-	if (noRound && options.maximumFractionDigits) {
-		maximumFractionDigits = options.maximumFractionDigits + 1;
-	}
-
+	const { language, ...numberFormatOptions } = options;
 	const numberFormat = new Intl.NumberFormat(
 		options.language,
-		{
-			...numberFormatOptions,
-			maximumFractionDigits,
-		}
+		numberFormatOptions,
 	);
 
-	let result = numberFormat.format(value);
-
-	if (noRound && options.maximumFractionDigits) {
-		result = result.substring(0, result.length - 1);
-	}
-
-	return result;
+	return numberFormat.format(value);
 }
 
 export interface IFormatDateOptions extends Intl.DateTimeFormatOptions {

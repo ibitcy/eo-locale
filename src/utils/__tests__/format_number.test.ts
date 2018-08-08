@@ -35,14 +35,4 @@ describe('formatNumber', () => {
 			}),
 		).toBe('1 000 000');
 	});
-
-	it('No round mode', () => {
-		expect(
-			formatNumber(0.989, {
-				language: 'ru',
-				maximumFractionDigits: 2,
-				noRound: true,
-			}),
-		).toBe('0,98');
-	});
 });

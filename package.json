@@ -8,7 +8,7 @@
     "build": "rm -rf dist && tsc --declaration",
     "lint:ts": "node_modules/tslint/bin/tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
     "precommit": "npm run lint:ts && npm run test",
-    "prepare": "npm run lint:ts && npm run test && npm run build",
+    "preversion": "npm run lint:ts && npm run test && npm run build",
     "test": "jest --config ./config/jest.config.json --no-cache"
   },
   "repository": {
