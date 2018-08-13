@@ -5,6 +5,8 @@ import { formatNumber } from '../utils';
 
 export interface IEOLocaleNumberProps extends Intl.NumberFormatOptions {
 	value: number;
+
+	language?: string;
 }
 
 export class EOLocaleNumber extends React.PureComponent<
@@ -12,14 +14,14 @@ export class EOLocaleNumber extends React.PureComponent<
 	{}
 > {
 	public render() {
-		const { children, value, ...sharedProps } = this.props;
+		const { children, language, value, ...sharedProps } = this.props;
 
 		return (
 			<EOLocaleContext.Consumer>
 				{context =>
 					formatNumber(value, {
 						...sharedProps,
-						language: context.language,
+						language: language || context.language,
 					})
 				}
 			</EOLocaleContext.Consumer>

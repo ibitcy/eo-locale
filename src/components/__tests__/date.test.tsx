@@ -26,4 +26,14 @@ describe('EOLocaleDate', () => {
 
 		expect(formatted.text()).toEqual('24.06.2017');
 	});
+
+	it('Should provide custom language in component', () => {
+		const formatted = Enzyme.render(
+			<TestWrapper language="ru">
+				<EOLocaleDate value={date} language="en" />
+			</TestWrapper>,
+		);
+
+		expect(formatted.text()).toEqual('6/24/2017');
+	});
 });

@@ -24,4 +24,14 @@ describe('EOLocaleNumber', () => {
 
 		expect(formatted.text()).toEqual('1 000');
 	});
+
+	it('Should provide custom language in component', () => {
+		const formatted = Enzyme.render(
+			<TestWrapper language="ru">
+				<EOLocaleNumber value={1000} language="en" />
+			</TestWrapper>,
+		);
+
+		expect(formatted.text()).toEqual('1,000');
+	});
 });

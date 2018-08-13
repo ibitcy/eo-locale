@@ -5,18 +5,20 @@ import { formatDate } from '../utils';
 
 export interface IEOLocaleDateProps extends Intl.DateTimeFormatOptions {
 	value: Date;
+
+	language?: string;
 }
 
 export class EOLocaleDate extends React.PureComponent<IEOLocaleDateProps, {}> {
 	public render() {
-		const { children, value, ...sharedProps } = this.props;
+		const { children, language, value, ...sharedProps } = this.props;
 
 		return (
 			<EOLocaleContext.Consumer>
 				{context =>
 					formatDate(this.props.value, {
 						...sharedProps,
-						language: context.language
+						language: language || context.language,
 					})
 				}
 			</EOLocaleContext.Consumer>
