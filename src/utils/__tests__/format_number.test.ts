@@ -35,4 +35,16 @@ describe('formatNumber', () => {
 			}),
 		).toBe('1 000 000');
 	});
+
+	it('Format currency USD', () => {
+		expect(
+			formatNumber(1000000.844, {
+				currency: 'USD',
+				language: 'en',
+				maximumFractionDigits: 2,
+				minimumFractionDigits: 0,
+				style: 'currency',
+			}),
+		).toBe('$1,000,000.84');
+	});
 });
