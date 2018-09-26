@@ -49,7 +49,7 @@
     "ts-jest": "^23.0.0",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.12.0",
-    "typescript": "^2.8.3"
+    "typescript": "^3.0.0"
   },
   "dependencies": {
     "eo-utils": "^1.4.0",
