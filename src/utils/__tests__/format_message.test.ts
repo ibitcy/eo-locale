@@ -1,4 +1,5 @@
 import { convertObjectToMap } from 'eo-utils';
+import * as React from 'react';
 
 import { createMessageFormatter } from '..';
 
@@ -29,6 +30,14 @@ describe('formatMessage', () => {
 				name: 'World',
 			}),
 		).toBe('Hello World!');
+	});
+
+	it('Should return "Hello World!"', () => {
+		expect(
+			formatMessageEn('a', {
+				name: React.createElement('span', null, 'World'),
+			}),
+		).toBe('Hello <span>World</span>!');
 	});
 
 	it('Should return "Привет Мир!"', () => {

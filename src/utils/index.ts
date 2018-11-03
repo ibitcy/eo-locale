@@ -1,5 +1,7 @@
 import { isDefined } from 'eo-utils';
 import IntlMessageFormat from 'intl-messageformat';
+import * as React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 import { TMessage } from '../models';
 
@@ -13,7 +15,7 @@ export interface IFormatMessageOptions extends TFormatMessageOptions {
 
 export function createMessageFormatter(
 	language: string,
-	messages: Map<string, TMessage>
+	messages: Map<string, TMessage>,
 ): (value: string, options?: IFormatMessageOptions) => string {
 	return (value: string, options: IFormatMessageOptions = {}) => {
 		const { defaultMessage, ...sharedOptions } = options;
@@ -28,6 +30,15 @@ export function createMessageFormatter(
 			if (message.includes('{')) {
 				const formattedMessage = new IntlMessageFormat(message, language);
 				let output = value;
+
+				const sharedOptionsKeys = Object.keys(sharedOptions);
+				sharedOptionsKeys.forEach(sharedOptionKey => {
+					const sharedOption = sharedOptions[sharedOptionKey];
+
+					if (React.isValidElement(sharedOption)) {
+						sharedOptions[sharedOptionKey] = renderToStaticMarkup(sharedOption);
+					}
+				});
 
 				try {
 					output = formattedMessage.format(sharedOptions);
@@ -56,7 +67,7 @@ export interface IFormatNumberOptions extends Intl.NumberFormatOptions {
 
 export function formatNumber(
 	value: number,
-	options: IFormatNumberOptions
+	options: IFormatNumberOptions,
 ): string {
 	const { language, ...numberFormatOptions } = options;
 	const numberFormat = new Intl.NumberFormat(
@@ -76,7 +87,7 @@ export function formatDate(value: Date, options: IFormatDateOptions): string {
 
 	const dateFormat = new Intl.DateTimeFormat(
 		options.language,
-		dateFormatOptions
+		dateFormatOptions,
 	);
 
 	return dateFormat.format(value);

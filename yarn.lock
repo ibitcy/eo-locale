@@ -53,6 +53,13 @@
   version "15.5.6"
   resolved "https://npmjs.eoadm.com/@types%2fprop-types/-/prop-types-15.5.6.tgz#9c03d3fed70a8d517c191b7734da2879b50ca26c"
 
+"@types/react-dom@^16.0.9":
+  version "16.0.9"
+  resolved "https://npmjs.eoadm.com/@types%2freact-dom/-/react-dom-16.0.9.tgz#73ceb7abe6703822eab6600e65c5c52efd07fb91"
+  dependencies:
+    "@types/node" "*"
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^16.3.14":
   version "16.4.18"
   resolved "https://npmjs.eoadm.com/@types%2freact/-/react-16.4.18.tgz#2e28a2e7f92d3fa7d6a65f2b73275c3e3138a13d"
@@ -2848,7 +2855,7 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^16.4.1:
+react-dom@^16.6.0:
   version "16.6.0"
   resolved "https://npmjs.eoadm.com/react-dom/-/react-dom-16.6.0.tgz#6375b8391e019a632a89a0988bce85f0cc87a92f"
   dependencies:
