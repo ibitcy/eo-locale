@@ -19,11 +19,5 @@ export const EOLocaleContext = React.createContext<IEOLocaleContext>(
 
 		formatMessage: createMessageFormatter('', new Map()),
 	},
-	(prev, next) => {
-		if (prev.language !== next.language) {
-			return 1;
-		}
-
-		return 0;
-	},
+	(prev, next) => (prev.language !== next.language ? 1 : 0),
 );
