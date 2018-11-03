@@ -35,9 +35,9 @@ describe('formatMessage', () => {
 	it('Should return "Hello World!"', () => {
 		expect(
 			formatMessageEn('a', {
-				name: React.createElement('span', null, 'World'),
+				name: React.createElement('span', null, 'World', React.createElement('sup', null, 'EO')),
 			}),
-		).toBe('Hello <span>World</span>!');
+		).toBe('Hello <span>World<sup>EO</sup></span>!');
 	});
 
 	it('Should return "Привет Мир!"', () => {
