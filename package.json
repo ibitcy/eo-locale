@@ -7,7 +7,6 @@
   "scripts": {
     "build": "rm -rf dist && tsc --declaration",
     "lint:ts": "node_modules/tslint/bin/tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
-    "precommit": "npm run lint:ts && npm run test",
     "preversion": "npm run lint:ts && npm run test && npm run build",
     "test": "jest --config ./config/jest.config.json --no-cache"
   },
@@ -43,7 +42,7 @@
     "@types/webpack-env": "^1.13.6",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "husky": "^0.14.3",
+    "husky": "^1.1.3",
     "jest": "^23.1.0",
     "react-dom": "^16.4.1",
     "ts-jest": "^23.0.0",
