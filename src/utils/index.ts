@@ -27,6 +27,7 @@ export function createMessageFormatter(
 		}
 
 		if (typeof message === 'string') {
+			// TODO research it
 			if (message.includes('{')) {
 				const formattedMessage = new IntlMessageFormat(message, language);
 				let output = value;
