@@ -1,14 +1,14 @@
 import * as React from 'react';
 
 import { TMessage } from './models';
-import { createMessageFormatter, IFormatMessageOptions } from './utils';
+import { createMessageFormatter, TFormatMessage } from './utils';
 
 export interface IEOLocaleContext {
 	isEditable: boolean;
 	language: string;
 	messages: Map<string, TMessage>;
 
-	formatMessage(value: string, options: IFormatMessageOptions): string;
+	formatMessage: TFormatMessage;
 }
 
 export const EOLocaleContext = React.createContext<IEOLocaleContext>(

@@ -12,10 +12,12 @@ export interface IFormatMessageOptions extends TFormatMessageOptions {
 	defaultMessage?: string;
 }
 
+export type TFormatMessage = (value: string, options?: IFormatMessageOptions) => string;
+
 export function createMessageFormatter(
 	language: string,
 	messages: Map<string, TMessage>,
-): (value: string, options?: IFormatMessageOptions) => string {
+): TFormatMessage {
 	return (value: string, options: IFormatMessageOptions = {}) => {
 		const { defaultMessage, ...sharedOptions } = options;
 
