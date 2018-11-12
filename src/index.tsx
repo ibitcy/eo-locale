@@ -19,9 +19,11 @@ export namespace EOLocale {
 	export class Text extends EOLocaleText {}
 	export class Html extends EOLocaleHtml {}
 
+	export const convertObjectToMap = utils.convertObjectToMap;
 	export const createMessageFormatter = utils.createMessageFormatter;
-	export const formatNumber = utils.formatNumber;
 	export const formatDate = utils.formatDate;
+	export const formatNumber = utils.formatNumber;
+	export const isDefined = utils.isDefined;
 
 	export const clientPolyfill = polyfill.clientPolyfill;
 	export const serverPolyfill = polyfill.serverPolyfill;

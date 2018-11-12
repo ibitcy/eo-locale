@@ -51,7 +51,6 @@
     "typescript": "^3.0.0"
   },
   "dependencies": {
-    "eo-utils": "^1.4.0",
     "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
     "intl-messageformat": "^2.2.0",

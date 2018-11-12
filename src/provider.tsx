@@ -1,9 +1,8 @@
-import { convertObjectToMap } from 'eo-utils';
 import * as React from 'react';
 
 import { EOLocaleContext } from './context';
 import { ILocale, TMessage } from './models';
-import { createMessageFormatter } from './utils';
+import { convertObjectToMap, createMessageFormatter } from './utils';
 
 export interface IEOLocaleProviderProps {
 	language: string;
@@ -42,7 +41,6 @@ export class EOLocaleProvider extends React.PureComponent<
 		);
 
 		if (!currentLocale) {
-			// tslint:disable-next-line:no-console
 			console.error('[eo-locale] Unsupported language', this.props.language);
 			return new Map();
 		}

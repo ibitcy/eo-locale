@@ -1,7 +1,6 @@
-import { convertObjectToMap } from 'eo-utils';
 import * as React from 'react';
 
-import { createMessageFormatter } from '..';
+import { convertObjectToMap, createMessageFormatter } from '..';
 
 const locales = {
 	en: {

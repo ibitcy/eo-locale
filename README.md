@@ -11,7 +11,6 @@ Internationalize React apps.
 5. Поисследовать, что клиентский полифил работает верно
 6. Поисследовать автоподстановку локалей
 7. Расширить документацию
-8. Избавиться от зависимости eo-utils
 
 # Usage example
 
@@ -52,7 +51,6 @@ export class App extends React.PureComponent<{}, {}> {
 # Inline usage format message
 
 ```
-import { convertObjectToMap } from 'eo-utils';
 import { EOLocale } from 'eo-locale';
 
 const locales = {
@@ -64,8 +62,8 @@ const locales = {
 	}
 }
 
-const formatMessageEn = EOLocale.createMessageFormatter('en', convertObjectToMap(locales.en));
-const formatMessageRu = EOLocale.createMessageFormatter('ru', convertObjectToMap(locales.ru));
+const formatMessageEn = EOLocale.createMessageFormatter('en', EOLocale.convertObjectToMap(locales.en));
+const formatMessageRu = EOLocale.createMessageFormatter('ru', EOLocale.convertObjectToMap(locales.ru));
 
 formatMessageEn('a', {
   name: 'World',

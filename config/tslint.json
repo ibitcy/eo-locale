@@ -4,6 +4,7 @@
 		"no-namespace": false,
 		"indent": [true, "tabs", 2],
 		"no-submodule-imports": false,
-		"no-implicit-dependencies": [true, "dev"]
+		"no-implicit-dependencies": [true, "dev"],
+		"no-console": [true, "log"]
 	}
 }
