@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { EOLocaleContext, IEOLocaleContext } from './context';
-interface IProps {}
 
 export interface IWithLocaleProps
 	extends Pick<IEOLocaleContext, 'language' | 'formatMessage'> {};
@@ -8,8 +7,8 @@ export interface IWithLocaleProps
 
 export function withLocale<T = {}>(
 	WrappedComponent: React.ComponentClass,
-): React.ComponentClass<T & IProps, {}> {
-	return class WithLocale extends React.PureComponent<T & IProps, {}> {
+): React.ComponentClass<T, {}> {
+	return class WithLocale extends React.PureComponent<T, {}> {
 		public render() {
 			return (
 				<EOLocaleContext.Consumer>

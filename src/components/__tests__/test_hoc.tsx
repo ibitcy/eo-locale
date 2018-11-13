@@ -1,19 +1,21 @@
 import * as React from 'react';
-import { withLocale, IWithLocaleProps } from '../../withLocale';
+import { IWithLocaleProps, withLocale } from '../../withLocale';
+import { TFormatMessageOptions } from '../../utils';
 
 interface IProps extends IWithLocaleProps, IClearProps {
 };
 
-interface IClearProps {
+interface IClearProps extends TFormatMessageOptions {
 	id: string;
 }
 
 class PureTestHoc extends React.PureComponent<IProps, {}> {
 	public render() {
+		const { language, formatMessage, id, ...shared } = this.props;
 		return (
 			<>
-				<span>{this.props.language}</span>
-				<span>{this.props.formatMessage(this.props.id)}</span>
+				<span id="language">{language}</span>
+				<span id="message">{formatMessage(id, {...shared})}</span>
 			</>
 		);
 	}
