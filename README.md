@@ -4,7 +4,6 @@ Internationalize React apps.
 
 # TODO
 
-1. HOC который будет прокидывать в props context
 2. Добавить в context методы formatNumber, formatDate
 3. Подумать над тем, как вынести isEditable
 4. Поисследовать размер бандла и библиотеки полифила
