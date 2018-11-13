@@ -5,22 +5,16 @@ import { TestHoc } from './test_hoc';
 import { TestWrapper } from './test_wrapper';
 
 describe('withLocale', () => {
-	it('Should render current language', () => {
+	it('Should render current language passed to props', () => {
 		const formatted = Enzyme.mount<TestWrapper>(
 			<TestWrapper>
 				<TestHoc id="world" />
 			</TestWrapper>,
 		);
-		expect(formatted.find('#language').text()).toEqual('en')
-	});
+		expect(formatted.find('#language').text()).toEqual('en');
 
-	it('Should render current language passed to props', () => {
-		const formatted = Enzyme.mount<TestWrapper>(
-			<TestWrapper language="ru">
-				<TestHoc id="world" />
-			</TestWrapper>,
-		);
-		expect(formatted.find('#language').text()).toEqual('ru')
+		formatted.setProps({ language: 'ru' });
+		expect(formatted.find('#language').text()).toEqual('ru');
 	});
 
 	it('Should render message', () => {
@@ -30,14 +24,8 @@ describe('withLocale', () => {
 			</TestWrapper>,
 		);
 		expect(formatted.find('#message').text()).toContain('world');
-	});
 
-	it('Should render message on different language', () => {
-		const formatted = Enzyme.mount<TestWrapper>(
-			<TestWrapper language="ru">
-				<TestHoc id="world" />
-			</TestWrapper>,
-		);
+		formatted.setProps({ language: 'ru' });
 		expect(formatted.find('#message').text()).toContain('мир');
 	});
 
@@ -48,5 +36,29 @@ describe('withLocale', () => {
 			</TestWrapper>,
 		);
 		expect(formatted.find('#message').text()).toEqual('Привет tester!');
+	});
+
+	it('Should render formatted number', () => {
+		const formatted = Enzyme.mount<TestWrapper>(
+			<TestWrapper>
+				<TestHoc id="world" />
+			</TestWrapper>,
+		);
+		expect(formatted.find('#number').text()).toEqual('$10.84');
+
+		formatted.setProps({ language: 'ru' });
+		expect(formatted.find('#number').text()).toEqual('10,84 $');
+	});
+
+	it('Should render formatted date', () => {
+		const formatted = Enzyme.mount<TestWrapper>(
+			<TestWrapper>
+				<TestHoc id="world" />
+			</TestWrapper>,
+		);
+		expect(formatted.find('#date').text()).toEqual('Jun 24, 2017');
+
+		formatted.setProps({ language: 'ru' });
+		expect(formatted.find('#date').text()).toEqual('24 июн. 2017 г.');
 	});
 });

@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { EOLocaleContext, IEOLocaleContext } from './context';
+import { Omit } from './models';
 
 export interface IWithLocaleProps
-	extends Pick<IEOLocaleContext, 'language' | 'formatMessage'> {};
+	extends Omit<IEOLocaleContext, 'messages'> {};
 
 
 export function withLocale<T = {}>(
@@ -13,11 +14,10 @@ export function withLocale<T = {}>(
 			return (
 				<EOLocaleContext.Consumer>
 					{context => {
-						const { language, formatMessage } = context;
 						return (
 							<WrappedComponent
 								{...this.props}
-								{...{ language, formatMessage }}
+								{...context}
 							/>
 						);
 					}}

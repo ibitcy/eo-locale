@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { EOLocaleContext } from './context';
 import { ILocale, TMessage } from './models';
-import { convertObjectToMap, createMessageFormatter } from './utils';
+import { convertObjectToMap, createFormatDate, createFormatNumber, createMessageFormatter } from './utils';
 
 export interface IEOLocaleProviderProps {
 	language: string;
@@ -11,16 +11,9 @@ export interface IEOLocaleProviderProps {
 	isEditable?: boolean;
 }
 
-export class EOLocaleProvider extends React.PureComponent<
-	IEOLocaleProviderProps,
-	{}
-> {
+export class EOLocaleProvider extends React.PureComponent<IEOLocaleProviderProps, {}> {
 	public render() {
-		return (
-			<EOLocaleContext.Provider value={this.contextValue}>
-				{this.props.children}
-			</EOLocaleContext.Provider>
-		);
+		return <EOLocaleContext.Provider value={this.contextValue}>{this.props.children}</EOLocaleContext.Provider>;
 	}
 
 	private get contextValue() {
@@ -28,17 +21,17 @@ export class EOLocaleProvider extends React.PureComponent<
 		const messages = this.messages;
 
 		return {
+			formatDate: createFormatDate(language),
 			formatMessage: createMessageFormatter(language, messages),
+			formatNumber: createFormatNumber(language),
 			isEditable: Boolean(isEditable),
 			language,
-			messages
+			messages,
 		};
 	}
 
 	private get messages(): Map<string, TMessage> {
-		const currentLocale = this.props.locales.find(
-			locale => locale.language === this.props.language
-		);
+		const currentLocale = this.props.locales.find(locale => locale.language === this.props.language);
 
 		if (!currentLocale) {
 			console.error('[eo-locale] Unsupported language', this.props.language);
