@@ -11,7 +11,7 @@ describe('withLocale', () => {
 				<TestHoc id="world" />
 			</TestWrapper>,
 		);
-    expect(formatted.find('#language').text()).toEqual('en')
+		expect(formatted.find('#language').text()).toEqual('en')
 	});
 
 	it('Should render current language passed to props', () => {
@@ -20,7 +20,7 @@ describe('withLocale', () => {
 				<TestHoc id="world" />
 			</TestWrapper>,
 		);
-    expect(formatted.find('#language').text()).toEqual('ru')
+		expect(formatted.find('#language').text()).toEqual('ru')
 	});
 
 	it('Should render message', () => {
@@ -29,7 +29,7 @@ describe('withLocale', () => {
 				<TestHoc id="world" />
 			</TestWrapper>,
 		);
-    expect(formatted.find('#message').text()).toContain('world');
+		expect(formatted.find('#message').text()).toContain('world');
 	});
 
 	it('Should render message on different language', () => {
@@ -38,7 +38,7 @@ describe('withLocale', () => {
 				<TestHoc id="world" />
 			</TestWrapper>,
 		);
-    expect(formatted.find('#message').text()).toContain('мир');
+		expect(formatted.find('#message').text()).toContain('мир');
 	});
 
 	it('Should render right message based on id', () => {
@@ -47,6 +47,6 @@ describe('withLocale', () => {
 				<TestHoc id="hello" name="tester" />
 			</TestWrapper>,
 		);
-    expect(formatted.find('#message').text()).toEqual('Привет tester!');
+		expect(formatted.find('#message').text()).toEqual('Привет tester!');
 	});
 });

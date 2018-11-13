@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { IWithLocaleProps, withLocale } from '../../withLocale';
 import { TFormatMessageOptions } from '../../utils';
+import { IWithLocaleProps, withLocale } from '../../withLocale';
 
 interface IProps extends IWithLocaleProps, IClearProps {
 };
