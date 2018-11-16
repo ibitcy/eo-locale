@@ -1,6 +1,7 @@
 import * as Enzyme from 'enzyme';
 import * as React from 'react';
 
+import { EOLocaleNumber } from '../number';
 import { EOLocaleText } from '../text';
 import { TestWrapper } from './test_wrapper';
 
@@ -13,6 +14,16 @@ describe('EOLocaleText', () => {
 		);
 
 		expect(formatted.text()).toEqual('Hello test!');
+	});
+
+	it('Should render formatted message for en', () => {
+		const formatted = Enzyme.render(
+			<TestWrapper>
+				<EOLocaleText id="hello" name={<EOLocaleNumber value={1000} />} />
+			</TestWrapper>,
+		);
+
+		expect(formatted.text()).toEqual('Hello 1,000!');
 	});
 
 	it('Should render formatted message for ru', () => {
