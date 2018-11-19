@@ -6,7 +6,7 @@ import { TestWrapper } from './test_wrapper';
 
 describe('withLocale', () => {
 	it('Should render current language passed to props', () => {
-		const formatted = Enzyme.mount<TestWrapper>(
+		const formatted = Enzyme.mount<any>(
 			<TestWrapper>
 				<TestHoc id="world" />
 			</TestWrapper>,
@@ -18,7 +18,7 @@ describe('withLocale', () => {
 	});
 
 	it('Should render message', () => {
-		const formatted = Enzyme.mount<TestWrapper>(
+		const formatted = Enzyme.mount<any>(
 			<TestWrapper>
 				<TestHoc id="world" />
 			</TestWrapper>,
@@ -30,7 +30,7 @@ describe('withLocale', () => {
 	});
 
 	it('Should render right message based on id', () => {
-		const formatted = Enzyme.mount<TestWrapper>(
+		const formatted = Enzyme.mount<any>(
 			<TestWrapper language="ru">
 				<TestHoc id="hello" name="tester" />
 			</TestWrapper>,
@@ -39,7 +39,7 @@ describe('withLocale', () => {
 	});
 
 	it('Should render formatted number', () => {
-		const formatted = Enzyme.mount<TestWrapper>(
+		const formatted = Enzyme.mount<any>(
 			<TestWrapper>
 				<TestHoc id="world" />
 			</TestWrapper>,
@@ -51,7 +51,7 @@ describe('withLocale', () => {
 	});
 
 	it('Should render formatted date', () => {
-		const formatted = Enzyme.mount<TestWrapper>(
+		const formatted = Enzyme.mount<any>(
 			<TestWrapper>
 				<TestHoc id="world" />
 			</TestWrapper>,
