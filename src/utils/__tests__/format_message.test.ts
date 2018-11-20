@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { convertObjectToMap, createMessageFormatter } from '..';
 
 const locales = {
@@ -29,14 +27,6 @@ describe('formatMessage', () => {
 				name: 'World',
 			}),
 		).toBe('Hello World!');
-	});
-
-	it('Should return "Hello World!"', () => {
-		expect(
-			formatMessageEn('a', {
-				name: React.createElement('span', null, 'World', React.createElement('sup', null, 'EO')),
-			}),
-		).toBe('Hello <span>World<sup>EO</sup></span>!');
 	});
 
 	it('Should return "Привет Мир!"', () => {

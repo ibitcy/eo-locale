@@ -2,6 +2,7 @@ import * as Enzyme from 'enzyme';
 import * as React from 'react';
 
 import { EOLocaleHtml } from '../html';
+import { EOLocaleNumber } from '../number';
 import { TestWrapper } from './test_wrapper';
 
 describe('EOLocaleHtml', () => {
@@ -29,6 +30,15 @@ describe('EOLocaleHtml', () => {
 		expect(strong.text()).toEqual('мир');
 	});
 
+	it('Should render formatted message for en', () => {
+		const formatted = Enzyme.render(
+			<TestWrapper>
+				<EOLocaleHtml id="hello" name={<EOLocaleNumber value={1000} />} />
+			</TestWrapper>,
+		);
+
+		expect(formatted.text()).toEqual('Hello 1,000!');
+	});
 
 	it('Should editable mode is accepted', () => {
 		const formatted = Enzyme.render(

@@ -1,34 +1,29 @@
 import * as React from 'react';
 
-import { EOLocaleContext } from '../context';
 import { IFormatMessageOptions } from '../utils';
+import { withLocale } from '../withLocale';
 
 export interface IEOLocaleTextProps extends IFormatMessageOptions {
 	id: string;
 }
 
-export class EOLocaleText extends React.PureComponent<IEOLocaleTextProps, {}> {
+class Text extends React.PureComponent<IEOLocaleTextProps, {}> {
 	public render() {
-		const { children, id, ...sharedProps } = this.props;
+		const { formatMessage, isEditable, id, ...shared } = this.props;
+		const formattedText = formatMessage(id, {
+			...shared,
+		});
 
-		return (
-			<EOLocaleContext.Consumer>
-				{context => {
-					const formattedText = context.formatMessage(id, {
-						...sharedProps,
-					});
+		if (isEditable) {
+			return (
+				<span data-lokalise data-key={id}>
+					{formattedText}
+				</span>
+			);
+		}
 
-					if (context.isEditable) {
-						return (
-							<span data-lokalise data-key={id}>
-								{formattedText}
-							</span>
-						);
-					}
-
-					return formattedText;
-				}}
-			</EOLocaleContext.Consumer>
-		);
+		return formattedText;
 	}
 }
+
+export const EOLocaleText = withLocale<IEOLocaleTextProps>(Text);

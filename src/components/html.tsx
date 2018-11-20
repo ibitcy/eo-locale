@@ -1,44 +1,40 @@
 import * as React from 'react';
 
-import { EOLocaleContext } from '../context';
 import { IFormatMessageOptions } from '../utils';
+import { withLocale } from '../withLocale';
 
 export interface IEOLocaleHtmlProps extends IFormatMessageOptions {
 	id: string;
 }
 
-export class EOLocaleHtml extends React.PureComponent<IEOLocaleHtmlProps, {}> {
+class Html extends React.PureComponent<IEOLocaleHtmlProps, {}> {
 	public render() {
-		const { children, id, ...sharedProps } = this.props;
+		const { children, isEditable, formatMessage, id, ...sharedProps } = this.props;
+
+		if (isEditable) {
+			return (
+				<span
+					data-lokalise
+					data-key={id}
+					dangerouslySetInnerHTML={{
+						__html: formatMessage(id, {
+							...sharedProps,
+						}),
+					}}
+				/>
+			);
+		}
 
 		return (
-			<EOLocaleContext.Consumer>
-				{context => {
-					if (context.isEditable) {
-						return (
-							<span
-								data-lokalise
-								data-key={id}
-								dangerouslySetInnerHTML={{
-									__html: context.formatMessage(id, {
-										...sharedProps,
-									}),
-								}}
-							/>
-						);
-					}
-
-					return (
-						<span
-							dangerouslySetInnerHTML={{
-								__html: context.formatMessage(id, {
-									...sharedProps,
-								}),
-							}}
-						/>
-					);
+			<span
+				dangerouslySetInnerHTML={{
+					__html: formatMessage(id, {
+						...sharedProps,
+					}),
 				}}
-			</EOLocaleContext.Consumer>
+			/>
 		);
 	}
 }
+
+export const EOLocaleHtml = withLocale<IEOLocaleHtmlProps>(Html);

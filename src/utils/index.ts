@@ -1,6 +1,4 @@
 import IntlMessageFormat from 'intl-messageformat';
-import * as React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 
 import { TMessage } from '../models';
 
@@ -28,14 +26,6 @@ export function createMessageFormatter(language: string, messages: Map<string, T
 			const formattedMessage = new IntlMessageFormat(message, language);
 			let output = value;
 
-			const sharedOptionsKeys = Object.keys(sharedOptions);
-			sharedOptionsKeys.forEach(sharedOptionKey => {
-				const sharedOption = sharedOptions[sharedOptionKey];
-
-				if (React.isValidElement(sharedOption)) {
-					sharedOptions[sharedOptionKey] = renderToStaticMarkup(sharedOption);
-				}
-			});
 			try {
 				output = formattedMessage.format(sharedOptions);
 			} catch (error) {

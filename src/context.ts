@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { TMessage } from './models';
+import { ILocale, TMessage } from './models';
 import {
 	createFormatDate,
 	createFormatNumber,
@@ -13,6 +13,7 @@ import {
 export interface IEOLocaleContext {
 	isEditable: boolean;
 	language: string;
+	locales: ILocale[];
 	messages: Map<string, TMessage>;
 
 	formatDate: TFormatDate;
@@ -24,6 +25,7 @@ export const EOLocaleContext = React.createContext<IEOLocaleContext>(
 	{
 		isEditable: false,
 		language: '',
+		locales: [],
 		messages: new Map(),
 
 		formatDate: createFormatDate(''),

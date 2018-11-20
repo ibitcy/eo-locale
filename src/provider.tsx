@@ -17,7 +17,7 @@ export class EOLocaleProvider extends React.PureComponent<IEOLocaleProviderProps
 	}
 
 	private get contextValue() {
-		const { isEditable, language } = this.props;
+		const { isEditable, language, locales } = this.props;
 		const messages = this.messages;
 
 		return {
@@ -26,6 +26,7 @@ export class EOLocaleProvider extends React.PureComponent<IEOLocaleProviderProps
 			formatNumber: createFormatNumber(language),
 			isEditable: Boolean(isEditable),
 			language,
+			locales,
 			messages,
 		};
 	}
