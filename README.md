@@ -1,13 +1,6 @@
 # Eo-locale
 
-Internationalize React apps.
-
-# TODO
-
-1. Поисследовать размер бандла и библиотеки полифила
-2. Поисследовать, что клиентский полифил работает верно
-3. Поисследовать автоподстановку локалей
-4. Расширить документацию
+Internationalize React apps. Based on new React Context. Includes types.
 
 # Usage example
 
@@ -32,40 +25,20 @@ const locales = [
   }
 ];
 
+const user = {
+  name: 'Alex',
+};
+
 export class App extends React.PureComponent<{}, {}> {
   public render() {
     return (
       <EOLocale.Provider language="en" locales={locales}>
         <main>
-          <EOLocale.Text id="hello" name="UserName" />
+          <EOLocale.Text id="hello" name={user.name} />
+          <EOLocale.Text id="hello" name={<UserName user={user} />} />
         </main>
       </EOLocale.Provider>
     );
   }
 }
-```
-
-# Inline usage format message
-
-```
-import { EOLocale } from 'eo-locale';
-
-const locales = {
-	en: {
-		a: 'Hello {name}!',
-	},
-	ru: {
-		a: 'Привет {name}!',
-	}
-}
-
-const formatMessageEn = EOLocale.createMessageFormatter('en', EOLocale.convertObjectToMap(locales.en));
-const formatMessageRu = EOLocale.createMessageFormatter('ru', EOLocale.convertObjectToMap(locales.ru));
-
-formatMessageEn('a', {
-  name: 'World',
-}) // Hello World!
-formatMessageRu('a', {
-  name: 'Мир'
-}) // Привет Мир!
 ```
