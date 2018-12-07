@@ -8,7 +8,7 @@
 
 App.tsx
 
-```
+```ts
 import * as React from 'react';
 import { EOLocale } from 'eo-locale';
 
@@ -50,5 +50,5 @@ export class App extends React.PureComponent<{}, {}> {
       </EOLocale.Provider>
     );
   }
-}
+};
 ```
