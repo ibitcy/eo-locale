@@ -8,7 +8,7 @@ import { EOLocaleProvider } from './provider';
 export interface IWithLocaleProps extends Omit<IEOLocaleContext, 'messages'> {}
 
 export function withLocale<T extends {} = {}>(WrappedComponent: React.ComponentClass): React.ComponentClass<T, {}> {
-	return class WithLocale extends React.PureComponent<T, {}> {
+	return class WithLocale extends React.Component<T, {}> {
 		public render() {
 			return (
 				<EOLocaleContext.Consumer>
