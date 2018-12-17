@@ -27,7 +27,7 @@ class PureTestHoc extends React.PureComponent<IProps, {}> {
 					{formatDate(new Date(2017, 5, 24), {
 						day: 'numeric',
 						month: 'short',
-						year: '2-digit',
+						year: 'numeric',
 					})}
 				</span>
 			</>

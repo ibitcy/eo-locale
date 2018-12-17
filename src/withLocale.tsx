@@ -3,7 +3,6 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 import { EOLocaleContext, IEOLocaleContext } from './context';
 import { Omit } from './models';
-import { EOLocaleProvider } from './provider';
 
 export interface IWithLocaleProps extends Omit<IEOLocaleContext, 'messages'> {}
 
@@ -24,13 +23,9 @@ export function withLocale<T extends {} = {}>(WrappedComponent: React.ComponentC
 
 							if (React.isValidElement(sharedOption)) {
 								sharedOptions[sharedOptionKey] = renderToStaticMarkup(
-									<EOLocaleProvider
-										isEditable={context.isEditable}
-										language={context.language}
-										locales={context.locales}
-									>
+									<EOLocaleContext.Provider value={context}>
 										{sharedOption}
-									</EOLocaleProvider>,
+									</EOLocaleContext.Provider>,
 								);
 							}
 						});
