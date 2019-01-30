@@ -2,7 +2,7 @@
   "moduleFileExtensions": ["tsx", "ts", "js"],
   "collectCoverage": true,
   "coveragePathIgnorePatterns": ["/node_modules/", "./src/context.ts", "./src/polyfill.ts"],
-  "setupTestFrameworkScriptFile": "./config/test_setup.ts",
+  "setupFilesAfterEnv": ["./config/test_setup.ts"],
   "coverageThreshold": {
     "global": {
       "branches": 100,
