@@ -1,4 +1,5 @@
 .DS_STORE
+coverage
 node_modules
 *.log
 .idea

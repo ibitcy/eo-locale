@@ -6,8 +6,9 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && tsc --declaration",
+    "check-size": "size-limit",
     "lint:ts": "node_modules/tslint/bin/tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
-    "preversion": "npm run lint:ts && npm run test && npm run build",
+    "preversion": "npm run lint:ts && npm run test && npm run check-size && npm run build",
     "test": "jest --config ./config/jest.config.json --no-cache"
   },
   "repository": {
@@ -20,7 +21,8 @@
     "messageformat",
     "plural",
     "icu",
-    "react"
+    "react",
+    "tiny"
   ],
   "author": {
     "name": "Maksim Sharipov",
@@ -31,6 +33,12 @@
     "url": "https://github.com/ibitcy/eo-locale/issues"
   },
   "homepage": "https://github.com/ibitcy/eo-locale#readme",
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "8.3kb"
+    }
+  ],
   "devDependencies": {
     "@types/enzyme": "^3.1.11",
     "@types/enzyme-adapter-react-16": "^1.0.2",
@@ -45,6 +53,9 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "husky": "^1.1.3",
     "jest": "^24.0.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "size-limit": "^0.21.1",
     "ts-jest": "^23.0.0",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.12.0",
@@ -54,8 +65,10 @@
     "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
     "intl-messageformat": "^2.2.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.6.0",
     "tslib": "^1.9.3"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   }
 }
