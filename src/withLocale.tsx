@@ -21,11 +21,12 @@ export function withLocale<T extends {} = {}>(WrappedComponent: React.ComponentC
 						sharedOptionsKeys.forEach(sharedOptionKey => {
 							const sharedOption = sharedOptions[sharedOptionKey];
 
-							if (React.isValidElement(sharedOption)) {
+							if (
+								(typeof sharedOption === 'object' || typeof sharedOption === 'function') &&
+								React.isValidElement(sharedOption)
+							) {
 								sharedOptions[sharedOptionKey] = renderToStaticMarkup(
-									<EOLocaleContext.Provider value={context}>
-										{sharedOption}
-									</EOLocaleContext.Provider>,
+									<EOLocaleContext.Provider value={context}>{sharedOption}</EOLocaleContext.Provider>,
 								);
 							}
 						});
