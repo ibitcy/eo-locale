@@ -9,7 +9,7 @@
     "check-size": "size-limit",
     "lint:ts": "node_modules/tslint/bin/tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
     "preversion": "npm run lint:ts && npm run test && npm run check-size && npm run build",
-    "test": "jest --config ./config/jest.config.json --no-cache"
+    "test": "jest --detectOpenHandles --config ./config/jest.config.json --no-cache"
   },
   "repository": {
     "type": "git",
@@ -44,7 +44,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/intl": "^1.2.0",
     "@types/intl-locales-supported": "^1.0.0",
-    "@types/jest": "^23.1.0",
+    "@types/jest": "^24.0.0",
     "@types/node": "^10.3.6",
     "@types/react": "^16.3.14",
     "@types/react-dom": "^16.0.9",
