@@ -39,16 +39,4 @@ describe('EOLocaleHtml', () => {
 
 		expect(formatted.text()).toEqual('Hello 1,000!');
 	});
-
-	it('Should editable mode is accepted', () => {
-		const formatted = Enzyme.render(
-			<TestWrapper isEditable>
-				<EOLocaleHtml id="hello" />
-			</TestWrapper>,
-		);
-
-		const span = formatted.find('span');
-
-		expect(span.attr('data-key')).toEqual('hello');
-	});
 });

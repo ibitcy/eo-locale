@@ -2,9 +2,7 @@ import IntlMessageFormat from 'intl-messageformat';
 
 import { TMessage } from '../models';
 
-export type TFormatMessageOptions = Partial<{
-	[name: string]: any;
-}>;
+export type TFormatMessageOptions = Record<string, any>;
 
 export interface IFormatMessageOptions extends TFormatMessageOptions {
 	defaultMessage?: string;

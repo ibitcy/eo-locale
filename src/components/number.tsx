@@ -9,22 +9,16 @@ export interface IEOLocaleNumberProps extends Intl.NumberFormatOptions {
 	language?: string;
 }
 
-export class EOLocaleNumber extends React.PureComponent<
-	IEOLocaleNumberProps,
-	{}
-> {
-	public render() {
-		const { children, language, value, ...sharedProps } = this.props;
+export const EOLocaleNumber: React.FunctionComponent<IEOLocaleNumberProps> = props => {
+	const { children, language, value, ...sharedProps } = props;
+	const context = React.useContext(EOLocaleContext);
 
-		return (
-			<EOLocaleContext.Consumer>
-				{context =>
-					formatNumber(value, {
-						...sharedProps,
-						language: language || context.language,
-					})
-				}
-			</EOLocaleContext.Consumer>
-		);
-	}
-}
+	return (
+		<>
+			{formatNumber(value, {
+				...sharedProps,
+				language: language || context.language,
+			})}
+		</>
+	);
+};

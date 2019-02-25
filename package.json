@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist && tsc --declaration",
+    "build": "rm -rf dist && tsc --declaration && npm run check-size",
     "check-size": "size-limit",
     "lint:ts": "node_modules/tslint/bin/tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
     "preversion": "npm run lint:ts && npm run test && npm run check-size && npm run build",
@@ -68,7 +68,7 @@
     "tslib": "^1.9.3"
   },
   "peerDependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   }
 }
