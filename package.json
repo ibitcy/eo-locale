@@ -45,7 +45,7 @@
     "@types/intl": "^1.2.0",
     "@types/intl-locales-supported": "^1.0.0",
     "@types/jest": "^24.0.0",
-    "@types/node": "^10.3.6",
+    "@types/node": "^11.0.0",
     "@types/react": "^16.3.14",
     "@types/react-dom": "^16.0.9",
     "@types/webpack-env": "^1.13.6",
@@ -56,7 +56,7 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "size-limit": "^0.21.1",
-    "ts-jest": "^23.0.0",
+    "ts-jest": "^24.0.0",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.12.0",
     "typescript": "^3.0.0"
