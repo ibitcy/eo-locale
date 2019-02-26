@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { EOLocaleContext } from '../context';
 import { IFormatMessageOptions } from '../utils';
-import { useLocalizedProps } from '../utils/useLocalisedProps';
+import { localiseProps } from '../utils/localiseProps';
 
 export interface IEOLocaleTextProps extends IFormatMessageOptions {
 	id: string;
@@ -14,7 +14,7 @@ export const EOLocaleText: React.FunctionComponent<IEOLocaleTextProps> = props =
 
 	return (
 		<>
-			{context.formatMessage(id, useLocalizedProps(shared))}
+			{context.formatMessage(id, localiseProps(shared, context))}
 		</>
 	);
 };

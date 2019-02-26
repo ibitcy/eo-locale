@@ -2,7 +2,7 @@
 
 * Internationalize React apps
 * Runs in the browser and Node.js
-* Based on new React Context, Typescript and https://www.npmjs.com/package/intl
+* Based on new React Context, React Hooks, Typescript and https://www.npmjs.com/package/intl
 
 # Usage example
 

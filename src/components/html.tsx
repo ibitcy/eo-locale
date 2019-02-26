@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { EOLocaleContext } from '../context';
 import { IFormatMessageOptions } from '../utils';
-import { useLocalizedProps } from '../utils/useLocalisedProps';
+import { localiseProps } from '../utils/localiseProps';
 
 export interface IEOLocaleHtmlProps extends IFormatMessageOptions {
 	id: string;
@@ -15,7 +15,7 @@ export const EOLocaleHtml: React.FunctionComponent<IEOLocaleHtmlProps> = props =
 	return (
 		<span
 			dangerouslySetInnerHTML={{
-				__html: context.formatMessage(id, useLocalizedProps(shared)),
+				__html: context.formatMessage(id, localiseProps(shared, context)),
 			}}
 		/>
 	);

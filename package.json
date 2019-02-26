@@ -22,7 +22,8 @@
     "plural",
     "icu",
     "react",
-    "tiny"
+    "tiny",
+    "i18n"
   ],
   "author": {
     "name": "Maksim Sharipov",
