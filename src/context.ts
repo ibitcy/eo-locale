@@ -11,7 +11,6 @@ import {
 } from './utils';
 
 export interface IEOLocaleContext {
-	isEditable: boolean;
 	language: string;
 	locales: ILocale[];
 	messages: Map<string, TMessage>;
@@ -23,7 +22,6 @@ export interface IEOLocaleContext {
 
 export const EOLocaleContext = React.createContext<IEOLocaleContext>(
 	{
-		isEditable: false,
 		language: '',
 		locales: [],
 		messages: new Map(),

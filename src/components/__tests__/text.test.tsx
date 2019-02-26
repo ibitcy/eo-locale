@@ -46,21 +46,9 @@ describe('EOLocaleText', () => {
 		expect(formatted.text()).toEqual('hello');
 	});
 
-	it('Should editable mode is accepted', () => {
-		const formatted = Enzyme.render(
-			<TestWrapper isEditable>
-				<EOLocaleText id="hello" />
-			</TestWrapper>,
-		);
-
-		const span = formatted.find('span');
-
-		expect(span.attr('data-key')).toEqual('hello');
-	});
-
 	it('Should render plural', () => {
 		const formatted = Enzyme.render(
-			<TestWrapper isEditable>
+			<TestWrapper>
 				<EOLocaleText id="test_plural" attempts={1} />
 			</TestWrapper>,
 		);
@@ -70,7 +58,7 @@ describe('EOLocaleText', () => {
 
 	it('Should render plural', () => {
 		const formatted = Enzyme.render(
-			<TestWrapper isEditable>
+			<TestWrapper>
 				<EOLocaleText id="test_plural" attempts={5} />
 			</TestWrapper>,
 		);

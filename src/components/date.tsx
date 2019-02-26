@@ -9,19 +9,16 @@ export interface IEOLocaleDateProps extends Intl.DateTimeFormatOptions {
 	language?: string;
 }
 
-export class EOLocaleDate extends React.PureComponent<IEOLocaleDateProps, {}> {
-	public render() {
-		const { children, language, value, ...sharedProps } = this.props;
+export const EOLocaleDate: React.FunctionComponent<IEOLocaleDateProps> = props => {
+	const context = React.useContext(EOLocaleContext);
+	const { children, language, value, ...sharedProps } = props;
 
-		return (
-			<EOLocaleContext.Consumer>
-				{context =>
-					formatDate(this.props.value, {
-						...sharedProps,
-						language: language || context.language,
-					})
-				}
-			</EOLocaleContext.Consumer>
-		);
-	}
-}
+	return (
+		<>
+			{formatDate(value, {
+				...sharedProps,
+				language: language || context.language,
+			})}
+		</>
+	);
+};
