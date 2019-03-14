@@ -5,6 +5,8 @@ import { EOLocaleText } from './components/text';
 import { EOLocaleContext } from './context';
 import { EOLocaleProvider } from './provider';
 
+export { createMessageFormatter } from './utils';
+
 export const EOLocale = {
 	Context: EOLocaleContext,
 	Date: EOLocaleDate,
