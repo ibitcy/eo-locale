@@ -4,21 +4,17 @@ const locales = {
 	en: {
 		a: 'Hello {name}!',
 		b: 100,
+		c: "Hello \\{name\\}!",
 	},
 	ru: {
 		a: 'Привет {name}!',
 		b: 100,
+		c: "Привет \\{name\\}!",
 	},
 };
 
-const formatMessageEn = createMessageFormatter(
-	'en',
-	convertObjectToMap(locales.en),
-);
-const formatMessageRu = createMessageFormatter(
-	'ru',
-	convertObjectToMap(locales.ru),
-);
+const formatMessageEn = createMessageFormatter('en', convertObjectToMap(locales.en));
+const formatMessageRu = createMessageFormatter('ru', convertObjectToMap(locales.ru));
 
 describe('formatMessage', () => {
 	it('Should return "Hello World!"', () => {
@@ -55,5 +51,13 @@ describe('formatMessage', () => {
 
 	it('Should return value', () => {
 		expect(formatMessageEn('not_found')).toBe('not_found');
+	});
+
+	it('Should allow escaping of syntax chars', () => {
+		expect(
+			formatMessageEn('c', {
+				name: 'World',
+			}),
+		).toBe('Hello {name}!');
 	});
 });
