@@ -9,3 +9,4 @@ tsconfig.json
 .prettierrc
 .rpt2_cache
 .huskyrc.json
+.travis.yml
