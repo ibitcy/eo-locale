@@ -1,25 +1,38 @@
-import { convertObjectToMap, createMessageFormatter } from '..';
+import { ILocale } from '../../models';
+import { Translator } from '../translator';
 
-const locales = {
-	en: {
-		a: 'Hello {name}!',
-		b: 100,
-		c: "Hello \\{name\\}!",
+const locales: ILocale[] = [
+	{
+		language: 'en',
+		messages: {
+			a: 'Hello {name}!',
+			b: 100,
+			c: 'Hello \\{name\\}!',
+		},
 	},
-	ru: {
-		a: 'Привет {name}!',
-		b: 100,
-		c: "Привет \\{name\\}!",
+	{
+		language: 'ru',
+		messages: {
+			a: 'Привет {name}!',
+			b: 100,
+			c: 'Привет \\{name\\}!',
+		},
 	},
-};
+];
 
-const formatMessageEn = createMessageFormatter('en', convertObjectToMap(locales.en));
-const formatMessageRu = createMessageFormatter('ru', convertObjectToMap(locales.ru));
+const enTranslator = new Translator({
+	language: 'en',
+	locales,
+});
+const ruTranslator = new Translator({
+	language: 'ru',
+	locales,
+});
 
 describe('formatMessage', () => {
 	it('Should return "Hello World!"', () => {
 		expect(
-			formatMessageEn('a', {
+			enTranslator.formatMessage('a', {
 				name: 'World',
 			}),
 		).toBe('Hello World!');
@@ -27,7 +40,7 @@ describe('formatMessage', () => {
 
 	it('Should return "Привет Мир!"', () => {
 		expect(
-			formatMessageRu('a', {
+			ruTranslator.formatMessage('a', {
 				name: 'Мир',
 			}),
 		).toBe('Привет Мир!');
@@ -35,27 +48,27 @@ describe('formatMessage', () => {
 
 	it('Should return defaultMessage', () => {
 		expect(
-			formatMessageEn('not_found', {
+			enTranslator.formatMessage('not_found', {
 				defaultMessage: 'default',
 			}),
 		).toBe('default');
 	});
 
 	it('Should correct format number value', () => {
-		expect(formatMessageEn('b')).toBe('100');
+		expect(enTranslator.formatMessage('b')).toBe('100');
 	});
 
 	it('Should correct handle error', () => {
-		expect(formatMessageEn('a')).toBe('a');
+		expect(enTranslator.formatMessage('a')).toBe('a');
 	});
 
 	it('Should return value', () => {
-		expect(formatMessageEn('not_found')).toBe('not_found');
+		expect(enTranslator.formatMessage('not_found')).toBe('not_found');
 	});
 
 	it('Should allow escaping of syntax chars', () => {
 		expect(
-			formatMessageEn('c', {
+			enTranslator.formatMessage('c', {
 				name: 'World',
 			}),
 		).toBe('Hello {name}!');

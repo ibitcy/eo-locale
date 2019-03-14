@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { EOLocaleContext } from '../context';
-import { formatDate } from '../utils';
+import { Translator } from '../utils/translator';
 
 export interface IEOLocaleDateProps extends Intl.DateTimeFormatOptions {
 	value: Date;
@@ -10,15 +10,12 @@ export interface IEOLocaleDateProps extends Intl.DateTimeFormatOptions {
 }
 
 export const EOLocaleDate: React.FunctionComponent<IEOLocaleDateProps> = props => {
-	const context = React.useContext(EOLocaleContext);
-	const { children, language, value, ...sharedProps } = props;
+	let { translator } = React.useContext(EOLocaleContext);
+	const { children, language, value, ...options } = props;
 
-	return (
-		<>
-			{formatDate(value, {
-				...sharedProps,
-				language: language || context.language,
-			})}
-		</>
-	);
+	if (language) {
+		translator = new Translator({ language });
+	}
+
+	return <>{translator.formatDate(value, options)}</>;
 };

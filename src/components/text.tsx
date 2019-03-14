@@ -12,9 +12,5 @@ export const EOLocaleText: React.FunctionComponent<IEOLocaleTextProps> = props =
 	const { id, ...shared } = props;
 	const context = React.useContext(EOLocaleContext);
 
-	return (
-		<>
-			{context.formatMessage(id, localiseProps(shared, context))}
-		</>
-	);
+	return <>{context.translator.formatMessage(id, localiseProps(shared, context))}</>;
 };

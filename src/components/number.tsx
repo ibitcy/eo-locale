@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { EOLocaleContext } from '../context';
-import { formatNumber } from '../utils';
+import { Translator } from '../utils/translator';
 
 export interface IEOLocaleNumberProps extends Intl.NumberFormatOptions {
 	value: number;
@@ -10,15 +10,12 @@ export interface IEOLocaleNumberProps extends Intl.NumberFormatOptions {
 }
 
 export const EOLocaleNumber: React.FunctionComponent<IEOLocaleNumberProps> = props => {
-	const { children, language, value, ...sharedProps } = props;
-	const context = React.useContext(EOLocaleContext);
+	let { translator } = React.useContext(EOLocaleContext);
+	const { children, language, value, ...options } = props;
 
-	return (
-		<>
-			{formatNumber(value, {
-				...sharedProps,
-				language: language || context.language,
-			})}
-		</>
-	);
+	if (language) {
+		translator = new Translator({ language });
+	}
+
+	return <>{translator.formatNumber(value, options)}</>;
 };
