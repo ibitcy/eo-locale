@@ -5,8 +5,6 @@ export interface ILocale {
 	messages: Record<string, TMessage>;
 }
 
-export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
-
 export interface IFormatMessageOptions extends Record<string, any> {
 	defaultMessage?: string;
 }
