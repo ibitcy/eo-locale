@@ -10,6 +10,7 @@ export interface IFormatMessageOptions extends TFormatMessageOptions {
 
 export type TFormatMessage = (value: string, options?: IFormatMessageOptions) => string;
 
+// TODO make own formatter instead intl-messageformat, use Intl.PluralRules
 export function createMessageFormatter(language: string, messages: Map<string, TMessage>): TFormatMessage {
 	return (value: string, options: IFormatMessageOptions = {}) => {
 		const { defaultMessage, ...sharedOptions } = options;
