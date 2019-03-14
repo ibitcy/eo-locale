@@ -21,7 +21,6 @@ const locales: ILocale[] = [
 ];
 
 const enTranslator = new Translator({
-	language: 'en',
 	locales,
 });
 const ruTranslator = new Translator({

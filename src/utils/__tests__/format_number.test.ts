@@ -1,8 +1,6 @@
 import { Translator } from '../translator';
 
-const enTranslator = new Translator({
-	language: 'en',
-});
+const enTranslator = new Translator();
 const ruTranslator = new Translator({
 	language: 'ru',
 });

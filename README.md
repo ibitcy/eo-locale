@@ -27,17 +27,12 @@ const locales = [
   }
 ];
 
-const user = {
-  name: 'Alex',
-};
-
 export class App extends React.PureComponent<{}, {}> {
   public render() {
     return (
       <EOLocale.Provider language="en" locales={locales}>
         <main>
           <EOLocale.Text id="hello" name={user.name} />
-          <EOLocale.Text id="hello" name={<UserName user={user} />} />
           <EOLocale.Date value={new Date()} />
           <EOLocale.Number
             currency="EUR"

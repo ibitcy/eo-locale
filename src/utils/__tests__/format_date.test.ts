@@ -2,9 +2,7 @@ import { Translator } from '../translator';
 
 const date = new Date(2017, 5, 24);
 
-const enTranslator = new Translator({
-	language: 'en',
-});
+const enTranslator = new Translator();
 const ruTranslator = new Translator({
 	language: 'ru',
 });
