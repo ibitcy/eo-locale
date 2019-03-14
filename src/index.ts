@@ -6,6 +6,8 @@ import { EOLocaleContext } from './context';
 import { EOLocaleProvider } from './provider';
 
 export { createMessageFormatter } from './utils';
+export { formatDate } from './utils';
+export { formatNumber } from './utils';
 
 export const EOLocale = {
 	Context: EOLocaleContext,
