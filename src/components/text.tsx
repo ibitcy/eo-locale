@@ -9,7 +9,7 @@ export interface IEOLocaleTextProps extends IFormatMessageOptions {
 }
 
 export const EOLocaleText: React.FunctionComponent<IEOLocaleTextProps> = props => {
-	const { id, ...shared } = props;
+	const { children, id, ...shared } = props;
 	const context = React.useContext(EOLocaleContext);
 
 	return <>{context.translator.formatMessage(id, localiseProps(shared, context))}</>;
