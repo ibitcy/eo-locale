@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import { TFormatMessageOptions } from '.';
 import { EOLocaleContext, IEOLocaleContext } from '../context';
 
-export function localiseProps(props: TFormatMessageOptions, context: IEOLocaleContext): TFormatMessageOptions {
+export function localiseProps(props: Record<string, any>, context: IEOLocaleContext): Record<string, any> {
 	const newProps = { ...props };
 
 	Object.keys(newProps).forEach(key => {

@@ -1,7 +1,6 @@
 import IntlMessageFormat from 'intl-messageformat';
 
-import { IFormatMessageOptions } from '.';
-import { ILocale, TMessage } from '../models';
+import { IFormatMessageOptions, ILocale, TMessage } from '../models';
 
 interface IProps {
 	language: string;

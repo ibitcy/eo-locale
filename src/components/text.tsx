@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { EOLocaleContext } from '../context';
-import { IFormatMessageOptions } from '../utils';
+import { IFormatMessageOptions } from '../models';
 import { localiseProps } from '../utils/localiseProps';
 
 export interface IEOLocaleTextProps extends IFormatMessageOptions {
