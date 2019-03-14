@@ -1,6 +1,7 @@
 {
 	"compileOnSave": false,
 	"compilerOptions": {
+		"declaration": true,
 		"downlevelIteration": true,
 		"experimentalDecorators": false,
 		"forceConsistentCasingInFileNames": true,

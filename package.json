@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist && tsc --declaration && npm run check-size",
+    "build": "rm -rf dist && rollup --config ./rollup.config.js && npm run check-size",
     "check-size": "size-limit",
     "lint:ts": "node_modules/tslint/bin/tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
     "preversion": "npm run lint:ts && npm run test && npm run check-size && npm run build",
@@ -37,7 +37,7 @@
   "size-limit": [
     {
       "path": "dist/index.js",
-      "limit": "8kb"
+      "limit": "6kb"
     }
   ],
   "devDependencies": {
@@ -56,6 +56,9 @@
     "jest": "^24.0.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "rollup": "^1.6.0",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-typescript2": "^0.20.1",
     "size-limit": "^0.21.1",
     "ts-jest": "^24.0.0",
     "tslint": "^5.10.0",
