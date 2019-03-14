@@ -7,3 +7,4 @@ node_modules
 config
 tsconfig.json
 .prettierrc
+.rpt2_cache
