@@ -46,16 +46,15 @@ export class Translator {
 
 	public formatMessage(value: string, options: IFormatMessageOptions = {}) {
 		const { defaultMessage, ...sharedOptions } = options;
-
-		let message = this.messages.get(value);
+		const message = this.messages.get(value);
 
 		if (typeof message === 'number') {
-			message = message.toString();
+			return message.toString();
 		}
 
 		if (typeof message === 'string') {
 			const formattedMessage = new IntlMessageFormat(message, this.language);
-			let output = value;
+			let output = message;
 
 			try {
 				output = formattedMessage.format(sharedOptions);
