@@ -10,3 +10,4 @@ tsconfig.json
 .rpt2_cache
 .huskyrc.json
 .travis.yml
+rollup.config.js
