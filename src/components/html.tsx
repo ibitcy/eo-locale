@@ -15,7 +15,7 @@ export const EOLocaleHtml: React.FunctionComponent<IEOLocaleHtmlProps> = props =
 	return (
 		<span
 			dangerouslySetInnerHTML={{
-				__html: context.translator.formatMessage(id, localiseProps(shared, context)),
+				__html: context.translator.translate(id, localiseProps(shared, context)),
 			}}
 		/>
 	);

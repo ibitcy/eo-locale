@@ -44,31 +44,36 @@ export class Translator {
 		return numberFormat.format(value);
 	}
 
-	public formatMessage(value: string, options: IFormatMessageOptions = {}) {
-		const { defaultMessage, ...sharedOptions } = options;
-		const message = this.messages.get(value);
+	public translate(id: string, options: IFormatMessageOptions = {}): string {
+		const { defaultMessage, ...values } = options;
+
+		let message = this.messages.get(id);
 
 		if (typeof message === 'number') {
 			return message.toString();
 		}
 
-		if (typeof message === 'string') {
-			const formattedMessage = new IntlMessageFormat(message, this.language);
-			let output = message;
-
-			try {
-				output = formattedMessage.format(sharedOptions);
-			} catch (error) {
-				console.error('[eo-locale] ', error);
+		if (typeof message === 'undefined') {
+			if (typeof defaultMessage === 'string') {
+				message = defaultMessage;
+			} else {
+				return id;
 			}
-
-			return output;
 		}
 
-		if (typeof defaultMessage === 'string') {
-			return defaultMessage;
+		return this.formatMessage(message, values);
+	}
+
+	public formatMessage(message: string, values: Record<string, any> = {}): string {
+		const formattedMessage = new IntlMessageFormat(message, this.language);
+		let output = message;
+
+		try {
+			output = formattedMessage.format(values);
+		} catch (error) {
+			console.error('[eo-locale] ', error);
 		}
 
-		return value;
+		return output;
 	}
 }

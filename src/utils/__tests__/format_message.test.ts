@@ -31,7 +31,7 @@ const ruTranslator = new Translator({
 describe('formatMessage', () => {
 	it('Should return "Hello World!"', () => {
 		expect(
-			enTranslator.formatMessage('a', {
+			enTranslator.translate('a', {
 				name: 'World',
 			}),
 		).toBe('Hello World!');
@@ -39,7 +39,7 @@ describe('formatMessage', () => {
 
 	it('Should return "Привет Мир!"', () => {
 		expect(
-			ruTranslator.formatMessage('a', {
+			ruTranslator.translate('a', {
 				name: 'Мир',
 			}),
 		).toBe('Привет Мир!');
@@ -47,29 +47,35 @@ describe('formatMessage', () => {
 
 	it('Should return defaultMessage', () => {
 		expect(
-			enTranslator.formatMessage('not_found', {
+			enTranslator.translate('not_found', {
 				defaultMessage: 'default',
 			}),
 		).toBe('default');
 	});
 
 	it('Should correct format number value', () => {
-		expect(enTranslator.formatMessage('b')).toBe('100');
+		expect(enTranslator.translate('b')).toBe('100');
 	});
 
 	it('Should correct handle error', () => {
-		expect(enTranslator.formatMessage('a')).toBe('Hello {name}!');
+		expect(enTranslator.translate('a')).toBe('Hello {name}!');
 	});
 
 	it('Should return value', () => {
-		expect(enTranslator.formatMessage('not_found')).toBe('not_found');
+		expect(enTranslator.translate('not_found')).toBe('not_found');
 	});
 
 	it('Should allow escaping of syntax chars', () => {
 		expect(
-			enTranslator.formatMessage('c', {
+			enTranslator.translate('c', {
 				name: 'World',
 			}),
+		).toBe('Hello {name}!');
+	});
+
+	it('Should correct format message', () => {
+		expect(
+			enTranslator.formatMessage('Hello {name}!'),
 		).toBe('Hello {name}!');
 	});
 });
