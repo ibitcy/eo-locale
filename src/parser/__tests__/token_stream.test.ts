@@ -32,11 +32,11 @@ describe('TokenStream', () => {
 	});
 
 	it('Should return many tokens', () => {
-		const stream = tokenStream('You have {count, plural,, one {{count} item}');
+		const stream = tokenStream('You, have {count, plural,, one {{count} item , }');
 
 		expect(stream.next().value).toEqual({
 			type: ETokenType.Text,
-			value: 'You have ',
+			value: 'You, have ',
 		});
 		expect(stream.next().value).toEqual({
 			type: ETokenType.Open,
@@ -84,7 +84,50 @@ describe('TokenStream', () => {
 		});
 		expect(stream.next().value).toEqual({
 			type: ETokenType.Text,
-			value: ' item',
+			value: ' item , ',
+		});
+		expect(stream.next().value).toEqual({
+			type: ETokenType.Close,
+			value: '}',
+		});
+	});
+
+	it('Should return punc token', () => {
+		const stream = tokenStream(
+			'{attempts, plural, one {You have one more attempt} other {You have {attempts} attempts}}',
+		);
+
+		expect(stream.next().value).toEqual({
+			type: ETokenType.Open,
+			value: '{',
+		});
+		expect(stream.next().value).toEqual({
+			type: ETokenType.Text,
+			value: 'attempts',
+		});
+		expect(stream.next().value).toEqual({
+			type: ETokenType.Comma,
+			value: ',',
+		});
+		expect(stream.next().value).toEqual({
+			type: ETokenType.Text,
+			value: ' plural',
+		});
+		expect(stream.next().value).toEqual({
+			type: ETokenType.Comma,
+			value: ',',
+		});
+		expect(stream.next().value).toEqual({
+			type: ETokenType.Text,
+			value: ' one ',
+		});
+		expect(stream.next().value).toEqual({
+			type: ETokenType.Open,
+			value: '{',
+		});
+		expect(stream.next().value).toEqual({
+			type: ETokenType.Text,
+			value: 'You have one more attempt',
 		});
 		expect(stream.next().value).toEqual({
 			type: ETokenType.Close,

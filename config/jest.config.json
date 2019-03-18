@@ -1,6 +1,6 @@
 {
   "moduleFileExtensions": ["tsx", "ts", "js"],
-  "collectCoverage": true,
+  "collectCoverage": false,
   "coveragePathIgnorePatterns": ["/node_modules/", "./src/context.ts", "./src/polyfill.ts"],
   "setupFilesAfterEnv": ["./config/test_setup.ts"],
   "coverageThreshold": {

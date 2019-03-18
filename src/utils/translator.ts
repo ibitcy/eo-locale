@@ -1,6 +1,5 @@
-import IntlMessageFormat from 'intl-messageformat';
-
 import { IFormatMessageOptions, ILocale, TMessage } from '../models';
+import { format } from '../parser/parser';
 
 interface IProps {
 	language: string;
@@ -64,7 +63,7 @@ export class Translator {
 
 	public formatMessage(message: string, values: Record<string, any> = {}): string {
 		try {
-			return new IntlMessageFormat(message, this.language).format(values);
+			return format(this.language, message, values);
 		} catch (error) {
 			console.error('[eo-locale] ', error);
 		}

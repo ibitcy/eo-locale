@@ -1,11 +1,11 @@
 export enum ETokenType {
-	Close = 'open',
-	Comma = 'open',
+	Close = 'close',
+	Comma = 'comma',
 	Open = 'open',
 	Text = 'txt',
 }
 
-interface IToken {
+export interface IToken {
 	type: ETokenType;
 	value: string;
 }
@@ -25,12 +25,14 @@ function* inputStream(input: string): IterableIterator<string> {
 
 export function* tokenStream(input: string): IterableIterator<IToken> {
 	const stream = inputStream(input);
+	let depth = 0;
 	let step = stream.next();
 	let str = '';
 
 	while (!step.done) {
 		switch (step.value) {
 			case OPEN:
+				depth++;
 				if (str) {
 					yield {
 						type: ETokenType.Text,
@@ -45,6 +47,7 @@ export function* tokenStream(input: string): IterableIterator<IToken> {
 				};
 				break;
 			case CLOSE:
+				depth--;
 				if (str) {
 					yield {
 						type: ETokenType.Text,
@@ -59,6 +62,10 @@ export function* tokenStream(input: string): IterableIterator<IToken> {
 				};
 				break;
 			case COMMA:
+				if (depth !== 1) {
+					str += step.value;
+					break;
+				}
 				if (str) {
 					yield {
 						type: ETokenType.Text,

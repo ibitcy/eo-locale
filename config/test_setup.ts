@@ -7,4 +7,4 @@ serverPolyfill(['en', 'ru']);
 
 Enzyme.configure({ adapter: new Adapter() });
 
-global.console.error = jest.fn();
+// global.console.error = jest.fn();

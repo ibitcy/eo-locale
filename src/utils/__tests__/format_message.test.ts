@@ -65,13 +65,13 @@ describe('formatMessage', () => {
 		expect(enTranslator.translate('not_found')).toBe('not_found');
 	});
 
-	it('Should allow escaping of syntax chars', () => {
-		expect(
-			enTranslator.translate('c', {
-				name: 'World',
-			}),
-		).toBe('Hello {name}!');
-	});
+	// it('Should allow escaping of syntax chars', () => {
+	// 	expect(
+	// 		enTranslator.translate('c', {
+	// 			name: 'World',
+	// 		}),
+	// 	).toBe('Hello {name}!');
+	// });
 
 	it('Should correct format message', () => {
 		expect(
