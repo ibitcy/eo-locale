@@ -35,13 +35,11 @@ export class Translator {
 	}
 
 	public formatDate(value: Date, options?: Intl.DateTimeFormatOptions): string {
-		const dateFormat = new Intl.DateTimeFormat(this.language, options);
-		return dateFormat.format(value);
+		return new Intl.DateTimeFormat(this.language, options).format(value);
 	}
 
 	public formatNumber(value: number, options?: Intl.NumberFormatOptions) {
-		const numberFormat = new Intl.NumberFormat(this.language, options);
-		return numberFormat.format(value);
+		return new Intl.NumberFormat(this.language, options).format(value);
 	}
 
 	public translate(id: string, options: IFormatMessageOptions = {}): string {
@@ -65,15 +63,12 @@ export class Translator {
 	}
 
 	public formatMessage(message: string, values: Record<string, any> = {}): string {
-		const formattedMessage = new IntlMessageFormat(message, this.language);
-		let output = message;
-
 		try {
-			output = formattedMessage.format(values);
+			return new IntlMessageFormat(message, this.language).format(values);
 		} catch (error) {
 			console.error('[eo-locale] ', error);
 		}
 
-		return output;
+		return message;
 	}
 }
