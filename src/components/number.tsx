@@ -17,5 +17,5 @@ export const EOLocaleNumber: React.FunctionComponent<IEOLocaleNumberProps> = pro
 		translator = new Translator({ language });
 	}
 
-	return <>{translator.formatNumber(value, options)}</>;
+	return translator.formatNumber(value, options) as any;
 };

@@ -17,5 +17,5 @@ export const EOLocaleDate: React.FunctionComponent<IEOLocaleDateProps> = props =
 		translator = new Translator({ language });
 	}
 
-	return <>{translator.formatDate(value, options)}</>;
+	return translator.formatDate(value, options) as any;
 };
