@@ -58,7 +58,7 @@ describe('formatMessage', () => {
 	});
 
 	it('Should correct handle error', () => {
-		expect(enTranslator.translate('a')).toBe('Hello {name}!');
+		expect(enTranslator.translate('a')).toBe('Hello undefined!');
 	});
 
 	it('Should return value', () => {

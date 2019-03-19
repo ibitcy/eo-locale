@@ -27,9 +27,13 @@ export function* tokenStream(input: string): IterableIterator<IToken> {
 	const stream = inputStream(input);
 	let step = stream.next();
 
+	const error = () => {
+		throw new Error(`Unexpected character "${step.value}"`);
+	}
+
 	const skip = (ch: string) => {
 		if (ch !== step.value) {
-			throw new Error(`Unexpected character "${step.value}". Should be "${ch}".`);
+			error();
 		}
 
 		step = stream.next();
@@ -81,7 +85,7 @@ export function* tokenStream(input: string): IterableIterator<IToken> {
 		skip(DELIMITER);
 
 		if (type.trim() !== 'plural') {
-			throw new Error('invalid format');
+			error();
 		}
 
 		const options = new Map<string, IToken[]>();
