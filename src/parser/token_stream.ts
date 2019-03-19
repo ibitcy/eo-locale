@@ -62,6 +62,7 @@ export function* tokenStream(input: string): IterableIterator<IToken> {
 			skip(DELIMITER);
 
 			return {
+				options: readPluralOptions(),
 				type: ETokenType.Plural,
 				value,
 			};
@@ -102,11 +103,7 @@ export function* tokenStream(input: string): IterableIterator<IToken> {
 		skip(OPEN);
 		
 		while(step.value !== CLOSE) {
-			if (step.value === OPEN) {
-				tokens.push(readVariable())
-			} else {
-				tokens.push(readText());
-			}
+			tokens.push(read());
 		}
 
 		skip(CLOSE);
@@ -116,16 +113,7 @@ export function* tokenStream(input: string): IterableIterator<IToken> {
 
 	const read = () => {
 		if (step.value === OPEN) {
-			const variable = readVariable();
-			
-			if (variable.type === ETokenType.Plural) {
-				return {
-					...variable,
-					options: readPluralOptions(),
-				};
-			}
-	
-			return variable;
+			return readVariable();
 		}
 
 		return readText();
