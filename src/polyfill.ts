@@ -22,11 +22,13 @@ export function serverPolyfill(locales: string | string[]) {
 			// `Intl` exists, but it doesn't have the data we need, so load the
 			// polyfill and patch the constructors we need with the polyfill's.
 			const IntlPolyfill = require('intl');
+			require('intl-pluralrules');
 			Intl.NumberFormat = IntlPolyfill.NumberFormat;
 			Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
 		}
 	} else {
 		// No `Intl`, so use and load the polyfill.
 		global.Intl = require('intl');
+		require('intl-pluralrules');
 	}
 }
