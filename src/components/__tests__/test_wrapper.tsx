@@ -15,7 +15,7 @@ const locales = [
 		language: 'ru',
 		messages: {
 			hello: 'Привет {name}!',
-			test_plural: "{attempts, plural, one {} few {} many {} other {}}",
+			test_plural: "{confirmations, plural, one {{confirmations} подтверждение} few {{confirmations} подтверждения} many {{confirmations} подтверждений} other {{confirmations} подтверждений}}",
 			world: '<strong>мир</strong>',
 		},
 	},

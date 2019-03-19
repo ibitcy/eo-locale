@@ -65,4 +65,24 @@ describe('EOLocaleText', () => {
 
 		expect(formatted.text()).toEqual('You have 5 attempts');
 	});
+
+	it('Should render rus plural', () => {
+		const formatted = Enzyme.render(
+			<TestWrapper language="ru">
+				<EOLocaleText id="test_plural" confirmations={3} />
+			</TestWrapper>,
+		);
+
+		expect(formatted.text()).toEqual('3 подтверждения');
+	});
+
+	it('Should render rus plural', () => {
+		const formatted = Enzyme.render(
+			<TestWrapper language="ru">
+				<EOLocaleText id="test_plural" confirmations={1} />
+			</TestWrapper>,
+		);
+
+		expect(formatted.text()).toEqual('1 подтверждение');
+	});
 });
