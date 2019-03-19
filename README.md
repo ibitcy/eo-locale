@@ -12,15 +12,33 @@ English language by default
 ## Format date
 
 ```
-<EOLocale.Date value={new Date(2019, 2, 19)} /> // 3/19/2019
-<EOLocale.Date value={new Date(2019, 2, 19)} year="numeric" weekday="long" month="long" day="numeric" /> // Tuesday, March 19, 2019
+<EOLocale.Date value={new Date(2019, 2, 19)} />
+// 3/19/2019
+
+<EOLocale.Date
+  value={new Date(2019, 2, 19)}
+  day="numeric"
+  month="long"
+  year="numeric"
+  weekday="long"
+ />
+ // Tuesday, March 19, 2019
 ```
 
 ## Format number
 
 ```
-<EOLocale.Number value={1000} /> // 1,000
-<EOLocale.Number currency="EUR" maximumFractionDigits={2} minimumFractionDigits={2} style="currency" value={1000} /> // €1,000.00
+<EOLocale.Number value={1000} />
+// 1,000
+
+<EOLocale.Number
+  value={1000}
+  currency="EUR"
+  maximumFractionDigits={2}
+  minimumFractionDigits={2}
+  style="currency"
+/>
+// €1,000.00
 ```
 
 ## Format messages
