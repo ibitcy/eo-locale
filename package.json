@@ -37,7 +37,7 @@
   "size-limit": [
     {
       "path": "dist/index.js",
-      "limit": "6kb"
+      "limit": "2kb"
     }
   ],
   "devDependencies": {
@@ -69,8 +69,7 @@
   },
   "dependencies": {
     "intl": "^1.2.5",
-    "intl-locales-supported": "^1.0.0",
-    "intl-messageformat": "^2.2.0"
+    "intl-locales-supported": "^1.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.0",
