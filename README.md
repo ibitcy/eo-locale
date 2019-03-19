@@ -1,9 +1,8 @@
 # eo-locale [![npm version](https://img.shields.io/npm/v/eo-locale.svg?style=flat)](https://www.npmjs.com/package/eo-locale) [![Build Status](https://travis-ci.org/ibitcy/eo-locale.svg?branch=master)](https://travis-ci.org/ibitcy/eo-locale)
 
-* Internationalize React apps
 * Runs in the browser and Node.js
 * Tiny(2kb)
-* Based on Intl object
+* Based on Intl object and React Hooks
 * Supports plural by ICU format
 
 # Examples
@@ -61,6 +60,23 @@ const locales = [
     <EOLocale.Text id="hello" name="World" /> // Helo World!
   </span>
 </EOLocale.Provider>
+```
+
+### Format hmtl
+
+```jsx
+const locales = [
+  {
+    language: 'en',
+    messages: {
+      hello: 'Hello<br/>World!'
+    }
+  },
+];
+
+<EOLocale.Html id="hello" />
+// Hello
+// World!
 ```
 
 ### Use components as props
