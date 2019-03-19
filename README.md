@@ -4,6 +4,7 @@
 * Runs in the browser and Node.js
 * Tiny(2kb)
 * Based on Intl object
+* Supports plural by ICU format
 
 # Examples
 
@@ -43,6 +44,8 @@ English language by default
 
 ### Format messages
 
+Add provider in root of your application
+
 ```jsx
 const locales = [
   {
@@ -73,4 +76,20 @@ const locales = [
 ];
 
 <EOLocale.Text id="today" weekday={<EOLocale.Date value={new Date()} weekday="long" />} />
+```
+
+### Plural
+
+```jsx
+const locales = [
+  {
+    language: 'en',
+    messages: {
+      items: '{count, plural, one {One item} other {{count} items}}'
+    }
+  },
+];
+
+<EOLocale.Text id="items" count={3} />
+// 3 items
 ```
