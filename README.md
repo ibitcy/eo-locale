@@ -9,9 +9,9 @@
 
 English language by default
 
-## Format date
+### Format date
 
-```
+```jsx
 <EOLocale.Date value={new Date(2019, 2, 19)} />
 // 3/19/2019
 
@@ -25,9 +25,9 @@ English language by default
  // Tuesday, March 19, 2019
 ```
 
-## Format number
+### Format number
 
-```
+```jsx
 <EOLocale.Number value={1000} />
 // 1,000
 
@@ -41,9 +41,9 @@ English language by default
 // €1,000.00
 ```
 
-## Format messages
+### Format messages
 
-```
+```jsx
 const locales = [
   {
     language: 'en',
@@ -60,9 +60,9 @@ const locales = [
 </EOLocale.Provider>
 ```
 
-## Use components as props
+### Use components as props
 
-```
+```jsx
 const locales = [
   {
     language: 'en',
