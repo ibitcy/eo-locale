@@ -91,7 +91,10 @@ const locales = [
   },
 ];
 
-<EOLocale.Text id="today" weekday={<EOLocale.Date value={new Date(2019, 2, 19)} weekday="long" />} />
+<EOLocale.Text
+  id="today"
+  weekday={<EOLocale.Date value={new Date(2019, 2, 19)} weekday="long" />}
+/>
 // Today is Tuesday!
 ```
 
