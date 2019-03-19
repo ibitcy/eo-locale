@@ -15,7 +15,7 @@ export default [
 				format: 'cjs',
 			},
 		],
-		external: ['react', 'react-dom/server', 'intl-messageformat'],
+		external: ['react', 'react-dom/server'],
 		plugins,
 	},
 	{
