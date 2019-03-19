@@ -72,10 +72,4 @@ describe('formatMessage', () => {
 	// 		}),
 	// 	).toBe('Hello {name}!');
 	// });
-
-	it('Should correct format message', () => {
-		expect(
-			enTranslator.formatMessage('Hello {name}!'),
-		).toBe('Hello {name}!');
-	});
 });
