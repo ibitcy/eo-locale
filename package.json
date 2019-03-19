@@ -37,7 +37,7 @@
   "size-limit": [
     {
       "path": "dist/index.js",
-      "limit": "6kb"
+      "limit": "2kb"
     }
   ],
   "devDependencies": {
