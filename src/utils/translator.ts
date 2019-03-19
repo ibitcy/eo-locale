@@ -11,7 +11,6 @@ const DEFAULT_PROPS: IProps = {
 	locales: [],
 };
 
-// TODO make own formatter instead intl-messageformat, use Intl.PluralRules
 export class Translator {
 	private readonly language: string;
 	private readonly messages: Map<string, TMessage>;
