@@ -2,9 +2,7 @@
 
 * Internationalize React apps
 * Runs in the browser and Node.js
-* Tiny. Less than 2kb
-* It uses native Intl api
-* Based on new React Context, React Hooks, Typescript and https://www.npmjs.com/package/intl
+* Tiny(2kb)
 
 # Usage example
 
