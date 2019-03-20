@@ -4,6 +4,7 @@
 * Tiny(2kb)
 * Based on Intl object and React Hooks
 * Supports ICU format
+* Required react^16.8.0 and react-dom^16.8.0
 
 # Examples
 
