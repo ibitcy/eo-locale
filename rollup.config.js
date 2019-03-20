@@ -3,7 +3,14 @@ import typescript from 'rollup-plugin-typescript2';
 
 const plugins = [
 	typescript(),
-	terser(),
+	terser({
+		toplevel: true,
+		compress: {
+			passes: 3,
+			pure_getters: true,
+			unsafe: true,
+		},
+	}),
 ];
 
 export default [
