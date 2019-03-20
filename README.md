@@ -10,24 +10,6 @@
 
 English language by default
 
-### Format date
-
-```jsx
-import { EOLocale } from 'eo-locale';
-
-<EOLocale.Date value={new Date(2019, 2, 19)} />
-// 3/19/2019
-
-<EOLocale.Date
-  value={new Date(2019, 2, 19)}
-  day="numeric"
-  month="long"
-  year="numeric"
-  weekday="long"
- />
- // Tuesday, March 19, 2019
-```
-
 ### Format number
 
 ```jsx
@@ -86,6 +68,24 @@ const locales = [
 <EOLocale.Html id="hello" />
 // Hello
 // World!
+```
+
+### Format date
+
+```jsx
+import { EOLocale } from 'eo-locale';
+
+<EOLocale.Date value={new Date(2019, 2, 19)} />
+// 3/19/2019
+
+<EOLocale.Date
+  value={new Date(2019, 2, 19)}
+  day="numeric"
+  month="long"
+  year="numeric"
+  weekday="long"
+ />
+ // Tuesday, March 19, 2019
 ```
 
 ### Use without react
