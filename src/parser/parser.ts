@@ -1,7 +1,7 @@
-import { ETokenType, IToken, tokenStream } from './token_stream';
+import { ETokenType, generateTokenStream, IToken } from './token_stream';
 
 export function format(language: string, message: string, values: Record<string, any>): string {
-	const tokens = tokenStream(message);
+	const tokenStream = generateTokenStream(message);
 	let result = '';
 
 	const applyToken = (token: IToken): string => {
@@ -16,21 +16,21 @@ export function format(language: string, message: string, values: Record<string,
 		}
 
 		if (token.type === ETokenType.Plural && token.options) {
-			const options = token.options.get(new Intl.PluralRules(language).select(value));
+			const tokens = token.options.get(new Intl.PluralRules(language).select(value));
 
-			if (options) {
-				return options.map(applyToken).join('');
+			if (tokens) {
+				return tokens.map(applyToken).join('');
 			}
 		}
 
 		return '';
 	};
 
-	let step = tokens.next();
+	let step = tokenStream.next();
 
 	while (!step.done) {
 		result += applyToken(step.value);
-		step = tokens.next();
+		step = tokenStream.next();
 	}
 
 	return result;

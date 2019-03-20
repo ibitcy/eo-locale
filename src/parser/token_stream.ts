@@ -14,17 +14,16 @@ const OPEN = '{';
 const CLOSE = '}';
 const DELIMITER = ',';
 
-function* inputStream(input: string): IterableIterator<string> {
+function* generateCharStream(input: string): IterableIterator<string> {
 	let index = 0;
 
 	while (index < input.length) {
-		yield input[index];
-		index += 1;
+		yield input.charAt(index++);
 	}
 }
 
-export function* tokenStream(input: string): IterableIterator<IToken> {
-	const stream = inputStream(input);
+export function* generateTokenStream(input: string): IterableIterator<IToken> {
+	const stream = generateCharStream(input);
 	let step = stream.next();
 
 	const error = () => {

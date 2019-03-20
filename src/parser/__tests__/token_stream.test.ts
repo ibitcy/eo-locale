@@ -1,8 +1,8 @@
-import { ETokenType, tokenStream } from '../token_stream';
+import { ETokenType, generateTokenStream } from '../token_stream';
 
 describe('TokenStream', () => {
 	it('Should return text token', () => {
-		const stream = tokenStream('abc');
+		const stream = generateTokenStream('abc');
 
 		expect(stream.next().value).toEqual({
 			type: ETokenType.Text,
@@ -12,7 +12,7 @@ describe('TokenStream', () => {
 	});
 
 	it('Should return variable token', () => {
-		const stream = tokenStream('{a}');
+		const stream = generateTokenStream('{a}');
 
 		expect(stream.next().value).toEqual({
 			type: ETokenType.Variable,
@@ -22,7 +22,7 @@ describe('TokenStream', () => {
 	});
 
 	it('Should return tokens', () => {
-		const stream = tokenStream('Hello {name}!');
+		const stream = generateTokenStream('Hello {name}!');
 
 		expect(stream.next().value).toEqual({
 			type: ETokenType.Text,
@@ -40,7 +40,7 @@ describe('TokenStream', () => {
 	});
 
 	it('Should return plural token', () => {
-		const stream = tokenStream('{count, plural, one {One, item} other {{count} ite,ms}}');
+		const stream = generateTokenStream('{count, plural, one {One, item} other {{count} ite,ms}}');
 		const options = new Map();
 
 		options.set('one', [{
