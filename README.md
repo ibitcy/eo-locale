@@ -79,6 +79,29 @@ const locales = [
 // World!
 ```
 
+### Use without react
+
+```js
+import { Translator } from 'eo-locale';
+
+const locales = [
+  {
+    language: 'en',
+    messages: {
+      today: 'Today is {weekday}!'
+    }
+  },
+];
+
+const translator = new Translator({
+  language: 'en',
+  locales,
+});
+// translator.formatDate
+// translator.formatNumber
+// translator.translate
+```
+
 ### Use components as props
 
 ```jsx
@@ -112,4 +135,22 @@ const locales = [
 
 <EOLocale.Text id="items" count={3} />
 // 3 items
+```
+
+### Client polyfill
+
+```js
+import { clientPolyfill } from 'eo-locale/dist/polyfill';
+
+clientPolyfill().then(() => {
+  // Init your application
+});
+```
+
+### Server polyfill
+
+```js
+import { serverPolyfill } from 'eo-locale/dist/polyfill';
+
+serverPolyfill(['en']);
 ```
