@@ -3,7 +3,7 @@
 * Runs in the browser and Node.js
 * Tiny(2kb)
 * Based on Intl object and React Hooks
-* Supports plural by ICU format
+* Supports ICU format
 
 # Examples
 
