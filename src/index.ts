@@ -1,9 +1,10 @@
 import { EOLocaleDate } from './components/date';
 import { EOLocaleNumber } from './components/number';
-import { EOLocaleTranslation } from './components/trans';
+import { EOLocaleText } from './components/text';
 import { EOLocaleContext } from './context';
 import { EOLocaleProvider } from './provider';
 
+export { useTranslator } from './utils/use_translator';
 export { Translator } from './utils/translator';
 
 export const EOLocale = {
@@ -11,5 +12,5 @@ export const EOLocale = {
 	Date: EOLocaleDate,
 	Number: EOLocaleNumber,
 	Provider: EOLocaleProvider,
-	Trans: EOLocaleTranslation,
+	Text: EOLocaleText,
 };

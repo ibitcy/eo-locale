@@ -4,13 +4,13 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { EOLocaleContext } from '../context';
 import { IFormatMessageOptions } from '../models';
 
-export interface IEOLocaleTransProps extends IFormatMessageOptions {
+export interface IEOLocaleTextProps extends IFormatMessageOptions {
 	id: string;
 
 	html?: boolean;
 }
 
-export const EOLocaleTranslation: React.FunctionComponent<IEOLocaleTransProps> = props => {
+export const EOLocaleText: React.FunctionComponent<IEOLocaleTextProps> = props => {
 	const { children, html, id, ...values } = props;
 	const context = React.useContext(EOLocaleContext);
 

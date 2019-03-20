@@ -2,14 +2,14 @@ import * as Enzyme from 'enzyme';
 import * as React from 'react';
 
 import { EOLocaleNumber } from '../number';
-import { EOLocaleTranslation } from '../trans';
+import { EOLocaleText } from '../text';
 import { TestWrapper } from './test_wrapper';
 
-describe('EOLocaleTranslation', () => {
+describe('EOLocaleText', () => {
 	it('Should render formatted message for en', () => {
 		const formatted = Enzyme.render(
 			<TestWrapper>
-				<EOLocaleTranslation id="hello" name="test" />
+				<EOLocaleText id="hello" name="test" />
 			</TestWrapper>,
 		);
 
@@ -19,7 +19,7 @@ describe('EOLocaleTranslation', () => {
 	it('Should render formatted message for en', () => {
 		const formatted = Enzyme.render(
 			<TestWrapper>
-				<EOLocaleTranslation id="hello" name={<EOLocaleNumber value={1000} />} />
+				<EOLocaleText id="hello" name={<EOLocaleNumber value={1000} />} />
 			</TestWrapper>,
 		);
 
@@ -29,7 +29,7 @@ describe('EOLocaleTranslation', () => {
 	it('Should render formatted message for ru', () => {
 		const formatted = Enzyme.render(
 			<TestWrapper language="ru">
-				<EOLocaleTranslation id="hello" name="тест" />
+				<EOLocaleText id="hello" name="тест" />
 			</TestWrapper>,
 		);
 
@@ -39,7 +39,7 @@ describe('EOLocaleTranslation', () => {
 	it('Should render id for unsupported language', () => {
 		const formatted = Enzyme.render(
 			<TestWrapper language="es">
-				<EOLocaleTranslation id="hello" />
+				<EOLocaleText id="hello" />
 			</TestWrapper>,
 		);
 
@@ -49,7 +49,7 @@ describe('EOLocaleTranslation', () => {
 	it('Should render plural', () => {
 		const formatted = Enzyme.render(
 			<TestWrapper>
-				<EOLocaleTranslation id="test_plural" attempts={1} />
+				<EOLocaleText id="test_plural" attempts={1} />
 			</TestWrapper>,
 		);
 
@@ -59,7 +59,7 @@ describe('EOLocaleTranslation', () => {
 	it('Should render plural', () => {
 		const formatted = Enzyme.render(
 			<TestWrapper>
-				<EOLocaleTranslation id="test_plural" attempts={5} />
+				<EOLocaleText id="test_plural" attempts={5} />
 			</TestWrapper>,
 		);
 
@@ -69,7 +69,7 @@ describe('EOLocaleTranslation', () => {
 	it('Should render rus plural', () => {
 		const formatted = Enzyme.render(
 			<TestWrapper language="ru">
-				<EOLocaleTranslation id="test_plural" confirmations={3} />
+				<EOLocaleText id="test_plural" confirmations={3} />
 			</TestWrapper>,
 		);
 
@@ -79,7 +79,7 @@ describe('EOLocaleTranslation', () => {
 	it('Should render rus plural', () => {
 		const formatted = Enzyme.render(
 			<TestWrapper language="ru">
-				<EOLocaleTranslation id="test_plural" confirmations={1} />
+				<EOLocaleText id="test_plural" confirmations={1} />
 			</TestWrapper>,
 		);
 

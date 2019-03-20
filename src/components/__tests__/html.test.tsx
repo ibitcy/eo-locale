@@ -2,14 +2,14 @@ import * as Enzyme from 'enzyme';
 import * as React from 'react';
 
 import { EOLocaleNumber } from '../number';
-import { EOLocaleTranslation } from '../trans';
+import { EOLocaleText } from '../text';
 import { TestWrapper } from './test_wrapper';
 
 describe('EOLocaleHtml', () => {
 	it('Should render strong tag', () => {
 		const formatted = Enzyme.render(
 			<TestWrapper>
-				<EOLocaleTranslation html id="world" />
+				<EOLocaleText html id="world" />
 			</TestWrapper>,
 		);
 
@@ -21,7 +21,7 @@ describe('EOLocaleHtml', () => {
 	it('Should render expected text in the strong tag', () => {
 		const formatted = Enzyme.render(
 			<TestWrapper language="ru">
-				<EOLocaleTranslation html id="world" />
+				<EOLocaleText html id="world" />
 			</TestWrapper>,
 		);
 
@@ -33,7 +33,7 @@ describe('EOLocaleHtml', () => {
 	it('Should render formatted message for en', () => {
 		const formatted = Enzyme.render(
 			<TestWrapper>
-				<EOLocaleTranslation html id="hello" name={<EOLocaleNumber value={1000} />} />
+				<EOLocaleText html id="hello" name={<EOLocaleNumber value={1000} />} />
 			</TestWrapper>,
 		);
 
