@@ -12,6 +12,8 @@ English language by default
 ### Format date
 
 ```jsx
+import { EOLocale } from 'eo-locale';
+
 <EOLocale.Date value={new Date(2019, 2, 19)} />
 // 3/19/2019
 
@@ -28,6 +30,8 @@ English language by default
 ### Format number
 
 ```jsx
+import { EOLocale } from 'eo-locale';
+
 <EOLocale.Number value={1000} />
 // 1,000
 
@@ -46,6 +50,8 @@ English language by default
 Add provider in root of your application
 
 ```jsx
+import { EOLocale } from 'eo-locale';
+
 const locales = [
   {
     language: 'en',
@@ -65,6 +71,8 @@ const locales = [
 ### Format hmtl
 
 ```jsx
+import { EOLocale } from 'eo-locale';
+
 const locales = [
   {
     language: 'en',
@@ -105,6 +113,8 @@ const translator = new Translator({
 ### Use components as props
 
 ```jsx
+import { EOLocale } from 'eo-locale';
+
 const locales = [
   {
     language: 'en',
@@ -124,6 +134,8 @@ const locales = [
 ### Plural
 
 ```jsx
+import { EOLocale } from 'eo-locale';
+
 const locales = [
   {
     language: 'en',
