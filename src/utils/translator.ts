@@ -13,7 +13,7 @@ const DEFAULT_PROPS: IProps = {
 
 export class Translator {
 	private readonly language: string;
-	private readonly messages: Map<string, TMessage>;
+	private readonly messages: Record<string, TMessage>;
 
 	public constructor(props?: Partial<IProps>) {
 		const initialProps: IProps = {
@@ -22,14 +22,9 @@ export class Translator {
 		};
 
 		const locale = initialProps.locales.find(item => item.language === initialProps.language);
-		let messages = new Map();
-
-		if (locale) {
-			messages = new Map<string, TMessage>(Object.entries(locale.messages));
-		}
 
 		this.language = initialProps.language;
-		this.messages = messages;
+		this.messages = locale ? locale.messages : {};
 	}
 
 	public formatDate(value: Date, options?: Intl.DateTimeFormatOptions): string {
@@ -42,8 +37,7 @@ export class Translator {
 
 	public translate(id: string, options: IFormatMessageOptions = {}): string {
 		const { defaultMessage, ...values } = options;
-
-		let message = this.messages.get(id);
+		let message = this.messages[id];
 
 		if (typeof message === 'number') {
 			return message.toString();
