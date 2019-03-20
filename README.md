@@ -51,7 +51,9 @@ const locales = [
 </EOLocale.Provider>
 ```
 
-### Format hmtl
+### Format html
+
+Just set html prop to true
 
 ```jsx
 import { EOLocale } from 'eo-locale';
@@ -65,7 +67,7 @@ const locales = [
   },
 ];
 
-<EOLocale.Html id="hello" />
+<EOLocale.Text html id="hello" />
 // Hello
 // World!
 ```
