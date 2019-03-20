@@ -54,7 +54,7 @@ export class Translator {
 		return this.formatMessage(message, values);
 	}
 
-	private formatMessage(message: string, values: Record<string, any>): string {
+	public formatMessage(message: string, values: Record<string, any>): string {
 		try {
 			return format(this.language, message, values);
 		} catch (error) {
