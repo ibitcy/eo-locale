@@ -138,6 +138,18 @@ const locales = [
 // Today is Tuesday!
 ```
 
+### useTranslator hook
+
+```jsx
+import { useTranslator } from 'eo-locale';
+
+function SomeComponent() {
+  const translator = useTranslator();
+
+  return <div>{translator.formatNumber(1000)}</div>;
+}
+```
+
 ### Plural
 
 ```jsx
