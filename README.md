@@ -138,7 +138,7 @@ const locales = [
 // Today is Tuesday!
 ```
 
-### useTranslator hook
+### Hook useTranslator
 
 ```jsx
 import { useTranslator } from 'eo-locale';
