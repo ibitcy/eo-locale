@@ -5,10 +5,10 @@
 [![npm downloads](https://img.shields.io/npm/dt/eo-locale.svg)](https://www.npmjs.com/package/eo-locale)
 
 * Runs in the browser and Node.js
-* Tiny(2kb)
+* Tiny(2kb) calculated by [size-limit](https://github.com/ai/size-limit)
 * Based on Intl object and React Hooks
 * Supports ICU format
-* Required react^16.8.0 and react-dom^16.8.0
+* Required `react^16.8.0` and `react-dom^16.8.0`
 
 # Examples
 
@@ -57,7 +57,7 @@ const locales = [
 
 ### Format html
 
-Just set html prop to true
+Just set `html` prop to `true`
 
 ```jsx
 import { EOLocale } from 'eo-locale';
