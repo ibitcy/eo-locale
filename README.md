@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/eo-locale.svg?style=flat)](https://www.npmjs.com/package/eo-locale)
 [![npm downloads](https://img.shields.io/npm/dt/eo-locale.svg)](https://www.npmjs.com/package/eo-locale)
 
-* Runs in the browser and Node.js
+* Runs in a browser and Node.js
 * Tiny(2kb) calculated by [size-limit](https://github.com/ai/size-limit)
 * Based on Intl object and React Hooks
 * Supports ICU format
