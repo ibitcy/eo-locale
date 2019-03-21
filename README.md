@@ -152,6 +152,8 @@ function SomeComponent() {
 
 ### Plural
 
+Based on Intl.PluralRules. Works fine for any language.
+
 ```jsx
 import { EOLocale } from 'eo-locale';
 
