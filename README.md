@@ -10,6 +10,10 @@
 * Supports ICU format
 * Required `react^16.8.0` and `react-dom^16.8.0`
 
+# How to install
+
+`npm i eo-locale --save` or `yarn add eo-locale`
+
 # Examples
 
 English language by default
