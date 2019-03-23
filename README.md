@@ -8,6 +8,7 @@
 * 📦Tiny(2kb). Calculated by [size-limit](https://github.com/ai/size-limit)
 * 📚Supports ICU format
 * 🎓Based on Intl object and React Hooks
+* 👫Familiar react-intl API & patterns
 
 # How to install
 
