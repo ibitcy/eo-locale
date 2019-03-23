@@ -1,8 +1,8 @@
 # eo-locale
 
-[![Build Status](https://travis-ci.org/ibitcy/eo-locale.svg?branch=master)](https://travis-ci.org/ibitcy/eo-locale)
-[![npm version](https://img.shields.io/npm/v/eo-locale.svg?style=flat)](https://www.npmjs.com/package/eo-locale)
-[![npm downloads](https://img.shields.io/npm/dt/eo-locale.svg)](https://www.npmjs.com/package/eo-locale)
+[![Build Status](https://badgen.net/travis/ibitcy/eo-locale?icon=travis)](https://travis-ci.org/ibitcy/eo-locale)
+[![npm version](https://badgen.net/npm/v/eo-locale?icon=npm)](https://www.npmjs.com/package/eo-locale)
+[![npm downloads](https://badgen.net/npm/dt/eo-locale?icon=libraries&color=green)](https://www.npmjs.com/package/eo-locale)
 
 * Runs in a browser and Node.js
 * Tiny(2kb) calculated by [size-limit](https://github.com/ai/size-limit)
