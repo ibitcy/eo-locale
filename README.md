@@ -4,11 +4,9 @@
 [![npm version](https://badgen.net/npm/v/eo-locale?icon=npm)](https://www.npmjs.com/package/eo-locale)
 [![npm downloads](https://badgen.net/npm/dt/eo-locale?icon=libraries&color=green)](https://www.npmjs.com/package/eo-locale)
 
-* Runs in a browser and Node.js
-* Tiny(2kb) calculated by [size-limit](https://github.com/ai/size-limit)
-* Based on Intl object and React Hooks
-* Supports ICU format
-* Required `react^16.8.0` and `react-dom^16.8.0`
+* 💪Runs in all browsers and Node.js. Supports ICU format.
+* 📦Tiny(2kb). Calculated by [size-limit](https://github.com/ai/size-limit).
+* 🎓Based on Intl object and React Hooks. Required `react^16.8.0` and `react-dom^16.8.0`.
 
 # How to install
 
