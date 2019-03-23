@@ -90,9 +90,7 @@ export function* generateTokenStream(input: string): IterableIterator<IToken> {
 		const options = new Map<string, IToken[]>();
 
 		while(step.value !== CLOSE) {
-			const name = readText();
-			const tokens = readExpression();
-			options.set(name.value.trim(), tokens);
+			options.set(readText().value.trim(), readExpression());
 		}
 
 		skip(CLOSE);
