@@ -1,6 +1,6 @@
 {
   "name": "eo-locale",
-  "version": "6.0.2",
+  "version": "6.1.0",
   "description": "",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
