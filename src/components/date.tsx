@@ -8,9 +8,11 @@ export interface IEOLocaleDateProps extends Intl.DateTimeFormatOptions {
 	language?: string;
 }
 
-export const EOLocaleDate: React.FunctionComponent<IEOLocaleDateProps> = props => {
-	const { children, language, value, ...options } = props;
-	const translator = useTranslator(language);
-
-	return translator.formatDate(value, options) as any;
+export const EOLocaleDate: React.FunctionComponent<IEOLocaleDateProps> = ({
+	children,
+	language,
+	value,
+	...options
+}) => {
+	return useTranslator(language).formatDate(value, options) as any;
 };

@@ -8,9 +8,11 @@ export interface IEOLocaleNumberProps extends Intl.NumberFormatOptions {
 	language?: string;
 }
 
-export const EOLocaleNumber: React.FunctionComponent<IEOLocaleNumberProps> = props => {
-	const { children, language, value, ...options } = props;
-	const translator = useTranslator(language);
-
-	return translator.formatNumber(value, options) as any;
+export const EOLocaleNumber: React.FunctionComponent<IEOLocaleNumberProps> = ({
+	children,
+	language,
+	value,
+	...options
+}) => {
+	return useTranslator(language).formatNumber(value, options) as any;
 };

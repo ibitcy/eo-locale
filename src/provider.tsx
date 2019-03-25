@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { EOLocaleContext, IEOLocaleContext } from './context';
+import { EOLocaleContext } from './context';
 import { ILocale } from './models';
 import { Translator } from './utils/translator';
 
@@ -9,14 +9,23 @@ export interface IEOLocaleProviderProps {
 	locales: ILocale[];
 }
 
-export const EOLocaleProvider: React.FunctionComponent<IEOLocaleProviderProps> = props => {
-	const { children, language, locales } = props;
+export const EOLocaleProvider: React.FunctionComponent<IEOLocaleProviderProps> = ({
+	children,
+	language: initialLanguage,
+	locales,
+}) => {
+	const [language, setLanguage] = React.useState(initialLanguage);
 
-	const contextValue: IEOLocaleContext = {
-		language,
-		locales,
-		translator: new Translator({ language, locales }),
-	};
-
-	return <EOLocaleContext.Provider value={contextValue}>{children}</EOLocaleContext.Provider>;
+	return (
+		<EOLocaleContext.Provider
+			value={{
+				language,
+				locales,
+				setLanguage,
+				translator: new Translator({ language, locales }),
+			}}
+		>
+			{children}
+		</EOLocaleContext.Provider>
+	);
 };
