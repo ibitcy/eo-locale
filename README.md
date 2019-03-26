@@ -169,13 +169,13 @@ const locales = [
   {
     language: 'en',
     messages: {
-      items: '{count, plural, one {One item} other {{count} items}}'
+      items: '{count, plural, one {You have one item} other {You have {count} items}}'
     }
   },
 ];
 
 <EOLocale.Text id="items" count={3} />
-// 3 items
+// You have 3 items
 ```
 
 ### Client polyfill
