@@ -7,7 +7,7 @@
 * 💪Runs in all browsers and Node.js
 * 📦Tiny(2kb). Calculated by [size-limit](https://github.com/ai/size-limit)
 * 📚Supports ICU format
-* 🎓Based on Intl object and React Hooks
+* 🎓Based on Internationalization API and React Hooks
 * 👫Familiar react-intl API & patterns
 
 # How to install
