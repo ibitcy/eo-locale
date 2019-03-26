@@ -10,13 +10,17 @@
 * 🎓Based on Internationalization API and React Hooks
 * 👫Familiar react-intl API & patterns
 
+# Motivation
+
+Internationalization is the process of adapting an application to work with different languages and regions. That can bring some benefits. Your target group can be broader than the one with the default language of the app. So by internationalizing an app, you may reach a bigger audience.
+
+> Internationalization it's not only about translation text. Users expect localized Dates, Number separators, Currencies.
+
 # How to install
 
 `npm i eo-locale --save` or `yarn add eo-locale`
 
 # Examples
-
-English language by default
 
 ### Format number
 
