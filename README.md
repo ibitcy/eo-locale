@@ -9,6 +9,7 @@
 * 📚Supports ICU format
 * 🎓Based on Internationalization API and React Hooks
 * 👫Familiar react-intl API & patterns
+* ⚙️ Types included
 
 # Motivation
 
