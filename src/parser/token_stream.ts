@@ -19,7 +19,7 @@ const CLOSE = '}';
 const DELIMITER = ',';
 
 export class TokenStream {
-	public readonly input: InputStream;
+	private readonly input: InputStream;
 
 	public constructor(message: string) {
 		this.input = new InputStream(message);
@@ -59,7 +59,7 @@ export class TokenStream {
 	private readVariable() {
 		this.skip(OPEN);
 
-		const value = this.readWhile(ch => ch !== CLOSE && ch !== DELIMITER);
+		const value = this.readWhile(ch => ch !== CLOSE && ch !== DELIMITER).trim();
 
 		if (this.input.value === CLOSE) {
 			this.skip(CLOSE);
