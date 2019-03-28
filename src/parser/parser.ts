@@ -16,7 +16,7 @@ export function format(language: string, message: string, values: Record<string,
 		}
 
 		if (token.type === ETokenType.Plural && token.options) {
-			const tokens = token.options.get(new Intl.PluralRules(language).select(value));
+			const tokens = token.options[new Intl.PluralRules(language).select(value)];
 
 			if (tokens) {
 				return tokens.map(applyToken).join('');

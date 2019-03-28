@@ -14,15 +14,15 @@ export const EOLocaleProvider: React.FunctionComponent<IEOLocaleProviderProps> =
 	language: initialLanguage,
 	locales,
 }) => {
-	const [language, setLanguage] = React.useState(initialLanguage);
+	const stateHook = React.useState(initialLanguage);
 
 	return (
 		<EOLocaleContext.Provider
 			value={{
-				language,
+				language: stateHook[0],
 				locales,
-				setLanguage,
-				translator: new Translator({ language, locales }),
+				setLanguage: stateHook[1],
+				translator: new Translator({ language: stateHook[0], locales }),
 			}}
 		>
 			{children}

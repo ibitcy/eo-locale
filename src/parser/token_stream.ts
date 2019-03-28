@@ -9,7 +9,7 @@ export enum ETokenType {
 export interface IToken {
 	type: ETokenType;
 	value: string;
-	options?: Map<string, IToken[]>;
+	options?: Record<string, IToken[]>;
 }
 
 type TPredicate = (ch: string) => boolean;
@@ -102,10 +102,10 @@ export class TokenStream {
 
 		this.skip(DELIMITER);
 
-		const options = new Map<string, IToken[]>();
+		const options: Record<string, IToken[]> = {};
 
 		while (this.input.value !== CLOSE) {
-			options.set(this.readText().value.trim(), this.readExpression());
+			options[this.readText().value.trim()] = this.readExpression();
 		}
 
 		this.skip(CLOSE);

@@ -1,18 +1,18 @@
-import { ETokenType, TokenStream } from '../token_stream';
+import { ETokenType, IToken, TokenStream } from '../token_stream';
 
 describe('Read plural options', () => {
 	it('Should return plural token', () => {
 		const stream = new TokenStream('{count, plural, one {One, item} other {{count} ite,ms}}');
-		const options = new Map();
+		const options: Record<string, IToken[]> = {};
 
-		options.set('one', [
+		options.one = [
 			{
 				type: ETokenType.Text,
 				value: 'One, item',
 			},
-		]);
+		];
 
-		options.set('other', [
+		options.other = [
 			{
 				type: ETokenType.Variable,
 				value: 'count',
@@ -21,7 +21,7 @@ describe('Read plural options', () => {
 				type: ETokenType.Text,
 				value: ' ite,ms',
 			},
-		]);
+		];
 
 		expect(stream.next()).toEqual({
 			options,
