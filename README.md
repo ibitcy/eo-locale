@@ -1,8 +1,8 @@
 # eo-locale
 
-[![Build Status](https://badgen.net/travis/ibitcy/eo-locale?icon=travis)](https://travis-ci.org/ibitcy/eo-locale)
-[![npm version](https://badgen.net/npm/v/eo-locale?icon=npm)](https://www.npmjs.com/package/eo-locale)
-[![npm downloads](https://badgen.net/npm/dt/eo-locale?icon=libraries&color=green)](https://www.npmjs.com/package/eo-locale)
+[![build status](https://badgen.net/travis/ibitcy/eo-locale?icon=travis)](https://travis-ci.org/ibitcy/eo-locale)
+[![npm downloads](https://badgen.net/npm/dt/eo-locale?icon=npm&color=green)](https://www.npmjs.com/package/eo-locale)
+[![bundle size](https://badgen.net/bundlephobia/minzip/eo-locale@latest?icon=awesome)](https://bundlephobia.com/result?p=eo-locale@latest)
 
 * 💪Runs in all browsers and Node.js
 * 📦Tiny(2kb). Calculated by [size-limit](https://github.com/ai/size-limit)
