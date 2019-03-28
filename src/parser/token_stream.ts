@@ -61,6 +61,10 @@ export class TokenStream {
 
 		const value = this.readWhile(ch => ch !== CLOSE && ch !== DELIMITER).trim();
 
+		if (value.length === 0) {
+			this.input.croak();
+		}
+
 		if (this.input.value === CLOSE) {
 			this.skip(CLOSE);
 

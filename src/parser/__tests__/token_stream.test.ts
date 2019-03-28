@@ -1,26 +1,6 @@
 import { ETokenType, TokenStream } from '../token_stream';
 
 describe('TokenStream', () => {
-	it('Should return text token', () => {
-		const stream = new TokenStream('abc');
-
-		expect(stream.next()).toEqual({
-			type: ETokenType.Text,
-			value: 'abc',
-		});
-		expect(stream.done).toBeTruthy();
-	});
-
-	it('Should return variable token', () => {
-		const stream = new TokenStream('{a}');
-
-		expect(stream.next()).toEqual({
-			type: ETokenType.Variable,
-			value: 'a',
-		});
-		expect(stream.done).toBeTruthy();
-	});
-
 	it('Should return tokens', () => {
 		const stream = new TokenStream('Hello {name}!');
 

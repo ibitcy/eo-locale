@@ -11,7 +11,7 @@ export class InputStream {
 	public next(): string {
 		const ch = this.input.charAt(this.index++);
 
-		if (this.index === this.input.length) {
+		if (this.index >= this.input.length) {
 			this.done = true;
 		}
 
