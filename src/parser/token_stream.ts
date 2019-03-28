@@ -1,7 +1,9 @@
+import { InputStream } from './input_stream';
+
 export enum ETokenType {
-	Text = 'txt',
-	Variable = 'variable',
-	Plural = 'plural',
+	Plural,
+	Text,
+	Variable,
 }
 
 export interface IToken {
@@ -10,119 +12,110 @@ export interface IToken {
 	options?: Map<string, IToken[]>;
 }
 
+type TPredicate = (ch: string) => boolean;
+
 const OPEN = '{';
 const CLOSE = '}';
 const DELIMITER = ',';
 
-function* generateCharStream(input: string): IterableIterator<string> {
-	let index = 0;
+export class TokenStream {
+	public readonly input: InputStream;
 
-	while (index < input.length) {
-		yield input.charAt(index++);
-	}
-}
-
-export function* generateTokenStream(input: string): IterableIterator<IToken> {
-	const stream = generateCharStream(input);
-	let step = stream.next();
-
-	const error = () => {
-		throw new Error(`Unexpected character "${step.value}"`);
+	public constructor(message: string) {
+		this.input = new InputStream(message);
 	}
 
-	const skip = (ch: string) => {
-		if (ch !== step.value) {
-			error();
+	public next(): IToken {
+		if (this.input.value === OPEN) {
+			return this.readVariable();
 		}
 
-		step = stream.next();
+		return this.readText();
 	};
 
-	const readWhile = (predicate: TPredicate) => {
+	public get done(): boolean {
+		return this.input.done;
+	}
+
+	private skip(ch: string) {
+		if (ch !== this.input.value) {
+			this.input.croak();
+		}
+
+		this.input.next();
+	}
+
+	private readWhile(predicate: TPredicate) {
 		let str = '';
 
-		while (!step.done && predicate(step.value)) {
-			str += step.value;
-			step = stream.next();
+		while (!this.input.done && predicate(this.input.value)) {
+			str += this.input.value;
+			this.input.next();
 		}
 
 		return str;
-	};
+	}
 
-	const readVariable = () => {
-		skip(OPEN);
+	private readVariable() {
+		this.skip(OPEN);
 
-		const value = readWhile(ch => ch !== CLOSE && ch !== DELIMITER);
+		const value = this.readWhile(ch => ch !== CLOSE && ch !== DELIMITER);
 
-		if (step.value === CLOSE) {
-			skip(CLOSE);
+		if (this.input.value === CLOSE) {
+			this.skip(CLOSE);
 
 			return {
 				type: ETokenType.Variable,
 				value,
 			};
 		} else {
-			skip(DELIMITER);
+			this.skip(DELIMITER);
 
 			return {
-				options: readPluralOptions(),
+				options: this.readPluralOptions(),
 				type: ETokenType.Plural,
 				value,
 			};
 		}
-	};
+	}
 
-	const readText = () => {
+	private readText() {
 		return {
 			type: ETokenType.Text,
-			value: readWhile(ch => ch !== OPEN && ch !== CLOSE),
+			value: this.readWhile(ch => ch !== OPEN && ch !== CLOSE),
 		};
-	};
+	}
 
-	const readPluralOptions = () => {
-		const type = readWhile(ch => ch !== DELIMITER);
-		skip(DELIMITER);
+	private readPluralOptions() {
+		const type = this.readWhile(ch => ch !== DELIMITER);
+		this.skip(DELIMITER);
 
 		if (type.trim() !== 'plural') {
-			error();
+			this.input.croak();
 		}
 
 		const options = new Map<string, IToken[]>();
 
-		while(step.value !== CLOSE) {
-			options.set(readText().value.trim(), readExpression());
+		while (this.input.value !== CLOSE) {
+			options.set(this.readText().value.trim(), this.readExpression());
 		}
 
-		skip(CLOSE);
+		this.skip(CLOSE);
 
 		return options;
 	}
 
-	const readExpression = () => {
+	private readExpression() {
 		const tokens: IToken[] = [];
 
-		skip(OPEN);
-		
-		while(step.value !== CLOSE) {
-			tokens.push(read());
+		this.skip(OPEN);
+
+		while (this.input.value !== CLOSE) {
+			tokens.push(this.next());
 		}
 
-		skip(CLOSE);
+		this.skip(CLOSE);
 
 		return tokens;
-	};
-
-	const read = () => {
-		if (step.value === OPEN) {
-			return readVariable();
-		}
-
-		return readText();
-	};
-
-	while (!step.done) {
-		yield read();
 	}
 }
-
-type TPredicate = (ch: string) => boolean;

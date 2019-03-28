@@ -1,7 +1,7 @@
-import { ETokenType, generateTokenStream, IToken } from './token_stream';
+import { ETokenType, IToken, TokenStream } from './token_stream';
 
 export function format(language: string, message: string, values: Record<string, any>): string {
-	const tokenStream = generateTokenStream(message);
+	const tokenStream = new TokenStream(message);
 	let result = '';
 
 	const applyToken = (token: IToken): string => {
@@ -26,11 +26,8 @@ export function format(language: string, message: string, values: Record<string,
 		return '';
 	};
 
-	let step = tokenStream.next();
-
-	while (!step.done) {
-		result += applyToken(step.value);
-		step = tokenStream.next();
+	while (!tokenStream.done) {
+		result += applyToken(tokenStream.next());
 	}
 
 	return result;
