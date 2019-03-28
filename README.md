@@ -5,7 +5,7 @@
 [![bundle size](https://badgen.net/bundlephobia/minzip/eo-locale@latest?icon=awesome)](https://bundlephobia.com/result?p=eo-locale@latest)
 
 * 💪Runs in all browsers and Node.js
-* 📦Tiny(2kb). Calculated by [size-limit](https://github.com/ai/size-limit)
+* 📦Tiny(2kb). Calculated by [size-limit](https://github.com/ai/size-limit) and [bundlephopia](https://bundlephobia.com/result?p=eo-locale@latest).
 * 📚Supports ICU format
 * 🎓Based on Internationalization API and React Hooks
 * 👫Familiar react-intl API & patterns

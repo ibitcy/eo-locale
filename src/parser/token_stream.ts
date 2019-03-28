@@ -18,6 +18,9 @@ const OPEN = '{';
 const CLOSE = '}';
 const DELIMITER = ',';
 
+const PUNC_SYMBOLS = [OPEN, CLOSE, DELIMITER];
+const PLURAL_IDENTIFIER = 'plural';
+
 export class TokenStream {
 	private readonly input: InputStream;
 
@@ -31,7 +34,7 @@ export class TokenStream {
 		}
 
 		return this.readText();
-	};
+	}
 
 	public get done(): boolean {
 		return this.input.done;
@@ -59,7 +62,7 @@ export class TokenStream {
 	private readVariable() {
 		this.skip(OPEN);
 
-		const value = this.readWhile(ch => ch !== CLOSE && ch !== DELIMITER).trim();
+		const value = this.readWhile(ch => !isPunc(ch)).trim();
 
 		if (value.length === 0) {
 			this.input.croak();
@@ -72,15 +75,15 @@ export class TokenStream {
 				type: ETokenType.Variable,
 				value,
 			};
-		} else {
-			this.skip(DELIMITER);
-
-			return {
-				options: this.readPluralOptions(),
-				type: ETokenType.Plural,
-				value,
-			};
 		}
+
+		this.skip(DELIMITER);
+
+		return {
+			options: this.readPluralOptions(),
+			type: ETokenType.Plural,
+			value,
+		};
 	}
 
 	private readText() {
@@ -91,12 +94,13 @@ export class TokenStream {
 	}
 
 	private readPluralOptions() {
-		const type = this.readWhile(ch => ch !== DELIMITER);
-		this.skip(DELIMITER);
+		const type = this.readWhile(ch => ch !== DELIMITER).trim();
 
-		if (type.trim() !== 'plural') {
-			this.input.croak();
+		if (type !== PLURAL_IDENTIFIER) {
+			this.input.croak(`Expected "${PLURAL_IDENTIFIER}". Got "${type}".`);
 		}
+
+		this.skip(DELIMITER);
 
 		const options = new Map<string, IToken[]>();
 
@@ -122,4 +126,8 @@ export class TokenStream {
 
 		return tokens;
 	}
+}
+
+function isPunc(ch: string): boolean {
+	return PUNC_SYMBOLS.includes(ch);
 }

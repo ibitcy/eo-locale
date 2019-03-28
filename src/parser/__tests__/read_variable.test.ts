@@ -21,9 +21,19 @@ describe('Read variable', () => {
 		expect(tokenStream.done).toBeTruthy();
 	});
 
-	it('Should throw error', () => {
+	it('Should throw error for empty variable', () => {
 		const tokenStream = new TokenStream('{}');
 
-		expect(tokenStream.next).toThrowError();
+		expect(() => {
+			tokenStream.next();
+		}).toThrowError();
+	});
+
+	it('Should throw error for incorrect variable syntax', () => {
+		const tokenStream = new TokenStream('{a{a}');
+
+		expect(() => {
+			tokenStream.next();
+		}).toThrowError();
 	});
 });

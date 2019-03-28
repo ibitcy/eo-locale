@@ -1,6 +1,6 @@
 export class InputStream {
-	public done = false;
 	public index = 0;
+	private isDone = false;
 
 	private readonly input: string;
 
@@ -9,20 +9,24 @@ export class InputStream {
 	}
 
 	public next(): string {
-		const ch = this.input.charAt(this.index++);
+		this.index++;
 
 		if (this.index >= this.input.length) {
-			this.done = true;
+			this.isDone = true;
 		}
 
-		return ch;
+		return this.value;
+	}
+
+	public get done(): boolean {
+		return this.isDone;
 	}
 
 	public get value() {
 		return this.input.charAt(this.index);
 	}
 
-	public croak() {
-		throw new Error(`Unexpected character "${this.value}" on position ${this.index}`);
+	public croak(msg = `Unexpected character "${this.value}" on position ${this.index}`) {
+		throw new Error(`Invalid message "${this.input}". ${msg}`);
 	}
 }
