@@ -3,13 +3,23 @@ const areIntlLocalesSupported = require('intl-locales-supported');
 
 export function clientPolyfill() {
 	return new Promise(resolve => {
-		if (!(window as any).Intl) {
+		if (!Intl) {
 			require.ensure(['intl', 'intl-pluralrules', 'intl/locale-data/jsonp/en.js'], require => {
 				require('intl');
 				require('intl-pluralrules');
 				require('intl/locale-data/jsonp/en.js');
 				resolve();
 			});
+			return;
+		}
+
+		// tslint:disable-next-line:no-string-literal
+		if (!Intl['PluralRules']) {
+			require.ensure(['intl-pluralrules'], require => {
+				require('intl-pluralrules');
+				resolve();
+			});
+			return;
 		}
 
 		resolve();
