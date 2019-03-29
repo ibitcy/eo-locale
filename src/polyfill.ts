@@ -4,8 +4,9 @@ const areIntlLocalesSupported = require('intl-locales-supported');
 export function clientPolyfill() {
 	return new Promise(resolve => {
 		if (!(window as any).Intl) {
-			require.ensure(['intl', 'intl/locale-data/jsonp/en.js'], require => {
+			require.ensure(['intl', 'intl-pluralrules', 'intl/locale-data/jsonp/en.js'], require => {
 				require('intl');
+				require('intl-pluralrules');
 				require('intl/locale-data/jsonp/en.js');
 				resolve();
 			});
