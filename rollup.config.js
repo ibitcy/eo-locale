@@ -1,18 +1,6 @@
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 
-const plugins = [
-	typescript(),
-	terser({
-		toplevel: true,
-		compress: {
-			passes: 3,
-			pure_getters: true,
-			unsafe: true,
-		},
-	}),
-];
-
 export default [
 	{
 		input: './src/index.ts',
@@ -27,7 +15,17 @@ export default [
 			},
 		],
 		external: ['react', 'react-dom/server'],
-		plugins,
+		plugins: [
+			typescript(),
+			terser({
+				toplevel: true,
+				compress: {
+					passes: 3,
+					pure_getters: true,
+					unsafe: true,
+				},
+			}),
+		],
 	},
 	{
 		input: './src/polyfill.ts',
@@ -38,6 +36,6 @@ export default [
 			},
 		],
 		external: ['intl-locales-supported', 'intl'],
-		plugins,
+		plugins: [typescript()],
 	},
 ];
