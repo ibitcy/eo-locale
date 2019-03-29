@@ -11,10 +11,10 @@ export interface IEOLocaleProviderProps {
 
 export const EOLocaleProvider: React.FunctionComponent<IEOLocaleProviderProps> = ({
 	children,
-	language: initialLanguage,
+	language,
 	locales,
 }) => {
-	const stateHook = React.useState(initialLanguage);
+	const stateHook = React.useState(language);
 
 	return (
 		<EOLocaleContext.Provider
