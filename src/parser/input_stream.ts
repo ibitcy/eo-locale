@@ -1,25 +1,17 @@
 export class InputStream {
 	public index = 0;
-	private isDone = false;
+	public done = false;
 
-	private readonly input: string;
-
-	public constructor(input: string) {
-		this.input = input;
-	}
+	public constructor(private readonly input: string) {}
 
 	public next(): string {
 		this.index++;
 
 		if (this.index >= this.input.length) {
-			this.isDone = true;
+			this.done = true;
 		}
 
 		return this.value;
-	}
-
-	public get done(): boolean {
-		return this.isDone;
 	}
 
 	public get value() {
