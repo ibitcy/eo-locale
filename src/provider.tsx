@@ -22,7 +22,7 @@ export const EOLocaleProvider: React.FunctionComponent<IEOLocaleProviderProps> =
 				language: stateHook[0],
 				locales,
 				setLanguage: stateHook[1],
-				translator: new Translator({ language: stateHook[0], locales }),
+				translator: new Translator(stateHook[0], locales),
 			}}
 		>
 			{children}

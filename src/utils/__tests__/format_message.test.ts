@@ -20,13 +20,8 @@ const locales: ILocale[] = [
 	},
 ];
 
-const enTranslator = new Translator({
-	locales,
-});
-const ruTranslator = new Translator({
-	language: 'ru',
-	locales,
-});
+const enTranslator = new Translator('en', locales);
+const ruTranslator = new Translator('ru', locales);
 
 describe('formatMessage', () => {
 	it('Should return "Hello World!"', () => {

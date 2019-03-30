@@ -3,9 +3,7 @@ import { Translator } from '../translator';
 const date = new Date(2017, 5, 24);
 
 const enTranslator = new Translator();
-const ruTranslator = new Translator({
-	language: 'ru',
-});
+const ruTranslator = new Translator('ru');
 
 describe('formatDate', () => {
 	it('Should format date for en', () => {

@@ -1,29 +1,14 @@
 import { IFormatMessageOptions, ILocale, TMessage } from '../models';
 import { format } from '../parser/parser';
 
-interface IProps {
-	language: string;
-	locales: ILocale[];
-}
-
-const DEFAULT_PROPS: IProps = {
-	language: 'en',
-	locales: [],
-};
-
 export class Translator {
 	private readonly language: string;
 	private readonly messages: Record<string, TMessage>;
 
-	public constructor(props?: Partial<IProps>) {
-		const initialProps: IProps = {
-			...DEFAULT_PROPS,
-			...props,
-		};
+	public constructor(language = 'en', locales: ILocale[] = []) {
+		const locale = locales.find(item => item.language === language);
 
-		const locale = initialProps.locales.find(item => item.language === initialProps.language);
-
-		this.language = initialProps.language;
+		this.language = language;
 		this.messages = locale ? locale.messages : {};
 	}
 

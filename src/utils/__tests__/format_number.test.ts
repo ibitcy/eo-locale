@@ -1,9 +1,7 @@
 import { Translator } from '../translator';
 
 const enTranslator = new Translator();
-const ruTranslator = new Translator({
-	language: 'ru',
-});
+const ruTranslator = new Translator('ru');
 
 describe('formatNumber', () => {
 	it('Should be 1', () => {
