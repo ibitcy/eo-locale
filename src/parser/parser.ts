@@ -26,7 +26,7 @@ export function format(language: string, message: string, values: Record<string,
 		return '';
 	};
 
-	while (!tokenStream.done) {
+	while (!tokenStream.input.done) {
 		result += applyToken(tokenStream.next());
 	}
 

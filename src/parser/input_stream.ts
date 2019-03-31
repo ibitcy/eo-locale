@@ -1,8 +1,11 @@
 export class InputStream {
 	public index = 0;
 	public done = false;
+	public value = '';
 
-	public constructor(private readonly input: string) {}
+	public constructor(private readonly input: string) {
+		this.value = this.input.charAt(this.index);
+	}
 
 	public next(): string {
 		this.index++;
@@ -11,11 +14,7 @@ export class InputStream {
 			this.done = true;
 		}
 
-		return this.value;
-	}
-
-	public get value() {
-		return this.input.charAt(this.index);
+		return this.value = this.input.charAt(this.index);
 	}
 
 	public croak(msg = `Unexpected character "${this.value}" on position ${this.index}`) {

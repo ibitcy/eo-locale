@@ -8,7 +8,7 @@ describe('Read variable', () => {
 			type: ETokenType.Variable,
 			value: 'a',
 		});
-		expect(tokenStream.done).toBeTruthy();
+		expect(tokenStream.input.done).toBeTruthy();
 	});
 
 	it('Should correct read variable', () => {
@@ -18,7 +18,7 @@ describe('Read variable', () => {
 			type: ETokenType.Variable,
 			value: 'a',
 		});
-		expect(tokenStream.done).toBeTruthy();
+		expect(tokenStream.input.done).toBeTruthy();
 	});
 
 	it('Should throw error for empty variable', () => {

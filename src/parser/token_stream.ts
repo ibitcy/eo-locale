@@ -22,7 +22,7 @@ const PUNC_SYMBOLS = [OPEN, CLOSE, DELIMITER];
 const PLURAL_IDENTIFIER = 'plural';
 
 export class TokenStream {
-	private readonly input: InputStream;
+	public readonly input: InputStream;
 
 	public constructor(message: string) {
 		this.input = new InputStream(message);
@@ -34,10 +34,6 @@ export class TokenStream {
 		}
 
 		return this.readText();
-	}
-
-	public get done(): boolean {
-		return this.input.done;
 	}
 
 	private skip(ch: string) {

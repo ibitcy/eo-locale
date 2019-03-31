@@ -8,7 +8,7 @@ describe('Read text', () => {
 			type: ETokenType.Text,
 			value: ' a ',
 		});
-		expect(tokenStream.done).toBeTruthy();
+		expect(tokenStream.input.done).toBeTruthy();
 	});
 
 	it('Should correct read text', () => {
@@ -18,7 +18,7 @@ describe('Read text', () => {
 			type: ETokenType.Text,
 			value: 'a b ',
 		});
-		expect(tokenStream.done).toBeTruthy();
+		expect(tokenStream.input.done).toBeTruthy();
 	});
 
 	it('Should correct handle empty string', () => {
@@ -28,6 +28,6 @@ describe('Read text', () => {
 			type: ETokenType.Text,
 			value: '',
 		});
-		expect(tokenStream.done).toBeTruthy();
+		expect(tokenStream.input.done).toBeTruthy();
 	});
 });

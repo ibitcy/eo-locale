@@ -16,6 +16,6 @@ describe('TokenStream', () => {
 			type: ETokenType.Text,
 			value: '!',
 		});
-		expect(stream.done).toBeTruthy();
+		expect(stream.input.done).toBeTruthy();
 	});
 });

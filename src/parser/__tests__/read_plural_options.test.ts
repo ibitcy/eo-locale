@@ -28,7 +28,7 @@ describe('Read plural options', () => {
 			type: ETokenType.Plural,
 			value: 'count',
 		});
-		expect(stream.done).toBeTruthy();
+		expect(stream.input.done).toBeTruthy();
 	});
 
 	it('Should throw error', () => {
