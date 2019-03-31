@@ -17,7 +17,7 @@ export class InputStream {
 		return this.value = this.input.charAt(this.index);
 	}
 
-	public croak(msg = `Unexpected character "${this.value}" on position ${this.index}`) {
-		throw new Error(`Invalid message "${this.input}". ${msg}`);
+	public croak() {
+		throw new Error(`[${this.input}]. Unexpected character "${this.value}" on position ${this.index}.`);
 	}
 }

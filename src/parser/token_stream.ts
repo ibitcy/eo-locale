@@ -93,7 +93,7 @@ export class TokenStream {
 		const type = this.readWhile(ch => ch !== DELIMITER).trim();
 
 		if (type !== PLURAL_IDENTIFIER) {
-			this.input.croak(`Expected "${PLURAL_IDENTIFIER}". Got "${type}".`);
+			this.input.croak();
 		}
 
 		this.skip(DELIMITER);
