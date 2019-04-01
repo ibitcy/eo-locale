@@ -9,7 +9,8 @@
     "build": "rm -rf dist && rollup --config ./rollup.config.js && npm run check-size --scripts-prepend-node-path",
     "check-size": "size-limit",
     "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
-    "preversion": "npm run lint:ts && npm run test && npm run check-size && npm run build",
+    "flow": "flow",
+    "preversion": "npm run lint:ts && npm run flow && npm run test && npm run check-size && npm run build",
     "test": "jest --detectOpenHandles --config ./config/jest.config.json --no-cache"
   },
   "repository": {
