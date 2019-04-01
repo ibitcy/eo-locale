@@ -117,10 +117,7 @@ const locales = [
   },
 ];
 
-const translator = new Translator({
-  language: 'en',
-  locales,
-});
+const translator = new Translator('en', locales);
 // translator.formatDate
 // translator.formatNumber
 // translator.translate
