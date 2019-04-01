@@ -1,0 +1,10 @@
+// @flow
+
+import type { ILocale } from './models';
+
+export type IEOLocaleProviderProps = {
+	language: string;
+	locales: ILocale[];
+}
+
+declare export var EOLocaleProvider: React$StatelessFunctionalComponent<IEOLocaleProviderProps>;
