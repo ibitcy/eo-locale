@@ -1,11 +1,13 @@
 // @flow
 import { EOLocaleContext } from "./context";
 import { EOLocaleDate } from "./components/date"
+import { EOLocaleNumber } from "./components/number";
 
 export { Translator } from "./utils/translator"
 export { useTranslator } from "./utils/use_translator"
 
 declare export var EOLocale: {
 	Context: typeof EOLocaleContext,
-	Date: typeof EOLocaleDate
+	Date: typeof EOLocaleDate,
+	Number: typeof EOLocaleNumber
 };
