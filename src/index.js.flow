@@ -1,3 +1,9 @@
 // @flow
+import { EOLocaleContext } from './context';
+
 export {Translator} from "./utils/translator"
 export {useTranslator} from "./utils/use_translator"
+
+declare export var EOLocale: {
+	Context: typeof EOLocaleContext
+};

@@ -1,0 +1,13 @@
+// @flow
+import type { ILocale } from './models';
+import { Translator } from './utils/translator';
+
+export type IEOLocaleContext = {
+	language: string;
+	locales: ILocale[];
+	translator: Translator;
+
+	setLanguage(language: string): void;
+}
+
+declare export var EOLocaleContext: React$Context<IEOLocaleContext>;
