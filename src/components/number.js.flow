@@ -7,17 +7,3 @@ export type IEOLocaleNumberProps = Intl$NumberFormatOptions & {
 }
 
 declare export var EOLocaleNumber: React$StatelessFunctionalComponent<IEOLocaleNumberProps>;
-
-
-
-({style: 'decimal', value: 1}: IEOLocaleNumberProps);
-
-/**
- * $ExpectError
- */
-({style: 'decimal'}: IEOLocaleNumberProps);
-
-/**
- * $ExpectError
- */
-({style: 'decimal', value: "xxx"}: IEOLocaleNumberProps);

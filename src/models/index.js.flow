@@ -13,13 +13,3 @@ export type IFormatMessageOptions = TFormatMessageOptions & {
 	defaultMessage?: string
 }
 
-({ a: '0' }: IFormatMessageOptions);
-
-({ a: 1 }: IFormatMessageOptions);
-
-({ a: '0', defaultMessage: '' }: IFormatMessageOptions);
-
-/**
- * $ExpectError
- */
-({ a: '0', defaultMessage: 1 }: IFormatMessageOptions);
