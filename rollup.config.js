@@ -1,5 +1,6 @@
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
+import copy from 'rollup-plugin-cpy'
 
 export default [
 	{
@@ -25,6 +26,15 @@ export default [
 					unsafe: true,
 				},
 			}),
+			copy({
+				files: ['**/*.js.flow'],
+				dest: '../dist',
+				options: {
+					verbose: true,
+					cwd: 'src',
+					parents: true
+				}
+			})
 		],
 	},
 	{

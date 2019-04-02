@@ -1,0 +1,25 @@
+// @flow
+
+export type TMessage = string | number;
+
+export type ILocale = {
+	language: string;
+	messages: {[string]: TMessage};
+}
+
+export type TFormatMessageOptions = {[string]: string | number | React$Node};
+
+export type IFormatMessageOptions = TFormatMessageOptions & {
+	defaultMessage?: string
+}
+
+({ a: '0' }: IFormatMessageOptions);
+
+({ a: 1 }: IFormatMessageOptions);
+
+({ a: '0', defaultMessage: '' }: IFormatMessageOptions);
+
+/**
+ * $ExpectError
+ */
+({ a: '0', defaultMessage: 1 }: IFormatMessageOptions);

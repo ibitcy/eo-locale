@@ -1,0 +1,11 @@
+// @flow
+
+import type { IFormatMessageOptions } from '../models';
+
+export type IEOLocaleTextProps = IFormatMessageOptions & {
+	id: string;
+
+	html?: boolean;
+}
+
+declare export var EOLocaleText: React$StatelessFunctionalComponent<IEOLocaleTextProps>;

@@ -1,0 +1,4 @@
+// @flow
+import { Translator } from './translator';
+
+declare export function useTranslator(language?: string): Translator;
