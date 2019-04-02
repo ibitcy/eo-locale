@@ -3,7 +3,7 @@ node_js:
   - '8'
   - '10'
 script:
-  - npm run lint:ts
+  - npm run lint
   - npm run test
   - npm run build
 branches:
