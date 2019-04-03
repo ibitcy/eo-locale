@@ -16,6 +16,10 @@ export const EOLocaleProvider: React.FunctionComponent<IEOLocaleProviderProps> =
 }) => {
 	const stateHook = React.useState(language);
 
+	React.useEffect(() => {
+		stateHook[1](language);
+	}, [language]);
+
 	return (
 		<EOLocaleContext.Provider
 			value={{
