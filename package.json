@@ -39,7 +39,8 @@
   "size-limit": [
     {
       "path": "dist/index.js",
-      "limit": "1.5kb"
+      "limit": "1.6kb",
+      "webpack": false
     }
   ],
   "devDependencies": {
