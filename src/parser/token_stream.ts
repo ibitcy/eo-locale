@@ -1,15 +1,15 @@
 import { InputStream } from './input_stream';
 
 export enum ETokenType {
-	Plural,
-	Text,
-	Variable,
+  Plural,
+  Text,
+  Variable,
 }
 
 export interface IToken {
-	type: ETokenType;
-	value: string;
-	options?: Record<string, IToken[]>;
+  type: ETokenType;
+  value: string;
+  options?: Record<string, IToken[]>;
 }
 
 type TPredicate = (ch: string) => boolean;
@@ -22,108 +22,108 @@ const PUNC_SYMBOLS = [OPEN, CLOSE, DELIMITER];
 const PLURAL_IDENTIFIER = 'plural';
 
 export class TokenStream {
-	public readonly input: InputStream;
+  public readonly input: InputStream;
 
-	public constructor(message: string) {
-		this.input = new InputStream(message);
-	}
+  public constructor(message: string) {
+    this.input = new InputStream(message);
+  }
 
-	public next(): IToken {
-		if (this.input.value === OPEN) {
-			return this.readVariable();
-		}
+  public next(): IToken {
+    if (this.input.value === OPEN) {
+      return this.readVariable();
+    }
 
-		return this.readText();
-	}
+    return this.readText();
+  }
 
-	private skip(ch: string) {
-		if (ch !== this.input.value) {
-			this.input.croak();
-		}
+  private skip(ch: string) {
+    if (ch !== this.input.value) {
+      this.input.croak();
+    }
 
-		this.input.next();
-	}
+    this.input.next();
+  }
 
-	private readWhile(predicate: TPredicate) {
-		let str = '';
+  private readWhile(predicate: TPredicate) {
+    let str = '';
 
-		while (!this.input.done && predicate(this.input.value)) {
-			str += this.input.value;
-			this.input.next();
-		}
+    while (!this.input.done && predicate(this.input.value)) {
+      str += this.input.value;
+      this.input.next();
+    }
 
-		return str;
-	}
+    return str;
+  }
 
-	private readVariable() {
-		this.skip(OPEN);
+  private readVariable() {
+    this.skip(OPEN);
 
-		const value = this.readWhile(ch => !isPunc(ch)).trim();
+    const value = this.readWhile(ch => !isPunc(ch)).trim();
 
-		if (value.length === 0) {
-			this.input.croak();
-		}
+    if (value.length === 0) {
+      this.input.croak();
+    }
 
-		if (this.input.value === CLOSE) {
-			this.skip(CLOSE);
+    if (this.input.value === CLOSE) {
+      this.skip(CLOSE);
 
-			return {
-				type: ETokenType.Variable,
-				value,
-			};
-		}
+      return {
+        type: ETokenType.Variable,
+        value,
+      };
+    }
 
-		this.skip(DELIMITER);
+    this.skip(DELIMITER);
 
-		return {
-			options: this.readPluralOptions(),
-			type: ETokenType.Plural,
-			value,
-		};
-	}
+    return {
+      options: this.readPluralOptions(),
+      type: ETokenType.Plural,
+      value,
+    };
+  }
 
-	private readText() {
-		return {
-			type: ETokenType.Text,
-			value: this.readWhile(ch => ch !== OPEN && ch !== CLOSE),
-		};
-	}
+  private readText() {
+    return {
+      type: ETokenType.Text,
+      value: this.readWhile(ch => ch !== OPEN && ch !== CLOSE),
+    };
+  }
 
-	private readPluralOptions() {
-		const type = this.readWhile(ch => ch !== DELIMITER).trim();
+  private readPluralOptions() {
+    const type = this.readWhile(ch => ch !== DELIMITER).trim();
 
-		if (type !== PLURAL_IDENTIFIER) {
-			this.input.croak();
-		}
+    if (type !== PLURAL_IDENTIFIER) {
+      this.input.croak();
+    }
 
-		this.skip(DELIMITER);
+    this.skip(DELIMITER);
 
-		const options: Record<string, IToken[]> = {};
+    const options: Record<string, IToken[]> = {};
 
-		while (this.input.value !== CLOSE) {
-			options[this.readText().value.trim()] = this.readExpression();
-		}
+    while (this.input.value !== CLOSE) {
+      options[this.readText().value.trim()] = this.readExpression();
+    }
 
-		this.skip(CLOSE);
+    this.skip(CLOSE);
 
-		return options;
-	}
+    return options;
+  }
 
-	private readExpression() {
-		const tokens: IToken[] = [];
+  private readExpression() {
+    const tokens: IToken[] = [];
 
-		this.skip(OPEN);
+    this.skip(OPEN);
 
-		while (this.input.value !== CLOSE) {
-			tokens.push(this.next());
-		}
+    while (this.input.value !== CLOSE) {
+      tokens.push(this.next());
+    }
 
-		this.skip(CLOSE);
+    this.skip(CLOSE);
 
-		return tokens;
-	}
+    return tokens;
+  }
 }
 
 function isPunc(ch: string): boolean {
-	return PUNC_SYMBOLS.includes(ch);
+  return PUNC_SYMBOLS.includes(ch);
 }

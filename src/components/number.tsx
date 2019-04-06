@@ -3,16 +3,16 @@ import * as React from 'react';
 import { useTranslator } from '../utils/use_translator';
 
 export interface IEOLocaleNumberProps extends Intl.NumberFormatOptions {
-	value: number;
+  value: number;
 
-	language?: string;
+  language?: string;
 }
 
 export const EOLocaleNumber: React.FunctionComponent<IEOLocaleNumberProps> = ({
-	children,
-	language,
-	value,
-	...options
+  children,
+  language,
+  value,
+  ...options
 }) => {
-	return useTranslator(language).formatNumber(value, options) as any;
+  return useTranslator(language).formatNumber(value, options) as any;
 };

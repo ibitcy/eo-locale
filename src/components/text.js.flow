@@ -3,9 +3,9 @@
 import type { IFormatMessageOptions } from '../models';
 
 export type IEOLocaleTextProps = IFormatMessageOptions & {
-	id: string;
+  id: string;
 
-	html?: boolean;
+  html?: boolean;
 }
 
 declare export var EOLocaleText: React$StatelessFunctionalComponent<IEOLocaleTextProps>;

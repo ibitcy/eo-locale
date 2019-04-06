@@ -4,11 +4,11 @@ import { EOLocaleContext } from '../context';
 import { Translator } from './translator';
 
 export function useTranslator(language?: string) {
-	const context = React.useContext(EOLocaleContext);
+  const context = React.useContext(EOLocaleContext);
 
-	if (language && language !== context.language) {
-		return new Translator(language);
-	}
+  if (language && language !== context.language) {
+    return new Translator(language);
+  }
 
-	return context.translator;
+  return context.translator;
 }
