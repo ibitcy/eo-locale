@@ -2,6 +2,7 @@ import { InputStream } from './input_stream';
 
 export enum ETokenType {
   Plural,
+  Select,
   Text,
   Variable,
 }
@@ -20,6 +21,7 @@ const DELIMITER = ',';
 
 const PUNC_SYMBOLS = [OPEN, CLOSE, DELIMITER];
 const PLURAL_IDENTIFIER = 'plural';
+const SELECT_IDENTIFIER = 'select';
 
 export class TokenStream {
   public readonly input: InputStream;
@@ -75,9 +77,11 @@ export class TokenStream {
 
     this.skip(DELIMITER);
 
+    const type = this.readVariableType() as ETokenType;
+
     return {
-      options: this.readPluralOptions(),
-      type: ETokenType.Plural,
+      options: this.readVariableOptions(),
+      type,
       value,
     };
   }
@@ -89,13 +93,21 @@ export class TokenStream {
     };
   }
 
-  private readPluralOptions() {
+  private readVariableType() {
     const type = this.readWhile(ch => ch !== DELIMITER).trim();
 
-    if (type !== PLURAL_IDENTIFIER) {
-      this.input.croak();
+    if (type === PLURAL_IDENTIFIER) {
+      return ETokenType.Plural;
     }
 
+    if (type === SELECT_IDENTIFIER) {
+      return ETokenType.Select;
+    }
+
+    this.input.croak();
+  }
+
+  private readVariableOptions() {
     this.skip(DELIMITER);
 
     const options: Record<string, IToken[]> = {};

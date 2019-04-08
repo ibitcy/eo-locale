@@ -61,9 +61,23 @@ describe('formatMessage', () => {
   });
 
   it('Should return value incorrect message', () => {
-    expect(enTranslator.translate('not_found', {
-      defaultMessage: '{invalid_message{',
-    })).toBe('{invalid_message{');
+    expect(
+      enTranslator.translate('not_found', {
+        defaultMessage: '{invalid_message{',
+      }),
+    ).toBe('{invalid_message{');
+  });
+
+  it('Should format really hard message', () => {
+    expect(
+      enTranslator.translate('not_found', {
+        defaultMessage: hardMessage,
+        gender_of_host: 'male',
+        guest: 'Jerry',
+        host: 'Tom',
+        num_guests: 1,
+      }).trim(),
+    ).toEqual('Tom invites Jerry to his party.');
   });
 
   // it('Should allow escaping of syntax chars', () => {
@@ -74,3 +88,18 @@ describe('formatMessage', () => {
   // 	).toBe('Hello {name}!');
   // });
 });
+
+const hardMessage = `{gender_of_host, select,
+  female {
+    {num_guests, plural,
+      one {{host} invites {guest} to her party.}
+      other {{host} invites {guest} and # other people to her party.}}}
+  male {
+    {num_guests, plural,
+      one {{host} invites {guest} to his party.}
+      other {{host} invites {guest} and # other people to his party.}}}
+  other {
+    {num_guests, plural,
+      one {{host} invites {guest} to their party.}
+      other {{host} invites {guest} and # other people to their party.}}}}
+  `;
