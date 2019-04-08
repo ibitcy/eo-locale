@@ -5,25 +5,19 @@ export function format(language: string, message: string, values: Record<string,
   let result = '';
 
   const applyToken = (token: IToken): string => {
-    if (token.type === ETokenType.Text) {
-      return token.value;
-    }
-
-    const value = values[token.value];
-
     if (token.type === ETokenType.Variable) {
-      return value;
+      return values[token.value];
     }
 
     if (token.type === ETokenType.Plural && token.options) {
-      const tokens = token.options[new Intl.PluralRules(language).select(value)];
+      const tokens = token.options[new Intl.PluralRules(language).select(values[token.value])];
 
       if (tokens) {
         return tokens.map(applyToken).join('');
       }
     }
 
-    return '';
+    return token.value;
   };
 
   while (!tokenStream.input.done) {

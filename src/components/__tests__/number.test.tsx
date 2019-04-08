@@ -34,4 +34,18 @@ describe('EOLocaleNumber', () => {
 
     expect(formatted.text()).toEqual('1,000');
   });
+
+  it('Should update language', () => {
+    const formatted = Enzyme.mount(
+      <TestWrapper language="en">
+        <EOLocaleNumber value={1000} />
+      </TestWrapper>,
+    );
+
+    formatted.setProps({
+      language: 'ru',
+    });
+
+    expect(formatted.find('span').text()).toEqual('1 000');
+  });
 });

@@ -7,7 +7,7 @@ const locales = [
     language: 'en',
     messages: {
       hello: 'Hello {name}!',
-      test_plural: "{attempts, plural, one {You have one more attempt} other {You have {attempts} attempts}}",
+      test_plural: '{attempts, plural, one {You have one more attempt} other {You have {attempts} attempts}}',
       world: '<strong>world</strong>',
     },
   },
@@ -15,7 +15,8 @@ const locales = [
     language: 'ru',
     messages: {
       hello: 'Привет {name}!',
-      test_plural: "{confirmations, plural, one {{confirmations} подтверждение} few {{confirmations} подтверждения} many {{confirmations} подтверждений} other {{confirmations} подтверждений}}",
+      test_plural:
+        '{confirmations, plural, one {{confirmations} подтверждение} few {{confirmations} подтверждения} many {{confirmations} подтверждений} other {{confirmations} подтверждений}}',
       world: '<strong>мир</strong>',
     },
   },
@@ -25,17 +26,12 @@ interface IProps {
   language?: string;
 }
 
-export class TestWrapper extends React.PureComponent<IProps, {}> {
-  public render() {
-    return (
-      <span>
-        <EOLocaleProvider
-          language={this.props.language || 'en'}
-          locales={locales}
-        >
-          {this.props.children}
-        </EOLocaleProvider>
-      </span>
-    );
-  }
-}
+export const TestWrapper: React.FunctionComponent<IProps> = ({ children, language }) => {
+  return (
+    <span>
+      <EOLocaleProvider language={language || 'en'} locales={locales}>
+        {children}
+      </EOLocaleProvider>
+    </span>
+  );
+};

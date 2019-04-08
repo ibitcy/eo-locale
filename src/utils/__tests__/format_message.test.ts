@@ -60,6 +60,12 @@ describe('formatMessage', () => {
     expect(enTranslator.translate('not_found')).toBe('not_found');
   });
 
+  it('Should return value incorrect message', () => {
+    expect(enTranslator.translate('not_found', {
+      defaultMessage: '{invalid_message{',
+    })).toBe('{invalid_message{');
+  });
+
   // it('Should allow escaping of syntax chars', () => {
   // 	expect(
   // 		enTranslator.translate('c', {

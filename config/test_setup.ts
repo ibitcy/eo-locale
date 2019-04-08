@@ -7,4 +7,5 @@ serverPolyfill(['en', 'ru']);
 
 Enzyme.configure({ adapter: new Adapter() });
 
-// global.console.error = jest.fn();
+// Don't show error messages for unit tests
+global.console.error = jest.fn();
