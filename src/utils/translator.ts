@@ -29,17 +29,13 @@ export class Translator {
     }
 
     if (typeof message === 'undefined') {
-      if (typeof defaultMessage === 'string') {
-        message = defaultMessage;
-      } else {
+      if (typeof defaultMessage !== 'string') {
         return id;
       }
+
+      message = defaultMessage;
     }
 
-    return this.formatMessage(message, values);
-  }
-
-  private formatMessage(message: string, values: Record<string, any>): string {
     try {
       return format(this.language, message, values);
     } catch (error) {
