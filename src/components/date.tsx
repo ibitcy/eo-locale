@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FunctionComponent } from 'react';
 
 import { useTranslator } from '../utils/use_translator';
 
@@ -8,7 +8,7 @@ export interface IEOLocaleDateProps extends Intl.DateTimeFormatOptions {
   language?: string;
 }
 
-export const EOLocaleDate: React.FunctionComponent<IEOLocaleDateProps> = ({
+export const EOLocaleDate: FunctionComponent<IEOLocaleDateProps> = ({
   children,
   language,
   value,

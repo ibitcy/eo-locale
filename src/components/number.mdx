@@ -1,0 +1,59 @@
+import { Playground } from 'docz';
+
+import { LanguageList } from '../utils/language_list';
+import { EOLocaleNumber } from './number.tsx';
+
+---
+
+# EOLocale.Number
+
+## Decimal
+
+<Playground>
+  <ul>
+    {LanguageList.map(language => (
+      <li key={language.id} lang={language.id}>
+        {language.icon}{' '}
+        <EOLocaleNumber
+          language={language.id}
+          value={123456789.321}
+        />
+      </li>
+    ))}
+  </ul>
+</Playground>
+
+## Currency
+
+<Playground>
+  <ul>
+    {LanguageList.map(language => (
+      <li key={language.id} lang={language.id}>
+        {language.icon}{' '}
+        <EOLocaleNumber
+          currency="USD"
+          language={language.id}
+          style="currency"
+          value={1000}
+        />
+      </li>
+    ))}
+  </ul>
+</Playground>
+
+## Percent
+
+<Playground>
+  <ul>
+    {LanguageList.map(language => (
+      <li key={language.id} lang={language.id}>
+        {language.icon}{' '}
+        <EOLocaleNumber
+          language={language.id}
+          style="percent"
+          value={0.5}
+        />
+      </li>
+    ))}
+  </ul>
+</Playground>

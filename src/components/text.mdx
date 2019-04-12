@@ -1,0 +1,28 @@
+import { Playground } from 'docz';
+
+import { EOLocaleProvider } from './provider.tsx';
+import { EOLocaleText } from './text.tsx';
+
+---
+
+# EOLocale.Text
+
+## Basic
+
+<Playground>
+  <EOLocaleProvider language="en" locales={[]}>
+    <EOLocaleText id="hello" defaultMessage="Hello {name}!" name="World" />
+  </EOLocaleProvider>
+</Playground>
+
+## Plural
+
+<Playground>
+  <EOLocaleProvider language="en" locales={[]}>
+    <EOLocaleText
+      count="4"
+      defaultMessage="{count, plural, one {You have one item.} other {You have {count} items.}}"
+      id="hello"
+    />
+  </EOLocaleProvider>
+</Playground>

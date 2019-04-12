@@ -1,13 +1,15 @@
 {
   "name": "eo-locale",
   "version": "6.2.8",
-  "description": "",
+  "description": "Easy way to internationalize your React application",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && rollup --config ./rollup.config.js && npm run check-size --scripts-prepend-node-path",
     "check-size": "size-limit",
+    "docz:build": "docz build",
+    "docz:dev": "docz dev",
     "flow": "flow",
     "lint": "tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
     "preversion": "npm run lint && npm run flow && npm run test && npm run check-size && npm run build",
@@ -35,7 +37,7 @@
   "bugs": {
     "url": "https://github.com/ibitcy/eo-locale/issues"
   },
-  "homepage": "https://github.com/ibitcy/eo-locale#readme",
+  "homepage": "https://ibitcy.github.io/eo-locale/",
   "size-limit": [
     {
       "path": "dist/index.js",
@@ -53,6 +55,8 @@
     "@types/react": "^16.3.14",
     "@types/react-dom": "^16.0.9",
     "@types/webpack-env": "^1.13.6",
+    "docz": "^1.0.0",
+    "docz-theme-default": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "flow-bin": "^0.96.0",

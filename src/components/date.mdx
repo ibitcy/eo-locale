@@ -1,0 +1,26 @@
+import { Playground } from 'docz';
+
+import { LanguageList } from '../utils/language_list';
+import { EOLocaleDate } from './date.tsx';
+
+---
+
+# EOLocale.Date
+
+<Playground>
+  <ul>
+    {LanguageList.map(language => (
+      <li key={language.id} lang={language.id}>
+        {language.icon}{' '}
+        <EOLocaleDate
+          day="numeric"
+          language={language.id}
+          month="long"
+          value={new Date()}
+          weekday="long"
+          year="numeric"
+        />
+      </li>
+    ))}
+  </ul>
+</Playground>

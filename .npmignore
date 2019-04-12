@@ -11,3 +11,4 @@ tsconfig.json
 .huskyrc.json
 .travis.yml
 rollup.config.js
+.docz
