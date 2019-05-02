@@ -9,17 +9,15 @@ export function format(language: string, message: string, params: Record<string,
       return params[value];
     }
 
-    if (options) {
-      if (type === ETokenType.Select) {
-        return options[params[value]].map(applyToken).join('');
-      }
-
-      if (type === ETokenType.Plural) {
-        return options[new Intl.PluralRules(language).select(params[value])].map(applyToken).join('');
-      }
+    if (!options) {
+      return value;
     }
 
-    return value;
+    if (type === ETokenType.Select) {
+      return options[params[value]].map(applyToken).join('');
+    }
+
+    return options[new Intl.PluralRules(language).select(params[value])].map(applyToken).join('');
   };
 
   while (!tokenStream.input.done) {
