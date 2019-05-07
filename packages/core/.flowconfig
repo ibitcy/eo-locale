@@ -1,0 +1,17 @@
+[ignore]
+
+[include]
+
+[libs]
+./flow-typed
+
+[lints]
+
+[options]
+module.file_ext=.js
+module.file_ext=.jsx
+suppress_comment=\\(.\\|\n\\)*\\$ExpectError
+suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
+include_warnings=true
+
+[strict]

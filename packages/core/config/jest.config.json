@@ -1,0 +1,20 @@
+{
+  "moduleFileExtensions": ["tsx", "ts", "js"],
+  "collectCoverage": false,
+  "coveragePathIgnorePatterns": ["/node_modules/"],
+  "setupFilesAfterEnv": ["./config/test_setup.ts"],
+  "coverageThreshold": {
+    "global": {
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": 100
+    }
+  },
+  "notify": true,
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "rootDir": "..",
+  "testMatch": ["<rootDir>/src/**/__tests__/**/*.test.(ts|tsx|js)"]
+}

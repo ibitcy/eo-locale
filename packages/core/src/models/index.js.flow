@@ -1,0 +1,15 @@
+// @flow
+
+export type TMessage = string | number;
+
+export interface ILocale {
+  language: string;
+  messages: {[string]: TMessage};
+}
+
+export interface TFormatMessageOptions {[string]: string | number | React$Node}
+
+export type IFormatMessageOptions = TFormatMessageOptions & {
+  defaultMessage?: string
+}
+
