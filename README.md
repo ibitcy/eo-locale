@@ -178,8 +178,10 @@ const locales = [
 
 ### Client polyfill
 
+`npm i @eo-locale/polyfills --save` or `yarn add @eo-locale/polyfills`
+
 ```js
-import { clientPolyfill } from 'eo-locale/dist/polyfill';
+import { clientPolyfill } from '@eo-locale/polyfills';
 
 clientPolyfill().then(() => {
   // Init your application
@@ -189,7 +191,7 @@ clientPolyfill().then(() => {
 ### Server polyfill
 
 ```js
-import { serverPolyfill } from 'eo-locale/dist/polyfill';
+import { serverPolyfill } from '@eo-locale/polyfills';
 
 serverPolyfill(['en']);
 ```

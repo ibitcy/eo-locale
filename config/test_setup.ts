@@ -1,7 +1,6 @@
+import { serverPolyfill } from '@eo-locale/polyfills';
 import * as Enzyme from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
-
-import { serverPolyfill } from '../src/polyfill';
 
 serverPolyfill(['en', 'ru']);
 

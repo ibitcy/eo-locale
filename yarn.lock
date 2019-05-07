@@ -963,6 +963,15 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.3.tgz#6310a047f12d21a1036fb031317219892440416f"
   integrity sha512-4zAPlpDEh2VwXswwr/t8xGNDGg8RQiPxtxZ3qQEXyQsBV39ptTdESCjuBvGze1nLMVrxmTIKmnO/nAV8Tqjjzg==
 
+"@eo-locale/polyfills@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@eo-locale/polyfills/-/polyfills-1.0.0.tgz#af6eab1d0a1da2d98169e22dc68c9ca060353429"
+  integrity sha512-wvtr3fVZQUkYyqISUEQ/mdda/zOlGp3yX75U/j41zp946823TcMSk6jHZuFf4Op8Y4E7t0UP+HKjgeoj7cpXvg==
+  dependencies:
+    intl "^1.2.5"
+    intl-locales-supported "^1.0.0"
+    intl-pluralrules "^1.0.1"
+
 "@hutson/parse-repository-url@^3.0.0":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@hutson/parse-repository-url/-/parse-repository-url-3.0.2.tgz#98c23c950a3d9b6c8f0daed06da6c3af06981340"
@@ -1373,16 +1382,6 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/intl-locales-supported@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@types/intl-locales-supported/-/intl-locales-supported-1.0.0.tgz#89623a54d410b4d6ee6526a1348a313138d21fae"
-  integrity sha512-fq+zY6j4UrVkMOT9IQeh0ueYfT40rCZI+IroAoUjk8uUtXk/TpwN0qnlSwBh+P8Hoh6W9EiqlhWaD7yWWbb5Ng==
-
-"@types/intl@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@types/intl/-/intl-1.2.0.tgz#1245511f13064402087979f498764611a3c758fc"
-  integrity sha512-BP+KwmOvD9AR5aoxnbyyPr3fAtpjEI/bVImHsotmpuC43+z0NAmjJ9cQbX7vPCq8XcvCeAVc8E3KSQPYNaPsUQ==
-
 "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.1.tgz#42995b446db9a48a11a07ec083499a860e9138ff"
@@ -1466,11 +1465,6 @@
     "@types/node" "*"
     "@types/unist" "*"
     "@types/vfile-message" "*"
-
-"@types/webpack-env@^1.13.6":
-  version "1.13.9"
-  resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.13.9.tgz#a67287861c928ebf4159a908d1fb1a2a34d4097a"
-  integrity sha512-p8zp5xqkly3g4cCmo2mKOHI9+Z/kObmDj0BmjbDDJQlgDTiEGTbm17MEwTAusV6XceCy+bNw9q/ZHXHyKo3zkg==
 
 "@types/yargs@^12.0.2", "@types/yargs@^12.0.9":
   version "12.0.12"
@@ -5682,7 +5676,7 @@ intl-locales-supported@^1.0.0:
   resolved "https://registry.yarnpkg.com/intl-locales-supported/-/intl-locales-supported-1.0.0.tgz#9a9d94dbf104a87818881952dcb782053f0aeefa"
   integrity sha1-mp2U2/EEqHgYiBlS3LeCBT8K7vo=
 
-intl-pluralrules@^1.0.0:
+intl-pluralrules@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/intl-pluralrules/-/intl-pluralrules-1.0.1.tgz#2d739aa754045e326dececa61249cc900af5b0d7"
   integrity sha512-Y1ZUnofLtjH1qTQSH8ez05hBIi14Cc53GDtv5sv6HVYdSh4zxK/Dqw156luucmDbx+Yh+rOQ1bQTEMUKeu4dMQ==

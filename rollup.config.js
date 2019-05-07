@@ -37,15 +37,4 @@ export default [
       }),
     ],
   },
-  {
-    input: './src/polyfill.ts',
-    output: [
-      {
-        file: './dist/polyfill.js',
-        format: 'cjs',
-      },
-    ],
-    external: ['intl-locales-supported', 'intl'],
-    plugins: [typescript()],
-  },
 ];
