@@ -7,9 +7,7 @@ export interface ILocale {
   messages: {[string]: TMessage};
 }
 
-export interface TFormatMessageOptions {[string]: string | number}
-
-export type IFormatMessageOptions = TFormatMessageOptions & {
+export type IFormatMessageOptions = {[string]: any} & {
   defaultMessage?: string
 }
 
