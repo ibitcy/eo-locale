@@ -964,9 +964,9 @@
   integrity sha512-4zAPlpDEh2VwXswwr/t8xGNDGg8RQiPxtxZ3qQEXyQsBV39ptTdESCjuBvGze1nLMVrxmTIKmnO/nAV8Tqjjzg==
 
 "@eo-locale/core@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@eo-locale/core/-/core-1.0.0.tgz#b5ce37fcd8d78fc59a5b168dea39b6d4285a88c2"
-  integrity sha512-BL9hqIZHIsqfKglAqFUY7aYlqZkc8DJ5FcReuSZ9mg7vJ+mNWMo4hAQbotzDVd+fj6IBgNYJ7iPv4A5WXmk6aQ==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@eo-locale/core/-/core-1.0.2.tgz#11861777ea356fd45423d56041d540e379e93d2a"
+  integrity sha512-VXpCGUYE1V+A5oKwWnqooG9BweedTxdkQo4YuzvylN0Ej+MGl7qhGcIQWQbA23tvg96IsviVN9QgYfgNtmBIxg==
 
 "@eo-locale/polyfills@^1.0.0":
   version "1.0.0"
@@ -2012,10 +2012,11 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   integrity sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=
 
 assert@^1.1.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/assert/-/assert-1.4.1.tgz#99912d591836b5a6f5b345c0f07eefc08fc65d91"
-  integrity sha1-mZEtWRg2tab1s0XA8H7vwI/GXZE=
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/assert/-/assert-1.5.0.tgz#55c109aaf6e0aefdb3dc4b71240c70bf574b18eb"
+  integrity sha512-EDsgawzwoun2CZkCgtxJbv392v4nbk9XDD06zI+kQYoBM/3RBWLlEyJARDOmhAAosBjWACEkKL6S+lIZtcAubA==
   dependencies:
+    object-assign "^4.1.1"
     util "0.10.3"
 
 assign-symbols@^1.0.0:
