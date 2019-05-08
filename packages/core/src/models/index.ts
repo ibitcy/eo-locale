@@ -5,7 +5,7 @@ export interface ILocale {
   messages: Record<string, TMessage>;
 }
 
-export type TFormatMessageOptions = Record<string, string | number | React.ReactNode>;
+export type TFormatMessageOptions = Record<string, string | number | undefined>;
 
 export interface IFormatMessageOptions extends TFormatMessageOptions {
   defaultMessage?: string;
