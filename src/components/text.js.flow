@@ -1,6 +1,6 @@
 // @flow
 
-import type { IFormatMessageOptions } from '../models';
+import type { IFormatMessageOptions } from '@eo-locale/core';
 
 export type IEOLocaleTextProps = IFormatMessageOptions & {
   id: string;

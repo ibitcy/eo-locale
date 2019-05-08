@@ -12,7 +12,7 @@
     "docz:dev": "docz dev",
     "flow": "flow",
     "lint": "tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
-    "preversion": "npm run lint && npm run flow && npm run test && npm run check-size && npm run build",
+    "preversion": "npm run lint && npm run flow && npm run test && npm run build",
     "test": "jest --detectOpenHandles --config ./config/jest.config.json --no-cache"
   },
   "repository": {
@@ -41,7 +41,7 @@
   "size-limit": [
     {
       "path": "dist/index.js",
-      "limit": "1.6kb",
+      "limit": "800B",
       "webpack": false
     }
   ],
@@ -74,7 +74,9 @@
     "tslint-config-prettier": "^1.12.0",
     "typescript": "^3.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@eo-locale/core": "^1.0.0"
+  },
   "peerDependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0"

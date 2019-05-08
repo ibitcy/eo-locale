@@ -1,8 +1,8 @@
+import { IFormatMessageOptions } from '@eo-locale/core';
 import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 import { EOLocaleContext } from '../context';
-import { IFormatMessageOptions } from '../models';
 
 export interface IEOLocaleTextProps extends IFormatMessageOptions {
   id: string;

@@ -1,6 +1,6 @@
 // @flow
-import type { ILocale } from './models';
-import { Translator } from './utils/translator';
+import type { ILocale } from '@eo-locale/core';
+import { Translator, } from '@eo-locale/core';
 
 export interface IEOLocaleContext {
   language: string;

@@ -1,7 +1,5 @@
+import { ILocale, Translator } from '@eo-locale/core';
 import * as React from 'react';
-
-import { ILocale } from './models';
-import { Translator } from './utils/translator';
 
 export interface IEOLocaleContext {
   language: string;

@@ -1,6 +1,6 @@
 // @flow
 
-import type { ILocale } from '../models';
+import type { ILocale } from '@eo-locale/core';
 
 export interface IEOLocaleProviderProps {
   language: string;

@@ -15,7 +15,7 @@ export default [
         format: 'es',
       },
     ],
-    external: ['react', 'react-dom/server'],
+    external: ['react', 'react-dom/server', '@eo-locale/core'],
     plugins: [
       typescript(),
       terser({

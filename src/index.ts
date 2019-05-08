@@ -4,8 +4,8 @@ import { EOLocaleProvider } from './components/provider';
 import { EOLocaleText } from './components/text';
 import { EOLocaleContext } from './context';
 
+export * from '@eo-locale/core';
 export { useTranslator } from './utils/use_translator';
-export { Translator } from './utils/translator';
 
 export const EOLocale = {
   Context: EOLocaleContext,

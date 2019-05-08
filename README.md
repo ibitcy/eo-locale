@@ -105,8 +105,12 @@ import { EOLocale } from 'eo-locale';
 
 ### Use without react
 
+Install core package for projects without React.
+`npm i @eo-locale/core --save` or `yarn add @eo-locale/core`.
+You can import `Translator` from `eo-locale` or `@eo-locale/core`.
+
 ```js
-import { Translator } from 'eo-locale';
+import { Translator } from '@eo-locale/core';
 
 const locales = [
   {

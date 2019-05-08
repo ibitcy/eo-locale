@@ -1,7 +1,7 @@
+import { Translator } from '@eo-locale/core';
 import * as React from 'react';
 
 import { EOLocaleContext } from '../context';
-import { Translator } from './translator';
 
 export function useTranslator(language?: string) {
   const context = React.useContext(EOLocaleContext);

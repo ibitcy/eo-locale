@@ -963,6 +963,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.3.tgz#6310a047f12d21a1036fb031317219892440416f"
   integrity sha512-4zAPlpDEh2VwXswwr/t8xGNDGg8RQiPxtxZ3qQEXyQsBV39ptTdESCjuBvGze1nLMVrxmTIKmnO/nAV8Tqjjzg==
 
+"@eo-locale/core@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@eo-locale/core/-/core-1.0.0.tgz#b5ce37fcd8d78fc59a5b168dea39b6d4285a88c2"
+  integrity sha512-BL9hqIZHIsqfKglAqFUY7aYlqZkc8DJ5FcReuSZ9mg7vJ+mNWMo4hAQbotzDVd+fj6IBgNYJ7iPv4A5WXmk6aQ==
+
 "@eo-locale/polyfills@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@eo-locale/polyfills/-/polyfills-1.0.0.tgz#af6eab1d0a1da2d98169e22dc68c9ca060353429"
