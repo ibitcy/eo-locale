@@ -16,7 +16,7 @@ export class Translator {
     return new Intl.DateTimeFormat(this.language, options).format(value);
   }
 
-  public formatNumber(value: number, options?: Intl.NumberFormatOptions) {
+  public formatNumber(value: number, options?: Intl.NumberFormatOptions): string {
     return new Intl.NumberFormat(this.language, options).format(value);
   }
 
