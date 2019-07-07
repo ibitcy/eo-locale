@@ -1,13 +1,14 @@
 import pkg from './package.json';
 
 export default {
-  title: pkg.name,
-  description: pkg.description,
   base: `/${pkg.name}/`,
-  version: pkg.version,
-  propsParser: false,
+  description: pkg.description,
+  dest: '/docs',
   hashRouter: true,
+  propsParser: false,
+  title: pkg.name,
   typescript: true,
+  version: pkg.version,
   themeConfig: {
     colors: {
       primary: '#000000',

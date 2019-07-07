@@ -1,4 +1,4 @@
-workflow "TSC, Test, Build and Publish" {
+workflow "Main" {
   on = "push"
   resolves = ["Publish docs"]
 }
