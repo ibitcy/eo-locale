@@ -21,6 +21,10 @@ Internationalization is the process of adapting an application to work with diff
 
 `npm i eo-locale --save` or `yarn add eo-locale`
 
+# Preact version
+
+`npm i @eo-locale/preact --save` or `yarn add @eo-locale/preact`
+
 # Examples
 
 ### Format number
