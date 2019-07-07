@@ -1,8 +1,16 @@
+import pkg from './package.json';
+
 export default {
-  base: '/eo-locale/',
-  description: 'Easy way to internationalize your React application',
-  dest: '/docs',
-  menu: ['Getting Started', 'Text', 'Number', 'Date'],
-  title: 'EOLocale',
+  title: pkg.name,
+  description: pkg.description,
+  base: `/${pkg.name}/`,
+  version: pkg.version,
+  propsParser: false,
+  hashRouter: true,
   typescript: true,
-};
+  themeConfig: {
+    colors: {
+      primary: '#000000',
+    },
+  },
+}

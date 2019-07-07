@@ -15,6 +15,6 @@
 		"strict": true,
 		"target": "es5"
 	},
-	"include": ["./src/**/*.ts", "./src/**/*.tsx"],
+	"include": ["./src/**/*.ts", "./src/**/*.tsx", "docs/language_list.ts"],
 	"exclude": ["**/**/__tests__/***/**"]
 }

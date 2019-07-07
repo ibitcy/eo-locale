@@ -1,0 +1,10 @@
+# Translator
+
+```ts
+class Translator {
+  public constructor(language = 'en', locales: ILocale[] = []);
+  public formatDate(value: Date, options?: Intl.DateTimeFormatOptions): string;
+  public formatNumber(value: number, options?: Intl.NumberFormatOptions): string;
+  public translate(id: string, options: IFormatMessageOptions = {}): string
+}
+```

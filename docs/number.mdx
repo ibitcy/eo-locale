@@ -1,7 +1,7 @@
 import { Playground } from 'docz';
 
-import { LanguageList } from '../utils/language_list';
-import { EOLocaleNumber } from './number.tsx';
+import { LanguageList } from './language_list';
+import { EOLocale } from '../src';
 
 ---
 
@@ -9,12 +9,21 @@ import { EOLocaleNumber } from './number.tsx';
 
 ## Decimal
 
+```jsx
+import { EOLocale } from 'eo-locale'
+
+<EOLocale.Number
+  language="en"
+  value={123456789.321}
+/>
+```
+
 <Playground>
   <ul>
     {LanguageList.map(language => (
       <li key={language.id} lang={language.id}>
         {language.icon}{' '}
-        <EOLocaleNumber
+        <EOLocale.Number
           language={language.id}
           value={123456789.321}
         />
@@ -25,12 +34,24 @@ import { EOLocaleNumber } from './number.tsx';
 
 ## Currency
 
+```jsx
+import { EOLocale } from 'eo-locale'
+
+<EOLocale.Number
+  currency="USD"
+  language="en"
+  style="currency"
+  value={1000}
+/>
+```
+
+
 <Playground>
   <ul>
     {LanguageList.map(language => (
       <li key={language.id} lang={language.id}>
         {language.icon}{' '}
-        <EOLocaleNumber
+        <EOLocale.Number
           currency="USD"
           language={language.id}
           style="currency"
@@ -43,12 +64,22 @@ import { EOLocaleNumber } from './number.tsx';
 
 ## Percent
 
+```jsx
+import { EOLocale } from 'eo-locale'
+
+<EOLocale.Number
+  language="en"
+  style="percent"
+  value={0.5}
+/>
+```
+
 <Playground>
   <ul>
     {LanguageList.map(language => (
       <li key={language.id} lang={language.id}>
         {language.icon}{' '}
-        <EOLocaleNumber
+        <EOLocale.Number
           language={language.id}
           style="percent"
           value={0.5}
