@@ -9826,10 +9826,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rollup-plugin-cpy@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-cpy/-/rollup-plugin-cpy-2.0.0.tgz#77cbdb1ce650d9cdb5ba66695f8e01983650fa63"
-  integrity sha512-QdAfW5EO2g1tjH2/Qh9O2Z4+2c4I4MyWnUc9UTDFJEhXmtZD65KC3SctjwdBah6achmmXjeJJ9Mps3LyMk4+vg==
+rollup-plugin-cpy@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-cpy/-/rollup-plugin-cpy-1.1.0.tgz#4518d5e662880218a1a13e03b8565773642898d4"
+  integrity sha512-QfRVnEvf06kYDVwZUYyDInQ8Xjd2Y8EIsazuMsUXskV4g7VKYz2kojJaqs0Ew5qfpyL3J9MjONE5mGfu93q5sw==
   dependencies:
     chalk "^2.3.2"
     cpy "^7.0.1"
