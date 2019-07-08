@@ -1,0 +1,16 @@
+# Core
+
+You can use **@eo-locale/core** without React or Preact.
+Just create translator, and import wherever you need.
+
+```ts
+import { Translator } from '@eo-locale/core';
+
+export const translator = new Translator('en');
+
+translator.formatNumber(1000);
+translator.formatDate(new Date());
+translator.translate('hello', {
+  defaultMessage: 'Hello World!',
+});
+```
