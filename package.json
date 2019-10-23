@@ -8,6 +8,7 @@
   "engines": {
     "node": ">= 8"
   },
+  "sideEffects": false,
   "scripts": {
     "prebuild": "npm run lint && npm run test ",
     "build": "rm -rf dist && rollup --config ./rollup.config.js",
