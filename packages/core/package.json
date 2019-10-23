@@ -5,12 +5,13 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">= 10"
+  },
   "scripts": {
-    "build:flow": "copyup \"./src/**/*.flow\" ./dist",
-    "build": "rm -rf dist --scripts-prepend-node-path && rollup --config ./rollup.config.js && npm run check-size && npm run build:flow",
-    "check-size": "size-limit",
-    "flow": "flow",
-    "preversion": "npm run flow && npm run test && npm run build",
+    "postbuild": "copyup \"./src/**/*.flow\" ./dist && size-limit",
+    "build": "rm -rf dist --scripts-prepend-node-path && rollup --config ./rollup.config.js",
+    "preversion": "flow && npm run test && npm run build",
     "test": "jest --detectOpenHandles --config ./config/jest.config.json --no-cache"
   },
   "size-limit": [
@@ -35,15 +36,14 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@eo-locale/polyfills": "^1.0.0",
+    "@size-limit/preset-small-lib": "^2.1.6",
     "@types/jest": "^24.0.12",
     "copyfiles": "^2.1.0",
-    "flow-bin": "^0.102.0-rc",
+    "flow-bin": "^0.110.0",
     "jest": "^24.8.0",
     "rollup": "^1.11.3",
     "rollup-plugin-terser": "^5.0.0",
-    "rollup-plugin-typescript2": "^0.21.0",
-    "size-limit": "^1.3.1",
+    "rollup-plugin-typescript2": "^0.24.3",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.5"
   }

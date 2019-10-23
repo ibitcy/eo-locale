@@ -23,6 +23,9 @@ export default [
           pure_getters: true,
           unsafe: true,
         },
+        output: {
+          comments: false,
+        }
       }),
     ],
   },
