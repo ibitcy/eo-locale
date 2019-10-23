@@ -1,17 +1,18 @@
+import path from 'path';
+import copy from 'rollup-plugin-copy-glob';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
-import copy from 'rollup-plugin-cpy';
 
 export default [
   {
-    input: './src/index.ts',
+    input: path.resolve(__dirname, 'src/index.ts'),
     output: [
       {
-        file: './dist/index.js',
+        file: path.resolve(__dirname, 'dist/index.js'),
         format: 'cjs',
       },
       {
-        file: './dist/index.es.js',
+        file: path.resolve(__dirname, 'dist/index.es.js'),
         format: 'es',
       },
     ],
@@ -25,16 +26,16 @@ export default [
           pure_getters: true,
           unsafe: true,
         },
-      }),
-      copy({
-        files: ['**/*.js.flow'],
-        dest: '../dist',
-        options: {
-          verbose: true,
-          cwd: 'src',
-          parents: true,
+        output: {
+          comments: false,
         },
       }),
+      copy([
+        {
+          files: path.resolve(__dirname, 'src/**/*.js.flow'),
+          dest: path.resolve(__dirname, 'dist'),
+        },
+      ]),
     ],
   },
 ];

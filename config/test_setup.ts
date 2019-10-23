@@ -1,8 +1,8 @@
-import { serverPolyfill } from '@eo-locale/polyfills';
 import * as Enzyme from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 
-serverPolyfill(['en', 'ru']);
+global.Intl = require('intl');
+require('intl-pluralrules');
 
 Enzyme.configure({ adapter: new Adapter() });
 
