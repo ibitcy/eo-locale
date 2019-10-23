@@ -1,5 +1,4 @@
 import path from 'path';
-import copy from 'rollup-plugin-copy-glob';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 
@@ -30,12 +29,6 @@ export default [
           comments: false,
         },
       }),
-      copy([
-        {
-          files: path.resolve(__dirname, 'src/**/*.js.flow'),
-          dest: path.resolve(__dirname, 'dist'),
-        },
-      ]),
     ],
   },
 ];
