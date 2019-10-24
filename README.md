@@ -10,6 +10,7 @@
 * 🎓Based on Internationalization API and React Hooks
 * 👫Familiar react-intl API & patterns
 * ⚙️Both TS and Flow types included
+* 🎄Optimized for [tree shaking](https://webpack.js.org/guides/tree-shaking/)
 
 # Motivation
 
