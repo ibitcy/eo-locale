@@ -1,5 +1,6 @@
 .docz
 .DS_STORE
+.flowconfig
 .github
 .huskyrc.json
 .idea
@@ -12,7 +13,10 @@ config
 coverage
 docs
 docs_src
+doczrc.js
+LICENSE
 node_modules
+README.md
 rollup.config.js
 src
 tsconfig.json
