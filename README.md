@@ -18,6 +18,14 @@ Internationalization is the process of adapting an application to work with diff
 
 > Internationalization it's not only about translation text. Users expect localized Dates, Number separators, Currencies.
 
+# Compare with most popular libraries
+
+| react-intl | react-i18next | eo-locale |
+| ---------- | ------------- | --------- |
+| 13.5kB | 5.3kB | **1.6kB** |
+
+eo-locale inspired by react-intl. react-intl is really cool library with convenient api, but weight is too much. You can check actual information about weights on [bundlephobia](https://bundlephobia.com/).
+
 # How to install
 
 `npm i eo-locale --save` or `yarn add eo-locale`
