@@ -1,13 +1,16 @@
 // @flow
 
-export type TMessage = string | number;
+export type Message = string | number;
 
 export interface ILocale {
   language: string;
-  messages: {[string]: TMessage};
+  messages: {[string]: Message};
 }
 
-export type IFormatMessageOptions = {[string]: any} & {
-  defaultMessage?: string
-}
-
+export type FormatMessageOptions = $Rest<
+  {
+    defaultMessage: string,
+    onIdMissing(id: string): void
+  },
+  {}
+> & { [key: string]: any };

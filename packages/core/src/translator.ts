@@ -1,9 +1,9 @@
-import { IFormatMessageOptions, ILocale, TMessage } from './models';
+import { FormatMessageOptions, ILocale, Message } from './models';
 import { format } from './parser/parser'
 
 export class Translator {
   private readonly language: string;
-  private readonly messages: Record<string, TMessage>;
+  private readonly messages: Record<string, Message>;
 
   public constructor(language = 'en', locales: ILocale[] = []) {
     const locale = locales.find(item => item.language === language);
@@ -20,8 +20,8 @@ export class Translator {
     return new Intl.NumberFormat(this.language, options).format(value);
   }
 
-  public translate(id: string, options: IFormatMessageOptions = {}): string {
-    const { defaultMessage, ...values } = options;
+  public translate(id: string, options: FormatMessageOptions = {}): string {
+    const { defaultMessage, onIdMissing, ...values } = options;
     let message = this.messages[id];
 
     if (typeof message === 'number') {
@@ -29,6 +29,10 @@ export class Translator {
     }
 
     if (typeof message === 'undefined') {
+      if (typeof onIdMissing === 'function') {
+        onIdMissing(id);
+      }
+
       if (typeof defaultMessage !== 'string') {
         return id;
       }

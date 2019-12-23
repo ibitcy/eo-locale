@@ -1,10 +1,11 @@
-export type TMessage = string | number;
+export type Message = string | number;
 
 export interface ILocale {
   language: string;
-  messages: Record<string, TMessage>;
+  messages: Record<string, Message>;
 }
 
-export interface IFormatMessageOptions extends Record<string, any> {
-  defaultMessage?: string;
-}
+export type FormatMessageOptions = Partial<{
+  defaultMessage: string;
+  onIdMissing(id: string): void;
+}> & Record<string, any>;

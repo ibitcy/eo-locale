@@ -1,8 +1,8 @@
 // @flow
-import type { IFormatMessageOptions, ILocale } from "./models";
+import type { FormatMessageOptions, ILocale } from "./models";
 declare export class Translator {
   constructor(language?: string, locales?: ILocale[]): this;
   formatDate(value: Date, options?: Intl$DateTimeFormatOptions): string;
   formatNumber(value: number, options?: Intl$NumberFormatOptions): string;
-  translate(id: string, options?: IFormatMessageOptions): string;
+  translate(id: string, options?: FormatMessageOptions): string;
 }
