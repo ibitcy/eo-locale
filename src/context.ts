@@ -6,6 +6,7 @@ export interface IEOLocaleContext {
   locales: ILocale[];
   translator: Translator;
 
+  onIdMissing?(id: string): void;
   setLanguage(language: string): void;
 }
 
@@ -13,8 +14,7 @@ export const EOLocaleContext = React.createContext<IEOLocaleContext>(
   {
     language: '',
     locales: [],
-    // tslint:disable-next-line:no-empty
-    setLanguage: () => {},
+    setLanguage: () => {}, // tslint:disable-line:no-empty
     translator: new Translator(),
   },
   (prev, next) => (prev.language !== next.language ? 1 : 0),

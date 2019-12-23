@@ -1,8 +1,8 @@
 // @flow
 
-import type { IFormatMessageOptions } from '@eo-locale/core';
+import type { FormatMessageOptions } from '@eo-locale/core';
 
-export type IEOLocaleTextProps = IFormatMessageOptions & {
+export type IEOLocaleTextProps = FormatMessageOptions & {
   id: string;
 
   html?: boolean;

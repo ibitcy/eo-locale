@@ -6,11 +6,13 @@ import { EOLocaleContext } from '../context';
 export interface IEOLocaleProviderProps {
   language: string;
   locales: ILocale[];
+
+  onIdMissing?(id: string): void;
 }
 
-export const EOLocaleProvider: React.FunctionComponent<
+export const EOLocaleProvider: React.FC<
   IEOLocaleProviderProps
-> = ({ children, language, locales }) => {
+> = ({ children, language, locales, onIdMissing }) => {
   const stateHook = React.useState(language);
 
   React.useEffect(() => {
@@ -22,6 +24,7 @@ export const EOLocaleProvider: React.FunctionComponent<
       value={{
         language: stateHook[0],
         locales,
+        onIdMissing,
         setLanguage: stateHook[1],
         translator: new Translator(stateHook[0], locales),
       }}

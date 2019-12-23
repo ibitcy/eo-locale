@@ -8,7 +8,7 @@ export interface IEOLocaleNumberProps extends Intl.NumberFormatOptions {
   language?: string;
 }
 
-export const EOLocaleNumber: React.FunctionComponent<IEOLocaleNumberProps> = ({
+export const EOLocaleNumber: React.FC<IEOLocaleNumberProps> = ({
   children,
   language,
   value,

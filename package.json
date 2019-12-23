@@ -45,7 +45,7 @@
   "size-limit": [
     {
       "path": "dist/index.js",
-      "limit": "800B",
+      "limit": "900B",
       "webpack": false
     }
   ],
@@ -79,7 +79,7 @@
     "typescript": "^3.0.0"
   },
   "dependencies": {
-    "@eo-locale/core": "^1.0.0"
+    "@eo-locale/core": "^1.1.0"
   },
   "peerDependencies": {
     "react": "^16.8.0",
