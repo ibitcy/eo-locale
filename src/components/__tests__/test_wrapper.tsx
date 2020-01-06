@@ -1,3 +1,4 @@
+import { ErrorLogger } from '@eo-locale/core';
 import * as React from 'react';
 
 import { EOLocaleProvider } from '../provider';
@@ -7,7 +8,8 @@ const locales = [
     language: 'en',
     messages: {
       hello: 'Hello {name}!',
-      test_plural: '{attempts, plural, one {You have one more attempt} other {You have {attempts} attempts}}',
+      test_plural:
+        '{attempts, plural, one {You have one more attempt} other {You have {attempts} attempts}}',
       world: '<strong>world</strong>',
     },
   },
@@ -24,13 +26,21 @@ const locales = [
 
 interface IProps {
   language?: string;
-  onError?: typeof console.error;
+  onError?: ErrorLogger;
 }
 
-export const TestWrapper: React.FC<IProps> = ({ children, language, onError }) => {
+export const TestWrapper: React.FC<IProps> = ({
+  children,
+  language,
+  onError,
+}) => {
   return (
     <span>
-      <EOLocaleProvider language={language || 'en'} locales={locales} onError={onError}>
+      <EOLocaleProvider
+        language={language || 'en'}
+        locales={locales}
+        onError={onError}
+      >
         {children}
       </EOLocaleProvider>
     </span>

@@ -1,4 +1,4 @@
-import { ILocale, Translator } from '@eo-locale/core';
+import { ErrorLogger, ILocale, Translator } from '@eo-locale/core';
 import * as React from 'react';
 
 import { EOLocaleContext } from '../context';
@@ -7,7 +7,7 @@ export interface IEOLocaleProviderProps {
   language: string;
   locales: ILocale[];
 
-  onError?: typeof console.error;
+  onError?: ErrorLogger;
 }
 
 export const EOLocaleProvider: React.FC<IEOLocaleProviderProps> = ({
