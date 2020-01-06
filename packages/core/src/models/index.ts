@@ -7,5 +7,4 @@ export interface ILocale {
 
 export type FormatMessageOptions = Partial<{
   defaultMessage: string;
-  onIdMissing(id: string): void;
 }> & Record<string, any>;

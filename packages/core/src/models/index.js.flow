@@ -10,7 +10,6 @@ export interface ILocale {
 export type FormatMessageOptions = $Rest<
   {
     defaultMessage: string,
-    onIdMissing(id: string): void
   },
   {}
 > & { [key: string]: any };

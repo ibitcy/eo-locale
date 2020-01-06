@@ -1,9 +1,13 @@
 import { FormatMessageOptions, ILocale, Message } from './models';
-import { format } from './parser/parser'
+import { format } from './parser/parser';
+
+const LOG_PREFIX = '[eo-locale]';
 
 export class Translator {
   private readonly language: string;
   private readonly messages: Record<string, Message>;
+
+  public onError = console.error;
 
   public constructor(language = 'en', locales: ILocale[] = []) {
     const locale = locales.find(item => item.language === language);
@@ -16,12 +20,15 @@ export class Translator {
     return new Intl.DateTimeFormat(this.language, options).format(value);
   }
 
-  public formatNumber(value: number, options?: Intl.NumberFormatOptions): string {
+  public formatNumber(
+    value: number,
+    options?: Intl.NumberFormatOptions,
+  ): string {
     return new Intl.NumberFormat(this.language, options).format(value);
   }
 
   public translate(id: string, options: FormatMessageOptions = {}): string {
-    const { defaultMessage, onIdMissing, ...values } = options;
+    const { defaultMessage, ...values } = options;
     let message = this.messages[id];
 
     if (typeof message === 'number') {
@@ -29,9 +36,7 @@ export class Translator {
     }
 
     if (typeof message === 'undefined') {
-      if (typeof onIdMissing === 'function') {
-        onIdMissing(id);
-      }
+      this.onError(LOG_PREFIX, ' id missing ', id);
 
       if (typeof defaultMessage !== 'string') {
         return id;
@@ -43,7 +48,7 @@ export class Translator {
     try {
       return format(this.language, message, values);
     } catch (error) {
-      console.error('[eo-locale] ', error);
+      this.onError(LOG_PREFIX, error);
     }
 
     return message;
