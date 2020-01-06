@@ -24,13 +24,13 @@ const locales = [
 
 interface IProps {
   language?: string;
-  onIdMissing?(id: string): void;
+  onError?: typeof console.error;
 }
 
-export const TestWrapper: React.FC<IProps> = ({ children, language, onIdMissing }) => {
+export const TestWrapper: React.FC<IProps> = ({ children, language, onError }) => {
   return (
     <span>
-      <EOLocaleProvider language={language || 'en'} locales={locales} onIdMissing={onIdMissing}>
+      <EOLocaleProvider language={language || 'en'} locales={locales} onError={onError}>
         {children}
       </EOLocaleProvider>
     </span>

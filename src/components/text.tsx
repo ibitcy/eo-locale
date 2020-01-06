@@ -30,10 +30,7 @@ export const EOLocaleText: React.FC<IEOLocaleTextProps> = ({
     }
   });
 
-  const result = context.translator.translate(id, {
-    ...values,
-    onIdMissing: context.onIdMissing,
-  });
+  const result = context.translator.translate(id, values);
 
   if (html) {
     return (

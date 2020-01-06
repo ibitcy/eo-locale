@@ -7,26 +7,34 @@ export interface IEOLocaleProviderProps {
   language: string;
   locales: ILocale[];
 
-  onIdMissing?(id: string): void;
+  onError?: typeof console.error;
 }
 
-export const EOLocaleProvider: React.FC<
-  IEOLocaleProviderProps
-> = ({ children, language, locales, onIdMissing }) => {
+export const EOLocaleProvider: React.FC<IEOLocaleProviderProps> = ({
+  children,
+  language,
+  locales,
+  onError,
+}) => {
   const stateHook = React.useState(language);
 
   React.useEffect(() => {
     stateHook[1](language);
   }, [language]);
 
+  const translator = new Translator(stateHook[0], locales);
+
+  if (onError) {
+    translator.onError = onError;
+  }
+
   return (
     <EOLocaleContext.Provider
       value={{
         language: stateHook[0],
         locales,
-        onIdMissing,
         setLanguage: stateHook[1],
-        translator: new Translator(stateHook[0], locales),
+        translator,
       }}
     >
       {children}

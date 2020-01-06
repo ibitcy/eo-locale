@@ -5,6 +5,3 @@ global.Intl = require('intl');
 require('intl-pluralrules');
 
 Enzyme.configure({ adapter: new Adapter() });
-
-// Don't show error messages for unit tests
-global.console.error = jest.fn();

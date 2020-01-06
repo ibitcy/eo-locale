@@ -6,7 +6,6 @@ export interface IEOLocaleContext {
   locales: ILocale[];
   translator: Translator;
 
-  onIdMissing?(id: string): void;
   setLanguage(language: string): void;
 }
 

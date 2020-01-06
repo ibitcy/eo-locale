@@ -37,12 +37,15 @@ describe('EOLocaleText', () => {
   });
 
   it('Should render id for unsupported language', () => {
+    const onError = jest.fn();
+
     const formatted = Enzyme.render(
-      <TestWrapper language="es">
+      <TestWrapper language="es" onError={onError}>
         <EOLocaleText id="hello" />
       </TestWrapper>,
     );
 
+    expect(onError).toBeCalledTimes(1);
     expect(formatted.text()).toEqual('hello');
   });
 

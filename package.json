@@ -61,7 +61,7 @@
     "docz-theme-default": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "flow-bin": "^0.114.0",
+    "flow-bin": "^0.115.0",
     "husky": "^3.0.0",
     "intl": "^1.2.5",
     "intl-pluralrules": "^1.1.1",
