@@ -79,7 +79,7 @@
     "typescript": "^3.0.0"
   },
   "dependencies": {
-    "@eo-locale/core": "^1.1.0"
+    "@eo-locale/core": "^1.2.0"
   },
   "peerDependencies": {
     "react": "^16.8.0",
