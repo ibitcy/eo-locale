@@ -5,7 +5,7 @@
 [![bundle size](https://badgen.net/bundlephobia/minzip/eo-locale@latest?icon=awesome)](https://bundlephobia.com/result?p=eo-locale@latest)
 
 * 💪Runs in all browsers and Node.js
-* 📦Tiny(1.6kB). Calculated by [size-limit](https://github.com/ai/size-limit) and [bundlephopia](https://bundlephobia.com/result?p=eo-locale@latest).
+* 📦Tiny(1.7kB). Calculated by [size-limit](https://github.com/ai/size-limit) and [bundlephopia](https://bundlephobia.com/result?p=eo-locale@latest).
 * 📚Supports ICU format
 * 🎓Based on Internationalization API and React Hooks
 * 👫Familiar react-intl API & patterns
@@ -22,7 +22,7 @@ Internationalization is the process of adapting an application to work with diff
 
 | react-intl | react-i18next | eo-locale |
 | ---------- | ------------- | --------- |
-| 13.5kB | 5.3kB | **1.6kB** |
+| 13.5kB | 5.3kB | **1.7kB** |
 
 eo-locale inspired by react-intl. react-intl is really cool library with convenient api, but weight is too much. You can check actual information about weights on [bundlephobia](https://bundlephobia.com/).
 
