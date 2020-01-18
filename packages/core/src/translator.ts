@@ -34,7 +34,7 @@ export class Translator {
     }
 
     if (typeof message === 'undefined') {
-      this.onError(new Error(`[eo-locale] id missing ${id}`));
+      this.onError(new Error(`[eo-locale] id missing "${id}"`));
 
       if (typeof defaultMessage !== 'string') {
         return id;
