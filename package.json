@@ -50,7 +50,7 @@
     }
   ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^2.1.6",
+    "@size-limit/preset-small-lib": "^3.0.0",
     "@types/enzyme": "^3.1.11",
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/jest": "^24.0.0",
@@ -61,8 +61,8 @@
     "docz-theme-default": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "flow-bin": "^0.115.0",
-    "husky": "^3.0.0",
+    "flow-bin": "^0.116.1",
+    "husky": "^4.0.10",
     "intl": "^1.2.5",
     "intl-pluralrules": "^1.1.1",
     "jest": "^24.0.0",
@@ -79,7 +79,7 @@
     "typescript": "^3.0.0"
   },
   "dependencies": {
-    "@eo-locale/core": "^1.2.0"
+    "@eo-locale/core": "^1.2.1"
   },
   "peerDependencies": {
     "react": "^16.8.0",
