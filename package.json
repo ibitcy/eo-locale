@@ -6,7 +6,7 @@
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "engines": {
-    "node": ">= 8"
+    "node": ">= 10"
   },
   "sideEffects": false,
   "scripts": {
