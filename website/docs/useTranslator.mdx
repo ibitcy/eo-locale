@@ -1,0 +1,18 @@
+---
+id: useTranslator
+title: useTranslator
+---
+
+Sometimes you need ability to render some strings not as components.
+For example, placeholder of input. In this cases `useTranslator` might be very helpful.
+That hook returns instance of class `Translator`.
+
+```jsx
+import { useTranslator } from 'eo-locale';
+
+export function SomeComponent() {
+  const translator = useTranslator();
+
+  return <input placeholder={translator.formatNumber(1000)} />;
+}
+```
