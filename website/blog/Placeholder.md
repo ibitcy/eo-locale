@@ -3,15 +3,35 @@ id: placeholder
 title: How to translate input placeholder
 author: Maksim Sharipov
 author_title: Maintainer of eo-locale
-author_url: https://github.com/endiliey
-author_image_url: https://avatars1.githubusercontent.com/u/17883920?s=460&v=4
+author_url: https://github.com/pret-a-porter
+author_image_url: https://avatars0.githubusercontent.com/u/8514156?s=400&v=4
 tags: [useTranslator]
 ---
 
-dsds
+Translate input placeholder is quite common task.
+Let's consider how we can do it with eo-locale.
 
-<!--truncate-->
+```jsx
+import { EOLocale, useTranslator } from 'eo-locale';
 
-This is a test post.
+const LOCALES = [{
+  language: 'en',
+  messages: {
+    hello: 'Hello World!',
+  }
+}]
 
-A whole bunch of other information.
+function App() {
+  return (
+    <EOLocale.Provider language="en" locales={LOCALES}>
+      <SomeComponent />
+    </EOLocale.Provider>
+  );
+}
+
+function SomeComponent() {
+  const translator = useTranslator();
+
+  return <input placeholder={translator.translate('hello')} />
+}
+```
