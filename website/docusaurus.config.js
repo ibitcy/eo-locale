@@ -11,7 +11,7 @@ module.exports = {
     navbar: {
       title: 'eo-locale',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'eo-locale',
         src: 'img/logo.svg',
       },
       links: [

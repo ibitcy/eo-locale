@@ -28,7 +28,7 @@ Component will display <Highlight><Preview/></Highlight>
 
 export const Preview = () => {
   return (
-    <EOLocale.Provider language="en" locales={[]}>
+    <EOLocale.Provider language="en" locales={[]} onError={() => {}}>
       <EOLocale.Text
         count="4"
         defaultMessage="{count, plural, one {You have one item.} other {You have {count} items.}}"

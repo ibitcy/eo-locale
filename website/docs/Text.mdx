@@ -25,7 +25,7 @@ Component will display <Highlight><Preview/></Highlight>
 
 export const Preview = () => {
   return (
-    <EOLocale.Provider language="en" locales={[]}>
+    <EOLocale.Provider language="en" locales={[]} onError={() => {}}>
       <EOLocale.Text id="hello" defaultMessage="Hello {name}!" name="World" />
     </EOLocale.Provider>
   );
