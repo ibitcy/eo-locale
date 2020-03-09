@@ -1,0 +1,32 @@
+---
+id: Text
+title: Text
+---
+
+import { EOLocale } from 'eo-locale';
+import { Highlight } from '../src/components/Highlight';
+
+`EOLocale.Text` component provides ability to format string values.
+It supports ICU Message Syntax. More information you can find on [official website](http://userguide.icu-project.org/).
+
+```jsx
+import { EOLocale } from 'eo-locale'
+
+export function SomeComponent() {
+  return (
+    <EOLocale.Provider language="en" locales={[]}>
+      <EOLocale.Text id="hello" defaultMessage="Hello {name}!" name="World" />
+    </EOLocale.Provider>
+  );
+}
+```
+
+Component will display <Highlight><Preview/></Highlight>
+
+export const Preview = () => {
+  return (
+    <EOLocale.Provider language="en" locales={[]}>
+      <EOLocale.Text id="hello" defaultMessage="Hello {name}!" name="World" />
+    </EOLocale.Provider>
+  );
+};

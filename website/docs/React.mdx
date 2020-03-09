@@ -1,0 +1,54 @@
+---
+id: React
+title: Introduction
+---
+
+## 🌏 Internationalize React apps
+
+👔 Elegant lightweight(2kB) library based on Internationalization API
+
+* 💪 Runs in all browsers and Node.js
+* 📦 Tiny(2kB). Calculated by [size-limit](https://github.com/ai/size-limit) and [bundlephopia](https://bundlephobia.com/result?p=eo-locale@latest).
+* 📚 Supports ICU format
+* 🎓 Based on Internationalization API and React Hooks
+* 👫 Familiar react-intl API & patterns
+* ⚙️ Both TS and Flow types included
+
+## Install
+
+> Note: React 16.8+ is required for Hooks.
+
+### With npm
+
+```sh
+npm i eo-locale --save
+```
+
+### Or with yarn
+
+```sh
+yarn add eo-locale
+```
+
+## Quick example
+
+Add provider in root of your application
+
+```jsx
+import { EOLocale } from 'eo-locale';
+
+const locales = [
+  {
+    language: 'en',
+    messages: {
+      hello: 'Hello {name}!'
+    }
+  },
+];
+
+<EOLocale.Provider language="en" locales={locales}>
+  <span>
+    <EOLocale.Text id="hello" name="World" /> // Helo World!
+  </span>
+</EOLocale.Provider>
+```

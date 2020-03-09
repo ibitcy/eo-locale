@@ -1,0 +1,39 @@
+---
+id: Plural
+title: Plural
+---
+
+import { EOLocale } from 'eo-locale';
+import { Highlight } from '../src/components/Highlight';
+
+Example of plural value
+
+```jsx
+import { EOLocale } from 'eo-locale';
+
+export function SomeComponent() {
+  return (
+    <EOLocale.Provider language="en" locales={[]}>
+      <EOLocale.Text
+        count="4"
+        defaultMessage="{count, plural, one {You have one item.} other {You have {count} items.}}"
+        id="hello"
+      />
+    </EOLocale.Provider>
+  );
+}
+```
+
+Component will display <Highlight><Preview/></Highlight>
+
+export const Preview = () => {
+  return (
+    <EOLocale.Provider language="en" locales={[]}>
+      <EOLocale.Text
+        count="4"
+        defaultMessage="{count, plural, one {You have one item.} other {You have {count} items.}}"
+        id="hello"
+      />
+    </EOLocale.Provider>
+  );
+};

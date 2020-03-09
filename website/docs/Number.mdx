@@ -1,0 +1,29 @@
+---
+id: Number
+title: Number
+---
+
+import { EOLocale } from 'eo-locale';
+import { Highlight } from '../src/components/Highlight';
+import {
+  LanguageSelector,
+  useLanguage,
+} from '../src/components/LanguageSelector';
+
+`EOLocale.Number` component provides ability to format numeric values.
+Full list of supported properties you can find on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat) page
+
+```jsx
+import { EOLocale } from 'eo-locale';
+
+export function SomeComponent() {
+  return <EOLocale.Number language="en" value={123456789.321} />;
+}
+```
+
+Component will display <LanguageSelector><Highlight><Preview/></Highlight></LanguageSelector>
+
+export const Preview = () => {
+  const language = useLanguage();
+  return <EOLocale.Number language={language} value={123456789.321} />
+};
