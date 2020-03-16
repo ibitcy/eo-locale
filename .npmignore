@@ -1,4 +1,4 @@
-.docz
+
 .DS_STORE
 .flowconfig
 .github
@@ -11,9 +11,6 @@
 *.log
 config
 coverage
-docs
-docs_src
-doczrc.js
 LICENSE
 node_modules
 README.md
