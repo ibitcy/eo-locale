@@ -6,6 +6,30 @@ import { EOLocaleText } from '../text';
 import { TestWrapper } from './test_wrapper';
 
 describe('EOLocaleHtml', () => {
+  it('Should wrap in span by default', () => {
+    const formatted = Enzyme.render(
+      <TestWrapper>
+        <EOLocaleText html id="world" />
+      </TestWrapper>,
+    );
+
+    const span = formatted.find('span');
+
+    expect(span.length).toEqual(1);
+  });
+
+  it('Should wrap in custom tag', () => {
+    const formatted = Enzyme.render(
+      <TestWrapper>
+        <EOLocaleText html id="world" tagName="article" />
+      </TestWrapper>,
+    );
+
+    const article = formatted.find('article');
+
+    expect(article.length).toEqual(1);
+  });
+  
   it('Should render strong tag', () => {
     const formatted = Enzyme.render(
       <TestWrapper>

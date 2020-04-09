@@ -8,12 +8,14 @@ export interface IEOLocaleTextProps extends FormatMessageOptions {
   id: string;
 
   html?: boolean;
+  tagName?: keyof React.ReactHTML;
 }
 
 export const EOLocaleText: React.FC<IEOLocaleTextProps> = ({
   children,
   html,
   id,
+  tagName = 'span',
   ...values
 }) => {
   const context = React.useContext(EOLocaleContext);
@@ -33,13 +35,11 @@ export const EOLocaleText: React.FC<IEOLocaleTextProps> = ({
   const result = context.translator.translate(id, values);
 
   if (html) {
-    return (
-      <span
-        dangerouslySetInnerHTML={{
-          __html: result,
-        }}
-      />
-    );
+    return React.createElement(tagName, {
+      dangerouslySetInnerHTML: {
+        __html: result,
+      }
+    });
   }
 
   return result as any;
