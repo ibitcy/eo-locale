@@ -81,6 +81,34 @@ export const Money: React.FC<MoneyProps> = ({ amount, currency, language }) => {
 
 Component will display <Preview currencyDisplay="name" />
 
+If you want to show only one fraction digit, just pass `maximumFractionDigits` and `minimumFractionDigits` property.
+
+```jsx
+import { EOLocale } from 'eo-locale';
+
+type MoneyProps = {
+  amount: number,
+  currency: string,
+  language: string,
+};
+
+export const Money: React.FC<MoneyProps> = ({ amount, currency, language }) => {
+  return (
+    <EOLocale.Number
+      currency={currency}
+      currencyDisplay="name"
+      language={language}
+      maximumFractionDigits={1}
+      minimumFractionDigits={1}
+      style="currency"
+      value={amount}
+    />
+  );
+};
+```
+
+Component will display <Preview currencyDisplay="name" minimumFractionDigits={1} maximumFractionDigits={1} />
+
 Also easy to extend this component with any of standard params from [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
 
 export const Preview = (props) => {
@@ -90,6 +118,8 @@ export const Preview = (props) => {
         style="currency"
         currency="usd"
         currencyDisplay={props.currencyDisplay}
+        minimumFractionDigits={props.minimumFractionDigits}
+        maximumFractionDigits={props.maximumFractionDigits}
         language="en"
         value={1000}
       />
