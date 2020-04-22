@@ -1,0 +1,99 @@
+---
+id: money
+title: Currency internationalization
+author: Maksim Sharipov
+author_title: Maintainer of eo-locale
+author_url: https://github.com/pret-a-porter
+author_image_url: https://avatars0.githubusercontent.com/u/8514156?s=400&v=4
+tags: []
+---
+
+import { EOLocale } from 'eo-locale';
+import { Highlight } from '../src/components/Highlight';
+
+In this article we consider how to create clear and reusable component `Money`.
+For many websites it is actual issue to display prices in different currencies and for different languages.
+It helps to be more friendly with customers from any country.
+
+Let's figure requirements for those component:
+
+- Ability to pass currency
+- Ability to pass language, because for different languages we use different numeric format
+- Mode of currency display
+
+Actually, with `eo-locale` it is quite simple issue.
+
+```jsx
+import { EOLocale } from 'eo-locale';
+
+type MoneyProps = {
+  amount: number,
+  currency: string,
+  language: string,
+};
+
+export const Money: React.FC<MoneyProps> = ({ amount, currency, language }) => {
+  return (
+    <EOLocale.Number
+      currency={currency}
+      language={language}
+      style="currency"
+      value={amount}
+    />
+  );
+};
+```
+
+For example, with next props:
+
+```
+  language: 'en',
+  value: 1000,
+  currency: 'usd',
+```
+
+Component will display <Preview />
+
+For change mode of currency display, set `currencyDisplay` property.
+It can be `symbol`, `code` or `name`. By default `symbol`.
+
+```jsx
+import { EOLocale } from 'eo-locale';
+
+type MoneyProps = {
+  amount: number,
+  currency: string,
+  language: string,
+};
+
+export const Money: React.FC<MoneyProps> = ({ amount, currency, language }) => {
+  return (
+    <EOLocale.Number
+      currency={currency}
+      currencyDisplay="name"
+      language={language}
+      style="currency"
+      value={amount}
+    />
+  );
+};
+```
+
+Component will display <Preview currencyDisplay="name" />
+
+Also easy to extend this component with any of standard params from [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
+
+export const Preview = (props) => {
+  return (
+    <Highlight>
+      <EOLocale.Number
+        style="currency"
+        currency="usd"
+        currencyDisplay={props.currencyDisplay}
+        language="en"
+        value={1000}
+      />
+    </Highlight>
+  );
+};
+
