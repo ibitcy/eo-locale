@@ -39,7 +39,7 @@
   "bugs": {
     "url": "https://github.com/ibitcy/eo-locale/issues"
   },
-  "homepage": "https://ibitcy.github.io/eo-locale/",
+  "homepage": "https://eo-locale.netlify.app",
   "size-limit": [
     {
       "path": "dist/index.js",
