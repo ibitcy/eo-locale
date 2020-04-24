@@ -23,19 +23,24 @@ Let's figure requirements for those component:
 
 Actually, with `eo-locale` it is quite simple issue.
 
+I am a big fan of TypeScript and all examples will use it.
+
 ```jsx
 import { EOLocale } from 'eo-locale';
 
-type MoneyProps = {
-  amount: number,
-  currency: string,
-  language: string,
-};
+interface MoneyProps extends Intl.NumberFormatOptions {
+  amount: number;
+  language: string;
+}
 
-export const Money: React.FC<MoneyProps> = ({ amount, currency, language }) => {
+export const Money: React.FC<MoneyProps> = ({
+  amount,
+  language,
+  ...shared
+}) => {
   return (
     <EOLocale.Number
-      currency={currency}
+      {...shared}
       language={language}
       style="currency"
       value={amount}
@@ -44,12 +49,17 @@ export const Money: React.FC<MoneyProps> = ({ amount, currency, language }) => {
 };
 ```
 
+Interface `MoneyProps` extends interface `Intl.NumberFormatOptions`, therefore
+we can use any of standard params from [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
+
 For example, with next props:
 
-```
-  language: 'en',
-  value: 1000,
-  currency: 'usd',
+```jsx
+import { Money } from '...somewhere';
+
+const SomeComponent: React.FC = () => {
+  return <Money currency="usd" language="en" value={1000} />;
+};
 ```
 
 Component will display <Preview />
@@ -58,23 +68,11 @@ For change mode of currency display, set `currencyDisplay` property.
 It can be `symbol`, `code` or `name`. By default `symbol`.
 
 ```jsx
-import { EOLocale } from 'eo-locale';
+import { Money } from '...somewhere';
 
-type MoneyProps = {
-  amount: number,
-  currency: string,
-  language: string,
-};
-
-export const Money: React.FC<MoneyProps> = ({ amount, currency, language }) => {
+const SomeComponent: React.FC = () => {
   return (
-    <EOLocale.Number
-      currency={currency}
-      currencyDisplay="name"
-      language={language}
-      style="currency"
-      value={amount}
-    />
+    <Money currency="usd" currencyDisplay="name" language="en" value={1000} />
   );
 };
 ```
@@ -84,32 +82,22 @@ Component will display <Preview currencyDisplay="name" />
 If you want to show only one fraction digit, just pass `maximumFractionDigits` and `minimumFractionDigits` property.
 
 ```jsx
-import { EOLocale } from 'eo-locale';
+import { Money } from '...somewhere';
 
-type MoneyProps = {
-  amount: number,
-  currency: string,
-  language: string,
-};
-
-export const Money: React.FC<MoneyProps> = ({ amount, currency, language }) => {
+const SomeComponent: React.FC = () => {
   return (
-    <EOLocale.Number
-      currency={currency}
-      currencyDisplay="name"
-      language={language}
+    <Money
+      currency="usd"
+      language="en"
+      value={1000}
       maximumFractionDigits={1}
       minimumFractionDigits={1}
-      style="currency"
-      value={amount}
     />
   );
 };
 ```
 
-Component will display <Preview currencyDisplay="name" minimumFractionDigits={1} maximumFractionDigits={1} />
-
-Also easy to extend this component with any of standard params from [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
+Component will display <Preview minimumFractionDigits={1} maximumFractionDigits={1} />
 
 export const Preview = (props) => {
   return (
@@ -126,4 +114,3 @@ export const Preview = (props) => {
     </Highlight>
   );
 };
-
