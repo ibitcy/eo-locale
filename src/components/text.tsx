@@ -20,7 +20,7 @@ export const EOLocaleText: React.FC<IEOLocaleTextProps> = ({
 }) => {
   const context = React.useContext(EOLocaleContext);
 
-  Object.keys(values).forEach(key => {
+  Object.keys(values).forEach((key) => {
     const value = values[key];
 
     if (React.isValidElement(value)) {
@@ -38,7 +38,7 @@ export const EOLocaleText: React.FC<IEOLocaleTextProps> = ({
     return React.createElement(tagName, {
       dangerouslySetInnerHTML: {
         __html: result,
-      }
+      },
     });
   }
 
