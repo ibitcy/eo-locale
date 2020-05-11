@@ -2,4 +2,4 @@
 
 Core package of `eo-locale`
 
-See documentation on [https://ibitcy.github.io/eo-locale/](https://ibitcy.github.io/eo-locale/)
+[Official website](https://eo-locale.netlify.com/)
