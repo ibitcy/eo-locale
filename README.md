@@ -5,10 +5,12 @@
 [![bundle size](https://badgen.net/bundlephobia/minzip/eo-locale@latest?icon=awesome)](https://bundlephobia.com/result?p=eo-locale@latest)
 
 * 💪Runs in all browsers and Node.js
+* ☎Can be used not only in React.Component but also in Vanilla JS
 * 📦Tiny(1.7kB). Calculated by [size-limit](https://github.com/ai/size-limit) and [bundlephopia](https://bundlephobia.com/result?p=eo-locale@latest).
-* 📚Supports ICU format
-* 🎓Based on Internationalization API and React Hooks
-* 👫Familiar react-intl API & patterns
+* 📚Message format is strictly implemented by [ICU standards](http://userguide.icu-project.org/formatparse/messages)
+* 🎓Support for 150+ languages
+* 🎉Support HTML in message 
+* 👫Simple. Only four components and one hook
 * ⚙️Both TS and Flow types included
 * 🎄Optimized for [tree shaking](https://webpack.js.org/guides/tree-shaking/)
 
