@@ -1,9 +1,10 @@
 import { FormatMessageOptions, ILocale, Message } from './models';
 import { format } from './parser/parser';
+import delve from 'dlv';
 
 export class Translator {
   private readonly language: string;
-  private readonly messages: Record<string, Message>;
+  private readonly messages: Record<string, Message | Record<string, Message>>;
 
   public onError: ErrorLogger = console.error;
 
@@ -27,29 +28,21 @@ export class Translator {
 
   public translate(id: string, options: FormatMessageOptions = {}): string {
     const { defaultMessage, ...values } = options;
-    let message = this.messages[id];
+    const message: Message | Record<string, Message> = delve(this.messages, id, defaultMessage || id);
 
-    if (typeof message === 'number') {
-      return message.toString();
-    }
-
-    if (typeof message === 'undefined') {
+    if (message === id) {
       this.onError(new Error(`[eo-locale] id missing "${id}"`));
+    }
 
-      if (typeof defaultMessage !== 'string') {
-        return id;
+    if (typeof message === 'string') {
+      try {
+        return format(this.language, message, values);
+      } catch (error) {
+        this.onError(error);
       }
-
-      message = defaultMessage;
     }
 
-    try {
-      return format(this.language, message, values);
-    } catch (error) {
-      this.onError(error);
-    }
-
-    return message;
+    return message.toString();
   }
 }
 

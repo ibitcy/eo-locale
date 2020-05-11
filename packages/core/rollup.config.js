@@ -14,6 +14,7 @@ export default [
         format: 'es',
       },
     ],
+    external: ['dlv'],
     plugins: [
       typescript(),
       terser({
@@ -25,7 +26,7 @@ export default [
         },
         output: {
           comments: false,
-        }
+        },
       }),
     ],
   },

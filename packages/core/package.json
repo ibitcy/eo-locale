@@ -34,6 +34,7 @@
   "license": "ISC",
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.5.0",
+    "@types/dlv": "^1.1.2",
     "@types/jest": "^25.2.1",
     "copyfiles": "^2.1.0",
     "flow-bin": "^0.124.0",
@@ -44,5 +45,8 @@
     "size-limit": "^4.5.0",
     "ts-jest": "^25.5.1",
     "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "dlv": "^1.1.3"
   }
 }

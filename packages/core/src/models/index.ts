@@ -2,7 +2,7 @@ export type Message = string | number;
 
 export interface ILocale {
   language: string;
-  messages: Record<string, Message>;
+  messages: Record<string, Message | Record<string, Message>>;
 }
 
 export type FormatMessageOptions = Partial<{
