@@ -12,7 +12,7 @@
 * 🎉Support HTML in message
 * 🎢Locale data in [nested JSON format](https://github.com/ibitcy/eo-locale/releases/tag/7.4.0) are supported 
 * 👫Simple. Only four components and one hook
-* ⚙️TtypeScript and Flow types out of the box. Library written on TypeScript
+* ⚙️TtypeScript and Flow types out of the box. Library has written on TypeScript
 * 🎄Optimized for [tree shaking](https://webpack.js.org/guides/tree-shaking/)
 
 # Motivation
