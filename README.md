@@ -9,9 +9,10 @@
 * 📦Tiny(1.7kB). Calculated by [size-limit](https://github.com/ai/size-limit) and [bundlephopia](https://bundlephobia.com/result?p=eo-locale@latest).
 * 📚Message format is strictly implemented by [ICU standards](http://userguide.icu-project.org/formatparse/messages)
 * 🎓Support for 150+ languages
-* 🎉Support HTML in message 
+* 🎉Support HTML in message
+* 🎢Locale data in [nested JSON format](https://github.com/ibitcy/eo-locale/releases/tag/7.4.0) are supported 
 * 👫Simple. Only four components and one hook
-* ⚙️Both TS and Flow types included
+* ⚙️TtypeScript and Flow types out of the box. Library written on TypeScript
 * 🎄Optimized for [tree shaking](https://webpack.js.org/guides/tree-shaking/)
 
 # Motivation
