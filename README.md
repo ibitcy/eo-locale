@@ -6,7 +6,7 @@
 
 * 💪Runs in all browsers and Node.js
 * ☎Can be used not only in React.Component but also in Vanilla JS
-* 📦Tiny(1.7kB). Calculated by [size-limit](https://github.com/ai/size-limit) and [bundlephopia](https://bundlephobia.com/result?p=eo-locale@latest).
+* 📦Really tiny size. Calculated by [size-limit](https://github.com/ai/size-limit) and [bundlephopia](https://bundlephobia.com/result?p=eo-locale@latest).
 * 📚Message format is strictly implemented by [ICU standards](http://userguide.icu-project.org/formatparse/messages)
 * 🎓Support for 150+ languages
 * 🎉Support HTML in message
@@ -25,7 +25,7 @@ Internationalization is the process of adapting an application to work with diff
 
 | react-intl | react-i18next | eo-locale |
 | ---------- | ------------- | --------- |
-| 13.5kB | 5.3kB | **1.7kB** |
+| 13.5kB | 5.3kB | **1.8kB** |
 
 eo-locale inspired by react-intl. react-intl is really cool library with convenient api, but weight is too much. You can check actual information about weights on [bundlephobia](https://bundlephobia.com/).
 
