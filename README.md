@@ -9,7 +9,7 @@
 * 📦Really tiny size. Calculated by [size-limit](https://github.com/ai/size-limit) and [bundlephopia](https://bundlephobia.com/result?p=eo-locale@latest).
 * 📚Message format is strictly implemented by [ICU standards](http://userguide.icu-project.org/formatparse/messages)
 * 🎓Support for 150+ languages
-* 🎉Support HTML in message
+* 🎉Support HTML in message. Support React Elements as variables
 * 🎢Locale data in [nested JSON format](https://github.com/ibitcy/eo-locale/releases/tag/7.4.0) are supported 
 * 👫Simple. Only four components and one hook
 * ⚙️TtypeScript and Flow types out of the box. Library has written on TypeScript
