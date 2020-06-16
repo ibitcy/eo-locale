@@ -5,9 +5,13 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "private": true,
   "engines": {
     "node": ">= 10"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "sideEffects": false,
   "scripts": {
     "prebuild": "npm run lint && npm run test ",
@@ -64,6 +68,7 @@
     "jest": "^26.0.1",
     "jest-haste-map": "^26.0.1",
     "jest-resolve": "^26.0.1",
+    "lerna": "^3.13.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "rollup": "^2.3.4",
