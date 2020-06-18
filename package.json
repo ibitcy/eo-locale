@@ -8,20 +8,9 @@
     "test": "lerna run test"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.0",
-    "copyfiles": "^2.1.1",
-    "flow-bin": "^0.127.0",
     "husky": "^4.0.10",
     "intl": "^1.2.5",
     "intl-pluralrules": "^1.2.0",
-    "jest": "^26.0.1",
-    "lerna": "^3.13.4",
-    "rollup": "^2.3.4",
-    "rollup-plugin-clear": "^2.0.7",
-    "rollup-plugin-terser": "^6.1.0",
-    "rollup-plugin-typescript2": "^0.27.0",
-    "size-limit": "^4.0.2",
-    "ts-jest": "^26.0.0",
-    "typescript": "^3.0.0"
+    "lerna": "^3.13.4"
   }
 }
