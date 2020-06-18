@@ -18,9 +18,10 @@
     "lib"
   ],
   "scripts": {
+    "prebuild": "flow",
     "build": "rollup --config ./rollup.config.js",
     "postbuild": "copyup \"src/**/*.flow\" lib && size-limit",
-    "prepare": "flow && npm run test && npm run build",
+    "prepare": "npm run test && npm run build",
     "test": "jest --detectOpenHandles --config ./config/jest.config.json --no-cache"
   },
   "sideEffects": false,
@@ -69,5 +70,5 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
-  "gitHead": "3c5f02105fabe92451ce95efdbbbae7bc0ca74e4"
+  "gitHead": "61dd40990fbbc192116d6b79e91bfc254fb355c7"
 }
