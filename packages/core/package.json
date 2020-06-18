@@ -21,6 +21,10 @@
   "files": [
     "lib"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "sideEffects": false,
   "size-limit": [
     {
@@ -61,5 +65,5 @@
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"
   },
-  "gitHead": "61dd40990fbbc192116d6b79e91bfc254fb355c7"
+  "gitHead": "85f16888e69bd8962e3e20ad92065a6ef5afcb22"
 }

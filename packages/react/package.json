@@ -26,6 +26,7 @@
   },
   "sideEffects": false,
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "repository": {
@@ -81,5 +82,5 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
-  "gitHead": "61dd40990fbbc192116d6b79e91bfc254fb355c7"
+  "gitHead": "85f16888e69bd8962e3e20ad92065a6ef5afcb22"
 }
