@@ -20,7 +20,7 @@
   "scripts": {
     "build": "rollup --config ./rollup.config.js",
     "postbuild": "copyup \"src/**/*.flow\" lib && size-limit",
-    "prepare": "flow && npm run build",
+    "prepare": "flow && npm run test && npm run build",
     "test": "jest --detectOpenHandles --config ./config/jest.config.json --no-cache"
   },
   "sideEffects": false,
@@ -68,5 +68,6 @@
   "peerDependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
-  }
+  },
+  "gitHead": "3c5f02105fabe92451ce95efdbbbae7bc0ca74e4"
 }
