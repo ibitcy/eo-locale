@@ -1,0 +1,20 @@
+{
+  "moduleFileExtensions": ["tsx", "ts", "js"],
+  "collectCoverage": true,
+  "coveragePathIgnorePatterns": ["/node_modules/", "./src/context.ts"],
+  "setupFilesAfterEnv": ["./src/__tests__/test_setup.ts"],
+  "coverageThreshold": {
+    "global": {
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": 100
+    }
+  },
+  "notify": true,
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "rootDir": "..",
+  "testMatch": ["<rootDir>/src/**/__tests__/**/*.test.(ts|tsx|js)"]
+}

@@ -1,7 +1,7 @@
+import path from 'path';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import clear from 'rollup-plugin-clear';
-import path from 'path';
 
 export default [
   {
@@ -16,7 +16,7 @@ export default [
         format: 'es',
       },
     ],
-    external: ['dlv'],
+    external: ['react', 'react-dom/server', '@eo-locale/core'],
     plugins: [
       clear({
         targets: [path.resolve(__dirname, 'lib')],

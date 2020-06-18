@@ -4,13 +4,11 @@ export class InputStream {
   public value = '';
 
   public constructor(private readonly input: string) {
-    this.value = this.input.charAt(this.index);
+    this.value = this.input.charAt(0);
   }
 
   public next(): string {
-    this.index++;
-
-    if (this.index >= this.input.length) {
+    if (++this.index >= this.input.length) {
       this.done = true;
     }
 

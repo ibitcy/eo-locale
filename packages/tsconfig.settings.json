@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": false,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "jsx": "react",
+    "lib": ["dom", "es6", "es2016", "es2017"],
+    "outDir": "dist",
+    "removeComments": true,
+    "sourceMap": false,
+    "strict": true,
+    "target": "es5"
+  }
+}
