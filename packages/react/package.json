@@ -1,6 +1,6 @@
 {
   "name": "@eo-locale/react",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Easy way to internationalize your React application",
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
   "homepage": "https://eo-locale.netlify.app",
@@ -53,7 +53,7 @@
     }
   ],
   "dependencies": {
-    "@eo-locale/core": "^1.3.3"
+    "@eo-locale/core": "^1.3.4"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.0.2",
