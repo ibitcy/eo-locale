@@ -1,7 +1,7 @@
 import * as Enzyme from 'enzyme';
 import * as React from 'react';
 
-import { DateTime } from '../date';
+import { DateTime } from '../index';
 import { TestWrapper } from './test_wrapper';
 
 const date = new Date(2017, 5, 24);

@@ -1,7 +1,7 @@
 import * as Enzyme from 'enzyme';
 import * as React from 'react';
 
-import { Numeric } from '../numeric';
+import { Numeric } from '../index';
 import { TestWrapper } from './test_wrapper';
 
 describe('Numeric', () => {

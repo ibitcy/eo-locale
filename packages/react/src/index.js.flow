@@ -1,7 +1,44 @@
 // @flow
-export * from "./components/date"
-export * from "./components/numeric";
-export * from "./components/provider"
-export * from "./components/text"
-export * from "./context";
-export * from "./utils/use_translator"
+
+import {
+  ILocale,
+  Translator
+} from "@eo-locale/core";
+import type { FormatMessageOptions } from '@eo-locale/core';
+
+export interface TranslationsContextProps {
+  language: string;
+  locales: ILocale[];
+  translator: Translator;
+  setLanguage(language: string): void;
+}
+declare export var TranslationsContext: React$Context<TranslationsContextProps>;
+
+export interface ProviderProps {
+  language: string;
+  locales: ILocale[];
+}
+declare export var Provider: React$StatelessFunctionalComponent<ProviderProps>;
+
+declare export function useTranslator(language?: string): Translator;
+
+export type DateTimeProps = {
+  value: Date,
+  language?: string,
+  ...
+} & Intl$DateTimeFormatOptions;
+declare export var DateTime: React$StatelessFunctionalComponent<DateTimeProps>;
+
+export type NumericProps = {
+  value: number,
+  language?: string,
+  ...
+} & Intl$NumberFormatOptions;
+declare export var Numeric: React$StatelessFunctionalComponent<NumericProps>;
+
+export type TextProps = {
+  id: string,
+  html?: boolean
+} & FormatMessageOptions;
+declare export var Text: React$StatelessFunctionalComponent<TextProps>;
+

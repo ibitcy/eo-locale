@@ -1,7 +1,7 @@
 import * as Enzyme from 'enzyme';
 import * as React from 'react';
 
-import { Text } from '../text';
+import { Text } from '../index';
 import { TestWrapper } from './test_wrapper';
 
 describe('On error handler', () => {

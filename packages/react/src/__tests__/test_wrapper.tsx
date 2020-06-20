@@ -1,7 +1,7 @@
 import { ErrorLogger } from '@eo-locale/core';
 import * as React from 'react';
 
-import { Provider } from '../provider';
+import { Provider } from '../index';
 
 const locales = [
   {

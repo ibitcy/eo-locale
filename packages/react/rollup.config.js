@@ -5,7 +5,7 @@ import clear from 'rollup-plugin-clear';
 
 export default [
   {
-    input: path.resolve(__dirname, 'src/index.ts'),
+    input: path.resolve(__dirname, 'src/index.tsx'),
     output: [
       {
         file: path.resolve(__dirname, 'lib/index.js'),

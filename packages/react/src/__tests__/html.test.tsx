@@ -1,8 +1,7 @@
 import * as Enzyme from 'enzyme';
 import * as React from 'react';
 
-import { Numeric } from '../numeric';
-import { Text } from '../text';
+import { Numeric, Text } from '../index';
 import { TestWrapper } from './test_wrapper';
 
 describe('EOLocaleHtml', () => {

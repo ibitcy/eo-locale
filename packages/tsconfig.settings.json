@@ -14,5 +14,6 @@
     "sourceMap": false,
     "strict": true,
     "target": "es5"
-  }
+  },
+  "exclude": ["**/**/__tests__/**/**"]
 }

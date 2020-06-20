@@ -1,9 +1,0 @@
-// @flow
-
-export type NumericProps = Intl$NumberFormatOptions & {
-  value: number;
-
-  language?: string;
-}
-
-declare export var Numeric: React$StatelessFunctionalComponent<NumericProps>;

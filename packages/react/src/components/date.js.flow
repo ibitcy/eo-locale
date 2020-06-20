@@ -1,9 +1,0 @@
-// @flow
-
-export type DateTimeProps = Intl$DateTimeFormatOptions & {
-  value: Date;
-
-  language?: string;
-}
-
-declare export var DateTime: React$StatelessFunctionalComponent<DateTimeProps>;
