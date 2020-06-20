@@ -1,6 +1,6 @@
 {
   "name": "@eo-locale/react",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "Easy way to internationalize your React application",
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
   "homepage": "https://eo-locale.netlify.app",
