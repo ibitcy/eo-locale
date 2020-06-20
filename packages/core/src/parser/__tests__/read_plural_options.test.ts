@@ -1,31 +1,31 @@
-import { ETokenType, IToken, TokenStream } from '../token_stream';
+import { TokenType, Token, TokenStream } from '../token_stream';
 
 describe('Read plural options', () => {
   it('Should return plural token', () => {
     const stream = new TokenStream('{count, plural, one {One, item} other {{count} ite,ms}}');
-    const options: Record<string, IToken[]> = {};
+    const options: Record<string, Token[]> = {};
 
     options.one = [
       {
-        type: ETokenType.Text,
+        type: TokenType.Text,
         value: 'One, item',
       },
     ];
 
     options.other = [
       {
-        type: ETokenType.Variable,
+        type: TokenType.Variable,
         value: 'count',
       },
       {
-        type: ETokenType.Text,
+        type: TokenType.Text,
         value: ' ite,ms',
       },
     ];
 
     expect(stream.next()).toEqual({
       options,
-      type: ETokenType.Plural,
+      type: TokenType.Plural,
       value: 'count',
     });
     expect(stream.input.done).toBeTruthy();

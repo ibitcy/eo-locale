@@ -1,7 +1,7 @@
 import { Translator } from '../translator';
-import { ILocale } from '../models/index';
+import { Locale } from '../models/index';
 
-const locales: ILocale[] = [
+const locales: Locale[] = [
   {
     language: 'en',
     messages: {

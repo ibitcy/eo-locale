@@ -1,5 +1,5 @@
 import {
-  ILocale,
+  Locale,
   Translator,
   ErrorLogger,
   FormatMessageOptions,
@@ -9,7 +9,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 export interface TranslationsContextProps {
   language: string;
-  locales: ILocale[];
+  locales: Locale[];
   translator: Translator;
 
   setLanguage(language: string): void;
@@ -27,7 +27,7 @@ export const TranslationsContext = React.createContext<TranslationsContextProps>
 
 export interface ProviderProps {
   language: string;
-  locales: ILocale[];
+  locales: Locale[];
 
   onError?: ErrorLogger;
 }

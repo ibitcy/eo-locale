@@ -1,11 +1,11 @@
-import { ETokenType, TokenStream } from '../token_stream';
+import { TokenType, TokenStream } from '../token_stream';
 
 describe('Read variable', () => {
   it('Should correct read variable', () => {
     const tokenStream = new TokenStream('{a}');
 
     expect(tokenStream.next()).toEqual({
-      type: ETokenType.Variable,
+      type: TokenType.Variable,
       value: 'a',
     });
     expect(tokenStream.input.done).toBeTruthy();
@@ -15,7 +15,7 @@ describe('Read variable', () => {
     const tokenStream = new TokenStream('{ a }');
 
     expect(tokenStream.next()).toEqual({
-      type: ETokenType.Variable,
+      type: TokenType.Variable,
       value: 'a',
     });
     expect(tokenStream.input.done).toBeTruthy();

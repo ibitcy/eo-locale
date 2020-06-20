@@ -1,11 +1,11 @@
-import { ETokenType, IToken, TokenStream } from './token_stream';
+import { TokenType, Token, TokenStream } from './token_stream';
 
 export function format(language: string, message: string, params: Record<string, any>): string {
   const tokenStream = new TokenStream(message);
   let result = '';
 
-  const applyToken = ({ options, type, value }: IToken): string => {
-    if (type === ETokenType.Variable) {
+  const applyToken = ({ options, type, value }: Token): string => {
+    if (type === TokenType.Variable) {
       return params[value];
     }
 
@@ -13,7 +13,7 @@ export function format(language: string, message: string, params: Record<string,
       return value;
     }
 
-    if (type === ETokenType.Select) {
+    if (type === TokenType.Select) {
       return options[params[value]].map(applyToken).join('');
     }
 

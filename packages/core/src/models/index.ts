@@ -1,10 +1,10 @@
 export type Message = string | number;
 
-export interface ILocale {
+export interface Locale {
   language: string;
-  messages: Record<string, Message | Record<string, Message>>;
+  messages: object;
 }
 
-export type FormatMessageOptions = Partial<{
-  defaultMessage: string;
-}> & Record<string, any>;
+export interface FormatMessageOptions extends Record<string, any> {
+  defaultMessage?: string;
+}

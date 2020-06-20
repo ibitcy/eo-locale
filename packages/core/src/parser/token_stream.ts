@@ -1,16 +1,16 @@
 import { InputStream } from './input_stream';
 
-export enum ETokenType {
+export enum TokenType {
   Plural,
   Select,
   Text,
   Variable,
 }
 
-export interface IToken {
-  type: ETokenType;
+export interface Token {
+  type: TokenType;
   value: string;
-  options?: Record<string, IToken[]>;
+  options?: Record<string, Token[]>;
 }
 
 type TPredicate = (ch: string) => boolean;
@@ -30,7 +30,7 @@ export class TokenStream {
     this.input = new InputStream(message);
   }
 
-  public next(): IToken {
+  public next(): Token {
     if (this.input.value === OPEN) {
       return this.readVariable();
     }
@@ -70,14 +70,14 @@ export class TokenStream {
       this.skip(CLOSE);
 
       return {
-        type: ETokenType.Variable,
+        type: TokenType.Variable,
         value,
       };
     }
 
     this.skip(DELIMITER);
 
-    const type = this.readVariableType() as ETokenType;
+    const type = this.readVariableType() as TokenType;
 
     return {
       options: this.readVariableOptions(),
@@ -88,7 +88,7 @@ export class TokenStream {
 
   private readText() {
     return {
-      type: ETokenType.Text,
+      type: TokenType.Text,
       value: this.readWhile(ch => ch !== OPEN && ch !== CLOSE),
     };
   }
@@ -97,11 +97,11 @@ export class TokenStream {
     const type = this.readWhile(ch => ch !== DELIMITER).trim();
 
     if (type === PLURAL_IDENTIFIER) {
-      return ETokenType.Plural;
+      return TokenType.Plural;
     }
 
     if (type === SELECT_IDENTIFIER) {
-      return ETokenType.Select;
+      return TokenType.Select;
     }
 
     this.input.croak();
@@ -110,7 +110,7 @@ export class TokenStream {
   private readVariableOptions() {
     this.skip(DELIMITER);
 
-    const options: Record<string, IToken[]> = {};
+    const options: Record<string, Token[]> = {};
 
     while (this.input.value !== CLOSE) {
       options[this.readText().value.trim()] = this.readExpression();
@@ -122,7 +122,7 @@ export class TokenStream {
   }
 
   private readExpression() {
-    const tokens: IToken[] = [];
+    const tokens: Token[] = [];
 
     this.skip(OPEN);
 
