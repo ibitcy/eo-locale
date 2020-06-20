@@ -25,14 +25,14 @@ export const TranslationsContext = React.createContext<TranslationsContextProps>
   (prev, next) => (prev.language !== next.language ? 1 : 0),
 );
 
-export interface ProviderProps {
+export interface TranslationsProviderProps {
   language: string;
   locales: Locale[];
 
   onError?: ErrorLogger;
 }
 
-export const Provider: FC<ProviderProps> = ({
+export const TranslationsProvider: FC<TranslationsProviderProps> = ({
   children,
   language,
   locales,

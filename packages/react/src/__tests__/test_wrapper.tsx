@@ -1,7 +1,7 @@
 import { ErrorLogger } from '@eo-locale/core';
 import * as React from 'react';
 
-import { Provider } from '../index';
+import { TranslationsProvider } from '../index';
 
 const locales = [
   {
@@ -36,13 +36,13 @@ export const TestWrapper: React.FC<IProps> = ({
 }) => {
   return (
     <span>
-      <Provider
+      <TranslationsProvider
         language={language || 'en'}
         locales={locales}
         onError={onError}
       >
         {children}
-      </Provider>
+      </TranslationsProvider>
     </span>
   );
 };
