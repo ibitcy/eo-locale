@@ -2,7 +2,7 @@
 
 export type Message = string | number;
 
-export interface ILocale {
+export interface Locale {
   language: string;
   messages: {[string]: Message};
 }

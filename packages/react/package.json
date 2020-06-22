@@ -18,9 +18,8 @@
     "lib"
   ],
   "scripts": {
-    "prebuild": "flow",
     "build": "rollup --config ./rollup.config.js",
-    "postbuild": "copyup \"src/**/*.flow\" lib && size-limit",
+    "postbuild": "flow && copyup \"src/**/*.flow\" lib && size-limit",
     "prepare": "npm run test && npm run build",
     "test": "jest --detectOpenHandles --config ./config/jest.config.json --no-cache"
   },

@@ -1,14 +1,14 @@
 // @flow
 
 import {
-  ILocale,
+  Locale,
   Translator
 } from "@eo-locale/core";
 import type { FormatMessageOptions } from '@eo-locale/core';
 
 export interface TranslationsContextProps {
   language: string;
-  locales: ILocale[];
+  locales: Locale[];
   translator: Translator;
   setLanguage(language: string): void;
 }
@@ -16,7 +16,7 @@ declare export var TranslationsContext: React$Context<TranslationsContextProps>;
 
 export interface ProviderProps {
   language: string;
-  locales: ILocale[];
+  locales: Locale[];
 }
 declare export var Provider: React$StatelessFunctionalComponent<ProviderProps>;
 
