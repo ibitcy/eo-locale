@@ -1,11 +1,5 @@
-# `react`
+# @eo-locale/react
 
-> TODO: description
+React version `eo-locale`
 
-## Usage
-
-```
-const react = require('react');
-
-// TODO: DEMONSTRATE API
-```
+[Official website](https://eo-locale.netlify.com/)
