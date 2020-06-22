@@ -84,14 +84,14 @@ export const Numeric: FC<NumericProps> = ({
   return useTranslator(language).formatNumber(value, options) as any;
 };
 
-export interface TextProps extends FormatMessageOptions {
+export interface TranslationProps extends FormatMessageOptions {
   id: string;
 
   html?: boolean;
   tagName?: keyof React.ReactHTML;
 }
 
-export const Text: FC<TextProps> = ({
+export const Translation: FC<TranslationProps> = ({
   children,
   html,
   id,
