@@ -5,6 +5,7 @@ import delve from 'dlv';
 export class Translator {
   private readonly language: string;
   private readonly messages: object;
+  private memo: Record<string, Message | object> = {};
 
   public onError: ErrorLogger = console.error;
 
@@ -28,7 +29,7 @@ export class Translator {
 
   public translate(id: string, options: FormatMessageOptions = {}): string {
     const { defaultMessage, ...values } = options;
-    const message: Message | object = delve(this.messages, id, defaultMessage || id);
+    const message: Message | object = this.getMessageById(id, defaultMessage);
 
     if (message === id) {
       this.onError(new Error(`[eo-locale] id missing "${id}"`));
@@ -43,6 +44,14 @@ export class Translator {
     }
 
     return message.toString();
+  }
+
+  private getMessageById(id: string, defaultMessage?: string): Message | object {
+    if (!this.memo[id]) {
+      this.memo[id] = delve(this.messages, id, defaultMessage || id);
+    }
+
+    return this.memo[id];
   }
 }
 
