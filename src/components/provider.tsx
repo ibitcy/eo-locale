@@ -1,11 +1,11 @@
-import { ErrorLogger, ILocale, Translator } from '@eo-locale/core';
+import { ErrorLogger, Locale, Translator } from '@eo-locale/core';
 import * as React from 'react';
 
 import { EOLocaleContext } from '../context';
 
 export interface IEOLocaleProviderProps {
   language: string;
-  locales: ILocale[];
+  locales: Locale[];
 
   onError?: ErrorLogger;
 }

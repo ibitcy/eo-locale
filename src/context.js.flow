@@ -1,10 +1,10 @@
 // @flow
-import type { ILocale } from '@eo-locale/core';
+import type { Locale } from '@eo-locale/core';
 import { Translator, } from '@eo-locale/core';
 
 export interface IEOLocaleContext {
   language: string;
-  locales: ILocale[];
+  locales: Locale[];
   translator: Translator;
 
   setLanguage(language: string): void;
