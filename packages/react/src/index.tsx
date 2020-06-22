@@ -7,24 +7,6 @@ import {
 import React, { FC } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-export interface TranslationsContextProps {
-  language: string;
-  locales: Locale[];
-  translator: Translator;
-
-  setLanguage(language: string): void;
-}
-
-export const TranslationsContext = React.createContext<TranslationsContextProps>(
-  {
-    language: '',
-    locales: [],
-    setLanguage: () => {},
-    translator: new Translator(),
-  },
-  (prev, next) => (prev.language !== next.language ? 1 : 0),
-);
-
 export interface TranslationsProviderProps {
   language: string;
   locales: Locale[];
@@ -141,3 +123,22 @@ export const Text: FC<TextProps> = ({
 
   return result as any;
 };
+
+export interface TranslationsContextProps {
+  language: string;
+  locales: Locale[];
+  translator: Translator;
+
+  setLanguage(language: string): void;
+}
+
+/* istanbul ignore next */
+export const TranslationsContext = React.createContext<TranslationsContextProps>(
+  {
+    language: '',
+    locales: [],
+    setLanguage: () => {},
+    translator: new Translator(),
+  },
+  (prev, next) => (prev.language !== next.language ? 1 : 0),
+);
