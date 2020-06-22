@@ -5,21 +5,21 @@ import clear from 'rollup-plugin-clear';
 
 export default [
   {
-    input: path.resolve(__dirname, 'src/index.tsx'),
+    input: path.resolve(process.cwd(), 'src/index.tsx'),
     output: [
       {
-        file: path.resolve(__dirname, 'lib/index.js'),
+        file: path.resolve(process.cwd(), 'lib/index.js'),
         format: 'cjs',
       },
       {
-        file: path.resolve(__dirname, 'lib/index.es.js'),
+        file: path.resolve(process.cwd(), 'lib/index.es.js'),
         format: 'es',
       },
     ],
     external: ['react', 'react-dom/server', '@eo-locale/core'],
     plugins: [
       clear({
-        targets: [path.resolve(__dirname, 'lib')],
+        targets: [path.resolve(process.cwd(), 'lib')],
       }),
       typescript(),
       terser({
