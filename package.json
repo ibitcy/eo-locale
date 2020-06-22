@@ -1,6 +1,6 @@
 {
   "name": "eo-locale",
-  "version": "7.4.0",
+  "version": "7.4.1",
   "description": "Easy way to internationalize your React application",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
