@@ -86,30 +86,14 @@ export const Numeric: FC<NumericProps> = ({
 
 export interface TranslationProps extends FormatMessageOptions {
   id: string;
-
-  html?: boolean;
-  tagName?: keyof React.ReactHTML;
 }
 
 export const Translation: FC<TranslationProps> = ({
   children,
-  html,
   id,
-  tagName = 'span',
   ...values
 }) => {
-  const translator = useTranslator();
-  const result = translator.translate(id, values);
-
-  if (html) {
-    return React.createElement(tagName, {
-      dangerouslySetInnerHTML: {
-        __html: result,
-      },
-    });
-  }
-
-  return result as any;
+  return useTranslator().translate(id, values) as any;
 };
 
 export interface TranslationsContextProps {
