@@ -28,7 +28,7 @@
   "size-limit": [
     {
       "path": "lib/index.js",
-      "limit": "1.25kb",
+      "limit": "1.3kb",
       "webpack": false
     }
   ],

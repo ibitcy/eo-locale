@@ -16,7 +16,7 @@ export default [
         format: 'es',
       },
     ],
-    external: ['react', 'react-dom/server', '@eo-locale/core'],
+    external: ['react', '@eo-locale/core'],
     plugins: [
       clear({
         targets: [path.resolve(process.cwd(), 'lib')],

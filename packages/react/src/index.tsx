@@ -1,11 +1,11 @@
 import {
-  Locale,
-  Translator,
   ErrorLogger,
   FormatMessageOptions,
+  getTranslationParts,
+  Locale,
+  Translator,
 } from '@eo-locale/core';
 import React, { FC } from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 
 export interface TranslationsProviderProps {
   language: string;
@@ -67,7 +67,11 @@ export const DateTime: FC<DateTimeProps> = ({
   value,
   ...options
 }) => {
-  return useTranslator(language).formatDate(value, options) as any;
+  return (
+    <React.Fragment>
+      {useTranslator(language).formatDate(value, options)}
+    </React.Fragment>
+  );
 };
 
 export interface NumericProps extends Intl.NumberFormatOptions {
@@ -82,7 +86,11 @@ export const Numeric: FC<NumericProps> = ({
   value,
   ...options
 }) => {
-  return useTranslator(language).formatNumber(value, options) as any;
+  return (
+    <React.Fragment>
+      {useTranslator(language).formatNumber(value, options)}
+    </React.Fragment>
+  );
 };
 
 export interface TextProps extends FormatMessageOptions {
@@ -99,31 +107,49 @@ export const Text: FC<TextProps> = ({
   tagName = 'span',
   ...values
 }) => {
-  const context = React.useContext(TranslationsContext);
-
-  Object.keys(values).forEach(key => {
-    const value = values[key];
-
-    if (React.isValidElement(value)) {
-      values[key] = renderToStaticMarkup(
-        <TranslationsContext.Provider value={context}>
-          {value}
-        </TranslationsContext.Provider>,
-      );
-    }
-  });
-
-  const result = context.translator.translate(id, values);
+  const translator = useTranslator();
 
   if (html) {
     return React.createElement(tagName, {
       dangerouslySetInnerHTML: {
-        __html: result,
+        __html: translator.translate(id, values),
       },
     });
   }
 
-  return result as any;
+  const message = translator.getMessageById(id);
+
+  if (typeof message === 'string') {
+    try {
+      const parts: any[] = getTranslationParts(
+        translator.language,
+        message,
+        values,
+      );
+
+      parts.forEach((item, index) => {
+        if (React.isValidElement(item)) {
+          parts[index] = React.cloneElement(item, {
+            key: index,
+          });
+        } else {
+          parts[index] = React.createElement(
+            React.Fragment,
+            {
+              key: index,
+            },
+            item,
+          );
+        }
+      });
+
+      return <React.Fragment>{parts}</React.Fragment>;
+    } catch (error) {
+      translator.onError(error);
+    }
+  }
+
+  return <React.Fragment>{String(message)}</React.Fragment>;
 };
 
 export interface TranslationsContextProps {

@@ -56,7 +56,7 @@ describe('EOLocaleHtml', () => {
   it('Should render formatted message for en', () => {
     const formatted = Enzyme.render(
       <TestWrapper>
-        <Text html id="hello" name={<Numeric value={1000} />} />
+        <Text id="hello" name={<Numeric value={1000} />} />
       </TestWrapper>,
     );
 

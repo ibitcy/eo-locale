@@ -1,12 +1,12 @@
 import { FormatMessageOptions, Locale, Message } from './models';
-import { format } from './parser/parser';
+import { getTranslationParts } from './parser/parser';
 import delve from 'dlv';
 
 export class Translator {
-  private readonly language: string;
   private readonly messages: object;
   private memo: Record<string, Message | object> = {};
 
+  public readonly language: string;
   public onError: ErrorLogger = console.error;
 
   public constructor(language = 'en', locales: Locale[] = []) {
@@ -31,13 +31,9 @@ export class Translator {
     const { defaultMessage, ...values } = options;
     const message: Message | object = this.getMessageById(id, defaultMessage);
 
-    if (message === id) {
-      this.onError(new Error(`[eo-locale] id missing "${id}"`));
-    }
-
     if (typeof message === 'string') {
       try {
-        return format(this.language, message, values);
+        return getTranslationParts(this.language, message, values).join('');
       } catch (error) {
         this.onError(error);
       }
@@ -46,9 +42,15 @@ export class Translator {
     return message.toString();
   }
 
-  private getMessageById(id: string, defaultMessage?: string): Message | object {
+  public getMessageById(id: string, defaultMessage?: string): Message | object {
     if (!this.memo[id]) {
-      this.memo[id] = delve(this.messages, id, defaultMessage || id);
+      const message = delve(this.messages, id, defaultMessage || id);
+
+      if (message === id) {
+        this.onError(new Error(`[eo-locale] id missing "${id}"`));
+      }
+
+      this.memo[id] = message;
     }
 
     return this.memo[id];

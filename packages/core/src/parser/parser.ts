@@ -1,27 +1,30 @@
 import { TokenType, Token, TokenStream } from './token_stream';
 
-export function format(language: string, message: string, params: Record<string, any>): string {
+export function getTranslationParts(language: string, message: string, params: Record<string, any>): any[] {
   const tokenStream = new TokenStream(message);
-  let result = '';
+  let result: any[] = [];
 
-  const applyToken = ({ options, type, value }: Token): string => {
+  const applyToken = ({ options, type, value }: Token): void => {
     if (type === TokenType.Variable) {
-      return params[value];
+      result.push(params[value]);
+      return;
     }
 
     if (!options) {
-      return value;
+      result.push(value);
+      return;
     }
 
     if (type === TokenType.Select) {
-      return options[params[value]].map(applyToken).join('');
+      result.concat(options[params[value]].map(applyToken));
+      return;
     }
 
-    return options[new Intl.PluralRules(language).select(params[value])].map(applyToken).join('');
+    result.concat(options[new Intl.PluralRules(language).select(params[value])].map(applyToken));
   };
 
   while (!tokenStream.input.done) {
-    result += applyToken(tokenStream.next());
+    applyToken(tokenStream.next());
   }
 
   return result;
