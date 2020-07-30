@@ -105,12 +105,11 @@ export interface TranslationsContextProps {
 }
 
 /* istanbul ignore next */
-export const TranslationsContext = React.createContext<TranslationsContextProps>(
-  {
-    language: '',
-    locales: [],
-    setLanguage: () => {},
-    translator: new Translator(),
-  },
-  (prev, next) => (prev.language !== next.language ? 1 : 0),
-);
+export const TranslationsContext = React.createContext<
+  TranslationsContextProps
+>({
+  language: '',
+  locales: [],
+  setLanguage: () => {},
+  translator: new Translator(),
+});

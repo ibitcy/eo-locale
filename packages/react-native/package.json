@@ -60,7 +60,7 @@
     "@types/react": "^16.9.38",
     "@types/react-dom": "^16.9.8",
     "copyfiles": "^2.3.0",
-    "flow-bin": "^0.127.0",
+    "flow-bin": "^0.130.0",
     "jest": "^26.0.1",
     "react": "^16.13.1",
     "rollup": "^2.17.0",

@@ -65,7 +65,7 @@
     "copyfiles": "^2.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "flow-bin": "^0.127.0",
+    "flow-bin": "^0.130.0",
     "jest": "^26.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
