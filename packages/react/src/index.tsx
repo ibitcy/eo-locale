@@ -99,12 +99,7 @@ export interface TextProps extends FormatMessageOptions {
   html?: boolean;
 }
 
-export const Text: FC<TextProps> = ({
-  children,
-  html,
-  id,
-  ...values
-}) => {
+export const Text: FC<TextProps> = ({ children, html, id, ...values }) => {
   const translator = useTranslator();
   const message = translator.getMessageById(id);
 
@@ -114,33 +109,20 @@ export const Text: FC<TextProps> = ({
         translator.language,
         message,
         values,
-      );
-
-      parts.forEach((item, index) => {
-        if (React.isValidElement(item)) {
-          parts[index] = React.cloneElement(item, {
+      ).map((part, index) => {
+        if (React.isValidElement(part)) {
+          return React.cloneElement(part, {
             key: index,
           });
-          return;
         }
 
         if (html) {
-          parts[index] = React.createElement('span', {
-            dangerouslySetInnerHTML: {
-              __html: item,
-            },
-            key: index,
-          });
-          return;
+          return (
+            <span key={index} dangerouslySetInnerHTML={{ __html: part }} />
+          );
         }
 
-        parts[index] = React.createElement(
-          React.Fragment,
-          {
-            key: index,
-          },
-          item,
-        );
+        return <React.Fragment key={index}>{part}</React.Fragment>;
       });
 
       return <React.Fragment>{parts}</React.Fragment>;
