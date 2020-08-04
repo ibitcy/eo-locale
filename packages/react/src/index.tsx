@@ -6,6 +6,7 @@ import {
   Translator,
 } from '@eo-locale/core';
 import React, { FC } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 export interface TranslationsProviderProps {
   language: string;
@@ -96,34 +97,51 @@ export const Numeric: FC<NumericProps> = ({
 export interface TextProps extends FormatMessageOptions {
   id: string;
 
+  tagName?: keyof React.ReactHTML;
   html?: boolean;
 }
 
-export const Text: FC<TextProps> = ({ children, html, id, ...values }) => {
+export const Text: FC<TextProps> = ({
+  children,
+  html,
+  id,
+  tagName = 'span',
+  ...values
+}) => {
   const translator = useTranslator();
   const message = translator.getMessageById(id);
 
   if (typeof message === 'string') {
     try {
-      const parts: any[] = getTranslationParts(
+      const parts: React.ReactNode[] = getTranslationParts(
         translator.language,
         message,
         values,
       ).map((part, index) => {
         if (React.isValidElement(part)) {
+          if (html) {
+            return renderToStaticMarkup(part);
+          }
+
           return React.cloneElement(part, {
             key: index,
           });
         }
 
         if (html) {
-          return (
-            <span key={index} dangerouslySetInnerHTML={{ __html: part }} />
-          );
+          return part;
         }
 
         return <React.Fragment key={index}>{part}</React.Fragment>;
       });
+
+      if (html) {
+        return React.createElement(tagName, {
+          dangerouslySetInnerHTML: {
+            __html: parts.join(''),
+          },
+        });
+      }
 
       return <React.Fragment>{parts}</React.Fragment>;
     } catch (error) {

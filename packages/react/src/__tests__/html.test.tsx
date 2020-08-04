@@ -17,17 +17,17 @@ describe('EOLocaleHtml', () => {
     expect(span.length).toEqual(1);
   });
 
-  // it('Should wrap in custom tag', () => {
-  //   const formatted = Enzyme.render(
-  //     <TestWrapper>
-  //       <Text html id="world" tagName="article" />
-  //     </TestWrapper>,
-  //   );
+  it('Should wrap in custom tag', () => {
+    const formatted = Enzyme.render(
+      <TestWrapper>
+        <Text html id="world" tagName="article" />
+      </TestWrapper>,
+    );
 
-  //   const article = formatted.find('article');
+    const article = formatted.find('article');
 
-  //   expect(article.length).toEqual(1);
-  // });
+    expect(article.length).toEqual(1);
+  });
   
   it('Should render strong tag', () => {
     const formatted = Enzyme.render(
