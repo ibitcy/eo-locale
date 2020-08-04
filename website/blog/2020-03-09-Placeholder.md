@@ -12,7 +12,7 @@ Translate input placeholder is quite common task.
 Let's consider how we can do it with eo-locale.
 
 ```jsx
-import { EOLocale, useTranslator } from 'eo-locale';
+import { TranslationsProvider, useTranslator } from '@eo-locale/react';
 
 const LOCALES = [{
   language: 'en',
@@ -23,9 +23,9 @@ const LOCALES = [{
 
 function App() {
   return (
-    <EOLocale.Provider language="en" locales={LOCALES}>
+    <TranslationsProvider language="en" locales={LOCALES}>
       <SomeComponent />
-    </EOLocale.Provider>
+    </TranslationsProvider>
   );
 }
 

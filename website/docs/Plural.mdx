@@ -3,23 +3,23 @@ id: Plural
 title: Plural
 ---
 
-import { EOLocale } from 'eo-locale';
+import { Text } from '@eo-locale/react';
 import { Highlight } from '../src/components/Highlight';
 
 Example of plural value
 
 ```jsx
-import { EOLocale } from 'eo-locale';
+import { Text, TranslationsProvider } from '@eo-locale/react';
 
 export function SomeComponent() {
   return (
-    <EOLocale.Provider language="en" locales={[]}>
-      <EOLocale.Text
+    <TranslationsProvider language="en" locales={[]}>
+      <Text
         count="4"
         defaultMessage="{count, plural, one {You have one item.} other {You have {count} items.}}"
         id="hello"
       />
-    </EOLocale.Provider>
+    </TranslationsProvider>
   );
 }
 ```
@@ -28,12 +28,12 @@ Component will display <Highlight><Preview/></Highlight>
 
 export const Preview = () => {
   return (
-    <EOLocale.Provider language="en" locales={[]} onError={() => {}}>
-      <EOLocale.Text
+    <TranslationsProvider language="en" locales={[]} onError={() => {}}>
+      <Text
         count="4"
         defaultMessage="{count, plural, one {You have one item.} other {You have {count} items.}}"
         id="hello"
       />
-    </EOLocale.Provider>
+    </TranslationsProvider>
   );
 };
