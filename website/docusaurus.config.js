@@ -7,7 +7,7 @@ module.exports = {
   organizationName: 'ibitcy', // Usually your GitHub org/user name.
   projectName: 'eo-locale', // Usually your repo name.
   themeConfig: {
-    sidebarCollapsible: false,
+    sidebarCollapsible: true,
     navbar: {
       title: 'eo-locale',
       logo: {

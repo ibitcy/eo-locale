@@ -1,0 +1,17 @@
+---
+id: models
+title: Models
+---
+
+```ts
+type Message = string | number;
+
+interface Locale {
+  language: string;
+  messages: object;
+}
+
+interface FormatMessageOptions extends Record<string, any> {
+  defaultMessage?: string;
+}
+```
