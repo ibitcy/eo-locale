@@ -14,13 +14,14 @@ export function LanguageSelector({ children }) {
   return (
     <LanguageContext.Provider value={language}>
       {children}
-      &nbsp;
-      Choose your language:&nbsp;
-      <select onChange={e => {
-        console.log('debug: e.target.value ', e.target.value);
-
-        setLanguage(e.target.value);
-      }}>
+      &nbsp; Choose your language:&nbsp;
+      <select
+        style={{
+          minHeight: 30,
+        }}
+        onChange={e => {
+          setLanguage(e.target.value);
+        }}>
         {LIST.map(language => (
           <option value={language.code} key={language.code}>
             {language.icon}&nbsp;{language.name}

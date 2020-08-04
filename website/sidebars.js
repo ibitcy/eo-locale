@@ -8,7 +8,7 @@
 module.exports = {
   someSidebar: {
     Core: ['Core'],
-    React: ['React', 'Date', 'Number', 'Text', 'Plural', 'useTranslator'],
+    React: ['React', 'DateTime', 'Numeric', 'Text', 'Plural', 'useTranslator'],
     Preact: ['Preact']
   },
 };
