@@ -8,7 +8,7 @@
 module.exports = {
   someSidebar: {
     Core: ['core/install', 'core/translator', 'core/models'],
-    React: ['React', 'DateTime', 'Numeric', 'Text', 'Plural', 'useTranslator'],
-    Preact: ['Preact']
+    React: ['react/install', 'react/intro', 'react/date', 'react/numeric', 'react/text', 'react/plural', 'react/useTranslator'],
+    Preact: ['preact']
   },
 };

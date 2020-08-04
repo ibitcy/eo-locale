@@ -68,7 +68,7 @@ function Home() {
                 'button button--secondary button--lg',
                 styles.getStarted,
               )}
-              to={useBaseUrl('docs/React')}>
+              to={useBaseUrl('docs/react/intro')}>
               Get Started
             </Link>
           </div>
