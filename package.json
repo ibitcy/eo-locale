@@ -1,85 +1,16 @@
 {
-  "name": "eo-locale",
-  "version": "7.4.2",
-  "description": "Easy way to internationalize your React application",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
-  "engines": {
-    "node": ">= 12"
-  },
-  "sideEffects": false,
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "prebuild": "npm run lint && npm run test ",
-    "build": "rm -rf dist && rollup --config ./rollup.config.js",
-    "postbuild": "copyup \"src/**/*.flow\" dist && size-limit",
-    "lint": "tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
-    "preversion": "flow && npm run build",
-    "test": "jest --detectOpenHandles --config ./config/jest.config.json --no-cache"
+    "build": "lerna run build",
+    "test": "lerna run test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ibitcy/eo-locale.git"
-  },
-  "keywords": [
-    "internationalization",
-    "intl",
-    "messageformat",
-    "plural",
-    "icu",
-    "react",
-    "tiny",
-    "i18n"
-  ],
-  "author": {
-    "name": "Maksim Sharipov",
-    "url": "https://github.com/pret-a-porter"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ibitcy/eo-locale/issues"
-  },
-  "homepage": "https://eo-locale.netlify.app",
-  "size-limit": [
-    {
-      "path": "dist/index.js",
-      "limit": "900B",
-      "webpack": false
-    }
-  ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.0.2",
-    "@types/enzyme": "^3.1.11",
-    "@types/enzyme-adapter-react-16": "^1.0.2",
-    "@types/jest": "^26.0.0",
-    "@types/react": "^16.3.14",
-    "@types/react-dom": "^16.0.9",
-    "copyfiles": "^2.1.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "flow-bin": "^0.127.0",
     "husky": "^4.0.10",
     "intl": "^1.2.5",
-    "intl-pluralrules": "^1.1.1",
-    "jest": "^26.0.1",
-    "jest-haste-map": "^26.0.1",
-    "jest-resolve": "^26.0.1",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "rollup": "^2.3.4",
-    "rollup-plugin-terser": "^6.1.0",
-    "rollup-plugin-typescript2": "^0.27.0",
-    "size-limit": "^4.0.2",
-    "ts-jest": "^26.0.0",
-    "tslint": "^6.0.0",
-    "tslint-config-prettier": "^1.12.0",
-    "typescript": "^3.0.0"
-  },
-  "dependencies": {
-    "@eo-locale/core": "^1.2.1"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "intl-pluralrules": "^1.2.0",
+    "lerna": "^3.13.4"
   }
 }

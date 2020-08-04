@@ -3,22 +3,22 @@ id: Date
 title: Date
 ---
 
-import { EOLocale } from 'eo-locale';
+import { DateTime } from '@eo-locale/react';
 import { Highlight } from '../src/components/Highlight';
 import {
   LanguageSelector,
   useLanguage,
 } from '../src/components/LanguageSelector';
 
-`EOLocale.Date` component provides ability to format values of `Date`.
+`DateTime` component provides ability to format values of `Date`.
 Full list of supported properties you can find on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat) page
 
 ```jsx
-import { EOLocale } from 'eo-locale';
+import { DateTime } from '@eo-locale/react';
 
 export function SomeComponent() {
   return (
-    <EOLocale.Date
+    <DateTime
       day="numeric"
       language="en"
       month="long"
@@ -35,7 +35,7 @@ Component will display <LanguageSelector><Highlight><Preview/></Highlight></Lang
 export const Preview = () => {
   const language = useLanguage();
   return (
-    <EOLocale.Date
+    <DateTime
       day="numeric"
       language={language}
       month="long"

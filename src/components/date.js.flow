@@ -1,9 +1,0 @@
-// @flow
-
-export type IEOLocaleDateProps = Intl$DateTimeFormatOptions & {
-  value: Date;
-
-  language?: string;
-}
-
-declare export var EOLocaleDate: React$StatelessFunctionalComponent<IEOLocaleDateProps>;

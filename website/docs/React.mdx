@@ -21,13 +21,13 @@ title: Introduction
 ### With npm
 
 ```sh
-npm i eo-locale --save
+npm i @eo-locale/react --save
 ```
 
 ### Or with yarn
 
 ```sh
-yarn add eo-locale
+yarn add @eo-locale/react
 ```
 
 ## Quick example
@@ -35,7 +35,7 @@ yarn add eo-locale
 Add provider in root of your application
 
 ```jsx
-import { EOLocale } from 'eo-locale';
+import { Text, TranslationsProvider } from '@eo-locale/react';
 
 const locales = [
   {
@@ -46,9 +46,9 @@ const locales = [
   },
 ];
 
-<EOLocale.Provider language="en" locales={locales}>
+<TranslationsProvider language="en" locales={locales}>
   <span>
-    <EOLocale.Text id="hello" name="World" /> // Helo World!
+    <Text id="hello" name="World" /> // Helo World!
   </span>
-</EOLocale.Provider>
+</TranslationsProvider>
 ```

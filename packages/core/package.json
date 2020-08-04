@@ -1,0 +1,68 @@
+{
+  "name": "@eo-locale/core",
+  "version": "1.4.0",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "engines": {
+    "node": ">= 12"
+  },
+  "scripts": {
+    "build": "rollup --config config/rollup.config.js",
+    "postbuild": "flow && copyup \"src/**/*.flow\" lib && size-limit",
+    "prepare": "npm run test && npm run build",
+    "test": "jest --detectOpenHandles --config config/jest.config.json --no-cache"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "sideEffects": false,
+  "size-limit": [
+    {
+      "path": "lib/index.js",
+      "limit": "1.3kb",
+      "webpack": false
+    }
+  ],
+  "keywords": [
+    "internationalization",
+    "intl",
+    "messageformat",
+    "plural",
+    "icu",
+    "tiny",
+    "i18n"
+  ],
+  "author": {
+    "name": "Maksim Sharipov",
+    "url": "https://github.com/pret-a-porter"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "dlv": "^1.1.3"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.0.2",
+    "@types/dlv": "^1.1.2",
+    "@types/jest": "^26.0.0",
+    "copyfiles": "^2.3.0",
+    "flow-bin": "^0.130.0",
+    "jest": "^26.0.1",
+    "rollup": "^2.17.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "size-limit": "^4.5.0",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
+  },
+  "gitHead": "85f16888e69bd8962e3e20ad92065a6ef5afcb22"
+}

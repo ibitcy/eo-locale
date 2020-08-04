@@ -1188,12 +1188,19 @@
     url "^0.11.0"
     webpack-sources "^1.4.3"
 
-"@eo-locale/core@^1.2.1":
-  version "1.3.0"
-  resolved "https://npmjs.eoadm.com/@eo-locale%2fcore/-/core-1.3.0.tgz#ada4914597b31e1fb40399b93329249183d81d2b"
-  integrity sha512-Tj1O5MCcEem+G4L07dj4/Yzil5rkWYu1L70pfElUkpemPFtxKs28boEK1tO6ScJfXp7huVtHOdjyv8/g8ZLj/w==
+"@eo-locale/core@^1.4.0":
+  version "1.4.0"
+  resolved "https://npmjs.eoadm.com/@eo-locale%2fcore/-/core-1.4.0.tgz#e232feb2fdd51379cb37040553e0206678a6997c"
+  integrity sha512-Lj9MvYLB/EGoq0rNSY19JoM9OKLp+pzpHB9a7O5QlUXaqGVAJsVlW14KYP9Rs0aBy2PSyUnB7+JFKls2JwxFmw==
   dependencies:
     dlv "^1.1.3"
+
+"@eo-locale/react@^1.4.3":
+  version "1.4.3"
+  resolved "https://npmjs.eoadm.com/@eo-locale%2freact/-/react-1.4.3.tgz#77b35bd748d57d984f16a3660ac92d54f78baa68"
+  integrity sha512-iC/+NW877YRal/kODB6x6FxoMw6goc8RDFuMHP26be78kA5Xo57idE6J+AclPW1ZR9VCXah5sO+8OH4cI8AlTA==
+  dependencies:
+    "@eo-locale/core" "^1.4.0"
 
 "@hapi/address@2.x.x":
   version "2.1.4"
@@ -3608,13 +3615,6 @@ envify@^4.0.0:
   dependencies:
     esprima "^4.0.0"
     through "~2.3.4"
-
-eo-locale@^7.2.3:
-  version "7.4.0"
-  resolved "https://npmjs.eoadm.com/eo-locale/-/eo-locale-7.4.0.tgz#5080738ec1f79cc13e5599103d895d105b4ea0b4"
-  integrity sha512-3/JyBC+ZyuejFJN9/IcVfBqlBqdfsoy1WPmNMTIwzG76FY3wSf/a0tiiFbEiWSaKylAC46GpN5TFgpc37mo4OA==
-  dependencies:
-    "@eo-locale/core" "^1.2.1"
 
 errno@^0.1.3, errno@~0.1.7:
   version "0.1.7"

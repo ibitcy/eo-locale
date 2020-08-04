@@ -1,4 +1,0 @@
-// @flow
-import { Translator } from '@eo-locale/core';
-
-declare export function useTranslator(language?: string): Translator;

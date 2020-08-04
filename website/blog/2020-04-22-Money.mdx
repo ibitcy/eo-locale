@@ -8,7 +8,7 @@ author_image_url: https://avatars0.githubusercontent.com/u/8514156?s=400&v=4
 tags: []
 ---
 
-import { EOLocale } from 'eo-locale';
+import { Numeric } from '@eo-locale/react';
 import { Highlight } from '../src/components/Highlight';
 
 In this article we consider how to create clear and reusable component `Money`.
@@ -21,12 +21,12 @@ Let's figure requirements for those component:
 - Ability to pass language, because for different languages we use different numeric format
 - Mode of currency display
 
-Actually, with `eo-locale` it is quite simple issue.
+Actually, with `@eo-locale/react` it is quite simple issue.
 
 I am a big fan of TypeScript and all examples will use it.
 
 ```jsx
-import { EOLocale } from 'eo-locale';
+import { Numeric } from '@eo-locale/react';
 
 interface MoneyProps extends Intl.NumberFormatOptions {
   amount: number;
@@ -39,7 +39,7 @@ export const Money: React.FC<MoneyProps> = ({
   ...shared
 }) => {
   return (
-    <EOLocale.Number
+    <Numeric
       {...shared}
       language={language}
       style="currency"
@@ -102,7 +102,7 @@ Component will display <Preview minimumFractionDigits={1} maximumFractionDigits=
 export const Preview = (props) => {
   return (
     <Highlight>
-      <EOLocale.Number
+      <Numeric
         style="currency"
         currency="usd"
         currencyDisplay={props.currencyDisplay}

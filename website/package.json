@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "eo-locale-website",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -11,8 +11,8 @@
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.50",
     "@docusaurus/preset-classic": "^2.0.0-alpha.50",
+    "@eo-locale/react": "^1.4.3",
     "classnames": "^2.2.6",
-    "eo-locale": "^7.2.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },

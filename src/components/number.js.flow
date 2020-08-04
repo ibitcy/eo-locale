@@ -1,9 +1,0 @@
-// @flow
-
-export type IEOLocaleNumberProps = Intl$NumberFormatOptions & {
-  value: number;
-
-  language?: string;
-}
-
-declare export var EOLocaleNumber: React$StatelessFunctionalComponent<IEOLocaleNumberProps>;
