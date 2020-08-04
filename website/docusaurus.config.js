@@ -14,7 +14,7 @@ module.exports = {
         alt: 'eo-locale',
         src: 'img/logo.svg',
       },
-      links: [
+      items: [
         {to: 'docs/React', label: 'Docs', position: 'left'},
         {to: 'blog', label: 'Blog', position: 'left'},
         {
