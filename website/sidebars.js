@@ -8,7 +8,24 @@
 module.exports = {
   someSidebar: {
     Core: ['core/install', 'core/translator', 'core/models'],
-    React: ['react/install', 'react/intro', 'react/date', 'react/numeric', 'react/text', 'react/plural', 'react/useTranslator'],
-    Preact: ['preact']
+    React: [
+      'react/install',
+      'react/intro',
+      'react/date',
+      'react/numeric',
+      'react/text',
+      'react/plural',
+      'react/useTranslator',
+    ],
+    Preact: ['preact/install'],
+    ReactNative: [
+      'react-native/install',
+      'react-native/intro',
+      'react-native/date',
+      'react-native/numeric',
+      'react-native/translation',
+      'react-native/plural',
+      'react-native/useTranslator',
+    ],
   },
 };

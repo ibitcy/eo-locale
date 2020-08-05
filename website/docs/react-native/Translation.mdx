@@ -1,6 +1,6 @@
 ---
-id: text
-title: Text
+id: translation
+title: Translation
 ---
 
 import { Text } from '@eo-locale/react';
@@ -10,7 +10,7 @@ import { Highlight } from '../../src/components/Highlight';
 It supports ICU Message Syntax. More information you can find on [official website](http://userguide.icu-project.org/).
 
 ```jsx
-import { Text, TranslationsProvider } from '@eo-locale/react';
+import { Translation, TranslationsProvider } from '@eo-locale/react-native';
 
 export function SomeComponent() {
   return (
@@ -20,8 +20,6 @@ export function SomeComponent() {
   );
 }
 ```
-
-If you need to render html content, just provide `html` property as `true`.
 
 Component will display <Highlight><Preview/></Highlight>
 

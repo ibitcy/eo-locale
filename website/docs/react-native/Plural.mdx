@@ -9,12 +9,12 @@ import { Highlight } from '../../src/components/Highlight';
 Example of plural value
 
 ```jsx
-import { Text, TranslationsProvider } from '@eo-locale/react';
+import { Translation, TranslationsProvider } from '@eo-locale/react-native';
 
 export function SomeComponent() {
   return (
     <TranslationsProvider language='en' locales={[]}>
-      <Text
+      <Translation
         count='4'
         defaultMessage='{count, plural, one {You have one item.} other {You have {count} items.}}'
         id='hello'
