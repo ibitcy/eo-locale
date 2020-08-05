@@ -1,4 +1,4 @@
-# eo-locale
+# [eo-locale](https://eo-locale.netlify.app/)
 
 [![build status](https://badgen.net/travis/ibitcy/eo-locale?icon=travis)](https://travis-ci.org/ibitcy/eo-locale)
 [![npm downloads](https://badgen.net/npm/dt/eo-locale?icon=npm&color=green)](https://www.npmjs.com/package/eo-locale)
