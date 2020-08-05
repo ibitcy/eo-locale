@@ -10,12 +10,12 @@ import { Highlight } from '../../src/components/Highlight';
 It supports ICU Message Syntax. More information you can find on [official website](http://userguide.icu-project.org/).
 
 ```jsx
-import { Text, TranslationsProvider } from '@eo-locale/react'
+import { Text, TranslationsProvider } from '@eo-locale/react';
 
 export function SomeComponent() {
   return (
-    <TranslationsProvider language="en" locales={[]}>
-      <Text id="hello" defaultMessage="Hello {name}!" name="World" />
+    <TranslationsProvider language='en' locales={[]}>
+      <Text id='hello' defaultMessage='Hello {name}!' name='World' />
     </TranslationsProvider>
   );
 }
@@ -24,9 +24,5 @@ export function SomeComponent() {
 Component will display <Highlight><Preview/></Highlight>
 
 export const Preview = () => {
-  return (
-    <TranslationsProvider language="en" locales={[]} onError={() => {}}>
-      <Text id="hello" defaultMessage="Hello {name}!" name="World" />
-    </TranslationsProvider>
-  );
+  return <Text id='hello' defaultMessage='Hello {name}!' name='World' />;
 };

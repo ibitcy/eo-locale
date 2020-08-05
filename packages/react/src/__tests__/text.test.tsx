@@ -15,6 +15,16 @@ describe('Text', () => {
     expect(formatted.text()).toEqual('Hello test!');
   });
 
+  it('Should render default message', () => {
+    const formatted = Enzyme.render(
+      <TestWrapper>
+        <Text id="none" defaultMessage="test" />
+      </TestWrapper>,
+    );
+
+    expect(formatted.text()).toEqual('test');
+  });
+
   it('Should render formatted message for en', () => {
     const formatted = Enzyme.render(
       <TestWrapper>

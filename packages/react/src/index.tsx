@@ -103,13 +103,14 @@ export interface TextProps extends FormatMessageOptions {
 
 export const Text: FC<TextProps> = ({
   children,
+  defaultMessage,
   html,
   id,
   tagName = 'span',
   ...values
 }) => {
   const translator = useTranslator();
-  const message = translator.getMessageById(id);
+  const message = translator.getMessageById(id, defaultMessage);
 
   if (typeof message === 'string') {
     try {
