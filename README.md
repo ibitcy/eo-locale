@@ -25,6 +25,6 @@ Internationalization is the process of adapting an application to work with diff
 
 | react-intl | react-i18next | @eo-locale/react |
 | ---------- | ------------- | --------- |
-| 13.5kB | 5.3kB | **1.8kB** |
+| 13.5kB | 5.3kB | **1.9kB** |
 
 eo-locale inspired by react-intl. react-intl is really cool library with convenient api, but weight is too much. You can check actual information about weights on [bundlephobia](https://bundlephobia.com/).

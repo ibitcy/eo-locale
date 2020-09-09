@@ -21,7 +21,7 @@ const features = [
     imageUrl: 'img/icons8-parachute-96.png',
     description: (
       <>
-        1.7 kB gzipped size. It is very important to provide small client javascript bundles for a best user experience.
+        1.9 kB gzipped size. It is very important to provide small client javascript bundles for a best user experience.
       </>
     ),
   },
