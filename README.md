@@ -1,8 +1,6 @@
 # [eo-locale](https://eo-locale.netlify.app/)
 
 [![build status](https://badgen.net/travis/ibitcy/eo-locale?icon=travis)](https://travis-ci.org/ibitcy/eo-locale)
-[![npm downloads](https://badgen.net/npm/dt/eo-locale?icon=npm&color=green)](https://www.npmjs.com/package/eo-locale)
-[![bundle size](https://badgen.net/bundlephobia/minzip/eo-locale@latest?icon=awesome)](https://bundlephobia.com/result?p=eo-locale@latest)
 
 * 💪Runs in all browsers and Node.js
 * ☎Can be used not only in React.Component but also in Vanilla JS
@@ -25,7 +23,7 @@ Internationalization is the process of adapting an application to work with diff
 
 # Compare with most popular libraries
 
-| react-intl | react-i18next | eo-locale |
+| react-intl | react-i18next | @eo-locale/react |
 | ---------- | ------------- | --------- |
 | 13.5kB | 5.3kB | **1.8kB** |
 
