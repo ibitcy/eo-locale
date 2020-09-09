@@ -8,9 +8,9 @@
     "test": "lerna run test"
   },
   "devDependencies": {
-    "husky": "^4.0.10",
+    "husky": "^4.3.0",
     "intl": "^1.2.5",
-    "intl-pluralrules": "^1.2.0",
+    "intl-pluralrules": "^1.2.2",
     "lerna": "^3.13.4"
   }
 }
