@@ -21,10 +21,4 @@ describe('Nested json', () => {
 
     expect(translator.translate('page1.hello')).toBe('Hello world');
   });
-
-  test('Should translate', () => {
-    const translator = new Translator('en', locales);
-
-    expect(translator.translate('page1.hello')).toBe('Hello world');
-  });
 });
