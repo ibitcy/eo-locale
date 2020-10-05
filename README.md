@@ -28,3 +28,7 @@ Internationalization is the process of adapting an application to work with diff
 | 13.5kB | 5.3kB | **1.9kB** |
 
 eo-locale inspired by react-intl. react-intl is really cool library with convenient api, but weight is too much. You can check actual information about weights on [bundlephobia](https://bundlephobia.com/).
+
+# Projects using eo-locale
+
+- [gambit.gg](https://gambit.gg/) — Gambit Esports website by [lessmess](https://lessmess.agency/)
