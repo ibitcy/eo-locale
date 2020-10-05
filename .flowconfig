@@ -1,0 +1,15 @@
+[ignore]
+
+[include]
+
+[libs]
+./flow-typed
+
+[lints]
+
+[options]
+module.file_ext=.js
+module.file_ext=.jsx
+include_warnings=true
+
+[strict]

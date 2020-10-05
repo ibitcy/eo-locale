@@ -1,0 +1,116 @@
+---
+id: money
+title: Currency internationalization
+author: Maksim Sharipov
+author_title: Maintainer of eo-locale
+author_url: https://github.com/pret-a-porter
+author_image_url: https://avatars0.githubusercontent.com/u/8514156?s=400&v=4
+tags: []
+---
+
+import { Numeric } from '@eo-locale/react';
+import { Highlight } from '../src/components/Highlight';
+
+In this article we consider how to create clear and reusable component `Money`.
+For many websites it is actual issue to display prices in different currencies and for different languages.
+It helps to be more friendly with customers from any country.
+
+Let's figure requirements for those component:
+
+- Ability to pass currency
+- Ability to pass language, because for different languages we use different numeric format
+- Mode of currency display
+
+Actually, with `@eo-locale/react` it is quite simple issue.
+
+I am a big fan of TypeScript and all examples will use it.
+
+```jsx
+import { Numeric } from '@eo-locale/react';
+
+interface MoneyProps extends Intl.NumberFormatOptions {
+  amount: number;
+  language: string;
+}
+
+export const Money: React.FC<MoneyProps> = ({
+  amount,
+  language,
+  ...shared
+}) => {
+  return (
+    <Numeric
+      {...shared}
+      language={language}
+      style="currency"
+      value={amount}
+    />
+  );
+};
+```
+
+Interface `MoneyProps` extends interface `Intl.NumberFormatOptions`, therefore
+we can use any of standard params from [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
+
+For example, with next props:
+
+```jsx
+import { Money } from '...somewhere';
+
+const SomeComponent: React.FC = () => {
+  return <Money currency="usd" language="en" value={1000} />;
+};
+```
+
+Component will display <Preview />
+
+For change mode of currency display, set `currencyDisplay` property.
+It can be `symbol`, `code` or `name`. By default `symbol`.
+
+```jsx
+import { Money } from '...somewhere';
+
+const SomeComponent: React.FC = () => {
+  return (
+    <Money currency="usd" currencyDisplay="name" language="en" value={1000} />
+  );
+};
+```
+
+Component will display <Preview currencyDisplay="name" />
+
+If you want to show only one fraction digit, just pass `maximumFractionDigits` and `minimumFractionDigits` property.
+
+```jsx
+import { Money } from '...somewhere';
+
+const SomeComponent: React.FC = () => {
+  return (
+    <Money
+      currency="usd"
+      language="en"
+      value={1000}
+      maximumFractionDigits={1}
+      minimumFractionDigits={1}
+    />
+  );
+};
+```
+
+Component will display <Preview minimumFractionDigits={1} maximumFractionDigits={1} />
+
+export const Preview = (props) => {
+  return (
+    <Highlight>
+      <Numeric
+        style="currency"
+        currency="usd"
+        currencyDisplay={props.currencyDisplay}
+        minimumFractionDigits={props.minimumFractionDigits}
+        maximumFractionDigits={props.maximumFractionDigits}
+        language="en"
+        value={1000}
+      />
+    </Highlight>
+  );
+};

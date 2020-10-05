@@ -1,0 +1,58 @@
+---
+id: translator
+title: Translator
+---
+
+You can create instance of class `Translator` wherever you need.
+
+## Example
+
+```ts
+import { Translator } from '@eo-locale/core';
+
+export const translator = new Translator('en');
+
+translator.formatNumber(1000);
+translator.formatDate(new Date());
+translator.translate('hello', {
+  defaultMessage: 'Hello World!',
+});
+```
+
+## Constructor arguments
+
+| parameter | type |
+| --------- | ---- |
+| language     | String |
+| locales(optional)  | [Locale](/docs/core/models)[] (by default []) |
+
+## Translator methods
+
+### formatDate
+
+| parameter | type |
+| --------- | ---- |
+| value     | Date |
+| options(optional)  | Intl.DateTimeFormatOptions |
+
+### formatNumber
+
+| parameter | type |
+| --------- | ---- |
+| value     | Number |
+| options(optional)  | Intl.NumberFormatOptions |
+
+### translate
+
+| parameter | type |
+| --------- | ---- |
+| id     | String |
+| options(optional)  | [FormatMessageOptions](/docs/core/models) (by default {}) |
+
+### getMessageById
+
+| parameter | type |
+| --------- | ---- |
+| id     | String |
+| defaultMessage(optional)  | String |
+

@@ -1,0 +1,30 @@
+---
+id: text
+title: Text
+---
+
+import { Text } from '@eo-locale/react';
+import { Highlight } from '../../src/components/Highlight';
+
+`Text` component provides ability to format string values.
+It supports ICU Message Syntax. More information you can find on [official website](http://userguide.icu-project.org/).
+
+```jsx
+import { Text, TranslationsProvider } from '@eo-locale/react';
+
+export function SomeComponent() {
+  return (
+    <TranslationsProvider language='en' locales={[]}>
+      <Text id='hello' defaultMessage='Hello {name}!' name='World' />
+    </TranslationsProvider>
+  );
+}
+```
+
+If you need to render html content, just provide `html` property as `true`.
+
+Component will display <Highlight><Preview/></Highlight>
+
+export const Preview = () => {
+  return <Text id='hello' defaultMessage='Hello {name}!' name='World' />;
+};

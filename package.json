@@ -1,80 +1,16 @@
 {
-  "name": "eo-locale",
-  "version": "6.2.2",
-  "description": "",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "build": "rm -rf dist && rollup --config ./rollup.config.js && npm run check-size --scripts-prepend-node-path",
-    "check-size": "size-limit",
-    "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix --config ./config/tslint.json",
-    "preversion": "npm run lint:ts && npm run test && npm run check-size && npm run build",
-    "test": "jest --detectOpenHandles --config ./config/jest.config.json --no-cache"
+    "build": "lerna run build",
+    "test": "lerna run test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ibitcy/eo-locale.git"
-  },
-  "keywords": [
-    "internationalization",
-    "intl",
-    "messageformat",
-    "plural",
-    "icu",
-    "react",
-    "tiny",
-    "i18n"
-  ],
-  "author": {
-    "name": "Maksim Sharipov",
-    "url": "https://github.com/pret-a-porter"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ibitcy/eo-locale/issues"
-  },
-  "homepage": "https://github.com/ibitcy/eo-locale#readme",
-  "size-limit": [
-    {
-      "path": "dist/index.js",
-      "limit": "1.5kb"
-    }
-  ],
   "devDependencies": {
-    "@types/enzyme": "^3.1.11",
-    "@types/enzyme-adapter-react-16": "^1.0.2",
-    "@types/intl": "^1.2.0",
-    "@types/intl-locales-supported": "^1.0.0",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^11.0.0",
-    "@types/react": "^16.3.14",
-    "@types/react-dom": "^16.0.9",
-    "@types/webpack-env": "^1.13.6",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "husky": "^1.1.3",
-    "jest": "^24.0.0",
-    "jest-haste-map": "^24.5.0",
-    "jest-resolve": "^24.5.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "rollup": "^1.6.0",
-    "rollup-plugin-terser": "^4.0.4",
-    "rollup-plugin-typescript2": "^0.20.1",
-    "size-limit": "^0.22.0",
-    "ts-jest": "^24.0.0",
-    "tslint": "^5.10.0",
-    "tslint-config-prettier": "^1.12.0",
-    "typescript": "^3.0.0"
-  },
-  "dependencies": {
+    "husky": "^4.3.0",
     "intl": "^1.2.5",
-    "intl-locales-supported": "^1.0.0",
-    "intl-pluralrules": "^1.0.0"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "intl-pluralrules": "^1.2.2",
+    "lerna": "^3.13.4"
   }
 }

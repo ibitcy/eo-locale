@@ -1,0 +1,37 @@
+---
+id: plural
+title: Plural
+---
+
+import { Text } from '@eo-locale/react';
+import { Highlight } from '../../src/components/Highlight';
+
+Example of plural value
+
+```jsx
+import { Text, TranslationsProvider } from '@eo-locale/react';
+
+export function SomeComponent() {
+  return (
+    <TranslationsProvider language='en' locales={[]}>
+      <Text
+        count='4'
+        defaultMessage='{count, plural, one {You have one item.} other {You have {count} items.}}'
+        id='hello'
+      />
+    </TranslationsProvider>
+  );
+}
+```
+
+Component will display <Highlight><Preview/></Highlight>
+
+export const Preview = () => {
+  return (
+    <Text
+      count='4'
+      defaultMessage='{count, plural, one {You have one item.} other {You have {count} items.}}'
+      id='hello'
+    />
+  );
+};

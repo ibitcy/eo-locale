@@ -1,11 +1,10 @@
 language: node_js
 node_js:
-  - '8'
-  - '10'
+  - '12'
+  - '14'
 script:
-  - npm run lint:ts
-  - npm run test
   - npm run build
+  - npm run test
 branches:
   only:
     - master
