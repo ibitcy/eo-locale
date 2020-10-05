@@ -193,3 +193,7 @@ import { serverPolyfill } from 'eo-locale/dist/polyfill';
 
 serverPolyfill(['en']);
 ```
+
+# Projects using eo-locale
+
+- [gambit.gg](https://gambit.gg/) — Gambit Esports website by [lessmess](https://lessmess.agency/)
