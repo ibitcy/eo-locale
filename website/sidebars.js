@@ -7,7 +7,10 @@
 
 module.exports = {
   someSidebar: {
-    Core: ['core/install', 'core/translator', 'core/models'],
+    'Installation': [
+      'install/main',
+      'install/core'
+    ],
     React: [
       'react/install',
       'react/intro',
