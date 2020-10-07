@@ -11,8 +11,11 @@ module.exports = {
       'install/main',
       'install/core'
     ],
+    Core: [
+      'core/translator',
+      'core/models'
+    ],
     React: [
-      'react/install',
       'react/intro',
       'react/date',
       'react/numeric',
@@ -20,9 +23,7 @@ module.exports = {
       'react/plural',
       'react/useTranslator',
     ],
-    Preact: ['preact/install'],
     ReactNative: [
-      'react-native/install',
       'react-native/intro',
       'react-native/date',
       'react-native/numeric',
