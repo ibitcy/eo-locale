@@ -1,0 +1,33 @@
+---
+id: package
+title: Core Package
+---
+
+**`eo-locale`** has a core package contains functions that can help you format strings wherever you need.
+(React, Preact, React Native, even Valina JS) You can install it with NPM or Yarn.
+
+## Installation
+
+### with NPM
+
+```sh
+npm i @eo-locale/core --save
+```
+
+### with Yarn
+
+```sh
+yarn add @eo-locale/core
+```
+
+## Usage
+
+```ts
+import { Translator } from '@eo-locale/core';
+
+export const translator = new Translator('en');
+
+translator.formatNumber(1000);
+translator.formatDate(new Date());
+translator.translate('hello', {  defaultMessage: 'Hello World!' });
+```
