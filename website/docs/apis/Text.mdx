@@ -1,0 +1,4 @@
+---
+id: text
+title: Text
+---

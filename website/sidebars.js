@@ -7,13 +7,20 @@
 
 module.exports = {
   someSidebar: {
-    'Installation': [
-      'install/main',
-      'install/core'
+    'Getting Started': [
+      'getting-started/install',
     ],
     Core: [
+      'core/package',
+      'core/models',
       'core/translator',
-      'core/models'
+    ],
+    APIs: [
+      'apis/translationsProvider',
+      'apis/text',
+      'apis/datetime',
+      'apis/numberic',
+      'apis/useTranslator'
     ],
     React: [
       'react/intro',
