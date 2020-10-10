@@ -2,3 +2,47 @@
 id: translationsProvider
 title: TranslationsProvider
 ---
+
+Add provider in root of your application
+
+## React / Preact
+
+```jsx
+import { Text, TranslationsProvider } from '@eo-locale/react';
+
+const locales = [
+  {
+    language: 'en',
+    messages: {
+      hello: 'Hello {name}!'
+    }
+  },
+];
+
+<TranslationsProvider language="en" locales={locales}>
+  <span>
+    <Text id="hello" name="World" /> // Helo World!
+  </span>
+</TranslationsProvider>
+```
+
+## React Native
+
+```jsx
+import { Translation, TranslationsProvider } from '@eo-locale/react-native';
+
+const locales = [
+  {
+    language: 'en',
+    messages: {
+      hello: 'Hello {name}!'
+    }
+  },
+];
+
+<TranslationsProvider language="en" locales={locales}>
+  <span>
+    <Translation id="hello" name="World" /> // Helo World!
+  </span>
+</TranslationsProvider>
+```

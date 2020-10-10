@@ -22,21 +22,5 @@ module.exports = {
       'apis/numberic',
       'apis/useTranslator'
     ],
-    React: [
-      'react/intro',
-      'react/date',
-      'react/numeric',
-      'react/text',
-      'react/plural',
-      'react/useTranslator',
-    ],
-    ReactNative: [
-      'react-native/intro',
-      'react-native/date',
-      'react-native/numeric',
-      'react-native/translation',
-      'react-native/plural',
-      'react-native/useTranslator',
-    ],
   },
 };

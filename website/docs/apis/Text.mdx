@@ -1,4 +1,80 @@
 ---
 id: text
-title: Text
+title: Text / Translation
 ---
+
+import { Text } from '@eo-locale/react';
+import { Highlight } from '../../src/components/Highlight';
+
+`Text` / `Translation` component provides ability to format string values.
+It supports ICU Message Syntax. More information you can find on [official website](http://userguide.icu-project.org/).
+
+## React / Preact
+
+```jsx
+import { Text, TranslationsProvider } from '@eo-locale/react';
+
+export function SomeComponent() {
+  return (
+    <TranslationsProvider language='en' locales={[]}>
+      <Text id='hello' defaultMessage='Hello {name}!' name='World' />
+    </TranslationsProvider>
+  );
+}
+```
+
+If you need to render html content, just provide `html` property as `true`.
+
+## React Native
+
+```jsx
+import { Translation, TranslationsProvider } from '@eo-locale/react-native';
+
+export function SomeComponent() {
+  return (
+    <TranslationsProvider language='en' locales={[]}>
+      <Translation id='hello' defaultMessage='Hello {name}!' name='World' />
+    </TranslationsProvider>
+  );
+}
+```
+
+## Result
+
+Component will display <Highlight><Preview/></Highlight>
+
+export const Preview = () => {
+  return <Text id='hello' defaultMessage='Hello {name}!' name='World' />;
+};
+
+## Plural
+
+Example of plural value
+
+```jsx
+import { Text, TranslationsProvider } from '@eo-locale/react';
+
+export function SomeComponent() {
+  return (
+    <TranslationsProvider language='en' locales={[]}>
+      <Text
+        count='4'
+        defaultMessage='{count, plural, one {You have one item.} other {You have {count} items.}}'
+        id='hello'
+      />
+    </TranslationsProvider>
+  );
+}
+```
+
+Component will display <Highlight><PreviewPlural/></Highlight>
+
+export const PreviewPlural = () => {
+  return (
+    <Text
+      count='4'
+      defaultMessage='{count, plural, one {You have one item.} other {You have {count} items.}}'
+      id='hello'
+    />
+  );
+};
