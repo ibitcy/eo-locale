@@ -1,55 +1,77 @@
 ---
 id: text
-title: Text / Translation
+title: Text
 ---
 
 import { Text } from '@eo-locale/react';
 import { Highlight } from '../../src/components/Highlight';
 
-`Text` / `Translation` component provides ability to format string values.
-It supports ICU Message Syntax. More information you can find on [official website](http://userguide.icu-project.org/).
+`Text` component provides ability to format string values.
+It supports ICU Message Syntax. More information you can find on [official website](https://unicode-org.github.io/icu/).
 
-## React / Preact
+## Displaying Messages
+
+`Text` components required an ID to be display a message. The ID is can be provided on the `TranslationsProvider` component.
 
 ```jsx
 import { Text, TranslationsProvider } from '@eo-locale/react';
 
+const locales = [
+  {
+    language: 'en',
+    messages: {
+      hello: 'Hello {name}!'
+    }
+  }
+]
+
 export function SomeComponent() {
   return (
-    <TranslationsProvider language='en' locales={[]}>
+    <TranslationsProvider language='en' locales={locales}>
+      <Text id='hello' name='World' />
+    </TranslationsProvider>
+  );
+}
+```
+
+As above example, component will display like:
+
+export const PreviewDisplayMessage = () => {
+  return <Text id='hello1' defaultMessage='Hello {name}!' name='World' />;
+};
+
+<p>
+  <Highlight><PreviewDisplayMessage/></Highlight>
+</p>
+
+## Displaying Fallback Messages
+
+If there are locales that do not provide some IDs, you can set `defaultMessage` to display a fallback message.
+The fallback message will be memorized for later use.
+
+```jsx
+import { Text, TranslationsProvider } from '@eo-locale/react';
+
+const locales = [
+  {
+    language: 'en',
+    messages: {}
+  }
+]
+
+export function SomeComponent() {
+  return (
+    <TranslationsProvider language='en' locales={locales}>
       <Text id='hello' defaultMessage='Hello {name}!' name='World' />
     </TranslationsProvider>
   );
 }
 ```
+As above example, component will display like the first example.
+
+## Displaying HTML Content
 
 If you need to render html content, just provide `html` property as `true`.
-
-## React Native
-
-```jsx
-import { Translation, TranslationsProvider } from '@eo-locale/react-native';
-
-export function SomeComponent() {
-  return (
-    <TranslationsProvider language='en' locales={[]}>
-      <Translation id='hello' defaultMessage='Hello {name}!' name='World' />
-    </TranslationsProvider>
-  );
-}
-```
-
-## Result
-
-Component will display <Highlight><Preview/></Highlight>
-
-export const Preview = () => {
-  return <Text id='hello' defaultMessage='Hello {name}!' name='World' />;
-};
-
-## Plural
-
-Example of plural value
 
 ```jsx
 import { Text, TranslationsProvider } from '@eo-locale/react';
@@ -57,24 +79,78 @@ import { Text, TranslationsProvider } from '@eo-locale/react';
 export function SomeComponent() {
   return (
     <TranslationsProvider language='en' locales={[]}>
+      <Text id='hello' html defaultMessage='<strong style="font-size: 1.2em;">Hello {name}!</strong>' name='World' />
+    </TranslationsProvider>
+  );
+}
+```
+
+As above example, component will display like:
+
+export const PreviewDisplayHTMLMessage = () => {
+  return <Text id='hello2' html defaultMessage='<strong style="font-size: 1.2em;">Hello {name}!</strong>'  name='World' />;
+};
+
+<p>
+  <Highlight><PreviewDisplayHTMLMessage/></Highlight>
+</p>
+
+## Plural Formatting
+
+`Text` components support plural formatting. The following is an example of displaying the plural value.
+
+```jsx
+import { Text, TranslationsProvider } from '@eo-locale/react';
+
+const countItem = '1';
+
+export function SomeComponent() {
+  return (
+    <TranslationsProvider language='en' locales={[]}>
       <Text
-        count='4'
+        count={countItem}
         defaultMessage='{count, plural, one {You have one item.} other {You have {count} items.}}'
-        id='hello'
+        id='counting'
       />
     </TranslationsProvider>
   );
 }
 ```
 
-Component will display <Highlight><PreviewPlural/></Highlight>
-
-export const PreviewPlural = () => {
+export const PreviewPlural = ({ count }) => {
   return (
     <Text
-      count='4'
+      count={count}
       defaultMessage='{count, plural, one {You have one item.} other {You have {count} items.}}'
-      id='hello'
+      id='counting'
     />
   );
 };
+
+If `count='1'`, component will display like: <Highlight><PreviewPlural count='1' /></Highlight>
+
+If `count='4'`, component will display like: <Highlight><PreviewPlural count='4' /></Highlight>
+
+
+## Usage in React Native
+
+In React Native, there is a component named `Text` for display texts already.
+To avoid confusion, `eo-locale/react-native` prepared a component named `Translation`.
+You need to use this within the `Text` component to display a translated text.
+
+```jsx
+import {Text} from 'react-native';
+import {Translation, TranslationsProvider} from '@eo-locale/react-native';
+
+const App: () => React$Node = () => {
+  return (
+    <TranslationsProvider language="en" locales={[]}>
+      <Text>
+        <Translation id="hello" defaultMessage="Hello {name}!" name="World" />
+      </Text>
+    </TranslationsProvider>
+  );
+};
+
+export default App;
+```

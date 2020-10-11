@@ -3,46 +3,78 @@ id: translationsProvider
 title: TranslationsProvider
 ---
 
-Add provider in root of your application
+`TranslationsProvider` is a provider component used to scope translating to the child components.
+To translate the entire your application, you need to add this component at the root of all components.
+This allows you to set language to use and set of translated messages to be provided to the `Text` components
+(or `Translation` components in React Native).
+After adding the provider, you can use the `Text` components to display translated messages as you need.
 
-## React / Preact
+You can import the `TranslationsProvider` component (and `Text` component) as the followings:
+
+**React**
 
 ```jsx
 import { Text, TranslationsProvider } from '@eo-locale/react';
-
-const locales = [
-  {
-    language: 'en',
-    messages: {
-      hello: 'Hello {name}!'
-    }
-  },
-];
-
-<TranslationsProvider language="en" locales={locales}>
-  <span>
-    <Text id="hello" name="World" /> // Helo World!
-  </span>
-</TranslationsProvider>
 ```
 
-## React Native
+**Preact**
+
+```jsx
+import { Text, TranslationsProvider } from '@eo-locale/preact';
+```
+
+**React Native**
 
 ```jsx
 import { Translation, TranslationsProvider } from '@eo-locale/react-native';
+```
 
+After importing, you can use components in application like this:
+
+```jsx
 const locales = [
   {
     language: 'en',
     messages: {
-      hello: 'Hello {name}!'
+      hello: 'Hello {name}!',
     }
   },
+  {
+    language: 'fr',
+    messages: {
+      hello: 'Bonjour {name}!',
+    }
+  }
 ];
 
-<TranslationsProvider language="en" locales={locales}>
-  <span>
-    <Translation id="hello" name="World" /> // Helo World!
-  </span>
-</TranslationsProvider>
+const siteLanguage = 'fr';
+
+export default function App() {
+  return (
+    <TranslationsProvider language={siteLanguage} locales={locales}>
+      <Text id={'hello'} name={'World'} />
+    </TranslationsProvider>
+  );
+}
+```
+
+The followings are the configuration props of `TranslationsProvider` can be set:
+
+```typescript jsx
+export type Message = string | number;
+
+export interface Locale {
+  language: string;
+  messages: {
+    [translationId: string]: Message
+  };
+}
+
+type ErrorLogger = (error: Error) => void;
+
+interface TranslationsProviderProps {
+  language: string;
+  locales: Locale[];
+  onError?: ErrorLogger;
+}
 ```
