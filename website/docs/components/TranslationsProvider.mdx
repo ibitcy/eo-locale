@@ -4,7 +4,7 @@ title: TranslationsProvider
 ---
 
 `TranslationsProvider` is a provider component used to scope translating to the child components.
-To translate the entire your application, you need to add this component at the root of all components.
+To translate the entire application, you need to add this component at the root of all components.
 This allows you to set language to use and set of translated messages to be provided to the `Text` components
 (or `Translation` components in React Native).
 After adding the provider, you can use the `Text` components to display translated messages as you need.
@@ -61,12 +61,12 @@ export default function App() {
 The followings are the configuration props of `TranslationsProvider` can be set:
 
 ```typescript jsx
-export type Message = string | number;
+type Message = string | number;
 
-export interface Locale {
+interface Locale {
   language: string;
   messages: {
-    [translationId: string]: Message | object
+    [translationKey: string]: Message | object
   };
 }
 

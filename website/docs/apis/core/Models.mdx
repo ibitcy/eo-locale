@@ -9,7 +9,7 @@ type Message = string | number;
 interface Locale {
   language: string;
   messages: {
-    [transactionId: string]: Message | object;
+    [transactionKey: string]: Message | object;
   };
 }
 
