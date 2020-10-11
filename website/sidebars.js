@@ -9,18 +9,23 @@ module.exports = {
   someSidebar: {
     'Getting Started': [
       'getting-started/install',
+      'getting-started/corePackage',
     ],
-    Core: [
-      'core/package',
-      'core/models',
-      'core/translator',
+    Components: [
+      'components/translationsProvider',
+      'components/text',
+      'components/datetime',
+      'components/numeric',
     ],
     APIs: [
-      'apis/translationsProvider',
-      'apis/text',
-      'apis/datetime',
-      'apis/numberic',
-      'apis/useTranslator'
+      'apis/useTranslator',
+      {
+        'Core': [
+          'apis/core/models',
+          'apis/core/translator',
+        ],
+      },
     ],
+
   },
 };

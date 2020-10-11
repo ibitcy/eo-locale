@@ -11,19 +11,19 @@ After adding the provider, you can use the `Text` components to display translat
 
 You can import the `TranslationsProvider` component (and `Text` component) as the followings:
 
-**React**
+#### React
 
 ```jsx
 import { Text, TranslationsProvider } from '@eo-locale/react';
 ```
 
-**Preact**
+#### Preact
 
 ```jsx
 import { Text, TranslationsProvider } from '@eo-locale/preact';
 ```
 
-**React Native**
+#### React Native
 
 ```jsx
 import { Translation, TranslationsProvider } from '@eo-locale/react-native';
@@ -66,7 +66,7 @@ export type Message = string | number;
 export interface Locale {
   language: string;
   messages: {
-    [translationId: string]: Message
+    [translationId: string]: Message | object
   };
 }
 
