@@ -21,8 +21,8 @@ module.exports = {
       'apis/useTranslator',
       {
         'Core': [
-          'apis/core/models',
           'apis/core/translator',
+          'apis/core/models',
         ],
       },
     ],
