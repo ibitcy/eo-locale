@@ -19,7 +19,7 @@ import { useTranslator } from '@eo-locale/react';
 
 export function SomeComponent() {
   const translator = useTranslator();
-  return <input placeholder={translator.translate('example-placeholder', { defaultMessage: 'Place here' })} />;
+  return <input placeholder={translator.formatNumber(1000)} />;
 }
 ```
 
@@ -34,7 +34,7 @@ export function SomeComponent() {
   return (
     <TextInput
       style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-      value={translator.translate('example-placeholder', { defaultMessage: 'Place here' })}
+      value={translator.formatNumber(1000)}
     />
   );
 }
