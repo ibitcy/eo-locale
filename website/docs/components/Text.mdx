@@ -3,7 +3,7 @@ id: text
 title: Text
 ---
 
-import { Text } from '@eo-locale/react';
+import { Text, TranslationsProvider } from '@eo-locale/react';
 import { Highlight } from '../../src/components/Highlight';
 
 `Text` component provides ability to format string values.
@@ -42,6 +42,72 @@ export const PreviewDisplayMessage = () => {
 
 <p>
   <Highlight><PreviewDisplayMessage/></Highlight>
+</p>
+
+`Text` component can get a message by an ID provided in nested JSON locales, for example:
+
+```jsx
+import { Text, TranslationsProvider } from  '@eo-locale/react';
+
+const locales = [
+  {
+    language: 'en',
+    messages: {
+      page1: {
+        hello: 'Hello {name}! Welcome to page1!',
+      },
+    }
+  },
+  {
+    language: 'fr',
+    messages: {
+      page1: {
+        hello: 'Bonjour {name}! Bienvenue à la page1!',
+      },
+    }
+  }
+];
+
+export default function App() {
+  return (
+    <TranslationsProvider language='en' locales={locales}>
+      <Text id='page1.hello' name='World' />
+    </TranslationsProvider>
+  );
+}
+
+````
+
+As above example, component will display like:
+
+export const PreviewDisplayNestedJSONMessage = () => {
+  const locales = [
+    {
+      language: 'en',
+      messages: {
+        page1: {
+          hello: 'Hello {name}! Welcome to page1!',
+        },
+      }
+    },
+    {
+      language: 'fr',
+      messages: {
+        page1: {
+          hello: 'Bonjour {name}! Bienvenue à la page1!',
+        },
+      }
+    }
+  ];
+  return (
+      <TranslationsProvider language='en' locales={locales}>
+        <Text id='page1.hello' name='World' />
+      </TranslationsProvider>
+  )
+};
+
+<p>
+  <Highlight><PreviewDisplayNestedJSONMessage/></Highlight>
 </p>
 
 ## Displaying Fallback Messages
