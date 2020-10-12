@@ -1,6 +1,6 @@
 ---
 id: models
-title: Models
+title: Core Models
 ---
 
 ```ts
@@ -8,7 +8,9 @@ type Message = string | number;
 
 interface Locale {
   language: string;
-  messages: object;
+  messages: {
+    [transactionKey: string]: Message | object;
+  };
 }
 
 interface FormatMessageOptions extends Record<string, any> {

@@ -13,17 +13,38 @@ import {
 `Numeric` component provides ability to format numeric values.
 Full list of supported properties you can find on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat) page
 
+To use this component, you need to import the component as the followings:
+
+#### React
+
+```jsx
+import { Numeric } from '@eo-locale/react';
+```
+
+#### Preact
+
+```jsx
+import { Numeric } from '@eo-locale/preact';
+```
+
+#### React Native
+
 ```jsx
 import { Numeric } from '@eo-locale/react-native';
+```
 
+And add into your application like this:
+
+```jsx
 export function SomeComponent() {
-  return <Numeric language="en" value={123456789.321} />;
+  return <Numeric language={appLanguage} value={123456789.321} />;
 }
 ```
 
-Component will display <LanguageSelector><Highlight><Preview/></Highlight></LanguageSelector>
+As above example, component will display <LanguageSelector><Highlight><Preview/></Highlight></LanguageSelector>
 
 export const Preview = () => {
   const language = useLanguage();
   return <Numeric language={language} value={123456789.321} />
 };
+

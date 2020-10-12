@@ -14,7 +14,8 @@ export function LanguageSelector({ children }) {
   return (
     <LanguageContext.Provider value={language}>
       {children}
-      &nbsp; Choose your language:&nbsp;
+      &nbsp;
+      <br /> Choose your language:&nbsp;
       <select
         style={{
           minHeight: 30,
