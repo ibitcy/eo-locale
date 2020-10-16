@@ -1,6 +1,6 @@
 {
   "name": "@eo-locale/preact",
-  "version": "3.1.0",
+  "version": "1.4.5",
   "description": "",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -36,6 +36,6 @@
     "preact": "^10.1.1"
   },
   "dependencies": {
-    "@eo-locale/core": "^1.4.4"
+    "@eo-locale/core": "^1.4.5"
   }
 }
