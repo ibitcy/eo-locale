@@ -5,7 +5,7 @@ import clear from 'rollup-plugin-clear';
 
 export default [
   {
-    input: path.resolve(process.cwd(), 'src/index.ts'),
+    input: path.resolve(process.cwd(), 'src/index.tsx'),
     output: [
       {
         file: path.resolve(process.cwd(), 'lib/index.js'),
@@ -16,7 +16,7 @@ export default [
         format: 'es',
       },
     ],
-    external: ['preact', '@eo-locale/core', 'preact-context'],
+    external: ['preact', '@eo-locale/core'],
     plugins: [
       clear({
         targets: [path.resolve(process.cwd(), 'lib')],
@@ -28,6 +28,9 @@ export default [
           passes: 3,
           pure_getters: true,
           unsafe: true,
+        },
+        output: {
+          comments: false,
         },
       }),
     ],
