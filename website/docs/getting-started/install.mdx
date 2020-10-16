@@ -50,6 +50,83 @@ npm i @eo-locale/react-native --save
 yarn add @eo-locale/react-native
 ```
 
+### Setting up
+
+React Native has "JavaScript Core" (JSC) to run JavaScript codes in Android.
+But by default, the JSC does not support libraries that manage internationalization.
+To use `eo-locale`, you need to change JSC distribution and rebuild your project.
+
+#### In React Native 0.60 or newer
+
+Update `jscFlavor` in file `android/app/build.gradle` to `org.webkit:android-jsc-intl:+`.
+
+```
+/**
+ * The preferred build flavor of JavaScriptCore.
+ *
+ * For example, to use the international variant, you can use:
+ * `def jscFlavor = 'org.webkit:android-jsc-intl:+'`
+ *
+ * The international variant includes ICU i18n library and necessary data
+ * allowing to use e.g. `Date.toLocaleString` and `String.localeCompare` that
+ * give correct results when using with locales other than en-US.  Note that
+ * this variant is about 6MiB larger per architecture than default.
+ */
+def jscFlavor = 'org.webkit:android-jsc-intl:+'
+```
+
+And rebuild your project, then you can use `eo-locale` everywhere in your application!
+
+
+#### In React Native 0.59
+
+First, you need to install an NPM dependency named `jsc-android` by adding it to the `dependencies` section in your `package.json`,
+and run `npm install` or `yarn install`.
+
+```json
+"dependencies": {
+    "jsc-android": "241213.X.Y",
+    ...
+}
+```
+(`X` and `Y` is a minor and patch version. Check on the [JSC build script repository](https://github.com/react-native-community/jsc-android-buildscripts))
+
+Update 3 sections in file `android/app/build.gradle`.
+
+- **`dependencies`**
+
+    Add `implementation "org.webkit:android-jsc-intl:r241213"` at first of the section.
+
+    ```
+    dependencies {
+        implementation "org.webkit:android-jsc-intl:r241213"
+        implementation fileTree(dir: "libs", include: ["*.jar"])
+        ...
+    }
+    ```
+
+- **`android`**
+
+    Add `packagingOptions` to this section as follow:
+
+    ```
+    android {
+        ...
+        packagingOptions {
+            pickFirst '**/libjsc.so'
+            pickFirst '**/libc++_shared.so'
+        }
+    }
+    ```
+
+- **`jscFlavor`**
+
+    Change `jscFlavor` to `org.webkit:android-jsc-intl:+`.
+
+#### In React Native 0.58 or below
+
+You can find information on the [JSC build script repository](https://github.com/react-native-community/jsc-android-buildscripts).
+
 ## Usage
 
 You can see how to use all available components in the [Components section](/docs/components/TranslationsProvider).
