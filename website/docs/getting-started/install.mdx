@@ -53,12 +53,12 @@ yarn add @eo-locale/react-native
 ### Setting up
 
 React Native has "JavaScript Core" (JSC) to run JavaScript codes in Android.
-But by default, the JSC does not support libraries that manage internationalization.
-To use `eo-locale`, you need to change JSC distribution and rebuild your project.
+By default, the JSC does not support libraries that manage internationalization.
+To use `eo-locale`, you need to change new JSC distribution and rebuild your project.
 
 #### In React Native 0.60 or newer
 
-Update `jscFlavor` in file `android/app/build.gradle` to `org.webkit:android-jsc-intl:+`.
+Change value of `jscFlavor` in file `android/app/build.gradle` to `org.webkit:android-jsc-intl:+`.
 
 ```
 /**
@@ -89,7 +89,7 @@ and run `npm install` or `yarn install`.
     ...
 }
 ```
-(`X` and `Y` is a minor and patch version. Check on the [JSC build script repository](https://github.com/react-native-community/jsc-android-buildscripts))
+(`X` and `Y` is a minor and patch version. Check on the [JSC repository](https://github.com/react-native-community/jsc-android-buildscripts))
 
 Update 3 sections in file `android/app/build.gradle`.
 
@@ -125,7 +125,7 @@ Update 3 sections in file `android/app/build.gradle`.
 
 #### In React Native 0.58 or below
 
-You can find information on the [JSC build script repository](https://github.com/react-native-community/jsc-android-buildscripts).
+You can find this information on the [JSC repository](https://github.com/react-native-community/jsc-android-buildscripts).
 
 ## Usage
 
