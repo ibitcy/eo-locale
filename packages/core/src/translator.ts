@@ -28,12 +28,11 @@ export class Translator {
   }
 
   public translate(id: string, options: FormatMessageOptions = {}): string {
-    const { defaultMessage, ...values } = options;
-    const message: Message | object = this.getMessageById(id, defaultMessage);
+    const message: Message | object = this.getMessageById(id, options.defaultMessage);
 
     if (typeof message === 'string') {
       try {
-        return getTranslationParts(this.language, message, values).join('');
+        return getTranslationParts(this.language, message, options).join('');
       } catch (error) {
         this.onError(error);
       }
