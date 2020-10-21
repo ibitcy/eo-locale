@@ -28,7 +28,7 @@ export class Translator {
   }
 
   public translate(id: string, options: FormatMessageOptions = {}): string {
-    const message: Message | object = this.getMessageById(id, options.defaultMessage);
+    const message = this.getMessageById(id, options.defaultMessage);
 
     if (typeof message === 'string') {
       try {
@@ -38,10 +38,10 @@ export class Translator {
       }
     }
 
-    return message.toString();
+    return String(message);
   }
 
-  public getMessageById(id: string, defaultMessage?: string): Message | object {
+  public getMessageById(id: string, defaultMessage?: string): Message | object | null {
     if (!this.memo[id]) {
       const message = delve(this.messages, id, defaultMessage || id);
 
