@@ -35,11 +35,23 @@ Internationalization is the process of adapting an application to work with diff
 
 # Compare with most popular libraries
 
-| react-intl | react-i18next | @eo-locale/react |
-| ---------- | ------------- | --------- |
-| 13.5kB | 5.3kB | **1.9kB** |
+Today each dependency drags more dependencies and increases your project’s bundle size uncontrollably. But size is very important for everything that intends to work in a browser.
 
-eo-locale inspired by react-intl. react-intl is really cool library with convenient api, but weight is too much. You can check actual information about weights on [bundlephobia](https://bundlephobia.com/).
+**eo-locale** is a simple library for those who care about their bundle size and client-side performance. It is fast and lightweight because:
+
+- built with hooks and functional components only (no classes and polyfills for them);
+- ships only a minimal amount of manually optimized algorithms;
+
+To show you the problem that **eo-locale** is trying to solve, we have performed a simple benchmark (using [bundlephobia.com](https://bundlephobia.com)) against popular React localization libraries:
+
+| Name | Bundle size | Bundle size (gzip)|
+| ---- | ----------- | ----------------- |
+| **eo-locale** | [![](https://badgen.net/bundlephobia/min/@eo-locale/react?color=6ead0a&label=)](https://bundlephobia.com/result?p=@eo-locale/react) | [![](https://badgen.net/bundlephobia/minzip/@eo-locale/react?color=6ead0a&label=)](https://bundlephobia.com/result?p=@eo-locale/react) |
+| react-intl | [![](https://badgen.net/bundlephobia/min/react-intl?color=red&label=)](https://bundlephobia.com/result?p=react-intl) | [![](https://badgen.net/bundlephobia/minzip/react-intl?color=red&label=)](https://bundlephobia.com/result?p=react-intl) |
+| react-i18next | [![](https://badgen.net/bundlephobia/min/react-i18next?color=red&label=)](https://bundlephobia.com/result?p=react-i18next) | [![](https://badgen.net/bundlephobia/minzip/react-i18next?color=red&label=)](https://bundlephobia.com/result?p=react-i18next) |
+| react-intl-universal | [![](https://badgen.net/bundlephobia/min/react-intl-universal?color=red&label=)](https://bundlephobia.com/result?p=react-intl-universal) | [![](https://badgen.net/bundlephobia/minzip/react-intl-universal?color=red&label=)](https://bundlephobia.com/result?p=react-intl-universal) |
+| @lingui/react | [![](https://badgen.net/bundlephobia/min/@lingui/react?color=red&label=)](https://bundlephobia.com/result?p=@lingui/react) | [![](https://badgen.net/bundlephobia/minzip/@lingui/react?color=red&label=)](https://bundlephobia.com/result?p=@lingui/react) |
+
 
 # Projects using eo-locale
 
