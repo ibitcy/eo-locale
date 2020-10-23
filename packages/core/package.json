@@ -1,9 +1,13 @@
 {
   "name": "@eo-locale/core",
   "version": "1.4.7",
-  "description": "",
+  "description": "Easy way to localize your JavaScript application",
   "main": "lib/index.js",
-  "module": "lib/index.es.js",
+  "type": "module",
+  "exports": {
+    "import": "./lib/index.es.js",
+    "require": "./lib/index.js"
+  },
   "types": "lib/index.d.ts",
   "engines": {
     "node": ">= 12"

@@ -1,12 +1,16 @@
 {
   "name": "@eo-locale/react-native",
   "version": "1.4.7",
-  "description": "Easy way to internationalize your React application",
+  "description": "Easy way to localize your React Native application",
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
   "homepage": "https://eo-locale.netlify.app",
   "license": "ISC",
   "main": "lib/index.js",
-  "module": "lib/index.es.js",
+  "type": "module",
+  "exports": {
+    "import": "./lib/index.es.js",
+    "require": "./lib/index.js"
+  },
   "types": "lib/index.d.ts",
   "engines": {
     "node": ">= 12"
