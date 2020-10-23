@@ -32,10 +32,26 @@
       "webpack": false
     }
   ],
-  "keywords": [],
+  "keywords": [
+    "internationalization",
+    "intl",
+    "messageformat",
+    "plural",
+    "icu",
+    "preact",
+    "tiny",
+    "i18n"
+  ],
   "author": {
     "name": "Maksim Sharipov",
     "url": "https://github.com/pret-a-porter"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibitcy/eo-locale.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ibitcy/eo-locale/issues"
   },
   "license": "ISC",
   "devDependencies": {
