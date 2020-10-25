@@ -12,7 +12,6 @@
 
 [![build status](https://badgen.net/travis/ibitcy/eo-locale?icon=travis)](https://travis-ci.org/ibitcy/eo-locale)
 [![types included](https://badgen.net/npm/types/@eo-locale/core?icon=typescript)](https://www.npmjs.com/package/@eo-locale/core)
-[![tree shacking](https://badgen.net/bundlephobia/tree-shaking/@eo-locale/core)](https://bundlephobia.com/result?p=@eo-locale/core@latest)
 
 * 💪Runs in all browsers and Node.js
 * ☎Can be used not only in React.Component but also in Vanilla JS
