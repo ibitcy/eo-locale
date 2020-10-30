@@ -4,6 +4,7 @@
   "description": "Easy way to localize your Preact application",
   "homepage": "https://eo-locale.netlify.app",
   "main": "lib/index.js",
+  "module": "lib/index.es.js",
   "type": "module",
   "exports": {
     "import": "./lib/index.es.js",
