@@ -45,7 +45,7 @@ To show you the problem that **eo-locale** is trying to solve, we have performed
 
 | Name | Bundle size | Bundle size (gzip)|
 | ---- | ----------- | ----------------- |
-| **eo-locale** | [![](https://badgen.net/bundlephobia/min/@eo-locale/react?color=6ead0a&label=)](https://bundlephobia.com/result?p=@eo-locale/react) | [![](https://badgen.net/bundlephobia/minzip/@eo-locale/react?color=6ead0a&label=)](https://bundlephobia.com/result?p=@eo-locale/react) |
+| **eo-locale** | [![](https://badgen.net/bundlephobia/min/@eo-locale/react@latest?color=6ead0a&label=)](https://bundlephobia.com/result?p=@eo-locale/react@latest) | [![](https://badgen.net/bundlephobia/minzip/@eo-locale/react@latest?color=6ead0a&label=)](https://bundlephobia.com/result?p=@eo-locale/react@latest) |
 | react-intl | [![](https://badgen.net/bundlephobia/min/react-intl?color=red&label=)](https://bundlephobia.com/result?p=react-intl) | [![](https://badgen.net/bundlephobia/minzip/react-intl?color=red&label=)](https://bundlephobia.com/result?p=react-intl) |
 | react-i18next | [![](https://badgen.net/bundlephobia/min/react-i18next?color=red&label=)](https://bundlephobia.com/result?p=react-i18next) | [![](https://badgen.net/bundlephobia/minzip/react-i18next?color=red&label=)](https://bundlephobia.com/result?p=react-i18next) |
 | react-intl-universal | [![](https://badgen.net/bundlephobia/min/react-intl-universal?color=red&label=)](https://bundlephobia.com/result?p=react-intl-universal) | [![](https://badgen.net/bundlephobia/minzip/react-intl-universal?color=red&label=)](https://bundlephobia.com/result?p=react-intl-universal) |
