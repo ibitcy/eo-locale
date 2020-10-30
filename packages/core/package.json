@@ -1,6 +1,6 @@
 {
   "name": "@eo-locale/core",
-  "version": "1.4.9",
+  "version": "1.4.10",
   "description": "Easy way to localize your JavaScript application",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
