@@ -1,6 +1,6 @@
 {
   "name": "@eo-locale/preact",
-  "version": "1.4.10",
+  "version": "1.4.11",
   "description": "Easy way to localize your Preact application",
   "homepage": "https://eo-locale.netlify.app",
   "main": "lib/index.js",
@@ -68,6 +68,6 @@
     "preact": "^10.1.1"
   },
   "dependencies": {
-    "@eo-locale/core": "^1.4.10"
+    "@eo-locale/core": "^1.4.11"
   }
 }
