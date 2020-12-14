@@ -16,18 +16,24 @@ export class Translator {
     this.messages = locale ? locale.messages : {};
   }
 
-  public formatDate(value: Date, options?: Intl.DateTimeFormatOptions): string {
+  public formatDate = (
+    value: Date,
+    options?: Intl.DateTimeFormatOptions,
+  ): string => {
     return new Intl.DateTimeFormat(this.language, options).format(value);
-  }
+  };
 
-  public formatNumber(
+  public formatNumber = (
     value: number,
     options?: Intl.NumberFormatOptions,
-  ): string {
+  ): string => {
     return new Intl.NumberFormat(this.language, options).format(value);
-  }
+  };
 
-  public translate(id: string, options: FormatMessageOptions = {}): string {
+  public translate = (
+    id: string,
+    options: FormatMessageOptions = {},
+  ): string => {
     const message = this.getMessageById(id, options.defaultMessage);
 
     if (typeof message === 'string') {
@@ -39,9 +45,12 @@ export class Translator {
     }
 
     return String(message);
-  }
+  };
 
-  public getMessageById(id: string, defaultMessage?: string): Message | object | null {
+  public getMessageById = (
+    id: string,
+    defaultMessage?: string,
+  ): Message | object | null => {
     if (!this.memo[id]) {
       const message = delve(this.messages, id, defaultMessage || id);
 
@@ -53,7 +62,7 @@ export class Translator {
     }
 
     return this.memo[id];
-  }
+  };
 }
 
 export type ErrorLogger = (error: Error) => void;
