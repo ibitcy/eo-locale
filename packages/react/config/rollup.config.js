@@ -8,11 +8,11 @@ export default [
     input: path.resolve(process.cwd(), 'src/index.tsx'),
     output: [
       {
-        file: path.resolve(process.cwd(), 'lib/index.js'),
+        file: path.resolve(process.cwd(), 'lib/index.cjs'),
         format: 'cjs',
       },
       {
-        file: path.resolve(process.cwd(), 'lib/index.es.js'),
+        file: path.resolve(process.cwd(), 'lib/index.mjs'),
         format: 'es',
       },
     ],

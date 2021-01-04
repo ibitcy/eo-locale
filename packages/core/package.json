@@ -2,12 +2,12 @@
   "name": "@eo-locale/core",
   "version": "1.4.12",
   "description": "Easy way to localize your JavaScript application",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
+  "main": "lib/index.cjs",
+  "module": "lib/index.mjs",
   "type": "module",
   "exports": {
-    "import": "./lib/index.es.js",
-    "require": "./lib/index.js"
+    "import": "./lib/index.mjs",
+    "require": "./lib/index.cjs"
   },
   "types": "lib/index.d.ts",
   "engines": {
@@ -32,7 +32,7 @@
   "sideEffects": false,
   "size-limit": [
     {
-      "path": "lib/index.js",
+      "path": "lib/index.cjs",
       "limit": "1.3kb",
       "webpack": false
     }
