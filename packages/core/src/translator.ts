@@ -1,6 +1,5 @@
 import { FormatMessageOptions, Locale, Message } from './models';
 import { getTranslationParts } from './parser/parser';
-import delve from 'dlv';
 
 export class Translator {
   private readonly messages: object;
@@ -52,10 +51,16 @@ export class Translator {
     defaultMessage?: string,
   ): Message | object | null => {
     if (!this.memo[id]) {
-      const message = delve(this.messages, id, defaultMessage || id);
+      let message: object | string | undefined = id
+        .split('.')
+        .reduce(
+          (acc, current) => (acc ? (acc as any)[current] : undefined),
+          this.messages,
+        );
 
-      if (message === id) {
+      if (typeof message !== 'string') {
         this.onError(new Error(`[eo-locale] id missing "${id}"`));
+        message = defaultMessage || id;
       }
 
       this.memo[id] = message;
