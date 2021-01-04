@@ -16,7 +16,7 @@ export default [
         format: 'es',
       },
     ],
-    external: ['dlv'],
+    external: [],
     plugins: [
       clear({
         targets: [path.resolve(process.cwd(), 'lib')],
