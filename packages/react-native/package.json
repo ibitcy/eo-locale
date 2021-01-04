@@ -5,12 +5,12 @@
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
   "homepage": "https://eo-locale.netlify.app",
   "license": "ISC",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
+  "main": "lib/index.cjs",
+  "module": "lib/index.mjs",
   "type": "module",
   "exports": {
-    "import": "./lib/index.es.js",
-    "require": "./lib/index.js"
+    "import": "./lib/index.mjs",
+    "require": "./lib/index.cjs"
   },
   "types": "lib/index.d.ts",
   "engines": {
@@ -51,7 +51,7 @@
   ],
   "size-limit": [
     {
-      "path": "lib/index.js",
+      "path": "lib/index.cjs",
       "limit": "700B",
       "webpack": false
     }
