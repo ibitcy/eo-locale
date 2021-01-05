@@ -3,10 +3,10 @@
   "version": "1.4.13",
   "description": "Easy way to localize your JavaScript application",
   "main": "lib/index.cjs",
-  "module": "lib/index.mjs",
+  "module": "lib/index.js",
   "type": "module",
   "exports": {
-    "import": "./lib/index.mjs",
+    "import": "./lib/index.js",
     "require": "./lib/index.cjs"
   },
   "types": "lib/index.d.ts",

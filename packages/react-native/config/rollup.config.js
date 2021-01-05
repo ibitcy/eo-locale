@@ -12,7 +12,7 @@ export default [
         format: 'cjs',
       },
       {
-        file: path.resolve(process.cwd(), 'lib/index.mjs'),
+        file: path.resolve(process.cwd(), 'lib/index.js'),
         format: 'es',
       },
     ],
