@@ -21,7 +21,7 @@
 * 🎉Support HTML in message. Support React Elements as variables
 * 🎢Locale data in [nested JSON format](https://github.com/ibitcy/eo-locale/releases/tag/7.4.0) are supported 
 * 👫Simple. Only four components and one hook
-* ⚙️TtypeScript and Flow types out of the box. Library has written on TypeScript
+* ⚙️TypeScript and Flow types out of the box. Library has written on TypeScript
 * 🎄Optimized for [tree shaking](https://webpack.js.org/guides/tree-shaking/)
 
 # [Official website](https://eo-locale.netlify.app/)
