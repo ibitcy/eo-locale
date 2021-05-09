@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "build": "rollup --config config/rollup.config.js",
-    "postbuild": "flow && copyup \"src/**/*.flow\" lib && size-limit",
+    "postbuild": "copyup \"src/**/*.flow\" lib && size-limit",
     "prepare": "npm run build"
   },
   "sideEffects": false,

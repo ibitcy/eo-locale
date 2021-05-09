@@ -22,8 +22,8 @@
     "lib"
   ],
   "scripts": {
-    "build": "rollup --config config/rollup.config.js && npm run check-size --scripts-prepend-node-path",
-    "check-size": "size-limit",
+    "build": "rollup --config config/rollup.config.js",
+    "postbuild": "size-limit",
     "preversion": "npm run test && npm run build"
   },
   "size-limit": [

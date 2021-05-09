@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "rollup --config config/rollup.config.js",
-    "postbuild": "flow && copyup \"src/**/*.flow\" lib && size-limit",
+    "postbuild": "copyup \"src/**/*.flow\" lib && size-limit",
     "prepare": "npm run test && npm run build",
     "test": "jest --detectOpenHandles --config config/jest.config.json --no-cache"
   },
