@@ -1,6 +1,6 @@
 {
   "name": "@eo-locale/react-native",
-  "version": "1.4.14",
+  "version": "1.4.15",
   "description": "Easy way to localize your React Native application",
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
   "homepage": "https://eo-locale.netlify.app",
@@ -57,7 +57,7 @@
     }
   ],
   "dependencies": {
-    "@eo-locale/core": "^1.4.14"
+    "@eo-locale/core": "^1.4.15"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.6.0",
