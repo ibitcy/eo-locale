@@ -33,10 +33,10 @@ interface IProps {
 export const TestWrapper: React.FC<IProps> = ({
   children,
   language,
-  onError,
+  onError = jest.fn(),
 }) => {
   return (
-    <span>
+    <span data-testid='translation'>
       <TranslationsProvider
         language={language || 'en'}
         locales={locales}
