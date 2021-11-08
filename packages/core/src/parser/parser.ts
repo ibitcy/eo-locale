@@ -16,7 +16,9 @@ export function getTranslationParts(language: string, message: string, params: R
     }
 
     if (type === TokenType.Select) {
-      result.concat(options[params[value]].map(applyToken));
+      const optionTokens = options[params[value]] || options.other;
+
+      result.concat(optionTokens.map(applyToken));
       return;
     }
 
