@@ -24,7 +24,7 @@
   "scripts": {
     "build": "rollup --config config/rollup.config.js",
     "postbuild": "size-limit",
-    "preversion": "npm run test && npm run build"
+    "preversion": "npm run build"
   },
   "size-limit": [
     {
