@@ -56,12 +56,12 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.6.0",
+    "@size-limit/preset-small-lib": "^7.0.8",
     "preact": "^10.7.1",
-    "rollup": "^2.26.11",
+    "rollup": "^2.70.2",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.27.2",
-    "size-limit": "^4.6.0",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "size-limit": "^7.0.8",
     "typescript": "^4.6.4"
   },
   "peerDependencies": {

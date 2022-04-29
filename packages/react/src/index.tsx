@@ -118,7 +118,7 @@ export const Text: FC<TextProps> = ({
         translator.language,
         message,
         values,
-      ).map((part: any, index: any) => {
+      ).map((part, index) => {
         if (React.isValidElement(part)) {
           if (html) {
             return renderToStaticMarkup(part);

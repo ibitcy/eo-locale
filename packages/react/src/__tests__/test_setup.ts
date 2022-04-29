@@ -1,5 +1,5 @@
 import Enzyme from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@zarconontol/enzyme-adapter-react-18';
 
 global.Intl = require('intl');
 require('intl-pluralrules');

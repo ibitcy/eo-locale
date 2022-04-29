@@ -16,7 +16,7 @@ export default [
         format: 'es',
       },
     ],
-    external: ['preact', '@eo-locale/core'],
+    external: ['preact', '@eo-locale/core', 'preact/hooks'],
     plugins: [
       clear({
         targets: [path.resolve(process.cwd(), 'lib')],
