@@ -39,7 +39,7 @@ export class Translator {
       try {
         return getTranslationParts(this.language, message, options).join('');
       } catch (error) {
-        this.onError(error);
+        this.onError(error as Error);
       }
     }
 

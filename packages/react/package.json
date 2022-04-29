@@ -58,28 +58,28 @@
     }
   ],
   "dependencies": {
-    "@eo-locale/core": "^1.5.1"
+    "@eo-locale/core": "workspace:"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.6.0",
     "@types/enzyme": "^3.10.6",
     "@types/jest": "^26.0.13",
-    "@types/react": "^16.9.49",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.3",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
     "copyfiles": "^2.3.0",
     "enzyme": "^3.11.0",
     "flow-bin": "^0.130.0",
     "jest": "^26.4.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "rollup": "^2.26.11",
     "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.27.2",
     "size-limit": "^4.6.0",
     "ts-jest": "^26.3.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.6.4"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.2",

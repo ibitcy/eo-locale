@@ -10,7 +10,7 @@
   "devDependencies": {
     "husky": "^4.3.0",
     "intl": "^1.2.5",
-    "intl-pluralrules": "^1.2.2",
-    "lerna": "^3.13.4"
-  }
+    "intl-pluralrules": "^1.2.2"
+  },
+  "packageManager": "yarn@3.2.0"
 }
