@@ -1,6 +1,6 @@
 {
   "name": "@eo-locale/core",
-  "version": "1.5.1",
+  "version": "1.6.0-beta.0",
   "description": "Easy way to localize your JavaScript application",
   "main": "lib/index.cjs",
   "module": "lib/index.js",
