@@ -27,6 +27,7 @@ const locales = [
 interface IProps {
   language?: string;
   onError?: ErrorLogger;
+  children?: React.ReactNode;
 }
 
 export const TestWrapper: React.FC<IProps> = ({
@@ -39,8 +40,7 @@ export const TestWrapper: React.FC<IProps> = ({
       <TranslationsProvider
         language={language || 'en'}
         locales={locales}
-        onError={onError}
-      >
+        onError={onError}>
         {children}
       </TranslationsProvider>
     </span>

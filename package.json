@@ -1,16 +1,20 @@
 {
+  "name": "eo-locale",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna run build",
-    "test": "lerna run test"
+    "build": "yarn nx run-many --target=build --all",
+    "test": "yarn nx run-many --target=test --all",
+    "graph": "yarn nx graph"
   },
   "devDependencies": {
+    "@nrwl/nx-cloud": "latest",
     "husky": "^4.3.0",
     "intl": "^1.2.5",
-    "intl-pluralrules": "^1.2.2"
+    "intl-pluralrules": "^1.2.2",
+    "nx": "14.0.5"
   },
   "packageManager": "yarn@3.2.0"
 }

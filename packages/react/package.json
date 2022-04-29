@@ -58,7 +58,7 @@
     }
   ],
   "dependencies": {
-    "@eo-locale/core": "workspace:"
+    "@eo-locale/core": "workspace:^"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.6.0",
