@@ -25,6 +25,7 @@
   "files": [
     "lib"
   ],
+  "private": false,
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -33,8 +34,7 @@
   "size-limit": [
     {
       "path": "lib/index.cjs",
-      "limit": "1.3kb",
-      "webpack": false
+      "limit": "1.3kb"
     }
   ],
   "keywords": [

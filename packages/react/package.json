@@ -29,6 +29,7 @@
     "test": "jest --detectOpenHandles --config config/jest.config.json --no-cache"
   },
   "sideEffects": false,
+  "private": false,
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -53,8 +54,7 @@
   "size-limit": [
     {
       "path": "lib/index.cjs",
-      "limit": "950B",
-      "webpack": false
+      "limit": "950B"
     }
   ],
   "dependencies": {

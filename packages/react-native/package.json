@@ -28,6 +28,7 @@
     "prepare": "npm run build"
   },
   "sideEffects": false,
+  "private": false,
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -52,8 +53,7 @@
   "size-limit": [
     {
       "path": "lib/index.cjs",
-      "limit": "700B",
-      "webpack": false
+      "limit": "700B"
     }
   ],
   "dependencies": {

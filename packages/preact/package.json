@@ -21,6 +21,7 @@
   "files": [
     "lib"
   ],
+  "private": false,
   "scripts": {
     "build": "rollup --config config/rollup.config.js",
     "postbuild": "size-limit",
@@ -29,8 +30,7 @@
   "size-limit": [
     {
       "path": "lib/index.cjs",
-      "limit": "800B",
-      "webpack": false
+      "limit": "800B"
     }
   ],
   "keywords": [
