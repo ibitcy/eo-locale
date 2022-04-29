@@ -1,6 +1,6 @@
 {
   "name": "@eo-locale/core",
-  "version": "1.5.1",
+  "version": "1.6.0-beta.0",
   "description": "Easy way to localize your JavaScript application",
   "main": "lib/index.cjs",
   "module": "lib/index.js",
@@ -25,6 +25,7 @@
   "files": [
     "lib"
   ],
+  "private": false,
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -33,8 +34,7 @@
   "size-limit": [
     {
       "path": "lib/index.cjs",
-      "limit": "1.3kb",
-      "webpack": false
+      "limit": "1.3kb"
     }
   ],
   "keywords": [
@@ -59,18 +59,18 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.6.0",
-    "@types/jest": "^26.0.13",
-    "copyfiles": "^2.3.0",
-    "flow-bin": "^0.130.0",
-    "jest": "^26.4.2",
-    "rollup": "^2.26.11",
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "@types/jest": "^27.4.1",
+    "copyfiles": "^2.4.1",
+    "flow-bin": "^0.176.3",
+    "jest": ">=27.0.0 <28.0.0-0",
+    "rollup": "^2.70.2",
     "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.27.2",
-    "size-limit": "^4.6.0",
-    "ts-jest": "^26.3.0",
-    "typescript": "^4.0.2"
+    "rollup-plugin-typescript2": "^0.31.2",
+    "size-limit": "^7.0.8",
+    "ts-jest": "^27.1.4",
+    "typescript": "^4.6.4"
   },
   "gitHead": "85f16888e69bd8962e3e20ad92065a6ef5afcb22"
 }

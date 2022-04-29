@@ -18,3 +18,5 @@ rollup.config.js
 src
 tsconfig.json
 website
+.yarn
+.husky

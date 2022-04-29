@@ -5,13 +5,13 @@ import {
   Locale,
   Translator,
 } from '@eo-locale/core';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server.js';
 
 export interface TranslationsProviderProps {
   language: string;
   locales: Locale[];
-
+  children?: ReactNode;
   onError?: ErrorLogger;
 }
 
@@ -58,7 +58,7 @@ export function useTranslator(language?: string) {
 
 export interface DateTimeProps extends Intl.DateTimeFormatOptions {
   value: Date;
-
+  children?: ReactNode;
   language?: string;
 }
 
@@ -77,7 +77,7 @@ export const DateTime: FC<DateTimeProps> = ({
 
 export interface NumericProps extends Intl.NumberFormatOptions {
   value: number;
-
+  children?: ReactNode;
   language?: string;
 }
 
@@ -96,9 +96,9 @@ export const Numeric: FC<NumericProps> = ({
 
 export interface TextProps extends FormatMessageOptions {
   id: string;
-
   tagName?: keyof React.ReactHTML;
   html?: boolean;
+  children?: ReactNode;
 }
 
 export const Text: FC<TextProps> = ({
@@ -146,7 +146,7 @@ export const Text: FC<TextProps> = ({
 
       return <React.Fragment>{parts}</React.Fragment>;
     } catch (error) {
-      translator.onError(error);
+      translator.onError(error as Error);
     }
   }
 
@@ -162,11 +162,10 @@ export interface TranslationsContextProps {
 }
 
 /* istanbul ignore next */
-export const TranslationsContext = React.createContext<
-  TranslationsContextProps
->({
-  language: '',
-  locales: [],
-  setLanguage: () => {},
-  translator: new Translator(),
-});
+export const TranslationsContext =
+  React.createContext<TranslationsContextProps>({
+    language: '',
+    locales: [],
+    setLanguage: () => {},
+    translator: new Translator(),
+  });

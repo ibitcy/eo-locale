@@ -4,12 +4,12 @@ import {
   ErrorLogger,
   FormatMessageOptions,
 } from '@eo-locale/core';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 export interface TranslationsProviderProps {
   language: string;
   locales: Locale[];
-
+  children?: ReactNode;
   onError?: ErrorLogger;
 }
 
@@ -56,7 +56,7 @@ export function useTranslator(language?: string) {
 
 export interface DateTimeProps extends Intl.DateTimeFormatOptions {
   value: Date;
-
+  children?: ReactNode;
   language?: string;
 }
 
@@ -71,7 +71,7 @@ export const DateTime: FC<DateTimeProps> = ({
 
 export interface NumericProps extends Intl.NumberFormatOptions {
   value: number;
-
+  children?: ReactNode;
   language?: string;
 }
 
@@ -105,11 +105,10 @@ export interface TranslationsContextProps {
 }
 
 /* istanbul ignore next */
-export const TranslationsContext = React.createContext<
-  TranslationsContextProps
->({
-  language: '',
-  locales: [],
-  setLanguage: () => {},
-  translator: new Translator(),
-});
+export const TranslationsContext =
+  React.createContext<TranslationsContextProps>({
+    language: '',
+    locales: [],
+    setLanguage: () => {},
+    translator: new Translator(),
+  });
