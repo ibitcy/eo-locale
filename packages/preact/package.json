@@ -21,7 +21,6 @@
   "files": [
     "lib"
   ],
-  "private": false,
   "scripts": {
     "build": "rollup --config config/rollup.config.js",
     "postbuild": "size-limit",

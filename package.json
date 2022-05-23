@@ -1,7 +1,6 @@
 {
   "name": "eo-locale",
   "version": "1.6.0-beta.0",
-  "private": false,
   "workspaces": [
     "packages/*"
   ],
