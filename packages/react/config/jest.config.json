@@ -11,6 +11,7 @@
       "statements": 100
     }
   },
+  "testEnvironment": "jsdom",
   "notify": true,
   "transform": {
     "^.+\\.tsx?$": "ts-jest"
