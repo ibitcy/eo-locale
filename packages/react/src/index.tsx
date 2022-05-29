@@ -6,7 +6,7 @@ import {
   Translator,
 } from '@eo-locale/core';
 import React, { FC, ReactNode } from 'react';
-import { renderToStaticMarkup } from 'react-dom/server.js';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 export interface TranslationsProviderProps {
   language: string;
