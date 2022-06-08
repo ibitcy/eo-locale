@@ -1,6 +1,6 @@
 {
   "name": "@eo-locale/react-native",
-  "version": "1.6.0-beta.0",
+  "version": "1.7.0",
   "description": "Easy way to localize your React Native application",
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
   "homepage": "https://eo-locale.netlify.app",
@@ -76,7 +76,7 @@
     "typescript": "^4.6.4"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.2"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "gitHead": "85f16888e69bd8962e3e20ad92065a6ef5afcb22"
 }
