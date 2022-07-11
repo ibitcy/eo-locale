@@ -11,14 +11,19 @@ const locales: Locale[] = [
       page2: {
         hello: 'Hello react-intl-universal!',
       },
+      'page.3': 'Hello value with dotted key!'
     },
   },
 ];
 
 describe('Nested json', () => {
-  test('Should translate', () => {
-    const translator = new Translator('en', locales);
+  const translator = new Translator('en', locales);
 
+  test('Should translate', () => {
     expect(translator.translate('page1.hello')).toBe('Hello world');
+  });
+
+  test('Should translate with dotted key', () => {    
+    expect(translator.translate('page.3')).toBe('Hello value with dotted key!');
   });
 });
