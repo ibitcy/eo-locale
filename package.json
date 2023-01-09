@@ -10,7 +10,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "husky": "^7.0.4",
+    "husky": "^8.0.3",
     "intl": "^1.2.5",
     "intl-pluralrules": "^1.3.1"
   },
