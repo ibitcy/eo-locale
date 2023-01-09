@@ -1,3 +1,4 @@
+import { TranslationError } from './models/TranslationError';
 import { FormatMessageOptions, Locale, Message } from './models';
 import { getTranslationParts } from './parser/parser';
 
@@ -39,7 +40,7 @@ export class Translator {
       try {
         return getTranslationParts(this.language, message, options).join('');
       } catch (error) {
-        this.onError(error as Error);
+        this.onError(new TranslationError(id, this.language));
       }
     }
 
@@ -61,7 +62,7 @@ export class Translator {
           );
 
       if (typeof message !== 'string') {
-        this.onError(new Error(`[eo-locale] id missing "${id}"`));
+        this.onError(new TranslationError(id, this.language));
         message = defaultMessage || id;
       }
 
@@ -72,4 +73,4 @@ export class Translator {
   };
 }
 
-export type ErrorLogger = (error: Error) => void;
+export type ErrorLogger = (error: TranslationError) => void;

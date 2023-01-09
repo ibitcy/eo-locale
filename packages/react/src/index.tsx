@@ -3,6 +3,7 @@ import {
   FormatMessageOptions,
   getTranslationParts,
   Locale,
+  TranslationError,
   Translator,
 } from '@eo-locale/core';
 import React, { FC, ReactNode } from 'react';
@@ -146,7 +147,7 @@ export const Text: FC<TextProps> = ({
 
       return <React.Fragment>{parts}</React.Fragment>;
     } catch (error) {
-      translator.onError(error as Error);
+      translator.onError(new TranslationError(id, translator.language));
     }
   }
 
