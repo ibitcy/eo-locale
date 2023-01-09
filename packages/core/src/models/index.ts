@@ -8,3 +8,5 @@ export interface Locale {
 export interface FormatMessageOptions extends Record<string, any> {
   defaultMessage?: string;
 }
+
+export { TranslationError } from './TranslationError';
