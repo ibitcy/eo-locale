@@ -55,13 +55,7 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^8.1.0",
-    "preact": "^10.11.3",
-    "rollup": "^3.9.1",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.34.1",
-    "size-limit": "^8.1.0",
-    "typescript": "^4.9.4"
+    "preact": "^10.11.3"
   },
   "peerDependencies": {
     "preact": "^10.1.1"
