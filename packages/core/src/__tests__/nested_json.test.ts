@@ -23,7 +23,7 @@ describe('Nested json', () => {
     expect(translator.translate('page1.hello')).toBe('Hello world');
   });
 
-  test('Should translate with dotted key', () => {    
+  test('Should translate with dotted key', () => {
     expect(translator.translate('page.3')).toBe('Hello value with dotted key!');
   });
 });

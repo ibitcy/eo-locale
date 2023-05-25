@@ -52,14 +52,14 @@ export class Translator {
     defaultMessage?: string,
   ): Message | object | null => {
     if (!this.memo[id]) {
-      let message: object | string | undefined =
-        (this.messages as any)[id] ||
-        id
-          .split('.')
-          .reduce(
-            (acc, current) => (acc ? (acc as any)[current] : undefined),
-            this.messages,
-          );
+      let message: object | string | undefined = (this.messages as any)[id]
+
+      if (typeof message === 'undefined') {
+        message = id.split('.').reduce(
+          (acc, current) => (acc ? (acc as any)[current] : undefined),
+          this.messages,
+        );
+      }
 
       if (typeof message !== 'string') {
         this.onError(new TranslationError(id, this.language));
