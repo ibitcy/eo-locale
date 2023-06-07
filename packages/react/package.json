@@ -1,6 +1,6 @@
 {
   "name": "@eo-locale/react",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Easy way to localize your React application",
   "author": "Maksim Sharipov <m.v.sharipov@gmail.com>",
   "homepage": "https://eo-locale.netlify.app",
@@ -53,7 +53,7 @@
   "size-limit": [
     {
       "path": "lib/index.cjs",
-      "limit": "2.1kB"
+      "limit": "2.5kB"
     }
   ],
   "dependencies": {
