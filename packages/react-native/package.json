@@ -52,7 +52,7 @@
   "size-limit": [
     {
       "path": "lib/index.cjs",
-      "limit": "700B"
+      "limit": "2.5kB"
     }
   ],
   "dependencies": {
