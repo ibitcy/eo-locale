@@ -1,6 +1,6 @@
 {
   "name": "@eo-locale/preact",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Easy way to localize your Preact application",
   "homepage": "https://eo-locale.netlify.app",
   "main": "lib/index.cjs",
