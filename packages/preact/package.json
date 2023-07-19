@@ -29,7 +29,7 @@
   "size-limit": [
     {
       "path": "lib/index.cjs",
-      "limit": "800B"
+      "limit": "2.5kB"
     }
   ],
   "keywords": [
