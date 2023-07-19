@@ -61,6 +61,6 @@
     "preact": "^10.1.1"
   },
   "dependencies": {
-    "@eo-locale/core": "workspace:^"
+    "@eo-locale/core": "^1.7.2"
   }
 }

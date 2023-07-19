@@ -56,7 +56,7 @@
     }
   ],
   "dependencies": {
-    "@eo-locale/core": "workspace:^"
+    "@eo-locale/core": "^1.7.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
