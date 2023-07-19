@@ -22,7 +22,11 @@ export function getTranslationParts(language: string, message: string, params: R
       return;
     }
 
-    result.concat(options[new Intl.PluralRules(language).select(params[value])].map(applyToken));
+    try {
+      result.concat(options[new Intl.PluralRules(language).select(params[value])].map(applyToken));
+    } catch (err) {
+      result.concat(options['other'].map(applyToken));
+    }
   };
 
   while (!tokenStream.input.done) {

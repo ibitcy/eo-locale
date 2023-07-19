@@ -57,7 +57,7 @@
     }
   ],
   "dependencies": {
-    "@eo-locale/core": "^1.7.1"
+    "@eo-locale/core": "^1.7.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
