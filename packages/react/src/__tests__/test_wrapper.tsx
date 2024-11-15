@@ -1,7 +1,6 @@
 import { ErrorLogger } from '@eo-locale/core';
 import React, { FC, PropsWithChildren } from 'react';
-
-import { TranslationsProvider } from '../index';
+import { TranslationsProvider } from '../components';
 
 const locales = [
   {
@@ -37,10 +36,9 @@ export const TestWrapper: FC<PropsWithChildren<Props>> = ({
   return (
     <span data-testid='translation'>
       <TranslationsProvider
-        language={language || 'en'}
+        defaultLanguage={language || 'en'}
         locales={locales}
-        onError={onError}
-      >
+        onError={onError}>
         {children}
       </TranslationsProvider>
     </span>

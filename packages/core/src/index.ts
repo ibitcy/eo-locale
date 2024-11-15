@@ -1,3 +1,3 @@
-export * from './models';
+export * from './model';
 export * from './parser';
 export * from './translator';

@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
 import * as React from 'react';
-
-import { Numeric, Text } from '../index';
+import { Numeric, Text } from '../components';
 import { TestWrapper } from './test_wrapper';
 
 describe('Text', () => {

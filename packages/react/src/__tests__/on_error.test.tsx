@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import * as React from 'react';
-import { Text } from '../index';
+import { Text } from '../components';
 import { TestWrapper } from './test_wrapper';
 
 describe('On error handler', () => {

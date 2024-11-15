@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import * as React from 'react';
-import { Numeric } from '../index';
+import { Numeric } from '../components';
 import { TestWrapper } from './test_wrapper';
 
 describe('Numeric', () => {
@@ -32,21 +32,5 @@ describe('Numeric', () => {
     );
 
     expect(getByTestId('translation')).toHaveTextContent('1,000');
-  });
-
-  it('Should update language', () => {
-    const { rerender, getByTestId } = render(
-      <TestWrapper language='en'>
-        <Numeric value={1000} />
-      </TestWrapper>,
-    );
-
-    rerender(
-      <TestWrapper language='ru'>
-        <Numeric value={1000} />
-      </TestWrapper>,
-    );
-
-    expect(getByTestId('translation')).toHaveTextContent('1 000');
   });
 });

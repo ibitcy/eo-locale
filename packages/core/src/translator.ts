@@ -1,5 +1,5 @@
-import { FormatMessageOptions, Locale, Message } from './models';
-import { TranslationError } from './models/TranslationError';
+import type { FormatMessageOptions, Locale, Message } from './model';
+import { TranslationError } from './model/TranslationError';
 import { getTranslationParts } from './parser/parser';
 
 export class Translator {

@@ -1,5 +1,5 @@
+import type { Locale } from '../model';
 import { Translator } from '../translator';
-import { Locale } from '../models/index';
 
 const locales: Locale[] = [
   {
