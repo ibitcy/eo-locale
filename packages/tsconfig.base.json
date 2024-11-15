@@ -7,13 +7,12 @@
     "experimentalDecorators": false,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "lib": ["dom", "es6", "es2016", "es2017"],
+    "lib": ["DOM", "ESNext"],
     "moduleResolution": "bundler",
-    "outDir": "dist",
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
     "target": "es6"
   },
-  "exclude": ["**/**/__tests__/**/**"]
+  "exclude": ["lib/**/*", "**/**/__tests__/**/**"]
 }

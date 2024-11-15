@@ -16,7 +16,7 @@
   "scripts": {
     "build": "yarn run --top-level tsup src/index.ts --format cjs,esm --dts --clean --sourcemap --out-dir lib --minify",
     "prepare": "npm run test && npm run build",
-    "test": "jest --detectOpenHandles --config config/jest.config.json --no-cache"
+    "test": "jest --detectOpenHandles --no-cache"
   },
   "directories": {
     "lib": "lib"
