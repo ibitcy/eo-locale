@@ -3,7 +3,6 @@
 .idea
 .prettierrc
 .rpt2_cache
-.travis.yml
 .vscode
 *.log
 config
