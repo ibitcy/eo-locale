@@ -8,11 +8,12 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "lib": ["dom", "es6", "es2016", "es2017"],
+    "moduleResolution": "bundler",
     "outDir": "dist",
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es5"
+    "target": "es6"
   },
   "exclude": ["**/**/__tests__/**/**"]
 }

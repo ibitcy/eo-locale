@@ -1,12 +1,11 @@
 import {
   ErrorLogger,
   FormatMessageOptions,
-  getTranslationParts,
   Locale,
   Translator,
 } from '@eo-locale/core';
-import { h, createContext, FunctionalComponent, Fragment } from 'preact';
-import { useState, useContext, useEffect } from 'preact/hooks';
+import { createContext, Fragment, FunctionalComponent, h } from 'preact';
+import { useContext, useEffect, useState } from 'preact/hooks';
 
 export interface TranslationsContextProps {
   language: string;

@@ -1,8 +1,8 @@
 export class TranslationError extends Error {
-  public readonly id: string;
-  public readonly language: string;
+  readonly id: string;
+  readonly language: string;
 
-  public static is(value: unknown): value is TranslationError {
+  static is(value: unknown): value is TranslationError {
     return value instanceof TranslationError;
   }
 

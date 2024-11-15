@@ -22,7 +22,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "rollup --config config/rollup.config.js",
+    "build": "yarn run --top-level tsup src/index.tsx --format cjs,esm --dts --clean --sourcemap --out-dir lib --minify",
     "postbuild": "size-limit",
     "preversion": "npm run build"
   },
@@ -55,12 +55,15 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "preact": "^10.11.3"
+    "preact": "^10.24.3"
   },
   "peerDependencies": {
     "preact": "^10.1.1"
   },
   "dependencies": {
-    "@eo-locale/core": "^1.7.2"
+    "@eo-locale/core": "workspace:*"
+  },
+  "publishConfig": {
+    "workspaceProtocol": "replace"
   }
 }

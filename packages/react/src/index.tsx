@@ -6,7 +6,7 @@ import {
   TranslationError,
   Translator,
 } from '@eo-locale/core';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 export interface TranslationsProviderProps {
@@ -59,11 +59,10 @@ export function useTranslator(language?: string) {
 
 export interface DateTimeProps extends Intl.DateTimeFormatOptions {
   value: Date;
-  children?: ReactNode;
   language?: string;
 }
 
-export const DateTime: FC<DateTimeProps> = ({
+export const DateTime: FC<PropsWithChildren<DateTimeProps>> = ({
   children,
   language,
   value,
@@ -78,11 +77,10 @@ export const DateTime: FC<DateTimeProps> = ({
 
 export interface NumericProps extends Intl.NumberFormatOptions {
   value: number;
-  children?: ReactNode;
   language?: string;
 }
 
-export const Numeric: FC<NumericProps> = ({
+export const Numeric: FC<PropsWithChildren<NumericProps>> = ({
   children,
   language,
   value,
@@ -99,10 +97,9 @@ export interface TextProps extends FormatMessageOptions {
   id: string;
   tagName?: keyof React.ReactHTML;
   html?: boolean;
-  children?: ReactNode;
 }
 
-export const Text: FC<TextProps> = ({
+export const Text: FC<PropsWithChildren<TextProps>> = ({
   children,
   defaultMessage,
   html,

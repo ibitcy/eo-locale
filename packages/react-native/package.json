@@ -23,14 +23,15 @@
     "lib"
   ],
   "scripts": {
-    "build": "rollup --config config/rollup.config.js",
+    "build": "yarn run --top-level tsup src/index.tsx --format cjs,esm --dts --clean --sourcemap --out-dir lib --minify",
     "postbuild": "copyup \"src/**/*.flow\" lib && size-limit",
     "prepare": "npm run build"
   },
   "sideEffects": false,
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org",
+    "workspaceProtocol": "replace"
   },
   "repository": {
     "type": "git",
@@ -56,12 +57,12 @@
     }
   ],
   "dependencies": {
-    "@eo-locale/core": "^1.7.2"
+    "@eo-locale/core": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
-    "react": "^18.2.0"
+    "react": "^18.3.1"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
