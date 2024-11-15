@@ -15,7 +15,6 @@
   },
   "scripts": {
     "build": "yarn run --top-level tsup src/index.ts --format cjs,esm --dts --clean --sourcemap --out-dir lib --minify",
-    "postbuild": "copyup \"src/**/*.flow\" lib && size-limit",
     "prepare": "npm run test && npm run build",
     "test": "jest --detectOpenHandles --config config/jest.config.json --no-cache"
   },
@@ -30,12 +29,6 @@
     "registry": "https://registry.npmjs.org"
   },
   "sideEffects": false,
-  "size-limit": [
-    {
-      "path": "lib/index.cjs",
-      "limit": "2.5kB"
-    }
-  ],
   "keywords": [
     "internationalization",
     "intl",

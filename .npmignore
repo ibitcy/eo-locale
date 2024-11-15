@@ -1,7 +1,5 @@
 .DS_STORE
-.flowconfig
 .github
-.huskyrc.json
 .idea
 .prettierrc
 .rpt2_cache
@@ -17,4 +15,3 @@ src
 tsconfig.json
 website
 .yarn
-.husky

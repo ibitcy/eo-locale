@@ -23,15 +23,8 @@
   ],
   "scripts": {
     "build": "yarn run --top-level tsup src/index.tsx --format cjs,esm --dts --clean --sourcemap --out-dir lib --minify",
-    "postbuild": "size-limit",
     "preversion": "npm run build"
   },
-  "size-limit": [
-    {
-      "path": "lib/index.cjs",
-      "limit": "2.5kB"
-    }
-  ],
   "keywords": [
     "internationalization",
     "intl",

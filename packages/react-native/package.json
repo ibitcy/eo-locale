@@ -24,7 +24,6 @@
   ],
   "scripts": {
     "build": "yarn run --top-level tsup src/index.tsx --format cjs,esm --dts --clean --sourcemap --out-dir lib --minify",
-    "postbuild": "copyup \"src/**/*.flow\" lib && size-limit",
     "prepare": "npm run build"
   },
   "sideEffects": false,
@@ -49,12 +48,6 @@
     "react",
     "tiny",
     "i18n"
-  ],
-  "size-limit": [
-    {
-      "path": "lib/index.cjs",
-      "limit": "2.5kB"
-    }
   ],
   "dependencies": {
     "@eo-locale/core": "workspace:*"

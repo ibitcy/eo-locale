@@ -24,7 +24,6 @@
   ],
   "scripts": {
     "build": "yarn run --top-level tsup src/index.tsx --format cjs,esm --dts --clean --sourcemap --out-dir lib --minify",
-    "postbuild": "copyup \"src/**/*.flow\" lib && size-limit",
     "prepare": "npm run test && npm run build",
     "test": "jest --detectOpenHandles --config config/jest.config.json --no-cache"
   },
@@ -51,12 +50,6 @@
     "tiny",
     "i18n"
   ],
-  "size-limit": [
-    {
-      "path": "lib/index.cjs",
-      "limit": "2.5kB"
-    }
-  ],
   "dependencies": {
     "@eo-locale/core": "workspace:*"
   },
@@ -64,12 +57,9 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
-    "@types/jsdom": "^21.1.7",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "jest-environment-jsdom": "^29.7.0",
-    "jsdom": "^21.0.0",
-    "node-notifier": "^10.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
