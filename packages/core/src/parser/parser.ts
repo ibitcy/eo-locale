@@ -1,6 +1,10 @@
 import { TokenType, Token, TokenStream } from './token_stream';
 
-export function getTranslationParts(language: string, message: string, params: Record<string, any>): any[] {
+export function getTranslationParts(
+  language: string,
+  message: string,
+  params: Record<string, any>,
+): any[] {
   const tokenStream = new TokenStream(message);
   let result: any[] = [];
 
@@ -23,7 +27,11 @@ export function getTranslationParts(language: string, message: string, params: R
     }
 
     try {
-      result.concat(options[new Intl.PluralRules(language).select(params[value])].map(applyToken));
+      result.concat(
+        options[new Intl.PluralRules(language).select(params[value])].map(
+          applyToken,
+        ),
+      );
     } catch (err) {
       result.concat(options['other'].map(applyToken));
     }

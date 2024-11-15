@@ -11,7 +11,7 @@ const locales: Locale[] = [
       page2: {
         hello: 'Hello react-intl-universal!',
       },
-      'page.3': 'Hello value with dotted key!'
+      'page.3': 'Hello value with dotted key!',
     },
   },
 ];

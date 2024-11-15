@@ -2,6 +2,7 @@
 id: datetime
 title: DateTime
 ---
+
 import { DateTime } from '@eo-locale/react';
 import { Highlight } from '../../src/components/Highlight';
 import {
@@ -40,10 +41,10 @@ export function SomeComponent() {
     <DateTime
       language={appLanguage}
       value={new Date()}
-      day="numeric"
-      month="long"
-      weekday="long"
-      year="numeric"
+      day='numeric'
+      month='long'
+      weekday='long'
+      year='numeric'
     />
   );
 }
@@ -55,12 +56,12 @@ export const Preview = () => {
   const language = useLanguage();
   return (
     <DateTime
-      day="numeric"
+      day='numeric'
       language={language}
-      month="long"
+      month='long'
       value={new Date()}
-      weekday="long"
-      year="numeric"
+      weekday='long'
+      year='numeric'
     />
   );
 };

@@ -7,10 +7,10 @@ class `Translator` is a main class used to format numbers, dates and strings.
 
 ## Constructor arguments
 
-| parameter | type |
-| --------- | ---- |
-| language     | String |
-| locales(optional)  | [Locale](/docs/apis/core/models)[] (by default []) |
+| parameter         | type                                               |
+| ----------------- | -------------------------------------------------- |
+| language          | String                                             |
+| locales(optional) | [Locale](/docs/apis/core/models)[] (by default []) |
 
 ## Methods
 
@@ -19,10 +19,10 @@ class `Translator` is a main class used to format numbers, dates and strings.
 Format value of a date. This is based on [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat).
 You can find supported options on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat).
 
-| parameter | type |
-| --------- | ---- |
-| value     | Date |
-| options(optional)  | Intl.DateTimeFormatOptions |
+| parameter         | type                       |
+| ----------------- | -------------------------- |
+| value             | Date                       |
+| options(optional) | Intl.DateTimeFormatOptions |
 
 #### Example
 
@@ -38,12 +38,14 @@ const spanishTranslator = new Translator('es');
 console.log(spanishTranslator.formatDate(date)); // 1/5/2020
 
 const germanTranslator = new Translator('de');
-console.log(germanTranslator.formatDate(date, {
-  day:"numeric",
-  month: "long",
-  weekday: "long",
-  year: "numeric",
-})); // Freitag, 1. Mai 2020
+console.log(
+  germanTranslator.formatDate(date, {
+    day: 'numeric',
+    month: 'long',
+    weekday: 'long',
+    year: 'numeric',
+  }),
+); // Freitag, 1. Mai 2020
 ```
 
 ### formatNumber
@@ -51,10 +53,10 @@ console.log(germanTranslator.formatDate(date, {
 Format value of a number. This is based on [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat).
 You can find supported options on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
 
-| parameter | type |
-| --------- | ---- |
-| value     | Number |
-| options(optional)  | Intl.NumberFormatOptions |
+| parameter         | type                     |
+| ----------------- | ------------------------ |
+| value             | Number                   |
+| options(optional) | Intl.NumberFormatOptions |
 
 #### Example
 
@@ -70,7 +72,9 @@ const spanishTranslator = new Translator('es');
 console.log(spanishTranslator.formatNumber(number)); // 123.456.789,321
 
 const germanTranslator = new Translator('de');
-console.log(germanTranslator.formatNumber(number, { style: 'currency', currency: 'EUR' })); // 123.456.789,32 €
+console.log(
+  germanTranslator.formatNumber(number, { style: 'currency', currency: 'EUR' }),
+); // 123.456.789,32 €
 ```
 
 ### translate
@@ -78,10 +82,10 @@ console.log(germanTranslator.formatNumber(number, { style: 'currency', currency:
 Get a message paired with the ID and format that message.
 It can replace `{key}` inside the message with values and support plural formatting.
 
-| parameter | type |
-| --------- | ---- |
-| id     | String |
-| options(optional)  | [FormatMessageOptions](/docs/apis/core/models) (by default {}) |
+| parameter         | type                                                           |
+| ----------------- | -------------------------------------------------------------- |
+| id                | String                                                         |
+| options(optional) | [FormatMessageOptions](/docs/apis/core/models) (by default {}) |
 
 #### Example
 
@@ -92,38 +96,42 @@ const locales = [
   {
     language: 'en',
     messages: {
-      hello: 'Hello, {name}!'
-    }
+      hello: 'Hello, {name}!',
+    },
   },
   {
     language: 'es',
     messages: {
-      hello: 'Hola, {name}!'
-    }
-  }
+      hello: 'Hola, {name}!',
+    },
+  },
 ];
 
-
 const englishTranslator = new Translator('en', locales);
-console.log(englishTranslator.translate('hello', { name: 'World'})); // Hello, World!
+console.log(englishTranslator.translate('hello', { name: 'World' })); // Hello, World!
 
 const spanishTranslator = new Translator('es', locales);
-console.log(spanishTranslator.translate('hello', { name: 'World'})); // Hola, World!
+console.log(spanishTranslator.translate('hello', { name: 'World' })); // Hola, World!
 
 const germanTranslator = new Translator('de', locales);
 // console.log(germanTranslator.translate('hello', { name: 'World'})); // Error: [eo-locale] id missing "hello"
-console.log(germanTranslator.translate('hello', { defaultMessage: 'Hello {name}!', name: 'World'})); // Hello World!
-console.log(germanTranslator.translate('hello', { name: 'User'})); // Hello User! (Memorized message template)
+console.log(
+  germanTranslator.translate('hello', {
+    defaultMessage: 'Hello {name}!',
+    name: 'World',
+  }),
+); // Hello World!
+console.log(germanTranslator.translate('hello', { name: 'User' })); // Hello User! (Memorized message template)
 ```
 
 ### getMessageById
 
 Get a raw message paired with the ID.
 
-| parameter | type |
-| --------- | ---- |
-| id     | String |
-| defaultMessage(optional)  | String |
+| parameter                | type   |
+| ------------------------ | ------ |
+| id                       | String |
+| defaultMessage(optional) | String |
 
 #### Example
 
@@ -134,27 +142,25 @@ const locales = [
   {
     language: 'en',
     messages: {
-      hello: 'Hello, {name}!'
-    }
+      hello: 'Hello, {name}!',
+    },
   },
   {
     language: 'es',
     messages: {
-      hello: 'Hola, {name}!'
-    }
-  }
+      hello: 'Hola, {name}!',
+    },
+  },
 ];
-
 
 const englishTranslator = new Translator('en', locales);
 console.log(englishTranslator.getMessageById('hello')); // Hello, {name}!
-
 
 const spanishTranslator = new Translator('es', locales);
 console.log(spanishTranslator.getMessageById('hello')); //Hola, {name}!
 
 const germanTranslator = new Translator('de', locales);
 // console.log(germanTranslator.getMessageById('hello')); // Error: [eo-locale] id missing "hello"
-console.log(germanTranslator.getMessageById('hello','Hello!')); // Hello!
+console.log(germanTranslator.getMessageById('hello', 'Hello!')); // Hello!
 console.log(germanTranslator.getMessageById('hello')); // Hello! (Memorized message)
 ```

@@ -37,7 +37,8 @@ export const TranslationsProvider: FC<
         locales,
         setLanguage: stateHook[1],
         translator,
-      }}>
+      }}
+    >
       {children}
     </TranslationsContext.Provider>
   );

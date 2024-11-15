@@ -29,12 +29,9 @@ export interface TranslationsProviderProps {
   onError?: ErrorLogger;
 }
 
-export const TranslationsProvider: FunctionalComponent<TranslationsProviderProps> = ({
-  children,
-  language,
-  locales,
-  onError,
-}) => {
+export const TranslationsProvider: FunctionalComponent<
+  TranslationsProviderProps
+> = ({ children, language, locales, onError }) => {
   const stateHook = useState(language);
 
   useEffect(() => {
@@ -54,7 +51,8 @@ export const TranslationsProvider: FunctionalComponent<TranslationsProviderProps
         locales,
         setLanguage: stateHook[1],
         translator,
-      }}>
+      }}
+    >
       {children}
     </TranslationsContext.Provider>
   );

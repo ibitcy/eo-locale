@@ -14,16 +14,18 @@ Let's consider how we can do it with eo-locale.
 ```jsx
 import { TranslationsProvider, useTranslator } from '@eo-locale/react';
 
-const LOCALES = [{
-  language: 'en',
-  messages: {
-    hello: 'Hello World!',
-  }
-}]
+const LOCALES = [
+  {
+    language: 'en',
+    messages: {
+      hello: 'Hello World!',
+    },
+  },
+];
 
 function App() {
   return (
-    <TranslationsProvider language="en" locales={LOCALES}>
+    <TranslationsProvider language='en' locales={LOCALES}>
       <SomeComponent />
     </TranslationsProvider>
   );
@@ -32,6 +34,6 @@ function App() {
 function SomeComponent() {
   const translator = useTranslator();
 
-  return <input placeholder={translator.translate('hello')} />
+  return <input placeholder={translator.translate('hello')} />;
 }
 ```

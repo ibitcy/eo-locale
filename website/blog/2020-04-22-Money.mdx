@@ -99,16 +99,16 @@ const SomeComponent: React.FC = () => {
 
 Component will display <Preview minimumFractionDigits={1} maximumFractionDigits={1} />
 
-export const Preview = (props) => {
+export const Preview = props => {
   return (
     <Highlight>
       <Numeric
-        style="currency"
-        currency="usd"
+        style='currency'
+        currency='usd'
         currencyDisplay={props.currencyDisplay}
         minimumFractionDigits={props.minimumFractionDigits}
         maximumFractionDigits={props.maximumFractionDigits}
-        language="en"
+        language='en'
         value={1000}
       />
     </Highlight>

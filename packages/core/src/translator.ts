@@ -1,39 +1,33 @@
-import { TranslationError } from './models/TranslationError';
 import { FormatMessageOptions, Locale, Message } from './models';
+import { TranslationError } from './models/TranslationError';
 import { getTranslationParts } from './parser/parser';
 
 export class Translator {
-  private readonly messages: object;
-  private memo: Record<string, Message | object> = {};
+  readonly #messages: object;
+  #memo: Record<string, Message | object> = {};
 
-  public readonly language: string;
-  public onError: ErrorLogger = console.error;
+  readonly language: string;
+  onError: ErrorLogger = console.error;
 
-  public constructor(language = 'en', locales: Locale[] = []) {
+  constructor(language = 'en', locales: Locale[] = []) {
     const locale = locales.find(item => item.language === language);
 
     this.language = language;
-    this.messages = locale ? locale.messages : {};
+    this.#messages = locale ? locale.messages : {};
   }
 
-  public formatDate = (
-    value: Date,
-    options?: Intl.DateTimeFormatOptions,
-  ): string => {
+  formatDate = (value: Date, options?: Intl.DateTimeFormatOptions): string => {
     return new Intl.DateTimeFormat(this.language, options).format(value);
   };
 
-  public formatNumber = (
+  formatNumber = (
     value: number,
     options?: Intl.NumberFormatOptions,
   ): string => {
     return new Intl.NumberFormat(this.language, options).format(value);
   };
 
-  public translate = (
-    id: string,
-    options: FormatMessageOptions = {},
-  ): string => {
+  translate = (id: string, options: FormatMessageOptions = {}): string => {
     const message = this.getMessageById(id, options.defaultMessage);
 
     if (typeof message === 'string') {
@@ -47,18 +41,20 @@ export class Translator {
     return String(message);
   };
 
-  public getMessageById = (
+  getMessageById = (
     id: string,
     defaultMessage?: string,
   ): Message | object | null => {
-    if (!this.memo[id]) {
-      let message: object | string | undefined = (this.messages as any)[id]
+    if (!this.#memo[id]) {
+      let message: object | string | undefined = (this.#messages as any)[id];
 
       if (typeof message === 'undefined') {
-        message = id.split('.').reduce(
-          (acc, current) => (acc ? (acc as any)[current] : undefined),
-          this.messages,
-        );
+        message = id
+          .split('.')
+          .reduce(
+            (acc, current) => (acc ? (acc as any)[current] : undefined),
+            this.#messages,
+          );
       }
 
       if (typeof message !== 'string') {
@@ -66,10 +62,10 @@ export class Translator {
         message = defaultMessage || id;
       }
 
-      this.memo[id] = message;
+      this.#memo[id] = message;
     }
 
-    return this.memo[id];
+    return this.#memo[id];
   };
 }
 

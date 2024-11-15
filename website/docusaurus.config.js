@@ -15,8 +15,8 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        {to: 'docs/getting-started/install', label: 'Docs', position: 'left'},
-        {to: 'blog', label: 'Blog', position: 'left'},
+        { to: 'docs/getting-started/install', label: 'Docs', position: 'left' },
+        { to: 'blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/ibitcy/eo-locale',
           label: 'GitHub',

@@ -1,3 +1,3 @@
 export * from './models';
+export * from './parser';
 export * from './translator';
-export * from './parser/parser';

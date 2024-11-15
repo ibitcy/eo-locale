@@ -5,14 +5,16 @@ const locales: Locale[] = [
   {
     language: 'en',
     messages: {
-      hello: '{gender, select, male {hello man} female {hello woman} other {hello}}',
+      hello:
+        '{gender, select, male {hello man} female {hello woman} other {hello}}',
       minute: '{count, plural,one {min {count}} other {min {count}}}',
     },
   },
   {
     language: 'ar',
     messages: {
-      hello: '{gender, select, male {hello man} female {hello woman} other {hello}}',
+      hello:
+        '{gender, select, male {hello man} female {hello woman} other {hello}}',
       minute: '{count, plural,one {min {count}} other {min {count}}}',
     },
   },

@@ -1,21 +1,23 @@
 export class InputStream {
-  public index = 0;
-  public done = false;
-  public value = '';
+  index = 0;
+  done = false;
+  value = '';
 
-  public constructor(private readonly input: string) {
+  constructor(private readonly input: string) {
     this.value = this.input.charAt(0);
   }
 
-  public next(): string {
+  next(): string {
     if (++this.index >= this.input.length) {
       this.done = true;
     }
 
-    return this.value = this.input.charAt(this.index);
+    return (this.value = this.input.charAt(this.index));
   }
 
-  public croak() {
-    throw new Error(`[${this.input}]. Unexpected character "${this.value}" on position ${this.index}.`);
+  croak() {
+    throw new Error(
+      `[${this.input}]. Unexpected character "${this.value}" on position ${this.index}.`,
+    );
   }
 }

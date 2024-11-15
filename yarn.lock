@@ -2202,6 +2202,7 @@ __metadata:
     "@types/jest": "npm:^29.5.14"
     jest: "npm:^29.7.0"
     node-notifier: "npm:^10.0.1"
+    prettier: "npm:3.3.3"
     ts-jest: "npm:^29.2.5"
     ts-node: "npm:^10.9.2"
     tsup: "npm:^8.3.5"
@@ -4143,6 +4144,15 @@ __metadata:
   version: 10.24.3
   resolution: "preact@npm:10.24.3"
   checksum: 10/e9c4c901a4ddd475a1072355b5c6c944b05797445e0d68f317ad0dbc976b831523573693ea75d2e12e7902042e3729af435377816d25558bf693ecf6b516c707
+  languageName: node
+  linkType: hard
+
+"prettier@npm:3.3.3":
+  version: 3.3.3
+  resolution: "prettier@npm:3.3.3"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10/5beac1f30b5b40162532b8e2f7c3a4eb650910a2695e9c8512a62ffdc09dae93190c29db9107fa7f26d1b6c71aad3628ecb9b5de1ecb0911191099be109434d7
   languageName: node
   linkType: hard
 

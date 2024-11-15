@@ -2,7 +2,9 @@ import { TokenType, Token, TokenStream } from '../token_stream';
 
 describe('Read plural options', () => {
   it('Should return plural token', () => {
-    const stream = new TokenStream('{count, plural, one {One, item} other {{count} ite,ms}}');
+    const stream = new TokenStream(
+      '{count, plural, one {One, item} other {{count} ite,ms}}',
+    );
     const options: Record<string, Token[]> = {};
 
     options.one = [

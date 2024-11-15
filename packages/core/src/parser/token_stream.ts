@@ -24,21 +24,21 @@ const PLURAL_IDENTIFIER = 'plural';
 const SELECT_IDENTIFIER = 'select';
 
 export class TokenStream {
-  public readonly input: InputStream;
+  readonly input: InputStream;
 
-  public constructor(message: string) {
+  constructor(message: string) {
     this.input = new InputStream(message);
   }
 
-  public next(): Token {
+  next(): Token {
     if (this.input.value === OPEN) {
-      return this.readVariable();
+      return this.#readVariable();
     }
 
-    return this.readText();
+    return this.#readText();
   }
 
-  private skip(ch: string) {
+  #skip(ch: string) {
     if (ch !== this.input.value) {
       this.input.croak();
     }
@@ -46,7 +46,7 @@ export class TokenStream {
     this.input.next();
   }
 
-  private readWhile(predicate: TPredicate) {
+  #readWhile(predicate: TPredicate) {
     let str = '';
 
     while (!this.input.done && predicate(this.input.value)) {
@@ -57,17 +57,17 @@ export class TokenStream {
     return str;
   }
 
-  private readVariable() {
-    this.skip(OPEN);
+  #readVariable() {
+    this.#skip(OPEN);
 
-    const value = this.readWhile(ch => !isPunc(ch)).trim();
+    const value = this.#readWhile(ch => !PUNC_SYMBOLS.includes(ch)).trim();
 
     if (value.length === 0) {
       this.input.croak();
     }
 
     if (this.input.value === CLOSE) {
-      this.skip(CLOSE);
+      this.#skip(CLOSE);
 
       return {
         type: TokenType.Variable,
@@ -75,26 +75,26 @@ export class TokenStream {
       };
     }
 
-    this.skip(DELIMITER);
+    this.#skip(DELIMITER);
 
-    const type = this.readVariableType() as TokenType;
+    const type = this.#readVariableType() as TokenType;
 
     return {
-      options: this.readVariableOptions(),
+      options: this.#readVariableOptions(),
       type,
       value,
     };
   }
 
-  private readText() {
+  #readText() {
     return {
       type: TokenType.Text,
-      value: this.readWhile(ch => ch !== OPEN && ch !== CLOSE),
+      value: this.#readWhile(ch => ch !== OPEN && ch !== CLOSE),
     };
   }
 
-  private readVariableType() {
-    const type = this.readWhile(ch => ch !== DELIMITER).trim();
+  #readVariableType() {
+    const type = this.#readWhile(ch => ch !== DELIMITER).trim();
 
     if (type === PLURAL_IDENTIFIER) {
       return TokenType.Plural;
@@ -107,35 +107,31 @@ export class TokenStream {
     this.input.croak();
   }
 
-  private readVariableOptions() {
-    this.skip(DELIMITER);
+  #readVariableOptions() {
+    this.#skip(DELIMITER);
 
     const options: Record<string, Token[]> = {};
 
     while (this.input.value !== CLOSE) {
-      options[this.readText().value.trim()] = this.readExpression();
+      options[this.#readText().value.trim()] = this.#readExpression();
     }
 
-    this.skip(CLOSE);
+    this.#skip(CLOSE);
 
     return options;
   }
 
-  private readExpression() {
+  #readExpression() {
     const tokens: Token[] = [];
 
-    this.skip(OPEN);
+    this.#skip(OPEN);
 
     while (this.input.value !== CLOSE) {
       tokens.push(this.next());
     }
 
-    this.skip(CLOSE);
+    this.#skip(CLOSE);
 
     return tokens;
   }
-}
-
-function isPunc(ch: string): boolean {
-  return PUNC_SYMBOLS.includes(ch);
 }

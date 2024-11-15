@@ -1,12 +1,4 @@
-export type Message = string | number;
-
-export interface Locale {
-  language: string;
-  messages: object;
-}
-
-export interface FormatMessageOptions extends Record<string, any> {
-  defaultMessage?: string;
-}
-
-export { TranslationError } from './TranslationError';
+export * from './FormatMessageOptions';
+export * from './Locale';
+export * from './Message';
+export * from './TranslationError';

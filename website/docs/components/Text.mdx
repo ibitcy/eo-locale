@@ -20,10 +20,10 @@ const locales = [
   {
     language: 'en',
     messages: {
-      hello: 'Hello {name}!'
-    }
-  }
-]
+      hello: 'Hello {name}!',
+    },
+  },
+];
 
 export function SomeComponent() {
   return (
@@ -41,13 +41,15 @@ export const PreviewDisplayMessage = () => {
 };
 
 <p>
-  <Highlight><PreviewDisplayMessage/></Highlight>
+  <Highlight>
+    <PreviewDisplayMessage />
+  </Highlight>
 </p>
 
 `Text` component can get a message by an ID provided in nested JSON locales, for example:
 
 ```jsx
-import { Text, TranslationsProvider } from  '@eo-locale/react';
+import { Text, TranslationsProvider } from '@eo-locale/react';
 
 const locales = [
   {
@@ -56,7 +58,7 @@ const locales = [
       page1: {
         hello: 'Hello {name}! Welcome to page1!',
       },
-    }
+    },
   },
   {
     language: 'fr',
@@ -64,8 +66,8 @@ const locales = [
       page1: {
         hello: 'Bonjour {name}! Bienvenue à la page1!',
       },
-    }
-  }
+    },
+  },
 ];
 
 export default function App() {
@@ -75,8 +77,7 @@ export default function App() {
     </TranslationsProvider>
   );
 }
-
-````
+```
 
 As above example, component will display like:
 
@@ -88,7 +89,7 @@ export const PreviewDisplayNestedJSONMessage = () => {
         page1: {
           hello: 'Hello {name}! Welcome to page1!',
         },
-      }
+      },
     },
     {
       language: 'fr',
@@ -96,18 +97,20 @@ export const PreviewDisplayNestedJSONMessage = () => {
         page1: {
           hello: 'Bonjour {name}! Bienvenue à la page1!',
         },
-      }
-    }
+      },
+    },
   ];
   return (
-      <TranslationsProvider language='en' locales={locales}>
-        <Text id='page1.hello' name='World' />
-      </TranslationsProvider>
-  )
+    <TranslationsProvider language='en' locales={locales}>
+      <Text id='page1.hello' name='World' />
+    </TranslationsProvider>
+  );
 };
 
 <p>
-  <Highlight><PreviewDisplayNestedJSONMessage/></Highlight>
+  <Highlight>
+    <PreviewDisplayNestedJSONMessage />
+  </Highlight>
 </p>
 
 ## Displaying Fallback Messages
@@ -121,9 +124,9 @@ import { Text, TranslationsProvider } from '@eo-locale/react';
 const locales = [
   {
     language: 'en',
-    messages: {}
-  }
-]
+    messages: {},
+  },
+];
 
 export function SomeComponent() {
   return (
@@ -133,6 +136,7 @@ export function SomeComponent() {
   );
 }
 ```
+
 As above example, component will display like the first example.
 
 ## Displaying HTML Content
@@ -145,7 +149,12 @@ import { Text, TranslationsProvider } from '@eo-locale/react';
 export function SomeComponent() {
   return (
     <TranslationsProvider language='en' locales={[]}>
-      <Text id='hello' html defaultMessage='<strong style="font-size: 1.2em;">Hello {name}!</strong>' name='World' />
+      <Text
+        id='hello'
+        html
+        defaultMessage='<strong style="font-size: 1.2em;">Hello {name}!</strong>'
+        name='World'
+      />
     </TranslationsProvider>
   );
 }
@@ -154,11 +163,20 @@ export function SomeComponent() {
 As above example, component will display like:
 
 export const PreviewDisplayHTMLMessage = () => {
-  return <Text id='hello2' html defaultMessage='<strong style="font-size: 1.2em;">Hello {name}!</strong>'  name='World' />;
+  return (
+    <Text
+      id='hello2'
+      html
+      defaultMessage='<strong style="font-size: 1.2em;">Hello {name}!</strong>'
+      name='World'
+    />
+  );
 };
 
 <p>
-  <Highlight><PreviewDisplayHTMLMessage/></Highlight>
+  <Highlight>
+    <PreviewDisplayHTMLMessage />
+  </Highlight>
 </p>
 
 ## Plural Formatting
@@ -196,7 +214,6 @@ export const PreviewPlural = ({ count }) => {
 If `count='1'`, component will display <Highlight><PreviewPlural count='1' /></Highlight>
 
 If `count='4'`, component will display <Highlight><PreviewPlural count='4' /></Highlight>
-
 
 ## Usage in React Native
 

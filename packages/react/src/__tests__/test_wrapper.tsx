@@ -39,7 +39,8 @@ export const TestWrapper: FC<PropsWithChildren<Props>> = ({
       <TranslationsProvider
         language={language || 'en'}
         locales={locales}
-        onError={onError}>
+        onError={onError}
+      >
         {children}
       </TranslationsProvider>
     </span>
