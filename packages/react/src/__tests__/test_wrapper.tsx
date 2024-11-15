@@ -1,5 +1,5 @@
 import { ErrorLogger } from '@eo-locale/core';
-import * as React from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 
 import { TranslationsProvider } from '../index';
 
@@ -24,13 +24,12 @@ const locales = [
   },
 ];
 
-interface IProps {
+interface Props {
   language?: string;
   onError?: ErrorLogger;
-  children?: React.ReactNode;
 }
 
-export const TestWrapper: React.FC<IProps> = ({
+export const TestWrapper: FC<PropsWithChildren<Props>> = ({
   children,
   language,
   onError = jest.fn(),

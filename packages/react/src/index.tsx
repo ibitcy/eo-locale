@@ -12,16 +12,12 @@ import { renderToStaticMarkup } from 'react-dom/server';
 export interface TranslationsProviderProps {
   language: string;
   locales: Locale[];
-  children?: ReactNode;
   onError?: ErrorLogger;
 }
 
-export const TranslationsProvider: FC<TranslationsProviderProps> = ({
-  children,
-  language,
-  locales,
-  onError,
-}) => {
+export const TranslationsProvider: FC<
+  PropsWithChildren<TranslationsProviderProps>
+> = ({ children, language, locales, onError }) => {
   const stateHook = React.useState(language);
 
   React.useEffect(() => {

@@ -1,17 +1,17 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import * as React from 'react';
 import { Numeric, Text } from '../index';
 import { TestWrapper } from './test_wrapper';
 
 describe('EOLocaleHtml', () => {
   it('Should wrap in span by default', () => {
-    render(
+    const { getByTestId } = render(
       <TestWrapper>
         <Text html id='world' />
       </TestWrapper>,
     );
 
-    const translation = screen.getByTestId('translation');
+    const translation = getByTestId('translation');
 
     expect(translation.querySelectorAll('span').length).toEqual(1);
   });
@@ -49,14 +49,12 @@ describe('EOLocaleHtml', () => {
   });
 
   it('Should render formatted message for en', () => {
-    const { container } = render(
+    const { getByTestId } = render(
       <TestWrapper>
         <Text html id='hello' name={<Numeric value={1000} />} />
       </TestWrapper>,
     );
 
-    expect(screen.getByTestId('translation')?.textContent).toEqual(
-      'Hello 1,000!',
-    );
+    expect(getByTestId('translation')?.textContent).toEqual('Hello 1,000!');
   });
 });
