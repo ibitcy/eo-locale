@@ -1,4 +1,3 @@
-
 .DS_STORE
 .flowconfig
 .github
@@ -14,7 +13,6 @@ coverage
 LICENSE
 node_modules
 README.md
-rollup.config.js
 src
 tsconfig.json
 website
