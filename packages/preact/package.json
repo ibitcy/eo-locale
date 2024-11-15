@@ -13,7 +13,7 @@
   "types": "lib/index.d.ts",
   "sideEffects": false,
   "engines": {
-    "node": ">= 12"
+    "node": ">= 18"
   },
   "directories": {
     "lib": "lib"

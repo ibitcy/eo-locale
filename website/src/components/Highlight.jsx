@@ -8,8 +8,7 @@ export function Highlight({ children, color = '#67BFEC' }) {
         borderRadius: '4px',
         color: '#fff',
         padding: '0.1rem 0.3rem',
-      }}
-    >
+      }}>
       {children}{' '}
     </span>
   );

@@ -13,29 +13,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'yarn'
 
-      # Step 3: Install Yarn Berry
       - name: Install Yarn Berry
         run: yarn set version berry
 
-      # Step 4: Install dependencies
       - name: Install dependencies
         run: yarn install
 
-      # Step 5: Run the build script
+      - name: Run Prettier Check
+        run: yarn run prettier:check
+
       - name: Build the project
         run: yarn run build
 
-      # Step 6: Run tests
       - name: Run tests
         run: yarn run test

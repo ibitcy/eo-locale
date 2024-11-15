@@ -22,8 +22,7 @@ export function LanguageSelector({ children }) {
         }}
         onChange={e => {
           setLanguage(e.target.value);
-        }}
-      >
+        }}>
         {LIST.map(language => (
           <option value={language.code} key={language.code}>
             {language.icon}&nbsp;{language.name}

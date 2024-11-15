@@ -51,8 +51,7 @@ export const TranslationsProvider: FunctionalComponent<
         locales,
         setLanguage: stateHook[1],
         translator,
-      }}
-    >
+      }}>
       {children}
     </TranslationsContext.Provider>
   );

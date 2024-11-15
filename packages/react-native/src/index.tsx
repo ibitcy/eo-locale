@@ -38,8 +38,7 @@ export const TranslationsProvider: FC<TranslationsProviderProps> = ({
         locales,
         setLanguage: stateHook[1],
         translator,
-      }}
-    >
+      }}>
       {children}
     </TranslationsContext.Provider>
   );
@@ -94,7 +93,7 @@ export const Translation: FC<TranslationProps> = ({
   id,
   ...values
 }) => {
-  return useTranslator().translate(id, values) as any;
+  return useTranslator().translate(id, values);
 };
 
 export interface TranslationsContextProps {

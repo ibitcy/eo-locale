@@ -11,7 +11,7 @@
   },
   "types": "lib/index.d.ts",
   "engines": {
-    "node": ">= 12"
+    "node": ">= 18"
   },
   "scripts": {
     "build": "yarn run --top-level tsup src/index.ts --format cjs,esm --dts --clean --sourcemap --out-dir lib --minify",

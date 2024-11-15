@@ -6,6 +6,7 @@
   ],
   "scripts": {
     "build": "yarn workspaces foreach --all run build",
+    "prettier:check": "prettier . --check",
     "prettier:fix": "prettier . --write",
     "test": "yarn workspaces foreach --all run test"
   },

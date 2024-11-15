@@ -59,8 +59,7 @@ function Home() {
   return (
     <Layout
       title='Internationalization of React applications'
-      description='Internationalization of React applications. Elegant lightweight library based on Internationalization API'
-    >
+      description='Internationalization of React applications. Elegant lightweight library based on Internationalization API'>
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className='container'>
           <h1 className='hero__title'>{siteConfig.title}</h1>
@@ -71,8 +70,7 @@ function Home() {
                 'button button--secondary button--lg',
                 styles.getStarted,
               )}
-              to={useBaseUrl('docs/getting-started/install')}
-            >
+              to={useBaseUrl('docs/getting-started/install')}>
               Get Started
             </Link>
           </div>
