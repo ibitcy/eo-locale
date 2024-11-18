@@ -9,7 +9,7 @@ interface Props extends FormatMessageOptions {
   tagName?: keyof React.ReactHTML;
 }
 
-export const Text: FC<PropsWithChildren<Props>> = ({
+export const Translation: FC<PropsWithChildren<Props>> = ({
   children,
   defaultMessage,
   html,

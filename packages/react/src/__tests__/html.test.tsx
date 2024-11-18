@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react';
 import * as React from 'react';
-import { Numeric, Text } from '../components';
+import { Translation } from '../components';
 import { TestWrapper } from './test_wrapper';
 
 describe('EOLocaleHtml', () => {
   it('Should wrap in span by default', () => {
     const { getByTestId } = render(
       <TestWrapper>
-        <Text html id='world' />
+        <Translation html id='world' />
       </TestWrapper>,
     );
 
@@ -19,7 +19,7 @@ describe('EOLocaleHtml', () => {
   it('Should wrap in custom tag', () => {
     const { container } = render(
       <TestWrapper>
-        <Text html id='world' tagName='article' />
+        <Translation html id='world' tagName='article' />
       </TestWrapper>,
     );
 
@@ -29,7 +29,7 @@ describe('EOLocaleHtml', () => {
   it('Should render strong tag', () => {
     const { container } = render(
       <TestWrapper>
-        <Text html id='world' />
+        <Translation html id='world' />
       </TestWrapper>,
     );
 
@@ -39,7 +39,7 @@ describe('EOLocaleHtml', () => {
   it('Should render expected text in the strong tag', () => {
     const { container } = render(
       <TestWrapper language='ru'>
-        <Text html id='world' />
+        <Translation html id='world' />
       </TestWrapper>,
     );
 

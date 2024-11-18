@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react';
 import * as React from 'react';
-import { Text } from '../components';
+import { Translation } from '../components';
 import { TestWrapper } from './test_wrapper';
 
 describe('Text', () => {
   it('Should render formatted message for en', () => {
     const { getByTestId } = render(
       <TestWrapper>
-        <Text id='hello' name='test' />
+        <Translation id='hello' name='test' />
       </TestWrapper>,
     );
 
@@ -17,7 +17,7 @@ describe('Text', () => {
   it('Should render default message', () => {
     const { getByTestId } = render(
       <TestWrapper>
-        <Text id='none' defaultMessage='test' />
+        <Translation id='none' defaultMessage='test' />
       </TestWrapper>,
     );
 
@@ -27,7 +27,7 @@ describe('Text', () => {
   it('Should render formatted message for ru', () => {
     const { getByTestId } = render(
       <TestWrapper language='ru'>
-        <Text id='hello' name='тест' />
+        <Translation id='hello' name='тест' />
       </TestWrapper>,
     );
 
@@ -39,7 +39,7 @@ describe('Text', () => {
 
     const { getByTestId } = render(
       <TestWrapper language='es' onError={onError}>
-        <Text id='hello' />
+        <Translation id='hello' />
       </TestWrapper>,
     );
 
@@ -50,7 +50,7 @@ describe('Text', () => {
   it('Should render plural', () => {
     const { getByTestId } = render(
       <TestWrapper>
-        <Text id='test_plural' attempts={1} />
+        <Translation id='test_plural' attempts={1} />
       </TestWrapper>,
     );
 
@@ -62,7 +62,7 @@ describe('Text', () => {
   it('Should render plural', () => {
     const { getByTestId } = render(
       <TestWrapper>
-        <Text id='test_plural' attempts={5} />
+        <Translation id='test_plural' attempts={5} />
       </TestWrapper>,
     );
 
@@ -72,7 +72,7 @@ describe('Text', () => {
   it('Should render rus plural', () => {
     const { getByTestId } = render(
       <TestWrapper language='ru'>
-        <Text id='test_plural' confirmations={3} />
+        <Translation id='test_plural' confirmations={3} />
       </TestWrapper>,
     );
 
@@ -82,7 +82,7 @@ describe('Text', () => {
   it('Should render rus plural', () => {
     const { getByTestId } = render(
       <TestWrapper language='ru'>
-        <Text id='test_plural' confirmations={1} />
+        <Translation id='test_plural' confirmations={1} />
       </TestWrapper>,
     );
 

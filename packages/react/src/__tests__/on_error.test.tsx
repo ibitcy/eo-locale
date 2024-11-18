@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import * as React from 'react';
-import { Text } from '../components';
+import { Translation } from '../components';
 import { TestWrapper } from './test_wrapper';
 
 describe('On error handler', () => {
@@ -9,7 +9,7 @@ describe('On error handler', () => {
 
     render(
       <TestWrapper onError={onError}>
-        <Text id='some_unique_id' />
+        <Translation id='some_unique_id' />
       </TestWrapper>,
     );
 
