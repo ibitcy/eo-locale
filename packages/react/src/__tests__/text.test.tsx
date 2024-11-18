@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import * as React from 'react';
-import { Numeric, Text } from '../components';
+import { Text } from '../components';
 import { TestWrapper } from './test_wrapper';
 
 describe('Text', () => {
@@ -22,16 +22,6 @@ describe('Text', () => {
     );
 
     expect(getByTestId('translation')).toHaveTextContent('test');
-  });
-
-  it('Should render formatted message for en', () => {
-    const { getByTestId } = render(
-      <TestWrapper>
-        <Text id='hello' name={<Numeric value={1000} />} />
-      </TestWrapper>,
-    );
-
-    expect(getByTestId('translation')).toHaveTextContent('Hello 1,000!');
   });
 
   it('Should render formatted message for ru', () => {

@@ -1,9 +1,10 @@
+import { FormatMessageOptions } from '../model';
 import { TokenType, Token, TokenStream } from './token_stream';
 
 export function getTranslationParts(
   language: string,
   message: string,
-  params: Record<string, any>,
+  params: FormatMessageOptions = {},
 ): any[] {
   const tokenStream = new TokenStream(message);
   let result: any[] = [];

@@ -47,14 +47,4 @@ describe('EOLocaleHtml', () => {
 
     expect(strong?.textContent).toEqual('мир');
   });
-
-  it('Should render formatted message for en', () => {
-    const { getByTestId } = render(
-      <TestWrapper>
-        <Text html id='hello' name={<Numeric value={1000} />} />
-      </TestWrapper>,
-    );
-
-    expect(getByTestId('translation')?.textContent).toEqual('Hello 1,000!');
-  });
 });

@@ -6,7 +6,7 @@ describe('Handle missing id', () => {
     const translator = new Translator();
     translator.onError = onError;
 
-    translator.translate('test', {
+    translator.translate('test', undefined, {
       onError,
     });
 

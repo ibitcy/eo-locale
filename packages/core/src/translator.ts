@@ -27,8 +27,12 @@ export class Translator {
     return new Intl.NumberFormat(this.language, options).format(value);
   };
 
-  translate = (id: string, options: FormatMessageOptions = {}): string => {
-    const message = this.getMessageById(id, options.defaultMessage);
+  translate = (
+    id: string,
+    defaultMessage?: string,
+    options?: FormatMessageOptions,
+  ): string => {
+    const message = this.getMessageById(id, defaultMessage);
 
     if (typeof message === 'string') {
       try {

@@ -85,15 +85,17 @@ export const Numeric: FC<NumericProps> = ({
 };
 
 export interface TranslationProps extends FormatMessageOptions {
+  defaultMessage?: string;
   id: string;
 }
 
 export const Translation: FC<TranslationProps> = ({
   children,
+  defaultMessage,
   id,
   ...values
 }) => {
-  return useTranslator().translate(id, values);
+  return useTranslator().translate(id, defaultMessage, values);
 };
 
 export interface TranslationsContextProps {

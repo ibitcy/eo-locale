@@ -13,6 +13,6 @@ describe('On error handler', () => {
       </TestWrapper>,
     );
 
-    expect(onError).toBeCalledTimes(1);
+    expect(onError).toHaveBeenCalledTimes(1);
   });
 });

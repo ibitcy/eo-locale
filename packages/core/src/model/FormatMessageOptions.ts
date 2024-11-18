@@ -1,3 +1,1 @@
-export interface FormatMessageOptions extends Record<string, any> {
-  defaultMessage?: string;
-}
+export type FormatMessageOptions = Record<string, any>;

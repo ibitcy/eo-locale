@@ -102,21 +102,22 @@ export const Numeric: FunctionalComponent<NumericProps> = ({
 };
 
 export interface TextProps extends FormatMessageOptions {
-  id: string;
-
-  tagName?: string;
+  defaultMessage?: string;
   html?: boolean;
+  id: string;
+  tagName?: string;
 }
 
 export const Text: FunctionalComponent<TextProps> = ({
   children,
+  defaultMessage,
   html,
   id,
   tagName = 'span',
   ...values
 }) => {
   const context = useContext(TranslationsContext);
-  const result = context.translator.translate(id, values);
+  const result = context.translator.translate(id, defaultMessage, values);
 
   if (html) {
     return h(tagName, {

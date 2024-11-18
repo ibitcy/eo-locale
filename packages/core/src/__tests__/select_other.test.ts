@@ -23,15 +23,19 @@ const locales: Locale[] = [
 test('should use select other case as fallback', () => {
   const { translate } = new Translator('en', locales);
 
-  expect(translate('hello', { gender: 'male' })).toBe('hello man');
-  expect(translate('hello', { gender: 'female' })).toBe('hello woman');
-  expect(translate('hello', { gender: 'other' })).toBe('hello');
-  expect(translate('hello', { gender: 'prefer-not-to' })).toBe('hello');
+  expect(translate('hello', undefined, { gender: 'male' })).toBe('hello man');
+  expect(translate('hello', undefined, { gender: 'female' })).toBe(
+    'hello woman',
+  );
+  expect(translate('hello', undefined, { gender: 'other' })).toBe('hello');
+  expect(translate('hello', undefined, { gender: 'prefer-not-to' })).toBe(
+    'hello',
+  );
 });
 
 test('should use select other case as fallback for Arabic language', () => {
   const { translate } = new Translator('ar', locales);
 
-  expect(translate('minute', { count: 1 })).toBe('min 1');
-  expect(translate('minute', { count: 2 })).toBe('min 2');
+  expect(translate('minute', undefined, { count: 1 })).toBe('min 1');
+  expect(translate('minute', undefined, { count: 2 })).toBe('min 2');
 });
