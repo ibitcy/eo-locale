@@ -10,7 +10,7 @@
   </a>
 </div>
 
-[![build status](https://badgen.net/travis/ibitcy/eo-locale?icon=travis)](https://travis-ci.org/ibitcy/eo-locale)
+[![build status](https://github.com/ibitcy/eo-locale/actions/workflows/ci.yml/badge.svg)](https://github.com/ibitcy/eo-locale/actions/workflows/ci.yml)
 [![types included](https://badgen.net/npm/types/@eo-locale/core?icon=typescript)](https://www.npmjs.com/package/@eo-locale/core)
 
 * 💪Runs in all browsers and Node.js
