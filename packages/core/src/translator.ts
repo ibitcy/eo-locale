@@ -4,7 +4,7 @@ import { getTranslationParts } from './parser/parser';
 
 export class Translator {
   private readonly messages: object;
-  private memo: Record<string, Message | object> = {};
+  private memo: Record<string, string | undefined> = Object.create(null);
 
   public readonly language: string;
   public onError: ErrorLogger = console.error;
@@ -51,7 +51,9 @@ export class Translator {
     id: string,
     defaultMessage?: string,
   ): Message | object | null => {
-    if (!this.memo[id]) {
+    // Missing messages are memoized as undefined, so `onError` fires once per id
+    // while `defaultMessage` is still applied on every call
+    if (!(id in this.memo)) {
       let message: object | string | undefined = (this.messages as any)[id]
 
       if (typeof message === 'undefined') {
@@ -63,13 +65,15 @@ export class Translator {
 
       if (typeof message !== 'string') {
         this.onError(new TranslationError(id, this.language));
-        message = defaultMessage || id;
+        message = undefined;
       }
 
       this.memo[id] = message;
     }
 
-    return this.memo[id];
+    const message = this.memo[id];
+
+    return typeof message === 'string' ? message : defaultMessage || id;
   };
 }
 
