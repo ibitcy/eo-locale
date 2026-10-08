@@ -6,7 +6,7 @@ import {
   Translator,
 } from '@eo-locale/core';
 import { h, createContext, FunctionalComponent, Fragment } from 'preact';
-import { useState, useContext, useEffect } from 'preact/hooks';
+import { useState, useContext, useEffect, useMemo } from 'preact/hooks';
 
 export interface TranslationsContextProps {
   language: string;
@@ -42,20 +42,25 @@ export const TranslationsProvider: FunctionalComponent<TranslationsProviderProps
     stateHook[1](language);
   }, [language]);
 
-  const translator = new Translator(stateHook[0], locales);
+  const translator = useMemo(
+    () => new Translator(stateHook[0], locales),
+    [stateHook[0], locales],
+  );
 
-  if (onError) {
-    translator.onError = onError;
-  }
+  translator.onError = onError || console.error;
+
+  const value = useMemo(
+    () => ({
+      language: stateHook[0],
+      locales,
+      setLanguage: stateHook[1],
+      translator,
+    }),
+    [stateHook[0], locales, translator],
+  );
 
   return (
-    <TranslationsContext.Provider
-      value={{
-        language: stateHook[0],
-        locales,
-        setLanguage: stateHook[1],
-        translator,
-      }}>
+    <TranslationsContext.Provider value={value}>
       {children}
     </TranslationsContext.Provider>
   );
@@ -64,11 +69,17 @@ export const TranslationsProvider: FunctionalComponent<TranslationsProviderProps
 export function useTranslator(language?: string) {
   const context = useContext(TranslationsContext);
 
-  if (language && language !== context.language) {
-    return new Translator(language);
-  }
+  const translator = useMemo(() => {
+    if (!language || language === context.language) {
+      return context.translator;
+    }
 
-  return context.translator;
+    return new Translator(language, context.locales);
+  }, [language, context.language, context.locales, context.translator]);
+
+  translator.onError = context.translator.onError;
+
+  return translator;
 }
 
 export interface DateTimeProps extends Intl.DateTimeFormatOptions {
