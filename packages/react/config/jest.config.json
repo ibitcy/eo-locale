@@ -12,7 +12,6 @@
     }
   },
   "testEnvironment": "jsdom",
-  "notify": true,
   "transform": {
     "^.+\\.tsx?$": "ts-jest"
   },
