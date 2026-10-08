@@ -197,6 +197,31 @@ If `count='1'`, component will display <Highlight><PreviewPlural count='1' /></H
 
 If `count='4'`, component will display <Highlight><PreviewPlural count='4' /></Highlight>
 
+### Exact matches, `#` and offset
+
+Since 1.8.0, plural options support the ICU `=N`, `#` and `offset:N` syntax:
+
+- `=N` options match the exact value and take priority over plural categories like `one` or `other`.
+- `#` inside a plural option is replaced with the formatted value (for example `1,000`). Outside of a plural, `#` is kept as is.
+- `offset:N` subtracts `N` from the value before choosing the plural category and formatting `#`. `=N` options still match the original value.
+
+```jsx
+<Text
+  count={count}
+  defaultMessage='{count, plural, offset:1 =0 {Nobody is here.} =1 {Only you are here.} one {You and one other person are here.} other {You and # other people are here.}}'
+  id='guests'
+/>
+```
+
+| `count` | Result |
+| ------- | ------ |
+| 0 | Nobody is here. |
+| 1 | Only you are here. |
+| 2 | You and one other person are here. |
+| 5 | You and 4 other people are here. |
+
+Plurals and selects can be nested and split over multiple lines.
+
 
 ## Usage in React Native
 
