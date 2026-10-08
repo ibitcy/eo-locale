@@ -11,6 +11,7 @@ export interface Token {
   type: TokenType;
   value: string;
   options?: Record<string, Token[]>;
+  offset?: number;
 }
 
 type TPredicate = (ch: string) => boolean;
@@ -22,6 +23,7 @@ const DELIMITER = ',';
 const PUNC_SYMBOLS = [OPEN, CLOSE, DELIMITER];
 const PLURAL_IDENTIFIER = 'plural';
 const SELECT_IDENTIFIER = 'select';
+const OFFSET_REGEXP = /^offset:\s*(\d+)\s+/;
 
 export class TokenStream {
   public readonly input: InputStream;
@@ -57,7 +59,7 @@ export class TokenStream {
     return str;
   }
 
-  private readVariable() {
+  private readVariable(): Token {
     this.skip(OPEN);
 
     const value = this.readWhile(ch => !isPunc(ch)).trim();
@@ -78,12 +80,15 @@ export class TokenStream {
     this.skip(DELIMITER);
 
     const type = this.readVariableType() as TokenType;
-
-    return {
-      options: this.readVariableOptions(),
+    const token: Token = {
+      options: {},
       type,
       value,
     };
+
+    this.readVariableOptions(token);
+
+    return token;
   }
 
   private readText() {
@@ -107,18 +112,28 @@ export class TokenStream {
     this.input.croak();
   }
 
-  private readVariableOptions() {
+  private readVariableOptions(token: Token) {
     this.skip(DELIMITER);
 
-    const options: Record<string, Token[]> = {};
+    while (true) {
+      let key = this.readText().value.trim();
 
-    while (this.input.value !== CLOSE) {
-      options[this.readText().value.trim()] = this.readExpression();
+      // Whitespace between the last option and the closing brace
+      if (!key && this.input.value === CLOSE) {
+        break;
+      }
+
+      const offset = OFFSET_REGEXP.exec(key);
+
+      if (offset) {
+        token.offset = Number(offset[1]);
+        key = key.slice(offset[0].length);
+      }
+
+      token.options![key] = this.readExpression();
     }
 
     this.skip(CLOSE);
-
-    return options;
   }
 
   private readExpression() {
