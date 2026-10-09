@@ -1,5 +1,5 @@
 import path from 'path';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import clear from 'rollup-plugin-clear';
 
@@ -21,7 +21,10 @@ export default [
       clear({
         targets: [path.resolve(process.cwd(), 'lib')],
       }),
-      typescript(),
+      typescript({
+        // picomatch 2.3.2+ no longer matches the default `*.ts+(|x)` pattern
+        include: ['*.ts', '**/*.ts', '*.tsx', '**/*.tsx'],
+      }),
       terser({
         toplevel: true,
         compress: {

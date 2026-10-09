@@ -10,7 +10,6 @@
       "statements": 100
     }
   },
-  "notify": true,
   "transform": {
     "^.+\\.tsx?$": "ts-jest"
   },
